@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: chromatic box thoughts</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/20706">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>chromatic box thoughts</h1>
+
+<footer>
+<span class="discrete">
+Added by boxtop on 
+<time datetime="2009-02-18 00:19:51">
+February 18th, 2009</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment431627" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Ok, I play B/C diatonic, piano acc. and am now dabbling with chromatic C system. The latter seems like the best of all worlds and was wondering if anyone has played a Saltarelle Chaville model. I play a range of musical styles (or, at least try to.)<br>
+<br>
+Thanks for any info, if no one cares, I’ll withdraw the topic. Sorry if I broke any rules here.<br>
+<br>
+-boxtop</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431627" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 00:19:51">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431630" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+What do you mean by the best of both worlds?  I don’t understand how a C system chromatic could embody the best of diatonic and PA styles.  <br>
+<br>
+You do have a functionally chromatic box and that’s nice for additional keys; but diatonic phrasing would seem impossible to replicate or at least so difficult to that it wouldn’t be worth the effort.  That’s what I’m getting at, I wouldn’t want to have to redevelop a style just to replicate what I already know.  If I were to come into a chromatic, I’d want to learn how to play it properly instead of forcing it to sound like a diatonic.  <br>
+<br>
+One of the charms I see in the diatonic is its utterly limiting keyboard layout. Having operated within those confines for so long, I don’t think I’d know what to do with a unisonoric chromatic box.  I’d have to retrain, and I’d lose all the tricks and shortcuts I picked up on the diatonic.  I’d be like a single middle aged man who just hit the lottery.  I’d go nuts with all the newly found freedom.  As it is, I like the sport provided by playing around the limitations of the diatonic box.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431630" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gravelwalks</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 01:34:49">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431632" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+I don’t mean any of this critically, by the way.   We musicians have a tendency to acquire instruments like it’s a disease.  I’d like to dabble with one, but I wouldn’t try to play it like a diatonic.  On the other hand, making a game out of learning as many legato phrasing alternatives as possible on the diatonic is quite rewarding, especially with jigs.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431632" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gravelwalks</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 01:40:30">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431647" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+I play chromatic accordion for lots of years, and I can say it’s not really easy to do ornements. But it is possible, I work hard on it. I don’t think it’s a good idea to learn chromatic accordion if it is to play ITM, but it can be good to learn french walsh or other kind of music. Here is an example of what I do in ITM (already posted on thesession.org):<br>
+http://www.youtube.com/watch?v=Mx4QVouu8qI<br>
+There is still lot of work… but it’s a good thing to work ITM on a uncommun instrument in this music, even if some people don’t like that in session because it’s a bit more noisy than a diatonic one… ;)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431647" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+RoLuPiN</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 05:10:42">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431661" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Have no fear young man.  Over the years there have been many great players of ITM on the continental chromatic. The first one I saw was Jackie Hearst and that was back in 1951.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431661" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Free Reed</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 07:30:27">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431678" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+I play PA and moved to B/C and find the two instruments very different. I suppose when it comes down to it it is the player, not the box that ‘makes’ the music.<br>
+<br>
+But the PA certainly can’t do much of the things you can do on diatonic. The fingereing on the diatonic is much more compact, and in an odd way very efficient.<br>
+<br>
+Having (truly an accurate term when the serious ITM purists get their hackles up) fooled around a bit with the chromatic, personally, I could not get a sense of the transferance as it were to the ITM. May be fine for other styles though.<br>
+<br>
+I am just starting to come to terms with the mechanics of the B/C and am painfully sensitive to the difficulty of diatonic phrasing and such which you can sort of do on PA, but not really.<br>
+<br>
+Chromatic is probably the same way.<br>
+<br>
+But. The musician ‘makes’ the music-not the instrument. If it gets the sound you want, go for it!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431678" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Damian</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 09:00:30">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431683" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks to everyone for the quick responses! Very interesting to get different perspectives on this.<br>
+<br>
+I did mention in my original post that I play a variety of styles, not just ITM (which I dearly love, and for which I have a couple of B/C boxes.)<br>
+<br>
+You guys are right that it’s probably just plain wrong to try to duplicate the diatonic’s punchy phrasing on a CBA or PA. And that wasn’t what I had in mind. So, I guess if you’re playing an instrument with a melodeon (reed) sound in this style, it’s expected to sound bouncy. However, at least one Irish fiddle player who really knows his stuff, was always very happy to have me follow along on tunes with a melodica, so I figured the CBA might work as well.<br>
+<br>
+The CBA’s advantage over PA is the range of notes compacted into the button board space, and maybe that’s more to the point of what I meant about the “best of all worlds…” That was probably not a good phrase to use in this forum, though!<br>
+<br>
+We visited Ireland a few years ago and I met Peter Browne, and heard him play -- amazing! To boot, not only did he fly around on the Irish tunes, but played some jazzy swing (“Sweet Georgia Brown”) that included many chromatic phrases that I would not have thought possible on a B/C box!<br>
+<br>
+So there you go.<br>
+<br>
+Cheers to all, I’m going to keep playing all the boxes… there’s something to be learned from all.<br>
+<br>
+-boxtop</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431683" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 09:30:07">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431690" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+If you like Peter Browne’s jazzy phrasing playing Sweet Georgia Brown, then you might enjoy listening to Andre Bouchard from Canada.  <br>
+<br>
+He plays a few tunes on the D/C# box that make me blink each time I hear them, also does some very tasty Joe Derrane tunes.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431690" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gravelwalks</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 10:36:03">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431691" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Get Mr. Brownes DVD. His ornament is amazing</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431691" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Damian</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 10:36:05">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431703" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Whew! Just checked out André Bouchard’s videos, the Derrane stuff is truly amazing and beautiful. Really nice work on the bass side, too.<br>
+<br>
+And, yup, I got Peter’s DVD a long while ago when I first got interested in ITM on the button box (actually, before I met him).<br>
+<br>
+Seeing folks like that play is alternately inspiring and demoralizing… makes you want to work harder, but progress, of course, is slow unless you’re spending full time at it (…and even then…)<br>
+<br>
+I’d probably make more progress if I just stuck to one type of box ;-}<br>
+<br>
+Thanks for the tips. I’m also a fan of Duo Pignol - Milleret, who appear to be playing 3-row diatonic instruments. Pretty sure the outer rows are G - C, but not clear if the third row is club system for accidentals or not. Sorry to veer off from ITM here…</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431703" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 12:08:24">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431775" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+it’s a good question and there’s no need to apologize for it, boxtop.<br>
+<br>
+the OP did not ask whether you can play itm credibly on a CBA (answer: yes, just  as you can play ITM credibly on PA. i didn’t say you can play it melodeon-style.  i said “credibly,” and the answer is, yes, not merely credibly, but gorgeously.).  <br>
+<br>
+what the op asked was whether anyone had tried a saltarelle chaville.  i would like to know this myself. i already play b/c accordion and anglo concertina and am currently teaching myself cba.  i spent a couple of hours today transferring “plains of boyle” and “porthole of the kelp” to cba and both of them sounded ravishing.  did they sound like jimmy kimmel? hell no, but i don’t give two sh****** about sounding like a melodeon. they sounded gorgeous on their own terms. if you keep your ornamention plain and use a tad of musette to relieve that ugly dry PA sound, and don’t shotgun it too fast and/or staccato like certain irish pa stars who shall remain nameless……it can sound pretty darn ravishing….i was initially using itm tunes just like hanon exercises to learn cba for musette &amp; piazolla, but the fact is that itm sounds beautiful in its own right on this instrument…<br>
+<br>
+anyway, the chaville is interesting because it gives you 36 (or 37?) notes and 60 basses at an unbelievably compact weight of 12.5 pounds. most compact cbas are around 30 notes, or even 34, which is not enough for itm or anything else worth investing that kind of dough in.  for example, the castagnari compact cba has only 34 notes and is even more horrifyingly expensive than the chaville.<br>
+<br>
+which brings us to this point----the chaville is cheaper than the castagnari compact, but is still demmed expensive, at about 4 grand---double the price of a bouebe.  some pretty gnarly questions present themselves---are these things as stiff as saltarelle irish diatonics?  do they have the same-grade reeds? bouebes and nouages have factory reeds.  allegedly better-grade factory reeds, but factory reeds.  at four grand, one would hope the chaville reeds were premium and that the box was more responsive and less stiff than the bouebe &amp; the nuage.  you can’t spend four grand without knowing all this stuff and i think it’s great that you’re asking.<br>
+<br>
+all i know at this point in my own research is that the chaville’s PA cousin---same deal, plenty of notes in a compact package with 60 basses----is being played right now by jimmy keane of bohola and if it’s good enough for him, it must be pretty good.  also, here is a wonderful youtube clip of itm being played credibly and gorgeously (though not melodeonly) on a salt PA in donegal.  too dry, but still beautiful:<br>
+<br>
+http://www.youtube.com/watch?v=KpRFgBw-b9o<br>
+<br>
+there are also jimmy keane clips with the chaville PA.<br>
+<br>
+finally---there are a bunch of saltarelle CBA video clips out there because i have stumbled on them before. they weren’t itm, but they were very informative.  however, they are not labeled “saltarelle chaville,” and won’t come up on youtube or google.  i stumbled on them somehow.  so gimme a bit and perhaps i can retrace my steps and find them again….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431775" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 22:19:17">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431776" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+oh, also boxtop---were you aware of the new hohner nova cba model being produced for the french musette market? it is called the hohner nova II 60A.  most novas have too few notes to really do anything with, but this one has four rows, 36 notes, with 60 basses---just like the chaville. button box accordions is selling it for $1500.  it’s carried elsewhere also, but here is bb’s writeup:<br>
+<br>
+to my aesthetic taste, the cosmetics of this box are fabulous, but what the quality is, i couldn’t say.  sure to be china-made. reviews are mixed on the chinese stuff. and then there is the question of whether the buttons dip under the soundboard in that maddening manner of the hohner diatonics.  less than half the price of the chaville, though.<br>
+<br>
+Hohner Nova II 60A<br>
+The Nova II 60A model is made for the French market, but available to The Button Box on a special order basis. Compact and lightweight, this accordion is well-suited to players who need a small instrument but don’t want to give up range and flexibility. 48 treble buttons (37 notes) in 4 rows, 60 bass, 2/4 reeds (MM). Thumb switch located behind the treble keyboard. Available in black or red pearl finish. Available in c-griff only. Approximate weight: 12-3/4 lbs. Soft case and straps included.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431776" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-18 22:25:42">
+February 18th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431782" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Boxtop,  Norbert Pignol and Stephane Milleret do play diatonic boxes, 3-rows 18 basses. Their layout is basically GC, with a 3rd row of accidentals. Stephane used to play in an ITM group with his box, doing amazing things. But, as I said somewhere else, I don’t think the instrument is the thing, it’s the player. I’ve heard people doint great things on CBA, irish and scottish-style, with all the ornaments, and I’ve also heard crap on BC or C#D. It’s more a question of indivual taste….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431782" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Nikita Pfister</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-19 02:41:05">
+February 19th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431888" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks ceemonster for the add‘l discussion about the Chaville. Not sure what’s up with the ’stiffness’ reports, but I did receive an email off this thread from someone who mentioned it. It is just so beautiful though -- and wood!<br>
+<br>
+And, thanks Nikita for the Pignol box layout info. Seems like an interesting approach to keeping the diatonic ‘feel’ but reaching out towards some level of chromatic ability.<br>
+<br>
+And, on the Chaville, the other questions posed about reeds, etc. are all good, considering the cost. It’s frustrating that it’s not possible (generally) to see or play one of these beasts before plunking down the cash and waiting 6 - 8 weeks for delivery.<br>
+<br>
+I did notice the Hohner 60A, which seems like a great choice. Then I saw someone post on melodeon.net that buttons started falling off when he first received it. Overall appraisal of construction was less than stellar, so that was enough to scare me off. Would also wonder about how warbly the musette would be on this one.<br>
+<br>
+And now -- purists may want to stand way back -- I’ll mention that Roland has just introduced the FR-1 and FR-b, compact versions of their virtual accordion series. Battery powered, 12.5 lbs. The ‘b’ (button model) has 5 rows, 3 octaves G - G. Does need an external amp (their larger models have built-in speakers).<br>
+<br>
+But, you do get just about every combination of reeds and tunings. And, some extra sounds (orchestral, percussion, and on this one: Hammond organ + Leslie effect.) I know, heresy…<br>
+<br>
+These are just starting to show up in the US and will run about $1600. Would certainly be great for quiet practice under headphones, at least.<br>
+<br>
+See below links for Roland info page, and video clips of Ludovic Beier ripping it up on one.<br>
+<br>
+http://rolandus.com/products/productdetails.aspx?ObjectId=992<br>
+<br>
+http://www.youtube.com/user/LeiloJo (click on FR-1 clips)<br>
+<br>
+Enjoy!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431888" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-19 13:26:49">
+February 19th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431945" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+ah, so you have received some input about stiffness in the chaville?  i raised the issue because it is just about a universal in comments about the saltarelle diationic boxes, in addition to being my personal experience. i love the saltarelle keyboard &amp; the saltarelle tone, but it is not a responsive box, and i would be concerned about that issue existing with the chaville as well as the diatonics, particularly at the chaville price.<br>
+<br>
+a funny thing about the el cheapo brands is that they can sometimes be extremely responsive---all those flimsy parts have an upside, ha.  check out one of my fave cba youtubes, an AIDI brand chinese compact cba with similar specs to the chaville.  true enough, it is not a refined voice.  but you can see plainly how light &amp; easy it is to manipulate. i have actually looked for it but can only find a 5-row…..<br>
+<br>
+http://www.youtube.com/watch?v=r8wOWc06PSw<br>
+<br>
+http://www.youtube.com/watch?v=5qp8RhU_KBE&amp;feature=related</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431945" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-19 22:39:20">
+February 19th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431950" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Maybe the stiffness is mostly in the price. ;-}<br>
+<br>
+However, I have a Bouebe B/C from 2000 or so and it doesn’t seem to present any particular resistance. Maybe they beefed up the springs or something since then. Still seems like something that could be adjusted -- but not something you’d want to deal with up front with a new, premium instrument.<br>
+<br>
+I do follow you on the topic of responsive for less-armoured designs. Big fan here of smaller size / weight, as well as reduced pomposity. The videos you post are fun and make the point that music is supposed to be entertaining, taking us away from day to day troubles.<br>
+<br>
+Perhaps the Nova has gone beyond initial manufacturing trials and is fine now. Hohner is surely concerned to make that line be successful.<br>
+<br>
+My Anzaghi book arrived today. A so-called Complete Method for Accordion (covering CBA / PA with many retro photos and old-style typography.) I just wanted some fingering recommendations on the chromatic.<br>
+<br>
+Now I’m drifting into the area of having a B/C with a third row of helper notes. Saw some stuff about people playing three-row B/C/C# boxes and worked out those notes on paper. Not a great addition to adding notes both on push and pull, IMO. So am ciphering up some notions on a B/C with third row of helpers. Note suggestions welcome.<br>
+<br>
+Guess I’m veering way away from topic, perhaps should be taken offline at this juncture.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431950" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-19 23:25:22">
+February 19th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment431953" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+well…..here’s one more about the topic, i.e., the chaville---here are those chaville clips.  this character’s name is dominique riviere, and he has posted a slew of youtubes of himself playing a chaville cba, but none of them say “saltarelle chaville,” so they took me a while to re-find.<br>
+<br>
+his blog is http://domriviere.over-blog.com.<br>
+<br>
+here is a link to one of the youtubes, and once you call this up, you can find a bunch of others in the box on the right listing youtube posts by this same person….his youtube handle is  rivieredom.<br>
+<br>
+http://www.youtube.com/watch?v=0Qt-ohf6jUo</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment431953" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-20 00:35:14">
+February 20th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432009" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hey ceemonster -- thanks for taking the time to locate those clips. The Riviere fellow plays very fluidly and sweetly, and it’s great to see the Chaville in action. Also, the other referenced clips are a real jackpot of folk music being played on CBAs -- especially fond of the guy with the 3-row playing in the back of his camper with the little black dog sitting by!<br>
+<br>
+One interesting thing I’ve noticed is that most of these players don’t really use the thumb -- it rests on the side of the box, much like the diatonic technique. The “formal” instruction book I just received (L. Anzaghi) makes use of the thumb in more-or-less the same way as you would on a piano accordion.<br>
+<br>
+For CBA, I find using the thumb in a strict manner to be somewhat unnatural. I’ve played piano all my life and, of course, you can’t rest your thumb on the side of the keyboard with that instrument! But, it feels like you’re twisting your hand around a lot if you use the thumb in the same manner on the CBA. I do find it useful for certain chording situations, though.<br>
+<br>
+Ok, time to practice. I’m going to keep going for a while on my Victoria beginner instrument that I got back in the late ’90’s, ordered directly from Castelfidardo. Only 30 notes, free bass, and a single reed set, but a really nice sound and built well. Let’s see if I can get good enough to deserve an upgraded instrument.<br>
+<br>
+Thanks to everyone for contributing to this thread -- it’s a great conversation!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432009" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-20 10:44:23">
+February 20th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432066" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+apparently there are factions or at least schools of thought on the Thumb Issue for CBA.  i’ve seen the thumbless approach referred to as the “old” method, old as in, outdated, but i think everybody should do what works for them.  i use the thumb as does the young asian woman in that “flambee montalbanaise” clip, as does the one, the only, the preternaturally soulful musette/tango-flavored jazz virtuoso richard galliano.  i would love to see what maria kalaniemi does; i have her recordings  but have never located video clips.  <br>
+<br>
+here is galliano in action, playing piazaolla’s “libertango.”  he seems to return the thumb to the side of the box when he’s not using it for chords or runs, but he is indeed using it a lot.  i’m sure for item you could get away without it if that is what suited you:<br>
+<br>
+http://www.youtube.com/watch?v=quZuGOcmVQ0</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432066" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-20 21:58:22">
+February 20th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432067" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+That’s a great clip of Richard G. Very passionate musician. And very fit, too, given the attached large musical device. Thumb be damned!<br>
+<br>
+Funny, I would have thought “the old method” was WITH the thumb, as that’s what the Anzaghi book recommends. But, maybe the line between old and new was drawn longer ago than I thought.<br>
+<br>
+Hey, any thoughts on Weltmeister instruments? They have French-style CBAs in the (US) $2200 range. Seems like they might be better than Hohner China but maybe not as sophisticated as Satarelle or other up-scale Euro offerings. There must be some mid-priced workhorse instruments out there…?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432067" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-20 23:37:52">
+February 20th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432069" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+ha, weltmeister is what i am learning on.  i have the 15-pound 60/72 with 3 switches, two reeds on the treble side (MM). about five years ago i bagged one billed “like new” on ebay for get this, $700.  it arrived and i think it was brand-new overstock or display model because it was still in the plastic and seemed unplayed.  it’s been sitting in the case all this time while i’ve been busy with b/c box and concertina, but i got it out during the holidays and now i’m hooked.  amazingly, the price hike in accordions over the last several years is such that this identical model, which at that time i got at about half price for my $700, now goes new for $2200, which is mind-boggling.<br>
+<br>
+what weltmeister does not have is a compact 12/13-pounder with 36 or 37 treble notes, like the chaville or the nova 60A II. their lighter-weight one has fewer treble notes.<br>
+<br>
+for $700, it is a pinching-yourself-lucky, dream starter instrument.  the treble notes sound great, ok, they’re not as rich &amp; subtle and classy as a cavagnolo or maugein, but they are really nice, not shrill and tinny.  the bass notes are horrible---they resonate horribly.  there is a note about this on one of the discussion sites somewhere, and it is absolutely true.  that commenter speculated it might be due to the plastic backing &amp; chamber for the bass notes, and if so, that might be fixable, but they play fine.  they just sound awful.  a hollow, echoey, fuzzy, blurry blare.  but for the price, it’s absolutely great.  <br>
+<br>
+would i pay $2200 for it?  it seems like a lot for this box, but on the other hand, the awful truth is that $2200 is only a hair over half of the chaville price, which is a shocker.  prices have gone up so much!  $2200 is now a lower-range cba price!  i would very much want to compare it with the nova 60A II before deciding……</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432069" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-21 00:08:57">
+February 21st, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432098" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+You know, the Chaville is starting to look like a bargain. I’ve done some extensive checking on CBAs, and prices well beyond $5k are not uncommon.<br>
+<br>
+The dang dollar is just a loser against the Euro these days. Plus, anything that requires skilled, manual craftsmanship now costs a fortune in this world.<br>
+<br>
+Stay tuned -- just for grins, I’ve got an inquiry going with a dealer on a Beltuna model with hand-made reeds and walnut box. I’m guessing this is going to tip the money scales higher than the Castagnari. I think it may be a little heavy, too. Just that I have a Beltuna PA Tyrolean II 48 that is a superb instrument, so I thought I’d check out their CBA. Should be getting some info early next week.<br>
+<br>
+Maybe I need to look beyond the melodeon.net guy’s post where he said the Nova II 60A began falling apart the first time he opened the box. The post is from a couple of years ago, so perhaps it was a fluke of early development on that box. Perhaps there is a dealer for this one somewhere that would allow a trial / return period. That certainly won’t be the case if “special ordering” a Chaville or the like…<br>
+<br>
+Interesting about the wonky bass notes on the Weltmeister.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432098" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-21 12:29:34">
+February 21st, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432139" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+beltuna, wow, cool…..hmmm….one also needs to know if those nova 60A II buttons dip your fingers way below the fingerboard as with the hohner diatonics….(or maybe you don’t mind that; it drives me crazy).   do you know boaz rubin? he is a wizard box technician who had a legendary accordion store in berkeley for several years before being hired by hohner….maybe he would give you the straight scoop.<br>
+<br>
+well….if you feel like rolling the dice on an asian box through french ebay, there are always these two for i believe under a grand, which i suspect are the exact same asian box with different fake-euro brand names slapped on, and i also suspect are 5-row versions of the blue “AIDI” 4-row the chinese girl is playing in that youtube clip:<br>
+<br>
+http://cgi.ebay.fr/Accordeon-a-boutons-noir-totalement-neuf-a-60-Basses_W0QQitemZ310123585256QQcmdZViewItemQQptZFR_YO_InstrumentsMusique_Accordeons?hash=item310123585256&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1526%7C66%3A2%7C65%3A12%7C39%3A1%7C240%3A1318<br>
+<br>
+http://cgi.ebay.fr/ACCORDEON-CHROMATIQUE-CHEVALIER-60-BASSES-NEUF_W0QQitemZ370163079682QQcmdZViewItemQQptZFR_YO_InstrumentsMusique_Accordeons?hash=item370163079682&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1526%7C66%3A2%7C65%3A12%7C39%3A1%7C240%3A1318. <br>
+<br>
+i suspect both of these boxes are brought to you by the tian-yin company of china, see this model, which from the curlicue thing on the grill is indeed a 5-row version of the chinese player’s blue box:<br>
+<br>
+http://www.tian-yin.com/image/cp13.jpg<br>
+<br>
+http://www.tian-yin.com/english/cp2.htm<br>
+<br>
+on a higher-priced level,  for 3700 europ, there’s the Cavagnolo Super Junior 4, a 7.5-kilo 80-bass 4-row….it’s an “etude,” or student, model, so no clue whether that means lower-quality reeds or whether one could upgrade……there is also a cavagnolo page somewhere but the address is too long to post here, so here is a music dealer’s listing.<br>
+<br>
+http://www.fallonemusic.com/cavagnolo-super-junior-4-p-293.html<br>
+<br>
+here’s a cool-looking used one for 1100 euro, no clue how current this is:<br>
+<br>
+http://www.priceminister.com/offer/buy/60982425/Cavagnolo-Super-Junior---Accordeon-Chromatique---80-Basses-Cavagnolo-Instrument.html.<br>
+<br>
+oh, chromatic boxes…..happy hunting.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432139" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-21 19:28:02">
+February 21st, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432219" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+I checked out all those links -- thank you so much for taking the time provide this great info.<br>
+<br>
+I do know Boaz -- visited him in his shop years ago when I first started out in the world of accordiana. Was wondering what happened to him as I could no longer find his listings in the Northern California area here where I live.<br>
+<br>
+Boaz is one of those truly real people who know their stuff. You say he got hired by Hohner? Would like to send him a message and re-establish contact. And, would like to know who to go to now for repairs and maintenance in the Bay Area.<br>
+<br>
+Been ponderin’ my Omnigraffle ciphers of different layouts and may be coming back full-circle (well, maybe semi-circle…) to some sort of diatonic box with added accidentals.<br>
+<br>
+There is much info on that topic here in this forum as well as others.<br>
+<br>
+For “expanded” diatonic, it seems to come down to:<br>
+<br>
+1a) 3-row  B/C/C# boxes with Stradella bass (so-called ‘British’ or ‘Scottish’ style.) Big advantage in that I can transfer the B/C knowledge -- already chromatic melodically -- and get a few breaks on certain passages as far as having to change the bellows direction, Also, layout of three rows is somewhat isomorphic -- less ‘odds &amp; sods’ (love that expression…) note positionings.<br>
+<br>
+1b) Have seen mention of B/C/F boxes, too. I guess the advantage here is a sort of ‘dual purpose’ box that can play Irish as well as other music suited to the two-row 4th layout.<br>
+<br>
+2) B/C 2.5 row -- like Connemara (John Williams), a little like (1) but push/pull note reversals only in the middle octaves of the range. This of course will keep the weight down and makes for a, dunno how to say it, simpler looking box. 12-bass   traditional melodeon (i.e., not Stradella), but usually the basses have been customized. I don’t know that care about having the Stradella-style bass accompaniment.<br>
+<br>
+I’ll mention that one of the things I like about the diatonic boxes is the ability to treat it as a solo wind instrument, like a sax or trumpet (or, of course, a harmonica…) Just like there are screwy fingerings and layouts on brass and woodwind instruments, here you are as well on the diatonic. Muscle-memory becomes the critical factor.<br>
+<br>
+As was pointed out earlier in the thread, it is those limitations which cause one to get inventive about rendering tunes, songs and other musical arrangements. And then you have your own musical style!<br>
+<br>
+BTW, I asked for some information on 2 1/2 row Beltuna boxes as well. Should be hearing back sometime during this week and will post.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432219" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-22 14:05:54">
+February 22nd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432222" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+…oh, and of course, I left out:<br>
+<br>
+3) Hohner Club System (and derivatives) -- looked at this on paper and seemed like a real brain-teaser, but I suppose it could be learned (by me). There is the famous Jacques “Jax” Delaguerre and his excellent discussion on this system, and how it relates to other instruments / tunings.<br>
+<br>
+http://www.delaguerre.com/delaguerre/pedagogy/club/</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432222" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-22 14:16:21">
+February 22nd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432279" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+ha, the theorist who pitched the potential of b/c box to me as a diatonic box that could be used for much, much more than itm was none other than boaz rubin!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432279" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-22 21:20:17">
+February 22nd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432290" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Here’s a little diversion -- check this kid out!<br>
+<br>
+http://www.youtube.com/watch?v=6FQsKOKXHIc&amp;feature=related<br>
+<br>
+Too much.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432290" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-23 01:55:03">
+February 23rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432302" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+YouTube video showing some of Maria Kalaniemi’s right hand technique.<br>
+http://www.youtube.com/watch?v=PyW_m2me-C4</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432302" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+∅</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-23 03:38:04">
+February 23rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432458" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+whoa, thanks, this is wonderful, i had no idea that it had appeared on youtube…guess it’s been more than a year since i checked the maria k. listings, great stuff…..<br>
+<br>
+here is one of three by a young japanese free-bass cba player….love the compact size of this box….<br>
+<br>
+http://www.youtube.com/watch?v=fHtTDGuAoWk&amp;feature=related</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432458" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-23 22:05:35">
+February 23rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432467" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Not sure that’s what I would call a “compact box” -- looks like a full-size Cavagnolo 120 Bass. And with an octave reed set in there too.<br>
+<br>
+She’s a great player, and the free bass is cool to hear as well. The little Victoria beginner’s accordion I have has free bass instead of Stradella and it’s both fun and challenging.<br>
+<br>
+I got quotes today for a Beltuna “Franch Series” (yep, that’s how they spelled it on the Beltuna site…) 4-row / 80 bass chromatic. Once again, we are at the $4k range. Model is the Aktiv 100, but the price includes reeds upgraded to hand-made. Also, it’s maybe a little heavy (for what I’m looking for) at 16.5 lbs. Probably a great box though, if it’s near the quality of my Tyrolean 48 PA from Beltuna.<br>
+<br>
+Keep those clips a‘comin’ -- they’re great to watch and learn…</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432467" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-23 23:19:51">
+February 23rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432470" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+cavagnolo free-base:  i don’t think it’s a 120-bass.  the basses &amp; height/width dimensions look to my eyeball like the size of my 72-bass welt., and it turns out that cavagnolo makes two petite free-base models, one at 78-basses (6.8 kilo) and a slightly bigger one at 96-basses (7.9kilos).  i wish i hadn’t seen this because i really want one now in addition to a 12.5-pound stradella one!   <br>
+<br>
+beltuna: i don’t know, i think $4k-ish is good if it includes handmade reeds….don’t know your needs, but 16.5 would be a compact weight if it includes about 5 switches (bandoneon, clarinet, musette, bassoon, etc).  the excelsior compact 5-switch weighs 16 or 16.5 pounds.<br>
+<br>
+http://www.jimlaabsmusic.com/accordions/chromatic-accordions/excelsior-673-professional-accordion/prod_704.html<br>
+<br>
+it would be a tad heavy for a mere 3-switch mm.  that is a good price for handmade reeds, i think.  but perhaps you’d rather a 12.5 pounder, and i don’t blame you, i’d love to have one myself.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432470" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-23 23:51:43">
+February 23rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432597" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+12.5 lbs is a magic weight, I think…so used to playing the little diatonics. My 14.5 lbs. PA feels quite large enough, so I don’t think I’d ever want something bigger.<br>
+<br>
+So, here’s a question -- have you ever seen a chromatic-tuned 3-row box (not B/C/C#, but the continental system)? Was that what the “guy in the back of his camper with the little black dog” was playing in some those videos?<br>
+<br>
+Does the free bass design make the bass side lighter? Guess I could figure this out myself by doing “reed math”…<br>
+<br>
+BTW, the Beltuna at 16.5 lbs only has 2-voice in treble. Not sure where all the weight is coming from. I’m passing on that one, as I seem to have left my four thousand dollars in another pair of pants that I can’t find.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432597" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-24 10:27:35">
+February 24th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432631" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+… just to clarify -- I’m asking about chromatic-tuned 3-row instrument in a “folk-style, wooden box with flat keyboard”. Would be like the Chaville, except simpler (and cheaper, maybe). Possibly with companion 3-row free bass, instead of diatonic bass or Stradella.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432631" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-24 11:29:14">
+February 24th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432708" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+no, i’ve seen plastic or pearloid ones like the novas, and i believe gabbanelli also does them, but none of them have enough treble note sounds……saltarelle or castagnari could clean up if they made a three-row with 12 notes per row for 36 sounds (or one extra note in one of the rows for 37), with either a bare-bones free-base or better yet, 3 bass rows going 12 across consisting of: a bass row, a counter-bass row, plus one chord row with removable thirds.  they could bring it in at about 9 or 10 pounds or perhaps even a less, and make a mint!  gabbanelli says they will make custom boxes to your specs, but that is not a wooden folk-style instrument….<br>
+<br>
+here is another of my fave youtube cba tapes, another piazzolla….it’s a bayan, and there aren’t closeups, but i still love it….:<br>
+<br>
+http://www.youtube.com/watch?v=z5KwubLhK-E</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432708" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-24 21:51:08">
+February 24th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432715" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+There’s a lot of engineering going on with these instruments!<br>
+<br>
+Good comments on an ideal design that combines note range and weight / form factor.<br>
+<br>
+Wood cabinet not required. Lurid celluloid welcome.<br>
+<br>
+….Um, where is the forum that advises the manufacturers ;-} <br>
+<br>
+ps: heck, may just pull the paypal trigger on a smaller used bayan box</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432715" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-24 23:40:54">
+February 24th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432719" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+ok, here ya go.. try this one:<br>
+<br>
+http://www.youtube.com/watch?v=qW5oCeryu4E&amp;feature=related</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432719" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-25 01:35:03">
+February 25th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment432927" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+hey, there’s your 3-row! and it has enough treble buttons, too! it is a pet peeve of mine that the easily available ones seem to have only 30 or 34 buttons….if hohner or whoever caught on to this, seems to me they could clean up!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment432927" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-25 23:04:00">
+February 25th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment433182" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hey, maybe you know about this shop, but I just found it and it looks very cool. This guy, Michael, is kind of like a full-service luthier for accordions (“accorduthier” ?). He’s in Florida, US.<br>
+<br>
+http://www.irishdancemaster.com/accordion.html<br>
+<br>
+They can repair accordions, install new handmade reeds, and they make their own boxes as well. Also mentions installing bi-level pads in Hohner keybeds to prevent the dreaded bottoming out syndrome.<br>
+<br>
+Regarding your Weltmeister with wonky bass: he has fixes for that in particular -- he calls it the “chord distortion fix”:<br>
+<br>
+&quot;Chord distortion fix: Weltmeisters (and other similar East German made accordions) often have chord reed blocks that cause distorted sounds. In some models w/ 4-voice chords the bass reed blocks may also suffer from the same problem. We can modify the reed block to  reduce the distortion.  $15/chord<br>
+Reed Upgrade: We can upgrade the factory reeds with superior Italian reeds.&quot;</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment433182" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-27 11:15:38">
+February 27th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment433254" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+ha, this just gets better and better….<br>
+<br>
+i wonder if they could put superior reeds into a hohner nova II 60A….he lists the hohner diatonics and saltarelle bouebe as instruments he can modify….well, much food for thought there!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment433254" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-02-27 21:39:58">
+February 27th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment433521" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yeah, that could be a good route (upgrading Nova II 60A). Once you find a Nova II 60A -- so far the places that carry them require non-cancellable special order. At least the sites I’ve found.<br>
+<br>
+Here’s a clip I discovered of a fellow rendering Vivaldi’s ‘Winter’ from the Four Seasons. He’s just pluggin‘ away on the street somewhere on this chromatic (looks like it might be B-sys, which I have heard is the choice for ’complex music’).<br>
+<br>
+He’s very good and this is a credible rendition of that orchestral piece.<br>
+<br>
+http://www.youtube.com/watch?v=AyRIvX25vRQ&amp;feature=related</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment433521" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-01 21:30:54">
+March 1st, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment433813" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+sheesh, it’s lovely……yeah, i read that somewhere also about b-system and complex, well, i understood “complex” in that context to mean, complex chordal music. i think the quote i read said something about c system allegedly being good for single-note melody runs (which can be “complex” in their way), and b being allegedly better for multi-voice stuff with stacked chords…..i don’t think i’m gonna be pining to do that stuff. i like melody-based music better than multi-voice….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment433813" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-02 19:43:04">
+March 2nd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment433991" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hey, there’s a used Weltmeister 5-row 60/72 at the ButtonBox (white) for $1600. Is this the same model as your box, ceemonster?<br>
+<br>
+Thoughts? (I guess probably same as you mentioned -- ok treble, funky bass…)<br>
+<br>
+I’m still trying to get _real_ information on the quality of the Hohner Nova series. Can’t seem to find any actual “hands-on” review. Just have people saying “Oh no.. never get a Chinese-made accordion!”  <br>
+<br>
+I was under the impression that Hohner was trying to make instruments of reasonable quality over there, and claim to supervise by the German engineers and designers.<br>
+<br>
+One other I discovered is that the 60/80 bass models leave out the diminished chords in the Stradella arrangement. One dealer here in the US said “That’s a really dumb idea.”<br>
+<br>
+Also, I’m seriously considering the Roland FR-1b virtual box. You can change the layouts between various C and B systems, has all 4 reed footages in different presets and other sounds. I posted info on this before, but no one picked up on it. <br>
+<br>
+http://rolandus.com/products/productdetails.aspx?ObjectId=992<br>
+<br>
+Maybe the virtual / electronic accordion idea is too radical here…</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment433991" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-03 13:17:11">
+March 3rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment434054" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+ha, not only does that seem to be the same model, it looks like a twin of mine right down to the colors.  if you asked &amp; they certified that it was a year or two old &amp;  “like new” or nearly unplayed condition, i would say it’s a fair price given that they’re what, $2200. $2400 new now? if it’s well used…..i don’t know.<br>
+<br>
+hohner nova scoop: what about trying to get boaz &amp; ask if he’d give you 5 or 10 minutes on the phone---by phone you might get more of a comfort level about straight scoop than in writing????<br>
+<br>
+80 bass: yeah, i saw that “dumb idea” line on the site of the dealer you’re talking about.  it’s only a dumb idea if you want diminished bass.  i don’t care about it, what i need is a removable third or paper-overable third on at least one line of chords. then i don’t care about diminished or anything else, i’d rather go for lightness.  but it’s all about what you personally want.<br>
+<br>
+btw, that particular dealer is extremely controlling and likes to tell people what they want and don’t want.  they don’t publish inventory, they want to control what you know about for some stupid reason.  if you visit in person (i have been there, more than once), they don’t have anything sitting out for you to see what the choices are.  they want to ask you what you’re looking for and then tell you what you should see and control what they show you.  same if you phone or email with questions----they want to control what you know about and offer you this or offer you that.  totally unlike, say, castligione or the button box where all the inventory or choices are posted or on the shelf, and you can take it from there. it’s stupid and frustrating because this particular business could be a great source. they are absolutely maddening to try to deal with---it’s not a dishonesty issue, it’s that they want to control your knowledge &amp; your choices rather than letting the customer have all the info &amp; make their own choices……it’s not just me, i know another musician who went there  and just threw up their hands in disgust and moved on to purchase elsewhere….<br>
+<br>
+.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment434054" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-03 18:17:36">
+March 3rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment434100" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think the accordion industry is a strange collection of interests at this time. (How ’bout that Roland stuff!)<br>
+<br>
+In spite of the expense, it’s great that you can still get a hand-crafted instrument in this world. Hoping that doesn’t change too much with the tech revolution.<br>
+<br>
+Would recommend John Castiglione’s business. He’s a long-time music guy who’s honest and creatively involved.<br>
+<br>
+http://www.castiglioneaccordions.com/<br>
+<br>
+Haven’t found a link to email Boaz. He’s moved on to the bigtime I guess!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment434100" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-03 23:43:34">
+March 3rd, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment434338" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+you might call hohner and ask during cheap hours….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment434338" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-04 21:28:38">
+March 4th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment434684" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+hey, get a load of this one. do you read french? i do so yell if you want some translation.  it is from ebay france, get on there and enter these keywords (the link is too long to copy).  apparently it is a new hohner cba designed specifically for people who want to play irish on a compact wooden folkstyle box….the description all but describes it as a stealth cba, ha. not cheap but cheaper than the chaville.  fascinating……it’s not a 3 row, it’s 4 like the chaville, but very interesting…..<br>
+<br>
+Accordéon chromatique Hohner Celtique</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment434684" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ceemonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-06 00:35:49">
+March 6th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment434962" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well that’s interesting. My French is quite rusty (2 years in high school over 40 years ago), but I got through the important parts of it…<br>
+<br>
+Basically seems to be Hohner’s version of the Chaville. It’s very nice looking! It does have 72 bass, because, as we all know-- “60 bass is just a dumb idea” (!!!)<br>
+<br>
+And being sold by Loffet -- of course, a very well- known name in accordions in Europe. I think Bernard even “manufactured” his own diatonic instruments for a while (maybe still…)<br>
+<br>
+As for price, the “buy it now” is listed at 3300 Euro, which converts to $4170, very close to the price of the Chaville. I’m not sure what the 1900 Euro price is all about, as there aren’t any bids. That would convert to $2400 which is a bit more palatable…maybe you could help me with the French in the listing.<br>
+<br>
+Anyway, thanks for the link -- cool find! I’m still a little shy on purchases of this magnitude at this time, though.<br>
+<br>
+I may be leaning towards getting the Roland FR-1b because of the versatility of features, tunings, etc. These will go for around $1600 and will soon be available here in US.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment434962" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-07 12:00:46">
+March 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment434968" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+Oh, now I see -- what I thought was “1900” is actually “19” Euro -- the shipping cost.<br>
+<br>
+So, the price is basically a wash between this and the Chaville. But you do get those “so not dumb” extra basses ;-O</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment434968" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+boxtop</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-03-07 12:18:53">
+March 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment469225" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: chromatic box thoughts</h3>
+<div class="e-content" itemprop="text">
+<p>
+I started with a Honer Nova 48 bass to learn CBA and it’s kind of worn now after five years of practice.  So I recently purchased the Roland FR-1 .  I am pretty happy with the Roland now.  My reasons for picking it were the low cost, light  weight  and expected freedom from repairs compared to traditional accordions.   <br>
+<br>
+Some things I like: the action is much faster on the buttons;  many more choices of sounds for treble and bass;  headphones for practice.   The Roland is a 72 bass which should help my accompaniment  to be less boring.  Also I can switch to three rows of bass notes instead of two which would help if I ever figure out how to do bass runs.  <br>
+<br>
+The down side is now I need an amp for others to hear though.    <br>
+<br>
+So overall a good purchase which allowed me to continue with my accordion hobby since there would be no way for me to afford a new accordion costing excess of five thousand dollars now.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment469225" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+torsdag</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-09-15 12:43:17">
+September 15th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/20706">thesession.org/discussions/20706</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>

@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: New fiddle bow - what to look for?</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/21222">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>New fiddle bow - what to look for?</h1>
+
+<footer>
+<span class="discrete">
+Added by eenymo on 
+<time datetime="2009-04-07 14:18:38">
+April 7th, 2009</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment441803" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve been playing for a while now (teaching myself) and starting to improve a bit, I’m starting to notice my student fiddle which I bought ex-rental really cheaply is not up to scratch but instead of buying a new one (I don’t have a lot of money) I’m going to replace the strings with Dominant (because they’re supposed to be one of the best?) and want a new bow.  I want to buy one online, so that I can get it cheaper.  One that will last me for the next few years until I can buy a more expensive fiddle.  What should I be looking for in a new bow? I can’t afford more than about £50 but the cheaper the better.  I’ve heard that bows made of pernambuco wood are supposed to be the best, is that true? What about the ones made of Brazilwood, are they OK too? Also - it’s a Stentor student violin I have.  Will the bow I have probably be just exactly the same as the cheaper bows on sale for under £50, if so would there be any point in me buying a new bow at all? Do bows deteriorate over time? Is the only reason people say a new bow will make a difference because people normally upgrade to an expensive one? So if I bought a new cheap one would it maybe not make any difference?  I’d REALLY appreciate any good advice because I do genuinely love playing my fiddle + I really want to improve + I think if I could get a more enjoyable sound out of it it would encourage me more.  There’s noone else I can really ask who knows about this kind of stuff so I really appreciate any help.  Thanks!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441803" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+eenymo</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 14:18:38">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441809" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+are you using a fiberglass bow? an inexpensive carbon fiber bow is probably your best bet - some of those cheap wood bows are pretty awful. If the bow you’re using is wood, then maybe a rehair would make it tolerable until you can afford something better.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441809" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+airport</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 15:03:08">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441819" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+re Dominants: yes, they are good strings. They take several days to settle in, though, so don’t be alarmed by how they sound when you first put them on. Another good choice is Helicores.<br>
+<br>
+re new bow: Finding a good but inexpensive bow is similar to finding a good Generation whistle--they are out there, but you will probably have try out a lot of them before you find a good one. Some Chinese wood bows are actually pretty OK, but it’s a gamble. (Yes, pernambuco wood is the “gold standard,” but definitely not cheap.) A lot of players swear by carbon fiber, but the good ones are expensive. <br>
+<br>
+You should probably go to a violin shop that has a lot of bows and try playing the affordable ones until you find one you like. <br>
+<br>
+Another option is estate sales, pawn shops, flea markets, etc.--places where you can haggle over the price. Some people have scored good fiddles and bows that way, for not much money.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441819" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Rick May</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 15:42:17">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441824" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Bows don’t deteriorate over time, but bow hair does. If a person is buying a new bow to get a better sound, they’re upgrading to a higher quality, and probably more expensive, bow. So a new cheap bow probably won’t make a difference.<br>
+<br>
+However, if you play frequently you’ll probably want to rehair your bow every six months or so; that can make a difference to your sound.<br>
+<br>
+Finally, properly guided practice and patience is probably what you need more than anything else.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441824" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+hotsauce</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 16:02:27">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441829" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yes bows deteriorate over time, but can be resurrected.  I dont like dominant . Helicors are allright  but Pirastro are the best . IMO. Gostrings.com are the cheapest place to buy strings and very fast. . If you cant afford a full set of pirastro just get the top E .  Ebay sometimes has bargains.  Same for bows, if you are carefull a good bow, [lot better than a student  piece of junk] can be got. <br>
+<br>
+ The first link is probably close to what you have. note price, 12 dollars delivered.;<br>
+http://cgi.ebay.co.uk/wooden-VIOLIN-BOW-4-4-3-4-1-2-1-4-1-8-1-10-1-16-1-32_W0QQitemZ270360785962QQcmdZViewItemQQptZString_Instrument_Parts_Accessories?hash=item270360785962&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1688|66%3A2|65%3A12|39%3A1|240%3A1308<br>
+<br>
+ <br>
+<br>
+ heres a carbon fibre bow;<br>
+http://cgi.ebay.co.uk/Braided-Carbon-Fiber-Violin-Bow-Fully-Silver-Mounted_W0QQitemZ160325432272QQcmdZViewItemQQptZLH_DefaultDomain_0?hash=item160325432272&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1688|66%3A2|65%3A12|39%3A1|240%3A1318<br>
+<br>
+But I dont like these cheap carbon bows. I have a couple and they are not up to much really. I dont recomend them.<br>
+<br>
+ this kind of thing will probably be a step up and within your price range;<br>
+http://cgi.ebay.co.uk/A-Manikara-Violin-Bow-Black-OX-Horn-Frog-Nickel-Silver_W0QQitemZ200294345355QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item200294345355&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1688|66%3A2|65%3A12|39%3A1|240%3A1318<br>
+<br>
+37£ delivered.<br>
+<br>
+I quite like the look of this, hand made but a bit out of your price.<br>
+http://cgi.ebay.co.uk/NICE-white-bone-frog-Violin-Bow-4-4-size-0205_W0QQitemZ320356740779QQcmdZViewItemQQptZLH_DefaultDomain_0?hash=item320356740779&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1683|66%3A2|65%3A12|39%3A1|240%3A1318<br>
+<br>
+ There are lots of 2nd hand old bows but its a bit riskier to buy, a  gamble.<br>
+;<br>
+<br>
+ This looks nice, if no one bids and you wait till last minutes could be yours for 15£http<br>
+://cgi.ebay.co.uk/Fine-Quality-Antique-Violin-Bow_W0QQitemZ370183148766QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item370183148766&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1688|66%3A2|65%3A12|39%3A1|240%3A1318<br>
+<br>
+ A couple of these, bids allowing  could be yours… for a few bob.http://cgi.ebay.co.uk/Old-Violin-bow-good-quality_W0QQitemZ230334971341QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item230334971341&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1688|66%3A2|65%3A12|39%3A1|240%3A1318<br>
+<br>
+Here is another at your range;http://cgi.ebay.co.uk/Advanced-Model-An-Ironwood-Violin-Bow-Sterling-Silver_W0QQitemZ140293564774QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item140293564774&amp;_trksid=p3286.c0.m14&amp;<br>
+<br>
+ Yita music have a good rep. The bow I am using at the moment is from them I think. So were the carbon  bows but they are poor.<br>
+http://cgi.ebay.co.uk/Advanced-Model-An-Ironwood-Violin-Bow-Sterling-Silver_W0QQitemZ140293564774QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item140293564774&amp;_trksid=p3286.c0.m14&amp;_trkparms=72%3A1688|66%3A2|65%3A12|39%3A1|240%3A1318<br>
+<br>
+good luck.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441829" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 16:23:35">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441831" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Bows certainly can deteriorate over time; The ‘spring’   can go , and the bow needs to be re-sprung, the bow can warp, again needs ‘steaming’ and resetting.  The hair will wear out slowly, or not so slowly! .If you dont loosen the bow after use it can lose its spring.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441831" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 16:32:26">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441832" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’m no expert, but there are a few basic things I would look for in a bow:<br>
+<br>
+1. Does the frog work? Does the screw turn smoothly? Can you get the hair up to tension and still have plenty of room for movement in the frog? (If not, the hair is either.<br>
+<br>
+2. Is the stick straight? Sight along the bow with the hair  tensioned - there should be no visible twist or sideways bend in the stick.<br>
+<br>
+3. How stiff is the stick? Does it retain its concave arch when the hair is up to tension? The arch will inevitably flatten out somewhat, but it should not straighten out completely or bend outwards.  <br>
+<br>
+A more experienced fiddler would take into account the weight and its distribution, although that is partly down to personal preference.<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441832" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+CreadurMawnOrganig</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 16:33:03">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441873" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+…of course, if you buy online, you can’t check any of those things.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441873" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+CreadurMawnOrganig</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 20:27:25">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441875" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Perhaps this is a good spot to relate an unexpected experience I’ve just had with one of my c/f bows.<br>
+<br>
+I’d just finished playing in a band for set-dancers on Sunday and was putting fiddle and bow away.  Before detensioning the c/f bow I wiped rosin dust off it and this was when I noticed a very small bump on the stick a couple of cms from the head (the pointy end). This bump was on the side of the stick furthest from the hair.  I wound down the tension and the bump disappeared.  When I got home I looked at the end of the bow stick  with a magnifier and saw some fine circumferential cracks where the bump was.  I retensioned the hairs and the cracks got bigger.  Oh dear!<br>
+<br>
+So, off to my local violin dealer yesterday (Tuesday).  One of the luthiers there immediately recognised the problem as “incipient structural failure” (i.e. it was about to break) and said that was the third or fourth this year, the preceding ones all having actually broken within a few weeks of purchase.  My bow was about three years old and hadn’t yet broken, but perhaps a few more hours of playing …?<br>
+<br>
+When this type of breakage happens to a c/f bow repair is _not_ an option.  If it happens to a wood bow it can sometimes be repaired, but you would only consider this if it were a very valuable bow (4-figures).<br>
+<br>
+Anyway, the upshot was that I, a very satisfied customer, went away from the shop with a new c/f bow (not the same make as the one that was about to break!) which I enjoyed playing in a session a few hours later.<br>
+<br>
+Now why did this structural failure happen?  Here are some of my ideas - and I must make it clear that they are open to criticism and correction from any luthier who might be reading this! <br>
+<br>
+My failing bow had a fairly pronounced arch when slack, and the stick was quite thin as it approached the head.  The luthier told me that the head is not part of the stick but is attached to at some stage during manufacture.  I think that the pronounced arch implies that when the hairs are tensioned there is a force from the head at its attachment trying to bend the stick at that end away from the hairs.  If the engineering isn’t up to scratch for this design then the stick is going to break just short of the head.  If the arch of the untensioned bow is relatively flat then there will be a smaller force from the head acting on the stick to  bend it away from the hairs, and the stick will therefore not be over-stressed and won’t break.<br>
+<br>
+My old bow was towards the lower end of the price scale at about £120 three years ago.  I understand that the bows that broke were also in this price region, so I’m inclined to think that at that sort of price level the is engineering used was insufficient when the bow is heavily arched.<br>
+<br>
+My recommendation: don’t get a heavily arched bow when you’re buying in the lower price region.<br>
+<br>
+I should perhaps add that I’ve never over-tensioned  a bow, but obviously I can’t speak for the users of the bows that broke.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441875" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 21:10:08">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441883" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I have a nice $Aus85 Yita bow - good balance and tension,<br>
+not likely to have structural failure</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441883" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark Huppert</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 23:41:53">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441884" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+It’s a cf bow of course, not wood.  It’s scary prospect to spend<br>
+hundreds on a wood bow that may be useless</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441884" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark Huppert</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-07 23:43:26">
+April 7th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441885" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Although of course, with proper care, a good wooden bow will outlive its original owner.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441885" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Rick May</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 00:03:40">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441932" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+One reason why quality wood bows are as expensive as they are is the wastage rate during the making. This can be as high as 80%. The bow maker may not be able to discover a defect until the bow is almost complete, when a couple of dozen hours or so may already have been spent on it.  Carbon-fibre bows are inherently very reproducible, with little waste in the manufacture,  but problems can arise with the engineering design of the cheaper bows, as I’ve indicated in my previous post.<br>
+   <br>
+Another reason for the expense of good quality wood bows is that the best material, pernambuco, is now very difficult to get hold of - Brazil won’t allow its export.  A possible alternative -snakewood - is also very expensive.<br>
+  <br>
+A good quality bow -  whether wood or carbon-fibre - would not be expected to break other than as a result of  accidental damage, and, as mickray says, will outlive its original owner.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441932" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 06:46:11">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441949" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yes online, is  not ideal, but when we look at his price range he has little choice really. Firstly he/she may not have the knowledge or skill to chose a bow in person, secondly the shop price will be considerably more than online, so he wont be able to get anything better than he has. Thirdly, the bows I quoted will be better than what he has, I dont think thats really in doubt[ apart from first link ]<br>
+ We are not discussing whether to get a good bow, because for 50 £ you’d be lucky, we are discussing an upgrade from a 5 £ bow to a 50£ bow.  An acceptable student bow can be got for this money from  a reputable Chinese maker.<br>
+ So these sellers can recomend a bow based on their understanding and experience from their stock.IMO.<br>
+<br>
+ Strings again for a moment.  Perhaps pirastro piranito would be a good choice? with a Eudoxa Top E. the Piranito top E can be then used as a spare. What do you reckon Lazyhound?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441949" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 08:03:14">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441952" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Another reason they are so expensive is that the makers think; well, he or she is paying a few thousand for the violin, so it seems a shame only to charge a couple of dollars for what is essentially a stick. Same goes for the strings. You can get six guitar strings, which are twice as long, for a fifth of the price of four violin strings.  Do the math (cos I can’t). And yes, I know that they are not the same thing; but the price is not justifiable.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441952" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 08:10:31">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441962" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Rather than answer your specific questions (that’s been done well enough here), I’m going to give you my advice, which I’m afraid is probably not what you want to hear right now. I think you should consider it though.<br>
+<br>
+Currently you have a Stentor student violin outfit. You want something better, but your budget is around £50. So you want to spend that £50 trying to “make a silk purse out of a sow’s ear”. You could put the best strings in the world on that fiddle, and use the best bow on it, and it’ll still be a Stentor Student model.<br>
+<br>
+So here’s my advice. Put your £50 aside, and try to save and add to it as much as you can. Build it up till you’ve got enough money to get yourself something you really want and can enjoy.<br>
+<br>
+That will probably take some time, depending on how much you can save. So use that time to improve your skills, try out as many fiddles and bows as you can, and educate yourself as to what you want in a fiddle and bow. Visit every violin shop you can find, and try out all their stock, from the cheapest to the most expensive. Try out your friends fiddles at sessions etc. Generally, get a feel for the differences in fiddles and bows.<br>
+<br>
+You will get a good understanding of what you like in a fiddle and bow, so when the time comes that you have the money saved, you will be in a much better position to buy the one you want. You’ll treasure that one so much more because it was one you chose knowledgeably, and because it was hard come by.<br>
+<br>
+What you’ve got is serviceable enough to learn on. Don’t buy expensive strings. Don’t buy another cheap bow. Don’t bother getting your current cheap bow rehaired (that would cost more than the bow is worth). Save your money for a fiddle and bow that you really really want. By the time you’re ready to buy it, you’ll know that you’ve earned it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441962" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 09:42:04">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment441992" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’d go with everything tradshark says.<br>
+<br>
+But I’d add a bit more. If you got your fiddle on the internet, or from a general music shop, get it to a luthier, or someone who knows how to fit a bridge and adjust a soundpost. Stentor fiddles, as they leave the factory, are often virtually unplayable. An hour or so in the hands of someone who knows what they are doing may well totally transform your instrument, and should cost around £30 (+ the cost of strings, and possibly a new bridge and/or nut).<br>
+<br>
+The other area where you might be able to make a big improvement for next to nothing is in the rosin - buy and try a few different types. Quite often changing rosin has a more profound affect than changing strings.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment441992" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 12:54:23">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442000" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Rosin. Odd that - I’ve just realised I’ve been playing my new bow for something like 4-5 hours, and I’ve never applied any rosin to it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442000" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 14:12:01">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442001" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I agree with tradshark, too.<br>
+<br>
+Another reason to go this route is that it’s usually best to get a bow that works well, tonally and feeling-wise, but mostly tonally, with your fiddle.  Once you have a decent fiddle, then go and try out bows until you find the one that feels and sounds the best.<br>
+<br>
+As for strings, they also sound different on differen fiddles -- I like Helicore myself, and they won’t bankrupt you like some of the more expensive strings.<br>
+<br>
+Finally, if you’re at all curious about bows, take the time while you’re saving up for a good fiddle to learn by talking with repairers or even a bow maker or two, as long as you don’t waste too much of their time.  The more you learn about bows, I’ve found, the more fun you’ll have trying different ones.<br>
+<br>
+Jim</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442001" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jmbu</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 14:22:09">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442010" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I certainly agree that getting the fiddle set up  in a luthiers for you is a good idea, some  good new strings. <br>
+ But as far as the fiddle goes, well I play quite happily on a cheap Berkely fiddle. I also have a lovely   old  German fiddle, a loud quite nice Chinese fiddle300$,   but without a doubt i prefer the cheapy! . why? well i like the dark sound, its set up just right for me, plenty of space for my fingers, I just like it. it cost me 90$ delivered. The strings cost nearly as much as the fiddle itself. / The bow I’m using came with the Chinese fiddle, Nothing special but perfectly serviceable. <br>
+<br>
+  Saving up for a ‘future date’ when you will be able to afford a ‘good’ instrument… what happens if that date never comes? spend your life waiting and planning for the big day when you get ‘the fiddle’ you have always dreamed about… but then you get it… What then? a better one? What if its not really as good a you’d hoped? <br>
+<br>
+ Look music can be made, beautiful, good, wholesome, inspiring music on an old broken bow and a cheap crappy fidle. Sure we all want to have an amazing instrument, but  some people will NEVER be able to afford that, does that then mean they will never be able to play good music? of course not, the instrument and bow are simply tools, its the skill of the musician, the soul that counts far more than whether the fiddle is a Rolls Royce, Mazzarati or a humble Ford.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442010" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-08 15:31:16">
+April 8th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442112" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I pretty much agree with tradshark. I’d add a couple of things though-<br>
+1- re; your strings- are they old or are you just hoping if you replace them your fiddle will sound better? If they are in need of replacement- showing wear or just old enough that they sound lousy, then by all means replace them- it will be a major improvement. I wouldn’t bother going for the best strings you can find- mine are about $40 USD and they are nice strings I’d say. If they are not worn then don’t bother replacing them at this time- they won’t help a lousy fiddle sound great.<br>
+<br>
+2- the bow. If it’s a cheapie, don’t bother with a rehair- save the money for a better bow. Yes, bow quality really, really matters. I don’t know what sort of bow you’ve got now- I really, really hate the cheap fiberglass “bombproof” bows that most rental sets provide, so if it’s one of those, I would agree with finding a better bow. A good bow isn’t cheap however, and a good pernambuco one is pricey. Some people like the carbon bows(I don’t personally) and they are popular and you might find one of those you like that won’t be too much $$. I would suggest staying away from the cheap bows advertised on e-bay such as the links were provided for by another poster above. Those bows need some serious work for the most part- beyond just rehairing. The work will cost you plenty. There CAN be some good deals on a better bow on e-bay but again it depends on the seller- I’d advise only dealing with a reputable and knowledgable bow seller if you go that route- and not the people who sell whatever they happen to buy at estate sales; they don’t know squat for the most part about bows. Do NOT believe them when they say they just need rehairing etc- the bows generally need work.<br>
+<br>
+3- the fiddle. If you’ve outgrown it in terms of  what you can make it do- I don’t know if you have a teacher, but if you do, ask them if you have- then save for a better instrument. There are some good deals out there and some people do find them, but mostly I have found you get what you pay for. Your skill counts a lot of course- the best instrument will sound lousy in the hands of a poor player, but the converse is also true-a lousy instrument will hold you back and always sound lousy…..</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442112" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fiddlinfarmer</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 08:32:28">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442130" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+FF, I play with a similar bow to the ones I linked to so I am speaking from personal experience. Im curious, do you have actual experience of playing with a mid range student bow from yita music say? <br>
+ A  cheap fiddle will not hold you back at all, only your mind can do that. As long as it is set up well, and you have good responsive strings then there should be no problem. After all, you can be pretty sure that many of the old greats like Padraig O’keeffe were fiddling with cheap fiddles and broken old bows!<br>
+<br>
+ Again FF, do you actually have or have had any of these cheap CF bows? I have 2 and neither are playable without considerable work and expense.  So I definitely DONT recomend them. <br>
+<br>
+Once again FF we are not talking about a good pernambuco  bow, is that still not clear, we are discussing a practical and achievable upgrade from a 5 £ bow to a 50£ bow, not £250 up  bows. <br>
+<br>
+ A 50£ bow maybe cheap to you, but to the OP it clearly isnt.  A similar bow from a western maker? handmade? several hundred pounds! This is one of the main differences between Chinese hand made bows and European hand made bows; hourly rate. <br>
+<br>
+ Good strings make a huge difference. I can assure you of that. FF you say your strings are fine, what make are they?  Have you actually tried top range strings on your fiddle?   How many fiddles and bows do you have and what strings have you tried ?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442130" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 10:42:20">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442156" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Ionannas, on a somewhat related note, I checked out yita music’s shop page on ebay. I’m looking for a bow upgrade myself.<br>
+<br>
+Do you have any experience with the top model pernambuco (not the master - out of my price range for online purchases) or IPE bows? Have you bought stuff from them before? What are they like to deal with?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442156" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 14:11:08">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442166" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I have dealt with them a number of times, no problems with the service and speed, but like I said, pretty quickly  the CF bows were not really functional. they need tightening up, Ie hair removing and  then shortening. <br>
+<br>
+ To be honest, for a beginner, a functional bow is the main requirement, this can suffice for  a few years, say 5, but after that then its likely they will upgrade. . After a few years playing they will have a much better idea of what suites them personally, heavy, light , flexible, stiff, top end, bottom middle  etc. at that point it will be hard to do this online.  Over the years of playing and developing technique they will try every bow they meet IMO  and slowly gain understanding of what they like. <br>
+<br>
+ For sure Yita will grade their bows well, they offer  a varied selection but if you already know what you want, then you’d be better off going to a reputable dealer and making a selection based on  what’s in the shop, taking a few home over the course of a few weeks. <br>
+ At this level Id expect  to be looking a several hundred for a good bow.  My  good bow cost about 400e [ I think]14 or so years ago, second hand.  After about 12 yrs it was recurved . It is still my main bow for one of my fiddles but I prefer something a bit heavier these days. It also had an accident, luckily it was insured!  So now it has a  repair at the tip where it broke. Still functional  but  effectively  worthless. <br>
+<br>
+ So it really depends on what you can afford, because the bow might not really suit you. Of course my philosophy is to work with what you have, make the bow work for me, so my Chinese bow is grand. But if i wanted to buy a good bow again I would save about a grand, though I might not spend it all.<br>
+ I like the idea of having a bow and instrument that is a bit expendable , that I dont have to be uptight about, so im happy enough playing on my present set up. Though saying that I am slowly setting up the 300e fiddle so it has the same action angle, string placement so that I can use it as much as I use the cheapie. It is a lot clearer and louder which makes it more suitable for sessions.[ of course 300e is still  relatively cheap, my German fiddle  is worth a lot more.]<br>
+ On my cheap fiddle i use quite edgy strings to give it a bit of bite, on the 300 yoke I have quite dull strings to mellow its edge.<br>
+<br>
+ It wouldn’t surprise me if you could try a few yita bows and send the ones you didn’t like back. But thats between you and them. <br>
+<br>
+ What kind of bow do you have now?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442166" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 15:29:40">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442171" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks Ionannas, that all sounds good. I’m a pretty experienced player myself and I have a very nice fiddle. <br>
+<br>
+My bow however, although functional and not bad to use, is not very high quality. I got it included with a 250 quid ebay fiddle and case. It does the job well enough, but, well you know….<br>
+<br>
+Ideally, I would prefer to play with a selection of bows and choose one that I like. This is of course the proper way to do it. But this has tickled my fancy:<br>
+<br>
+http://cgi.ebay.ie/3-Star-Top-Model-A-Pernambuco-Violin-Bow-Snail-OX-Horn_W0QQitemZ140313142465QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item140313142465&amp;_trksid=p4634.c0.m14.l1262<br>
+<br>
+It looks and reads great, and the price is fantastic. It’s almost certainly better than what I’m using at the moment. I was just wondering if it’s as good as it seems. <br>
+<br>
+For the price it might be worth a gamble. I don’t really fancy a carbon fibre bow - not for any tangible reasons, I’d just prefer a pernambuco one. I was just wondering if you had any experience with these bows from Yita.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442171" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 15:55:49">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442173" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+For an experiment, I opened up  the pages for a range of bows . I then went through them and judging them by their look. My judgement, purely visual, on tightness of grain,  general look of bow  etc was remarkably well reflected by the price they were. Which I didn’t look at till after I looked at the bow. <br>
+ No surprise then when the nicest looking bows were the 5 and 4 star bows. The lines looked cleanest. <br>
+ Your 3 star choice looks good too, and like you say, for the money its not  such a  big gamble.<br>
+<br>
+ Back to the OP for a mo; <br>
+ I thought this looked nice;<br>
+http://cgi.ebay.ie/Advanced-Model-A-IPE-Violin-Bow-Sterling-Silver_W0QQitemZ140292296797QQcmdZViewItemQQptZUK_Musical_Instruments_Sting_Instruments?hash=item140292296797&amp;_trksid=p4634.c0.m14<br>
+ Pretty much in the OP’s range too. <br>
+<br>
+Any internet purchase is a gamble, will you like what you buy? Fortunately the distance selling regulations cover this. You are entitled to return within 7 days any  purchase for a refund without  any explanation. Of course the postage will be your  loss.   Auctions are not covered.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442173" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 16:38:46">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442183" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well,  I decided what the hell, and ordered that 3 star pernambuco bow. I’ll let ye know what it’s like when it arrives. Hopefully it’ll be an improvement on what I’m using at the moment.<br>
+<br>
+That IPE bow you linked looks pretty good too. Might suit OP nicely. I must admit I’m very surprised by the prices of these bows. I hope it’s not too good to be true.<br>
+<br>
+I still reckon OP should take some time to experience the differences between different bows and fiddles. It’ll give him a frame of reference. I’m at it 25 years, so if my gamble  turns out wrong, I’ve only myself to blame :) For a learner though, it’s best to get some experience of different equipment under your belt.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442183" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 17:34:15">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442192" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Go for it Tradshark, I wish you good luck and await with interest your verdict. Do let us know.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442192" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-09 18:26:26">
+April 9th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442245" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks a lot for all of that brilliant advice, I really appreciate it, seriously.  I broke one of my strings and I was going to have to buy a new string anyway, so that’s why I thought I might as well upgrade to a whole new set of proper decent strings anyway.  So I’ve ordered a set of Dominants and am waiting on them arriving now, can’t wait to get them so I can start playing again! Just looking at the remaining 3 - I don’t know how to describe it properly, but they just look really worn out, and the fiddle was bought ex-rental from a shop that allows people to rent for a year then buy if they still want it.  So I think they’ve really seen better days! I actually got it for £45 over 10 years ago, so it’s fair play for the money I suppose just to get started.  I started to play 10 years ago (I had done basic violin in primary school but gave up because I was too interested in other things at that age + I couldn’t be bothered practicing!) because I’ve always loved trad music, I was practically brought up on it, and I’ve always really admired the really good fiddle players I think it’s an amazing thing to be able to do.  Everytime I turn the TV on and see someone playing the fiddle, it really cheers me up (I love the music) and it really inspires me to want to be able to do the same one day.   Over the past 10 years, I’ve kind of picked it up every now and again and got back into it for a while, then left it to the side again whenever other stuff started happening in my life.  But maybe that’s just an age thing.  Just recently I’ve been playing it a lot more than usual, and I feel like this time it’s for real and I’m really going to stick with it properly now.  I’m better than I’ve ever been, and that in itself is motivating me even more.  <br>
+About my bow - it really does feel like it’s time is up.  When I tighten it to the tension I need, the wooden part is straight and has no curve in it.  It’s been like that for a long time now.  I didn’t actually realise that when you’re using the bow, it’s supposed to have a bit of a curve in it.  So that’s how out of shape mines must be!<br>
+A few months ago, I went to the only proper violin shop there is in the whole of my part of the country (there aren’t many for some reason, I don’t know why!) and I was seriously thinking about spending about £600 on a whole new fiddle + bow. I tried out a couple of different ones and found one I really liked.   I left the shop thinking I would definitely be back soon (NEARLY just went for it and got the one I liked best )but I took a couple of days to think about it first, then the credit crunch hit full swing and I decided it’s best to wait until the economic situation has improved a bit, because of all the jobs that are going every day etc.  I need to make sure I have money put aside for what might happen etc…who knows…so I’m going to put off getting a new one for a while for that reason.<br>
+But when I was in the shop, the bow the woman gave me to try the violins with was amazing.  I noticed a complete difference straight away.  It was 100x easier to play! It just slid over the strings so easily, and it was very light and very balanced compared to my old scabby thing.  She explained you can get different types of bows (I didn’t realise that at that time) and when I asked her about that one, she said it costs about £2000 to buy!  But that’s when I realised for the first time how much easier and more enjoyable it can be to play with a better bow and what a huge difference it can make to the sound that comes out!  So that’s why I’m seriously thinking about getting a new one.<br>
+But….<br>
+After all this really good advice, I will go with what you say tradshark, because I suppose deep down inside I know it does make most sense.  To just wait &amp; stick with what I have just now, try to get the best sound I can with what I have, and keep saving up until I can eventually go back to the shop and get my dream violin.  It might take a couple of years (considering I’m going to be buying my 1st car soon + want to get that paid off first, insurance will be really expensive my 1st year driving) and I’m making sure I don’t get into too much debt, like all of us right now.  But I know I will love it even more once I’ve saved a couple of years for it, and will hopefully be able to get a really beautiful sound out of it because my playing will have advanced so much more by then.<br>
+Thanks Ionannas though for all of those links, I really appreciate it and who knows if I get a payrise some time soon I might treat myself and just go for it anyway.  I will definitely go for one of the Yita ones now, I really appreciate you putting the links for them etc.<br>
+Thanks again everyone really appreciate it!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442245" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+eenymo</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-10 06:50:59">
+April 10th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442265" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+You’re most welcome eenymo, and I (and I’m sure Ionannas &amp; the other guys here) will be happy to help as much as I can with any questions you may have in your learning.<br>
+<br>
+It really does sound like what you’ve got now is almost unplayable, so grabbing one of those Yita bows can probably only be an improvement. The new Dominants will help too. They’re very popular strings. I use Thomastik Spirocore myself - very responsive for ornaments etc. but can a bit unforgiving. D’Addario Helicore are nice too.<br>
+<br>
+Might be worth taking your fiddle to someone who does fiddle repairs. They could tell you fairly quickly whether the setup can be improved. That might get you going till you can afford your dream fiddle.<br>
+<br>
+Keep going to the shops and trying them out anyway. You may even come across a fiddle you like that might keep you going for a few years till things are better, money-wise.<br>
+<br>
+I noticed Yita have fiddles too. They look pretty nice, and you might bag a bargain if you catch the end of an auction. Bear in mind though, they would come collapsed, requiring a setup by a luthier. From most of the photos, the bridge is also a bit thick and the soundpost looks a bit far forward for my liking, so they would need adjustment too. Also, no matter how nice the fiddle looks, you don’t really know what it’s like till all this work is done, and you have it under your chin.<br>
+<br>
+Anyway, best of luck, and if you have any other fiddle questions, fire away.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442265" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-10 08:41:16">
+April 10th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442270" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Oh, one thing I forgot to mention about the Yita fiddles. They only come with 1 fine tuner on the E string. This is typical for classical players who use gut strings, as they are more stretchy, and the G, D and A can be tuned easily enough just with the pegs. If you’re using steel strings though, they’re much more sensitive, so you need 4 fine tuners. This is something the luthier would do as part of the setup, but you’d have to specify it. <br>
+<br>
+Also, depending on the strings you’re using, you may need either ball or loop end adjusters. If you’re playing trad, you usually want 4 ball end fine adjusters.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442270" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-10 09:06:42">
+April 10th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442272" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+I watched a bunch of those fiddles a couple of yrs ago, The old-violin house I think it was… no  amazing bargains to be had there Im afraid! They are clearly recognised as bargains even at buy now prices.<br>
+ Buying fiddles online is just as tricky if not more so than buying a bow. If the price is right,  ie cheap! then the risk is not huge, but when you are talking about a few hundred, then getting it set up right.. easily adds up. <br>
+ There are cheap second hand yokes that can be got though, you have to ride the site though, decide what you can afford, stick to that price and be prepared to stop bidding at your ceiling. and wait,. maybe months.  Like TS said, wait till the last 30 seconds for your top bid, dont bid before then to alert anyone else watching, come on strong with your max bid and cross your fingers. If, when it arrives,  you dont like it, you can always flog it on ebay! LOL</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442272" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-10 09:09:24">
+April 10th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442299" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Just one last wee comment on this from me then - I just got my new Dominant strings through the post and have been trying them out for a wee while now - what a total difference! So if anyone else is reading this who is in the same boat as me - it honestly makes a real difference getting new good strings.  The first thing I noticed was how much nicer it feels on my hands to play now.  The strings feel nice and really soft on the fingers.  I know that probably sounds really stupid, but to me it makes a huge difference when I’m playing because it’s a lot easier on the fingers now, before the strings were like wire which was hard on my finger tips.  (Maybe that means I’m pressing too hard?).  And the sound that comes out is no longer tinny but a lot more rounder.  It also sounds a lot louder I think.  Can that be? It really seems to resonate a lot more.  But it definitely doesn’t sound anywhere near as scratchy as before, which is what annoyed me most.  Seeing what a difference a small change can make, I might just look at going for a new bow after all….but I’ll decide that maybe next month. It would be one I could keep forever though, even when I get my new good fiddle in a couple of years.  So I might get one of the Chinese pernambuco ones or that one made of the other wood that’s like pernambuco (I really appreciated that link by the way)<br>
+Thanks again for all the help, I’m sure I’ll be back with plenty more questions later! :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442299" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+eenymo</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-10 12:26:29">
+April 10th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment442308" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+Good strings can make an incredible difference. I personally see dominant as being mid range synthetic string,  not to my taste.  I much prefer Gut strings I would go with Olives but they are too bloody expensive, so Im happy enough with Eudoxa which are not cheap!   I also have a job lot of Old Hoffman strings which I got a 1£ each. Enough for the next 20yrs perhaps!  <br>
+<br>
+ I have a rake of different fiddles and they all sound incomparably better with good gut strings. Its really only the last few years I have tried gut but I wouldn’t go back to steel at all.  I have a set of  evah pirazzi pirastro but they were too tight and shrill for me. I preferred the obligato,but  still not really doing it for me.   <br>
+<br>
+I tried  many brands of string. I used to use Jagur and I still have some for my electric. and some spirocore too If i recall right.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment442308" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-10 13:02:56">
+April 10th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment445650" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New fiddle bow - what to look for?</h3>
+<div class="e-content" itemprop="text">
+<p>
+just a quick update on this thread - I got that new bow, and have been playing it in for a while. I hate breaking in a new bow - just doesn’t hold the rosin properly for a while.<br>
+<br>
+Anyway, the bow is lovely. Arrived well packed in about 4 days! From Shanghai to Limerick! Lovely workmanship on the stick and the frog &amp; fittings. Balance point is good - it feels pretty responsive. The camber is nice and the stiffness / springiness is nice too.<br>
+<br>
+It sounds a little scratchy at the moment, but I think once it breaks in, it’ll be fine. Needs to get the sh*te played out of it for a while :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment445650" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+tradshark</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2009-04-28 07:00:12">
+April 28th, 2009</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/21222">thesession.org/discussions/21222</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>

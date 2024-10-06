@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: Techniques to circumvent performance jitters</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/13986">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>Techniques to circumvent performance jitters</h1>
+
+<footer>
+<span class="discrete">
+Added by MarcoTam on 
+<time datetime="2007-06-04 02:29:10">
+June 4th, 2007</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment288019" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve played Trad. music happily to my living room walls for the last ten years. I think I’m in the average range for someone having played trad. music for a decade and have decided to start playing sessions. <br>
+<br>
+I don’t have ANY performance background. What a shock to discover how my performance evaporates in public. In my own mind, I call it “The 50% rule.” I play about half as good in public as I do when not stressed. <br>
+<br>
+I’m sitting quietly, enjoying the lovely music at my local session, playing the odd tune I know… and then the person in charge says, “You there! How ’bout a tune?”  I then proceed to destroy the set I’ve been playing longer than any I know. <br>
+<br>
+I know the problem is psychological. I’ve CLEARLY been playing these tunes well at home. Now they sound like shite. <br>
+<br>
+What mental tricks might i play on myself to circumvent this problem?  I already know that simple exposure to playing publicly will help. I plan on doing that, but is there anything else that people do to maintain their concentration in public  that might help me. <br>
+<br>
+Just the dynamics of hearing myself play amongst a group is very disorganizing. I find myself listening to others play and then my tone dissoves. <br>
+<br>
+Any help appreciated!!!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288019" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+MarcoTam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 02:29:10">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288021" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+When I was in this position I thought hard about what could be the absolutely most stressful performance situation.  Solo competitions I recon.  In a session you think everyone is judging you (they aren’t)  but in a competition they actually are.  So I recommend going in for some solo classes in music competitions,  don’t worry about the terrible performance you give the first time or two, it will improve. After that the session will be like coming home!<br>
+<br>
+Also useful is a series of books entitled “The inner game of  …. ”  Most are about sport, but there is one in the series on music.  It deals exactly with the problem you describe - how to deal with the inner voice that undermines your confidence.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288021" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Theo Gibb</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 02:48:54">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288027" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+The “50% rule” is a well-known phenomenon among performance musicians of all kinds - you need to be able toplay twice as well in practice as you hope to in front of people.<br>
+<br>
+But really, what you need is practice playing in sessions. If you had spent those ten years going to sessions instead of (or as well as) practising at home you would have gone from tolerated beginner to established session player by now and would be relaxing and enjoying it. So - just keep going and keep playing. Things will improve.<br>
+<br>
+Also, since a session is *not a performance* as we’re often reminded here, but more a musical conversation between friends, it is essential that  you get to know the people at the session socially, so you are not the shy stranger in the spotlight.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288027" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bren</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 03:19:46">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288032" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Don’t get discouraged.  Anyone will tell you that a tune you can play brilliantly on your own goes belly-up the first few times you play it with other people (and playing along with CDs don’t count).    What Bren says is very true.  Another thing you can do to gain confidence in your good tunes is to practise playing ‘em with just one other person in your house before taking ’em out the pub.  A guitar-playing buddy is good - you learn how to handle playing when unexpected chords (a euphemism for wrong chords maybe!) crop up, something which can make even a seasoned player fall off their horse.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288032" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 04:04:29">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288036" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Let’s take this at face value and be honest here, and I apologise in advance if you find this offensive …<br>
+<br>
+Let’s take it that you “are” the average range for someone having played music for a decade to their living room walls. I’d reckon this probably just about puts you under the bottom rung of ability to play down the pub. I’m sorry but at best, you have wasted your ten years, at worst you have dug yourself into an insurmountable trench. And your lack of ability to communicate musically is illustrated by your confusion over the concept of performance.<br>
+<br>
+However, all maybe not lost. Just put that decade behind you and start over. At least you might have the bones of some tunes in your head to get you going.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288036" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael C. Gill</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 04:42:04">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288038" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+You haven’t wasted your ten years.  I’m 55 and did just the same as you only for much longer before I had the balls to go out and play, first in the folk club then in the pub session.  I’ve only been doing it for about 12 years so far and I’m doing all right.   In fact it’s the best thing I can do with my clothes on, and I would never have thought it possible a few years ago.  No musical background whatsoever apart from my Beethoven and Planxty LPs.   You’ll get there.  You’ve already said you’re listening to the other musicians.  I know people who’ve been playing all their lives who have yet to develop that skill, so you’re winning.   Just keep showing up at the pub and decide you’re going to play but be a bit diffident to begin with.  And there’s no rule that says you have to play on everything.   A mate of mine started playing at about the same time as me.  He’s now a super accompanist on guitar and has taught himself to play the fiddle and mandolin to good session standard (whatever that is) and can play hundreds of tunes.  He’s the one feller we all worry about if he’s late in case he doesn’t turn up!   He was in his mid-30s when he started.   There is not just one approved path into ITM whatever the fun police say.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288038" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 05:01:08">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288044" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Just a couple of things I found out about myself.  If I worried about a tricky bit of a tune coming up I’d almost automatically crash, often even before I got to it.   Also, towards the end of a set I found myself feeling relief that it had gone OK and it was nearly over at last…a certain recipe for screwing up the ending.   Another thing was that I was mortified by any mistake I made, to the detriment of the rest of the set.   Until you get that auto-pilot feeling it takes a fair bit of mental stamina to get through a set of three tunes played three times each.   Practise at home playing the set with each tune played five times each.  Sort out the hard bits of the tune, don’t go mad with ornamentation, get the changes from one tune to the next absolutely cast-iron.  If you make an isolated mistake just carry on.  But don’t keep making the same mistake/fluff every time through.   That needs sorting out, otherwise you’re just practising how to make mistakes!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288044" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 05:27:33">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288050" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yeah, great advice to the guy there steve, practice at home.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288050" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael C. Gill</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 05:48:04">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288051" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+IIig, what the hell?<br>
+<br>
+MarcoTam - 3 areas of performance anxiety - audience, peers, and physiological response.  If you’re worried about the audience, remember that 1) it’s in a bar and no-one listens anyway 2)  you’re doing something the audience can’t 3) probably they can’t process a lot of the mistakes you make fast enough to notice them anyway 4) if 6 people are playing correct notes, that one guy that missed a note probably isn’t heard.<br>
+<br>
+  If you’re worried about peers, remember 1) they were where you are, and remember and have empathy 2) think about motivation.  They’re just there to play tunes, drink beer, hang out with friends, and possibly get paid.  Whether you play  Jim Ward’s correctly or not is the not even on their list of pirorities 3) if you’re worried about starting sets by yourself, make the first tune a remarkably universal one so people can jump in immediately<br>
+<br>
+If it’s a physiological response, you’re probably with flute not getting enough air.  Breathe, and make sure you’re sitting so that you can breathe! If your fingers fumble, make sure you’re not gripping your instrument too hard.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288051" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+reenactor</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 05:52:15">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288059" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Good last point there by reenactor (as well as the rest of the post).  Can apply to any instrument I suppose.  Putting energy into getting all tensed up is energy  wasted and works toward the detriment of the playing.  I know this only too well, having spent years persuading myself to loosen my grip and relax my arms and neck. <br>
+<br>
+And what a pile of bollox, Michael.  Yep, practise at home.  Why is that so bad?   Everyone who ever played an instrument had to practise at home.   Rostropovich practised for hours every day into his 70s.   It didn’t seem to do him too much harm.    There’s nothing unique about ITM that makes practising at home a bad thing.  I also said to keep showing up at the pub and decide to play.   That do you, Michael?  Sheesh.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288059" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 06:23:38">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288068" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think Michael is both right and wrong here…at least, in the impression he seems to have given out. Again, I think he’s just been misunderstood. ;-)<br>
+<br>
+“Practise at home”. <br>
+ I actually think he’s being serious there. I’m sure he and (hopefully) most of you there would agree that a session isn’t the place to practise and/or learn to play your instrument. Arguably, it is where you learn how to play “the music” and how to interact with others etc. That’s why it’s important to get along to a regular session sooner than later.<br>
+<br>
+I can understand the notion of “digging yourself into a trench” too and you can also encounter many of the problems discussed in the “Sessions: politics and friendship” thread, i.e you can find you’ve just learned an “alien repertoire” if you spend too much time just playing at home.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288068" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+🎻Johnny Jay, Melody Player 🎻</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 06:49:10">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288071" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+The guy’s been practicing at home for ten years. And look where it’s got him.<br>
+<br>
+https://thesession.org/discussions/11775</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288071" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael C. Gill</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:01:45">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288072" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Michael just dug an isolated bit out of one of my posts and ignored the bit about keeping going out to the session with the intention of playing.   Had it been anyone else I could have conceivably thought that it was just a mischievous and negative comment.    But I wouldn’t want to say that about such a misunderstood man. ;-)<br>
+<br>
+I would just respectfully add that I chipped in on this thread because I weny through very similar experiences to those MarcoTam describes, yet I’ve become a reasonably accomplished player of ITM in pub sessions and get a lot of enjoyment out of it.  I thought I had something to pass on.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288072" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:01:54">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288074" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Marco, I see you have been a member of thesession for a long time, but just in case you have not been reading the discussions, let me assure you that you need pay no attention to llig leahcim / Michael Gill at all.<br>
+Sometimes he actually has a good point imho, but it is wasted because he is (at least in his posting manifestation) one of the rudest, most ignorant, abrasive, inconsiderate pig-headed, unpleasant and self-important characters I’ve come across in over 10 years on the net.<br>
+I say “one of” - there are worse, and there are those who are mentally ill (which I don’t think he is). I have no idea what he is like in real life, of course. But don’t let him throw you - he is rude and unhelful to anyone.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288074" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bex</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:09:41">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288079" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think there’s a strong correlation between relaxing and playing ‘well’ on any instrument but particularly flute, I suspect. Little tiny things make a big difference.<br>
+Do you play whistle as well? If so, no harm to pick that up in your session and play a few tunes on it. You’ll have fewer problems with nerves and when your confidence comes back up, then pick up the flute for the next tunes you know. This has helped me out - after all, it’s playing music that counts, doesn’t matter what you use.<br>
+Also record the session and identify a few sets that are played anyway regularly and learn these. You might know one tune in a set, so get to the others whether you like them or not!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288079" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Kilcash</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:16:25">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288085" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Also, what sort of a room is your session in? If you are used to playing in a room at home that has good hard surfaces that the sound bounces back off. Then you go to a big lounge or bar or whatever, with loads of space and soft furnishings. Your sound just dissipates between the other instruments and the lack of feedback. So your sound may be better than you think. Of course, what then happens is your blow a bit harder and go sharp etc., <br>
+There have been threads here before about positioning yourself in a session but often enough you’ll see people choosing to sit by a nearby wall or corner rather than in the wide open, so to speak.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288085" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Kilcash</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:24:43">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288087" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Don’t worry about michael too much. He courts controversy. It’s his self-appointed task here.<br>
+Steve and others make good points here. <br>
+<br>
+May I just add my experience. Quite often you trip up (or I do - still do, probably at least a couple of times every session) at a tricky little passage, then it all starts to go pear shaped. Or at least it can, but for me, the way round it is just to keep the rhythm of the tune going. The next time round when you attack the tricky bit again, you might try to play the twiddly bits, or just gloss over it, depending on your adrenaline levels. Main thing though - keep the pace going.<br>
+The points about playing out at sessions rather than at your 4 walls are of course the most relevant, and I’m just adding another little point on “micro-managing” your tunes, but you haven’t wasted 10 years, no way.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288087" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Someone at The Session</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:25:44">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288093" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Then of course there’s that whole other debate about whether sessions *are*, as you put it, PERFORMANCES…………..<br>
+<br>
+(oh, no, here we go again……………………………..)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288093" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Someone at The Session</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:30:07">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288095" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+“I say ”one of“ - there are worse”<br>
+<br>
+Of course, there’s a lot worse. Even on this site, there are “a lot worse” especially when you rub them up the wrong way.<br>
+<br>
+At least, Michael is always honest and “to the point” even if his comments can seem a little abrasive at times.<br>
+<br>
+Anyway, back to the main point. I’m not the most confident “performer” either but, in sessions at least, I think it’s always a good idea to play a set of tunes you think others might know..even one or two of the company…or if you do play a lesser known tune, finish off with one every one will know. This takes much of the pressure off.<br>
+<br>
+Other than that, I think it just develops over time and with experience. Unless you are naturally super confident or arrogant, of course, and who wants to be that?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288095" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+🎻Johnny Jay, Melody Player 🎻</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:31:53">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288097" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+What a fine thread.  Now we’re really rocking.  Aren’t you proud, Jeremy? :-)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288097" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 07:37:02">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288110" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Not sure what you’re getting upset over Steve .. kinda par for the course here with Michael. Thought I read he became a dad there recently.. usually mellows people a bit!! Though there’s sometimes a problem with sleep :(  Is it true? In case you think he has no humanity at all, I’d refer you to this older thread https://thesession.org/discussions/11795/comments</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288110" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Kilcash</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 08:28:56">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288115" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Marco,<br>
+<br>
+It’s good that you are keenly aware of the problem, ie. 50% rule;<br>
+and understand that your ability to play a tune at home, by yourself, is as good as it’s usually going to get.  So when you play out, just playing in front of others, and with others, is going to reduce that some.  Then add in all the other distractors: noise, stress, sound system, mistakes by yourself and/or others, etc. etc.  and you can see why this is happening<br>
+<br>
+There are lots of things you can do about it, besides the good advice of just practicing more, and getting better.  You can try practicing in an environment more like what you will be performing in.  Turn on the TV, so you can’t hear yourself as well.  Play for family and friends.  Practice with a sound system, if that’s how you will be performing.  Basically, get used to the things you’re not used to.<br>
+<br>
+Another thing…. Try to visualize the performance.  Close your eyes and try to mentally walk through the whole evening.  Try to picture all the things that will/might/could happen, and how you will respond to them.  Try to keep the mental picture positive, and see yourself successfully responding to the distractions.  It may seem a little weird to do this, at first, but lots of professional sports players, musicians, etc. regularly do this before the big night.<br>
+<br>
+Hope this helps some.  Remember, playing music in a small group is one of the great pleasures in life, and making music for  others one of the greatest gifts, so don’t be discouraged.<br>
+<br>
+L</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288115" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+lamonster</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 08:44:49">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288119" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+I read a book many years ago by one Robert Ringer. He had a concept  called the Black Ice Ball Principle. It goes like this. In 50 billion years the earth is going to be one giant frozen Ice ball rotating around the burnt out sun. What we are doing that seems so important today won’t matter then. (Before anyone gets alarmed that’s BILLION, not MILLION).<br>
+<br>
+I keep the proper perspective. What am I doing? playing tunes on a whistle in a dive of a pub. It won’t matter how well or rotten I play in a billion years. It won’t even matter by the time I get in my car to drive home! No lives were lost, no eyes were poked out (normally), no transfusions were needed. So I got the b parts of the ballyedesmond polkas mixed up. Big deal. It is what it is, It was what it was. <br>
+<br>
+Relax and have fun. (I didn’t even use spell check on this. It is what it is)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288119" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+feardearg</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:07:02">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288120" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+as someone who Has performed at many folk clubs and festivals,here is my advice,before  you perform  take a deep breath .<br>
+Snark,Why the constant changing of your name.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288120" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dick Miles</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:08:57">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288124" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yeah, that’s patheic all that name changing, all the time.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288124" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Someone at The Session</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:23:52">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288126" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+You get the B parts of the Ballydesmond Polkas mixed up?  Oh, thank God!  I thought it was just me!  :-D</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288126" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:40:31">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288138" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Sometimes the kesh and donnybrook fair gets mixed up AND for a while some parts were “adllibbed” in Drowsey Maggie and Cup of Tea. I could go on. The point is I am still loved and adored (of course sometimes they move the session to another pub and don’t tell me. Sometimes they hide my whistles in the middle of the road outside when I take a break. Those guys! What a bunch of joksters!).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288138" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+feardearg</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:51:59">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288139" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+One thing to remember is that your sense of the passing of time is distorted when you’re nervous.  If you decide to start a tune, you have time to take a moment to take a few “calm, cleansing” breaths and turn your focus to the tune you’re about to play.  Make an effort to start the tune a little too slow for you-- with the natural tendency to rush when nervous, you might end up a the right speed.  <br>
+<br>
+Pick a dead easy tune that you love (have it picked out in your mind before the session) and play it simply, concentrating on giving the strong beats nice strong emphasis and all the time they deserve.  This will help keep you grounded and minimize the “ack! things are falling apart!” feeling.  <br>
+<br>
+It doesn’t matter if you just start one tune that doesn’t turn into an epic set.  If a tune is worth playing, it’s worth playing on its own!  If no one picks up the set after your tune, just smile and say “I love that tune.” <br>
+<br>
+One other thing -- don’t think of playing this tune as your chance to prove to anyone that you’re worthy -- that’s too much pressure and puts you focus on the wrong thing.  Just think about the tune, not about how you’re coming across.<br>
+<br>
+I think the idea that learning to play for ten years at home was a waste of time must have been a joke.  Even if it has resulted in your being sensitive -- for now -- to the difficult environment of playing in a pub, if you enjoyed the process, then it was time well spent.  Good luck!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288139" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+54321</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:56:23">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288140" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+For what it’s worth this stage, i don’t think Michael is far off the mark.  While it is nice to be nice, lets face it, session playing is a bit of a jungle, and the only way to get through it is to start hacking away! There’s no point in slaving at home (for 10 years for God’s sake!) all you’ll develop is your fear factor into a real issue.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288140" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Proinsios</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 09:58:12">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288141" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well I played at home alone for way over ten years and I have no fear factor whatsoever these days.    We are not all the same.  <br>
+<br>
+They merely hide your whistles and switch pubs, eh, feardearg?  You’re lucky.  When I take a break, when I get back they’re playing……..bluegrass…….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288141" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Steve Shaw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 10:03:14">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288146" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+A propos the ten-years-at-home-waste-of-time idea, I think a lot  depends on whether you see the music and musicians existing for the session, or the session existing for the music and the musicians.  “Hacking away” is, I fear, an unfortunately apt image for what goes on in some sessions.  It doesn’t have to be that way, and isn’t everywhere.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288146" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+54321</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 10:13:47">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288152" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Don’t understand what you’re getting at there 54321, but there is a huge difference in the playing of someone who has played with themselves, and one who has opened up to others. It is immediately evident. A session is a gathering of like spirits, a wallpaper player is a lost soul. <br>
+<br>
+There is only one solution.<br>
+ Nerves will go away,  ……………..eventually.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288152" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Proinsios</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 10:31:32">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288159" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Backer -- I agree that a session (at its best) is a gathering of like spirits.   I love them when they’re like that.  <br>
+<br>
+I don’t agree that playing alone makes a person a “lost soul.”  Do you ever play alone?   Don’t you know musicians, or know of musicians, who are essentially solo players?  Playing in the same room as other people doesn’t necessarily result in being  “open to others,” and “opening up to others” doesn’t always result in musical toughness or unflappability.  I think MarcoTam sounds pretty darn open to others.  We’re not talking about professionals, whose job it is to provide good music reliably, under whatever circumstances.  We’re talking about someone having a lifelong encounter with music.  Some of it is in the company of other people.  Some of it is very much solitary.  There’s a degree of introversion in a lot of musicians that I think you’re not acknowledging.     <br>
+<br>
+What I meant is that --for me -- the music comes first.  A session is one of the places where some people have the inclination and opportunity to share music.  You can be a musician making music without a session, but you can’t have a (music) session without music.  And you can’t have music without people spending time practicing alone in their rooms.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288159" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+54321</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 11:00:37">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288160" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+A good thing to keep in mind is that you’ll rarely be satisfied with your performance. other people don’t tend to pick up as many mistakes as you do when you’re playing.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288160" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+rob_handel</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 11:01:09">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288170" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+There was a story in The New Yorker recently about stage fright and the many famous, gifted performers who have suffered from it.  There are drugs that help, evidently.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288170" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+54321</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 11:15:46">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288190" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+usually sold on the premises where the session is</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288190" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bren</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 11:48:00">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288204" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yes - beer is useful.<br>
+I’ve read from a violin teacher that concentrating totally on your fingering as you play helps with jitters.<br>
+Do you know some players that you feel comfortable with? You could invite them to your home or something.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288204" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+morning star</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 12:02:55">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288215" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+It happens to the best.<br>
+Some years ago, several days into a run of “Hamlet” at Stratford an actor dried completely on the opening line (it’s “Who’s there?”, as we will all recollect) and for the rest of the opening scene.<br>
+The great pianist John Ogdon contrived to get the opening bars of a Chopin prelude thoroughly muddled during a performance at the Colston Hall in Bristol.<br>
+Brendan McGlinchey forgot the B-part of one of his own tunes on stage, but laughed and made a joke of it, which is more than the actor and classical pianist did. <br>
+The list goes on …</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288215" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 12:21:04">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288219" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+ilig<br>
+<br>
+you are being to hard<br>
+<br>
+Best advice I’ve gotten. Jump into sessions as fast as you are competent enough to be a tolerated beginner. But then work like crazy because the session folks won’t stay tolerant forever. You have to quickly take responsibility for the quality of what you are playing in the session.<br>
+<br>
+Someone told me that Compentance leads to Confidence that leads to Comfort.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288219" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Damian</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 12:26:56">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288240" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Advice:  1) Play in front of friends/loved ones, especially musically astute ones.  2) Play into a tape recorder.  I find that knowing it is being recorded (even if only you will ever hear it) is psychologically like having an audience.<br>
+<br>
+Finally, just go to a session/enter a contest, etc.  Just get it over with.<br>
+terry</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288240" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+terrywildman</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 13:06:43">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288260" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks for all the great feedback. I found that helpfull. <br>
+<br>
+Playing in my home by myself definately wasn’t a waste. I played alone because (a) my work schedule precluded me from being available for sessions,  and (b) i had very small children at home. It wasn’t a waste because I played Irish music. It is an end in itself. It is one of the main ways I relax. I‘’d listen to a beautiful reel on a CD and then learn it. How cool is that? <br>
+<br>
+It’s just that know my schedule allows me to get out there one night a week so I want to play at the session. I listen (rather than play) for about 98% of the night and thats GREAT for me. Why, because I love the music. My biggest fear is that I’ll trash the music. I’m sure there’s been innumerable discussions here about the person at the session who doesn’t appreciate the subtlety of the music and unintentionally ruins good sets. I just don’t want to be that person. <br>
+<br>
+It’s really more a curiosity than anything. It’s a combination of laughing at myself and absolute horror when I hear myself falling apart while playing a tune in public that I’ve played countless times alone. As long as my schedule permits I’ll keep going to the session. And I assume it will get better and that I’ll actually be a solid addition to the group that’s already there. <br>
+<br>
+What happens is that I start THINKING about the tune too much before I play it. Usually, I don’t really think at all when I play the tunes and I’m able to really enjoy the melody. But all of a sudden, when in public, I start thinking about where my fingers are supposed to go and bad things then happen. It’s weird. <br>
+<br>
+Anyway, the people I’ve met at the session have been quite forgiving and encouraging.  I don’t think the nerves rise to the level of needing a beta blocker but I’ll definately try some of the suggestions here.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288260" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+MarcoTam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 14:08:15">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288271" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Pick a tune you have played a thousand times, close your eyes, and play it like you are visiting an old friend. <br>
+<br>
+Those people around you don’t know your old friend like you do, so feel free to ignore them and enjoy your visit.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288271" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Rick May</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 14:34:51">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288291" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Marco<br>
+ <br>
+Stay away from the drugs…..Once you start taking them, you won’t get off. Be careful because, at least here in the states, alot of docs are in the pocket of the drug companies and believe in better living through Chemistry. And your liver will be shot eventually.<br>
+<br>
+Try and get over it the old fashioned way like everyone is suggesting.<br>
+<br>
+Save your liver for that extra Guiness.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288291" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Damian</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 16:16:43">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288341" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Snark,Why the constant changing of your name.”<br>
+Was that a question? Who? Me?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288341" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bex</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 19:50:29">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288351" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+The more you play out the easier it gets.  A quick google search will turn up plenty of good advice on therapeutic methods for dealing with performance anxiety and shakey hands.  <br>
+<br>
+Regarding the drugs, using alcohol to treat performance anxiety can be an expeditious route to alcoholism for lots of people.  If you’ve done everything else and still have problems, such as shakey hands, there are prescription drugs that have been scientifically demonstrated to help, with virtualy no addictive potential.  <br>
+<br>
+The drugs I’m aware of having been tested are beta blockers, like Inderal (propranolol).  They’re mainly used for high blood pressure.  The performance anxiety dosage is a small fraction of the blood pressure dosage.  Your mileage may vary and virtually all drugs have “side” effects.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288351" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bob himself</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-04 20:56:41">
+June 4th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288452" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Marco - I feel your pain!  Dive in and play a tune or two early, preferably before anyone else starts up. No-one wants to mess up in public, and the good players sometimes like to bide their time before starting up. If (or when) you screw things up, laugh it off even if you feel mortified inside, but don’t apologise, as it just draws attention to shortcomings that may be no big deal to everyone else  - just let things move on.  At worst you will be the foil for the brilliance of the other players, and they’ll appreciate you for it!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288452" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+OldPaint</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-05 07:29:19">
+June 5th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288481" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Red queen, snark, bellman,<br>
+ or whatever your next incarnation might be, do I detect a certain insecurity associated with people disagreeing with your views that prompts these frequent name changes?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288481" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+cathycook</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-05 08:55:27">
+June 5th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288598" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Marco Tam you have only recently started attending this session and they sound like a nice friendly bunch. Just keep doing what you’re doing listening  to the tunes you don’t  know and playing the tunes you do,  starting a set when asked.  This kind of behaviour will be much appreciated.<br>
+ The leader may well remember what it was like to first play out in public and asking you to start a set is a way of forcing you to overcome your nerves, even if there are a few mistakes along the way. <br>
+Just keep your chin up and remember that genius is 1% inspiration and 99% perspiration, all that practice was definitely NOT a waste. When you find your feet in the group by becoming a regular you will be able to put all that practice to good use.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288598" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+flossie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-05 15:32:02">
+June 5th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment288709" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Cathycook speculated:<br>
+&quot;Red queen, snark, bellman,<br>
+or whatever your next incarnation might be, do I detect a certain insecurity associated with people disagreeing with your views that prompts these frequent name changes?&quot;<br>
+No.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment288709" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bex</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-06 00:49:31">
+June 6th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289025" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+What’s wrong with everybody ?<br>
+Can’t you see that Llig has hit the nail on the head ?<br>
+(Although maybe genreally speaking, as in this instance Marco Tam suggests he had no choice)<br>
+<br>
+Learning music is like learning a language.<br>
+Would you learn French by studing it at home for ten years before you went out to try and speak it for real ?<br>
+<br>
+In that sense wouldn’t one year of speaking it with natives <br>
+make the ten years of studying it seem like a waste ?<br>
+<br>
+Ok granted, you’re not going to bust in to quickfire conversations with natices about the politics or religion straight away, but if you’re out there listening and learning you’ll be picking up so much more than you ever will by going through your lingaphone for another ten years.<br>
+<br>
+Now granted there are valid reasons why you can’t get to speak with natives and reasons why Marco Tam can’t go to sessions….so from THAT persective there may be <br>
+little choice but to learn in your room.<br>
+<br>
+However if you DO have the choice, and you decide to spend 10 years with your lingaophone rather than with real people, well then yes relatively speaking that 10 years IS wasted.<br>
+<br>
+As regards to when you do eventually play in public <br>
+“What a shock to discover how my performance evaporates in public …..I play about half as good in public as I do when not stressed” – maybe that’s because you’re trying to <br>
+perform rather than play along with the tune.<br>
+Stop viewing it as your piece that people are watching to see how you play.<br>
+<br>
+Sneezing Little Boy… a little over the top maybe ?…sometimes the way something is written can be taken the <br>
+wrong way. If a poster writes &quot;no, you’re wrong that’s not how to do it, <br>
+you’re wasting your time&quot; then you can get all offended.<br>
+If on the other hand, some one on a one to one who’s trying to demonstrate how  do something <br>
+correctly on your instrument says the exact same thing to your face , we’ll listen intently and take their advice.<br>
+What is it about the written word that makes us all sensitive, and unless Llig starts all soft and <br>
+cuddily you’ll view him as the &quot;rudest, most ignorant, abrasive, inconsiderate pig-headed, <br>
+unpleasant and self-important characters&quot;. A little over the top maybe ?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289025" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+BegF</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-07 03:55:31">
+June 7th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289093" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+“generally” and “native” <br>
+Of course if I was speaking those words you wouldn’t know that I couldn’t write properly !</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289093" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+BegF</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-07 07:39:44">
+June 7th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289105" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+‘’A little over the top maybe ?&quot;<br>
+No.<br>
+He’s been around long enough to know better, and does not appear to be stupid. It can only be wilful.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289105" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bex</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-07 08:02:22">
+June 7th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289114" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Sorry I think it is a little bit over the top and a biteen precious.<br>
+<br>
+Think about it:<br>
+If someone (ie Marc Tam) says he has a problem with playing in sessions.<br>
+He gives us his background which consists of NOT playing in sessions but in his room for 10 years.<br>
+That’s a hint to the problem, no ?<br>
+<br>
+Advice comes back along the lines of  “Keep playing in your room”<br>
+<br>
+It’s hardly the &quot;rudest, most ignorant, abrasive, inconsiderate pig-headed, unpleasant and self-important” thing  in the World to be a bit sarcastic and say “Yeah, great advice <br>
+to the guy there steve, practice at home.”<br>
+<br>
+At the end of the day Llig is giving him the best advice….ie do you think another 10 years of practicing is going to make the difference that the first 10 didn’t make – music is a language - get out and communicate !<br>
+<br>
+It’s “slightly” sarcastic that’s all – sometime we all need a gentle kick in the ars$e to improve.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289114" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+BegF</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-07 08:19:30">
+June 7th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289138" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+I admire Marco. He likes the music enough to keep at it for so long. <br>
+<br>
+I play tunes by myself a lot more than I do in sessions. I enjoy my time learning new tunes and going over them. I really don’t consider it practice time, tho.  I consider it making music. If all other musicians disappeared off the face of the earth, I would enjoy the music all the same.<br>
+<br>
+I would guess that 60% of my tunes I never play in sessions simply because my mates don’t know them (except the guitar players and drummers….they seem to know all tunes).  Have I wasted my time retaining these tunes, having played them hundreds of times “in my room”? I don’t think so. <br>
+<br>
+Having said that (I hate when people say that), I have learned a lot playing in sessions. I have learned to play under pressure, I have gotten tips from my mates, heard tunes I may not have, made lots of friends,  and made others happy. I was too stupid to know about etiquette so I jumped right in at the beginning of my experience. People were kind (for the most part). I knew when to play with gusto, when to play quietly, and when to play not at all. I think that is key.<br>
+<br>
+Solo or sessions….both are ways to enjoy the music. I highly recommend both.<br>
+<br>
+Lastly, I find that the people who are of opposite approach, that is, those who play 100% of their playing time in sessions to be even more bothersome to me.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289138" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+feardearg</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-07 09:32:36">
+June 7th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289153" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Feardearg <br>
+<br>
+I think the issue here is more about someone who NEVER <br>
+plays in sessions.<br>
+Of course it’s alright to do both.<br>
+<br>
+And in fact you can do whatever you like…but don’t wonder <br>
+why sessions aren’t working out for you if you never play in any.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289153" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+BegF</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-07 10:17:54">
+June 7th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289422" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+The issue for me is telling someone with relatively little experience “at best, you have wasted your ten years”. Now *that’s* what I call OTT.<br>
+We probably all agree that getting out there and playing what you can is the way to go.<br>
+The second part of the issue for me is the way Michael makes a habit of being - well, I said it above, no need to repeat.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289422" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bex</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-08 02:45:08">
+June 8th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment289460" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Techniques to circumvent performance jitters</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well first of all it was preceded with “Let’s take this at face value and <br>
+be honest here, and I apologise in advance if you find this offensive …”<br>
+<br>
+As regards to the ten years been wasted, well if that’s what he believes…<br>
+and to be honest it’s not far off the truth,  the guy is better off being told<br>
+this so that he can rectify the situation. I’d want to hear it myself.  <br>
+That last think I want to hear if I’m looking for that advice is<br>
+“ah you’re great, keep going the way you’re going and you’ll be fine”<br>
+WHAT ? The first ten years don’t produce the required result, so you suggest <br>
+another ten maybe??<br>
+It’s dishonest - and the cuddily stuff is only to make the advice giver feel good about <br>
+himself in view of all the other readers…I don’t suggest  being rude for teh sake of it.<br>
+To hell with the other stuff.<br>
+As I said, soemtimes we all need a kick in the ar$e to get on it with it.<br>
+We shoudln’t be so sensitive about it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment289460" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+BegF</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2007-06-08 04:46:03">
+June 8th, 2007</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/13986">thesession.org/discussions/13986</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>

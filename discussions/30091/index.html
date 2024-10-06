@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: Some beginner octave mandolin/mandola questions</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/30091">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>Some beginner octave mandolin/mandola questions</h1>
+
+<footer>
+<span class="discrete">
+Added by _Christof on 
+<time datetime="2012-06-20 01:41:52">
+June 20th, 2012</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment644255" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+So, I have contemplated purchasing an octave mandolin/mandola (whichever term you prefer) for quite some time, and I made the decision to order a Trinity College TM-325 octave mandolin via a local music store. I have a few questions that I was hoping a person with some experience with such instruments might be able to assist with. I decided on octave mandolin both because I want to get back into playing stringed instruments regularly again, and also because it seems a more versatile (style/genre-wise, that is) instrument than a whistle or bombarde, and one I can use for a variety of folk styles and my own playing and experimenting. <br>
+<br>
+My first question relates to the strings. From what I have read, the strings that come with this octave mandolin are not so great, so I was hoping somebody could recommend me a good set of strings. Price is not really an issue (to an extent) , but I would like to know what my options are, as far as this goes, and what the qualities of each would be. <br>
+<br>
+From what I have read, a thicker string than the ones the OM comes with are recommended. I would prefer the best sounding strings I can get, without requiring me to do any permanant modification to the instrument, for now. Do the thicker strings absolutely require modification to the nut? Is it possible to go a bit thicker without having to do such a modification? Is the instrument suitable for most size strings as is? <br>
+<br>
+Another thing I should point out, is that I would prefer, for now, to have the lowest pitched string tuned in octaves, and the rest in unison. After I have played it for some time, I may make the decision to do yet another course in octaves, or I might make the decision to do them all in unison. But from the start, I would like it to be gG DD AA DD (i’m not sure if i’m writing this properly, but I want the lowest pitched string in octaves, is my point) . Also, does having the lowest string in octave pair require any modification, or can it be strung that way without performing any alterations to the instrument? <br>
+<br>
+This brings me to my next question, about the tuning. While I know that GDAE is the standard tuning, from what I am reading, it seems GDAD would be more suitable for me. I will want to learn both melody and rhythm on the instrument, and I would prefer that I do not need to retune each time I switch, as I would prefer to be able to switch in the middle of a song. I intend to use this instrument for other styles of folk, my own compositions/messing around, and of course irish folk music, as well.<br>
+<br>
+What I keep reading is GDAD for rhythm, GDAE for melody. However, the only reasoning I have come across so far, for not using the GDAD for melody, is due to the long stretch for some notes. Is there any reason aside from this, why it would be a bad decision to use GDAD if I am playing melody (and occasional rhythm) ? I have played fretless and acoustic bass for 9 years, prior to ever becoming interested in folk, from the age of 13. That being said, I would not say i’m a pro player, however, I am accustomed enough to the stretch and pinky finger usage on a long scale bass, so I would not imagine the stretch on this would compare. I do not mind a bit of a pinky workout. Can anyone tell me the cons of using this tuning if I am intending to do melodic playing also? If the only con is the stretch issue, I would say my decision on this factor is already made, but, it would be nice to hear from some experts to what extent this factor does affect the difficulty of melody (that is, until I can see for myself. I can always go back to GDAE if it creates an absolute impossibility) . <br>
+<br>
+Another thing I wanted to ask.. - The musics store said they will set up the instrument for free, so I was wondering, are there any specific things I should look out for, regarding if the set up was performed properly and everything is in proper working order and needs no further setting up? I haven’t done any prior business with this instrument store, so I am not sure how professionally set-up the instrument shall be.<br>
+<br>
+And back to the strings question for a moment- If there are no widely accepted “best” strings, I would prefer to hear a bit about the properties (of both sound, and “feel” of the strings) of the different options, so perhaps I can make a more educated choice for my first strings on the instrument. Also, I assume the strings on an octave mandolin do break more easily than they might on a bass, but, generally how sturdy are they? Should I worry about the highest courses, or the G string I will have strung in octaves breaking? I have not even started looking into strings yet, because I decided to ask here first so some more seasoned players can give me their input on the matter. I have no idea what the prices run. The only ones I saw so far were extremely extremely cheap (compared to the strings I use on my fretless bass) . How much are the top and mid quality strings for this instrument? I prefer to get the highest quality strings I can get, unless they cost something extremely excessive.<br>
+<br>
+I will probably have more questions regarding the instrument, but I have just gotten off a 12 hour work day (so please excuse if i’ve been a bit wordy/rambling with this post) . I must now go to sleep, but I will read responses and post any further questions tomorrow. <br>
+<br>
+Thanks in advance,<br>
+                                -Christof</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644255" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 01:41:52">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644262" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+String types: Even the best mandola strings are a lot cheaper than bass guitar strings (everything is cheaper than bass guitar strings) The tonal difference between brass/bornze/phosphor etc. is the same as for guitars and you can look it up, but on an instrument like the Trinity College the difference won’t be that great. Start off with ordinary phosphor bronze, and once you know what you are doing you can experiment if you want, the strings are cheap enough.<br>
+<br>
+String gauges: Manufacturers generally know better than anyone else what gauge strings suit their instruments in the hands of most players. So start with the gauges they supply, and only change them once you have got used to it and decided that a change would suit your individual style better. The nut slots are normally wide enough to accommodate any strings you are likely to use in standard tuning, but if you fit heavier strings and find they are sticking when you try to tune the instrument, then the slots need widening. (you’ll also fing you need to move the bridge slightly when you change gauge, to keep the intonation right).<br>
+<br>
+One word of caution though: The barring on Trinity College instruments is woefully light, and if you put heavy strings on, you may well find the top sinks and the instrument becomes unplayable after a very short time.<br>
+<br>
+Octave G string: Why? Using one octave course is a bit like having a guitar with 5 nylon strings and one steel. Start off with unisons, and only switch to octaves if you find the bass courses are much weaker than the trebles. You’ll be able to experiment with an octave string without modification, but if you decide to make it permanent you will want to change the nut and get a rather fancy bridge saddle made (or put up with bad intonation up the neck). <br>
+<br>
+GDAE/GDAD: You’ll have to answer that one yourself. It only takes a few seconds to re-tune, so try both ways and see which suits you best. For me, the loss of speed playing melody in GDAD far outweighs the gains of simpler chord shapes, so it’s GDAE for me. But it all depends on what music you play and how you play it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644262" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 03:38:23">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644263" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+I use a GHS Medium Set, the G&amp;D strings are in octaves rather than unison. I have it tuned GDAD but I use it mostly for accompaniment. If I were using it for tunes I would use GDAE. You’ll also find different styles/thicknesses of plectrum will alter your tone, as will the position in relation to the bridge at which your picking hand sits. Close to the bridge+ more treble. A lot of the questions you ask come down to personal choice, e.g string thickness/tuning. Maybe experiment with different strings/picks? Incidentally, I buy my strings online from Elderly Instruments, they have a large range of everything. Please note I have no connection to their business.<br>
+The other thing you might find is that some instruments sound much better with a unison tuning rather than octave tuning or vice versa. I guess it depends on what sort of sound you’re after.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644263" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Tony O&#039;Rourke</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 03:43:28">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644264" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+I would recommmend Newtone strings - not cheap but very good sound. You can order in bulk from their own website or buy individual sets from Eagle Music in Huddersfield. They have a website.<br>
+<br>
+If you want to play tunes I would recommend keeping the top string tuned to e otherwise you will have a large stretch. I would recommend also experimenting with ADae as a tuning - works especially well if you keep the octave strings.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644264" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ian stock</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 03:47:14">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644268" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+I was interested in your point of having the lowest course in octave, In my limited experience playing the melody with octaves can be problematic, which is why they are more favoured by rhythm players. that being said, there are many fine players who seem to manage very well.<br>
+More to the point, I understand that the string grooves on the nut (and to a lesser degree the bridge) are cut to accommodate either unison or octave so changing from octave to unison is easy, the other way isn’t. I expect you have already played with the arrangement you suggest but if not, I suggest you try both systems.<br>
+GDAE/D seems to be a matter of personal preference.  A lot of people I see with dropped D tend to rely more on a capo to change keys, which is ok if that’s what you fancy.<br>
+As to strings, I use a heavy gauge and much prefer a wound A string (018) as in my opinion it gives a much fuller sound. Again, you will need to try a few sets.<br>
+OM strings can break but if they do they are usually faulty, too old or you are playing too hard.<br>
+Whatever you decide on, I hope it brings you joy.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644268" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+len</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 04:09:30">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644269" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+To check the shop setup:<br>
+<br>
+To check nut height, fret each string between the second and third fret. Look at the gap between the sting and the first fret - if it is touching the fret the nut is too low. If there is a visible gap of more than about 2 though the nut is too high. If you aren’t sure if the string is touching the fret, tap it lightly with you fingertip. If it is OK you’ll hear it ‘click’ against the fret, if it’s too low you won’t.<br>
+<br>
+To check the truss rod adjustment, fret the G string at below the first and above the 12th frets, and look at the gap between the string and7th fret - there should be a visible gap of about 20-30thou. Do the same on the E string to check the neck isn’t twisted.<br>
+<br>
+To check the intonation, lightly touch a string above the 12th fret and play the octave harmonic. Check that it is exactly the same pitch as the note with the string fretted at the 12th. Repeat for all strings, and if they aren’t all exactly in tune, either the bridge needs moving or the saddle needs some work.<br>
+<br>
+To check the action height, play an open string repeatedly, gradually getting louder. It should start to buzz on the frets when you are hitting it just a bit harder than you ever would in normal playing. If it doesn’t buzz at all, or only when you hit it really hard, the action could be lowered. If it buzzes within the range of normal playing volume, the action is too low and needs to be raised. Repeat this with each string. (This is slightly harder with a mandola than a guitar, because you need to be able to distinguish between the sound of a string buzzing on the frets and that of the two strings of the course clashing together. If the strings are clashing within the normal playing range, the string spacing needs adjustment).<br>
+<br>
+Finally check that the frets are level. Play up each fret of each string at near maximum normal playing volume, and if you get a buzz at one or more particular frets, then the frets need levelling.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644269" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 04:32:51">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644277" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+just get the thing and start playing, in time you will figure out what suits you best, its trial and error a lot of the time</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644277" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+palethinboy</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 05:36:27">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644321" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+the reason they say GDAE is for melody is because that’s how a fiddle is tuned. If you play fiddle, you just play the tune as it lays on the fiddle<br>
+<br>
+GDAD is fantastic for backing. The drones you can get with the double courses of strings on a high flying reel are definitely worth the price of admission<br>
+<br>
+Like Ian said, try AEAE too. That’s how we play out in the country back here in the states. <br>
+<br>
+most mandolin strings are going to be way cheaper than your bass strings. That’s nothing to worry about. FWIW, I use GHS and D’Addario because that’s what Randy carries at his shop. They both sound nice and last pretty well.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644321" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Nate Ryan</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 09:14:00">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644400" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+The two octave mandolin players I have played with the most (one is sadly no longer among us) both use GDAE, and do just fine with backing.  There seem to be plenty of good choices for chords and inversions and working up the neck.  So I wouldn’t say that it should be reserved simply for melody playing.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644400" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+AlBrown</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-20 18:58:48">
+June 20th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644411" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanky you all very much for the replies, they have been useful.<br>
+<br>
+And indeed Al. I am sure I will experiment with various tunings eventually, however I am wanting to experiment with something that has “DAD” in the tuning to start off with, for various reasons, such as having a string I can utilize as a drone in a compatible note, etc. <br>
+<br>
+I was thinking on GDAD, but ADAD also interests me. I had actually thought of this before, but I was worried that tuning the top string up to A might put too much stress on the neck, and perhaps moreso if I have the top string tuned in octaves. Any words on that? <br>
+<br>
+And the reason I want to tune the top string in octaves is- I will be playing primarily the melody with the DAD strings, but I might be using the top string for some deep accent notes! And some other things a bit hard to describe with how I play. Also, i thought it might be beneficial when it comes down to chording. <br>
+<br>
+Ah, one thing I wanted to ask about. <br>
+<br>
+“One word of caution though: The barring on Trinity College instruments is woefully light, and if you put heavy strings on, you may well find the top sinks and the instrument becomes unplayable after a very short time.”<br>
+<br>
+Sorry, but I can not understand what you are saying here. Can you say in a different way? Do you mean this could cause permanent damage to the instrument? 0_0 The main reason I made this thread is to make sure I don’t do anything that will harm the instrument. I have wanted an OM for quite a long time, and now that I am making the investment, I certainly want to make sure I do not do anything that will cause the instrument harm! Could you elaborate a bit more on this, and explain a bit better what you mean? I am sorry to say I do not understand very well all of the terminology used here.<br>
+<br>
+I do not necessarily want to put “heavy” guage strings on it, however, I would prefer something perhaps a bit heavier than the strings that come with the OM, as I have read recommended various places. From what I have heard, the strings that come on it are too light, and there is a sizable improvement from going a bit heavier. <br>
+<br>
+Also, since I am not very familiar with brands and the exact sizes of strings used, it would be very very helpful if I could hear what exact brand strings are ones I might want to be looking at, so I can search for them on the internet.. also, to hear in numbers what the sizes available are might help. <br>
+<br>
+And skreech, thank you much for the detailed information on what I should be looking for. This is exactly the type of information I was hoping for, and this is extremely helpful! <br>
+<br>
+And to everyone else, your input has all be of great assistance. Please do keep the replies coming, as any information whatsoever regarding the instrument is going to help me out a lot. <br>
+<br>
+It turns out, I thought the instrument would be shipping to the music store on the 27th of the month, but they called and told me it shipped today! So I could have it anytime between friday of this week, and tuesday of next week… So, I will be playing with the strings that it comes with for some time, and can evaluate if I might want to try something else or not.. but I am guessing I most likely will. Even if the strings will not make a hugely significant difference in tone, volume, or other factors, I am still interested in getting the best choice possible for me. Any little thing I can do to improve the instrument, I will want to do. I will probably eventually be looking at other upgrades for it, but for now, strings are an easy thing I can do , even if it does only improve things a little bit. <br>
+<br>
+What would really like to know about, are what was mentioned in the bit I quoted. If something is going to potentially harm the instrument, I definitely would like info on that, and unfortunately I do not understand at all what was said in that paragraph.<br>
+<br>
+Also, the thing about the ADAD tuning with the A in octaves… Is that going to put too much stress on the neck for an instrument like a trinity college? If so, is GDAD going to stress the instrument too much, with the G in octaves? Does having one string in octaves even stress the instrument more at all, or am I incorrect in that assumption? <br>
+<br>
+Basically, a big purpose of this post is to determine what things I have the freedom to change and do on the instrument without either A. Irreversibly modifying it in a way that would make me required to stick with the change permanantly, or B. Damage it. I’d like to know what my boundaries are with types of strings and tuning, with the instrument as it will be upon recieving it. <br>
+<br>
+Again, very thanks for all the replies. I am beyond excited to get this instrument and play with it. I will undoubtedly be going to work with bags under my eyes for quite some time after recieving it :p . <br>
+<br>
+PS. -len , I looked at your profile, and realized that I am familiar with you from your youtube videos, from before I ever spent much time on this website. Small world! I enjoyed them, and hope you shall post more.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644411" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-21 00:19:51">
+June 21st, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644460" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Personally I play an Ozark ( Trinity College/Johnson/etc ) bouzouki; I’ve heard Octave mandolas and find the slightly shorter scale length and consequent heavier stringing leaves less top overtones, which reduces the pleasure ( to my mind ). However the octave stringing on the bass string seems a good idea to restore this slightly.<br>
+The supplied strings for OM are pretty much the required gauges; my preference is for John Pearce strings but there’s not a lot of difference; normally the gauges are printed on the packet so you can decide if you want to change something slightly. It is true that the strutting on the TC/whatever instruments is not ove-heavy; this gives part of the tonal quality of the instrument; a strutting able to withstand very high pressure would dampen down the response; you may find after a while that you want to upgrade anyway.<br>
+As to tuning; horses for courses. I use GDAE with octaves on the two bottom pairs, and have no trouble playing tunes or accompanying; also I can pick up a mandolin and do not have to change gears mentally to play a tune.<br>
+Finally; it’s not actually an enormous investment, why not just enjoy it without pre-judging all the problems ?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644460" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Guernsey Pete</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-21 08:49:17">
+June 21st, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644470" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+&gt;&gt;“One word of caution though: The barring on Trinity College instruments is woefully light, and if you put heavy strings on, you may well find the top sinks and the instrument becomes unplayable after a very short time.”<br>
+<br>
+Sorry, but I can not understand what you are saying here. Can you say in a different way? Do you mean this could cause permanent damage to the instrument&quot;<br>
+<br>
+Yes. <br>
+<br>
+The root of the problem is that they uses an X brace system like a guitar. That system is designed to withstand the twisting force that a guitar bridge exerts, not the downward pressure that a floating bridge and tailpiece exerts. Added to which the bars themselves are too light.<br>
+<br>
+It’s like having a floor with joists that are too thin and too far apart. Under light loads that makes the floor ‘bouncier’ (which is why TC instruments are made that way - it lets the soundboard vibrate more) But if you increase the loading on that bouncy floor, it will break more easily than one with the proper joists.<br>
+<br>
+If you look at the soundboard you will see that it isn’t completely flat, it is slightly convex. If the strings are too heavy (and often even with medium gauges on these instruments) the downforce on the bridge pushes the soundboard down flat or even concave, and the action height also comes down. Once the soundboard goes concave the instrument is dead ( if you push down on a convex surface like an arch, you put it into compression, which holds everything together. If you push down on a concave surface you put it under tension, which tends to rip everything apart).<br>
+<br>
+So keep an eye on that soundboard curvature and the action height, and if you see it starting to go down, switch to lighter strings.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644470" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-21 10:15:13">
+June 21st, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644486" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Finally; it’s not actually an enormous investment, why not just enjoy it without pre-judging all the problems ? ”<br>
+<br>
+Ah, but I will indeed be enjoying it, quite a lot really. I just try to take the best possible care of my instruments, and want to know what things will not cause it harm. “enormous investment” really depends on how one defines it. For a 23 year old who is about to spend quite a large amount of money to move to move from southern Indiana to southern Brazil in the next couple of moneths, and who has just bought two burke whistles this year, 588$ is a fair bit of money. But, even if the instrument were only 100$, I’d still want to be careful to not break it. I can’t help it, i’m protective with my instruments. <br>
+<br>
+So, based on this responses, is the octave courses on the bass string probably going to be harmful? If so, I shall probably be avoiding that. Will definitely be avoiding any heavier gauged strings, based upon these responses, but i’m a bit unclear whether or not an octave course would be causing such stress or not. <br>
+<br>
+I’m definitely going to play around somewhat with the strings it comes with, to decide if I even would want to change them to a much different type. I am just hoping the ones I recieve with the instrument are playable. I have read that due to sitting in a warehouse for some time, these instruments sometimes arrive with strings that are somewhat corroded. <br>
+<br>
+Thanks again for the responses.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644486" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-21 11:40:47">
+June 21st, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644552" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+I wouldn’t worry about the octave course on the bass strings - on the bouzouki set the octave strings are the same as the plain strings on the top two courses, ie but tuned to G and D instead of A and E, so they are slacker.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644552" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Guernsey Pete</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-21 19:56:13">
+June 21st, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644559" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Ahh, alrighty, thanks. I just wasn’t sure if since they are octaves apart, that the higher string of the course would be pulling with twice the tension, since it is an octave higher as the string that would normally be positioned here! I wasn’t sure if perhaps a bouzouki, even from the same manufacturer, is perhaps designed for such tension. But, I will take your word for it.  <br>
+<br>
+So, I will go with the octave course for the bass string.. but, I won’t be going for the thicker strings as I first decided. Isn’t worth ruining the instrument.!<br>
+<br>
+I won’t be doing any string changes for maybe up to a couple weeks though. I’m just going to play with the ones it comes with and learn some tunes and get a bit of a feel for the instrument, so I can better determine if I would really want to do the octave thing or not in the first place.<br>
+<br>
+ I’m really quite excited to get this! Hopefully will have it on saturday! Will surely check in here to give an update on how it goes.. if I can stop playing it for long enough! <br>
+<br>
+After I got my burke whistles, I didn’t leave the house for some weeks after that, and still don’t go a day without playing them ( it’s an aluminum A , and a brass session D , both with thumb holes for C) .  I have a feeling it will be the same way with octave mandolin! If only I had four arms, then I could play both instruments at the same time. <br>
+<br>
+Thanks everyone! But please, if anyone has any wise words regarding anything to do with anything i’ve mentioned, or anything to do with octave mandolin in general, please share your words here! <br>
+<br>
+For now, some whistle, then some sleeps though! <br>
+<br>
+Xau!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644559" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-22 00:43:34">
+June 22nd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644564" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hi there,<br>
+<br>
+I play the bouzouki using GDAD for a mix of melody and chords - not sure if your mandola neck will be the same length as mine, but I find it very manageable (bit of a stretch but I have a long-ish span). Good luck.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644564" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bhanxtyboy</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-22 03:26:29">
+June 22nd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644643" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+The mandola neck is about 3 frets shorter.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644643" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Guernsey Pete</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-22 19:04:45">
+June 22nd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644657" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Indeed. The scale on mine is something around 20 3/8 inches. I actually chose it over a bouzouki for the shorter scale length. I guess anything over 23 inch scale falls under the category of bouzouki?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644657" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-23 00:26:49">
+June 23rd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644721" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Seems as good a thread as any to post a mandola question… Is the technical term “OCtave Mandolin” or “Mandola” and what’s the difference…. I just call it the mandola all the time, but am just curious.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644721" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Eimead</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-23 11:04:52">
+June 23rd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644729" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Technically, a mandola is a member of the mandolin family, as a viola is a member of the violin family, similarly tuned a 5th down from the -in instrument, CGDA, and with a slightly longer scale. Some people argue that the -a suffix indicates the original instrument, and the -in is the later, smaller, version.<br>
+Thus, long before the folk revival, you could buy a (usually european ) mandola, with a body a bit larger than a mandolin, and a slightly longer scale length.<br>
+The tenor banjo was of course originally tuned like the mandola. The first users of the tenor banjo in Irish music played it as normally tuned, but soon re-strung their instruments and tuned them an octave below the violin, they also preferred the slightly longer scale, 19 frets as opposed to 17. Thus, when people started clamouring for larger mandolins the terms ‘tenor mandola’ and the ‘octave mandola’ came to be used by people unaware that mandola was perfectly accurate already, and ‘octave mandolin’ would be more precise for the longer scale instrument. ( Then you have the ‘Irish bouzouki’, or as I prefer to call it, the long-necked octave mandolin. ).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644729" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Guernsey Pete</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-23 12:02:36">
+June 23rd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644814" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Indeed. And don’t forget cittern! Ah.. quite a confusing family of instruments indeed. <br>
+<br>
+Speaking of cittern, one reason I actually decided to get this octave mandolin is because if I get good with it and stay dedicated, I hope to reward myself with a more quality-made 5 course instrument in perhaps a couple of years!<br>
+<br>
+Also, regarding the topic of the post, I am actually rather disapointed. I expect the instrument certainly arrived today, but I guess the shop is waiting until monday to call me to get it. A shame, because I was hoping to have my weekend to play with it! <br>
+<br>
+Ah well.. found lots of good musics to learn on whistle until then. The anticipation will just make it better, I suppose. <br>
+<br>
+In addition to the topics I have mentioned, can anyone recommend a good type of capo? Or do all the clamp-style ones function and work out pretty much the same? I actually have one that I let a friend borrow for guitar quite some years ago, but we live in different towns, so it might be some time before i get it back. So, I’ll probably just be buying a new one. So any words on capo? <br>
+<br>
+Also, if anyone has any favourites tunes that you think especially would sound good on stringed instruments of this family, feel free to let me know. Preferably Irish, but i’m open to all sorts of folk, especially breton and french tunes, or swedish. When I first get the instrument, for awhile I will probably just be learning tunes I am familiar with, and can already play on whistle.. However, it would be fun to have some new reels or jigs to explore after I get some familiarity with it!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644814" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-23 23:54:20">
+June 23rd, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment644890" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+I use a g7 newport capo for both guitar and mandola… it’s pretty good but in fairness, most capos are grand as long as they’re not the cheapest ones.<br>
+<br>
+ you can get shorter capos specifically for banjos etc, but if you’re a guitarist too, may as well have both covered.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment644890" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Eimead</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-24 09:56:39">
+June 24th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment645561" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+I prefer banjo capos because of the flat fingerboard. I like the paige because I can’t lose it!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment645561" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+matt</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-27 21:19:37">
+June 27th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment646032" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well, I got the instrument, and am having a lot of fun with it! Strangely enough, it already has wound strings on the A course. The guy at the shop said it came that way. I am really quite happy with it. It sounds much better than I imagined from how I heard it in youtube videos and whatnot. I still want to do the octave pairs on the low G string.. I’d like to make it a bit more lively, but, that can wait awhile. I am having fun playing with it as is .. and none of the songs i’m learning on it right now even seem to involve the low string for the melody anyway. Just playing with it in GDAE for now. Will switch to GDAD when I put new strings on it in a few weeks. Definitely sticking with the wound string for the A though, as suggested. Really quite happy with it. <br>
+<br>
+Also, I am happy with the string thickness as is. I see no need to go heavier anyway. The strings are actually much thicker than what I thought “light gauge” would be, at least compared to light gauge strings on a guitar. I think trinity college might have changed the strings that their instruments come with. The person at the shop said these strings came with it, and when I asked if those were light gauge, he said something indicating he did not think they were. Also, I didn’t think these came with wound strings on the A. But, all courses except the highest are wound strings. <br>
+<br>
+One negative though, is I thought it came with a case. The person at the store said it did not come with a case, and showed me the box it came in, and tried to tell me they sent it to him in a thick cardboard box stuffed with crunched up paper, and that’s how he got it . Not sure if I believe him on that.. but perhaps. <br>
+<br>
+Anyway, the instrument is in good condition, and plays quite nicely. I’m glad I got it! Also it looks a lot nicer than what it seemed in pictures and on videos.  Will just get a nice case when I go to put new strings on it. Until then, I am keeping it in a spare bag for another instrument that is well cusioned, when i’m not playing it. It seems to be set up quite well. I checked out every fret, and no buzzing on any of them, including the ones far up the neck. <br>
+<br>
+Ah, and the capo I got is a “kyser” brand. Seems to work fine. <br>
+<br>
+I’ve spent today trying to learn cooleys reel and golden castle hornpipe on it. If anyone has any suggestions for good tunes that sound especially good on stringed instruments, let me know.. Oh, but nothing extremely hard. I’m still getting used to this. The strings are quite close together! I will say, it is smaller than I expected. I don’t seem to have any difficulties with the reach, so definitely the GDAD won’t bother me. <br>
+<br>
+Also, any good resources for a beginner on this instrument would be appreciated. Right now i’m just getting used to it, and going through tunes rather slowly and learning to not hit the wrong strings. Having more trouble with the right hand than the left, so far.. but, it’s only been a couple days with it!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment646032" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-30 21:09:07">
+June 30th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment646033" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Ah, the one and only thing I noticed that I was wondering about with the instrument…. <br>
+<br>
+On the G course, the first g string seems a bit looser than the one below it. Is giving me no problems playing, and I didn’t notice any problem when checking the set up as recommend here. However, if I tap that string with my finger, it gives a bit less resistance to movement the the other G string. If I tap both g strings lightly, one seems to move a bit more easily than the other. Is not causing any problems playing though. Just seems to have a bit less tension holding the string tightly, perhaps. Wasn’t sure what this could mean, or if it’s even a problem, though.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment646033" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-30 21:17:53">
+June 30th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment646034" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Some good info on octave mandos etc at http://www.mandolincafe.com. There’s even a CBOM (citterns, bouzoukis, and octave mandolins) forum.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment646034" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-06-30 21:43:37">
+June 30th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment646134" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment646134" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+_Christof</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2012-07-01 14:03:47">
+July 1st, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment675721" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Some beginner octave mandolin/mandola questions</h3>
+<div class="e-content" itemprop="text">
+<p>
+Just read all these posts. There is a wealth of info here. I’m a beginner bouzouki-er myself and string my TC zouk like an octave mandolin with octaves on the 2 lowest courses. I haven’t noticed any ill effect on the top. I did adjust the truss rod a 1/4 turn and adjusted the bridge position for intonation. I’m taking note of John Pearse and GHS string sets because I haven’t found a set with gauges I need (24/40,13/28. 16/16, 11/11). I’ve been using banjo and bouzouki loop end strings to make a set. I have replaced my nut with bone and will soon replace the bridge because I have to re-do the string slots and bone sounds better. I use both GDAE and GDAD (I use lots of alt tunings on gtr so I’m used to them) for rhythm and solos. I’m finding OMs work well in blues, rock, and bluegrass as well as trad folk. My zouk, or OM, has inspired me to write tunes for it  in all of them in just a few weeks. I hope you have as much fun and luck with your instrument as I’m having with mine. Thanks for the great info</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment675721" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Kerry Spitzer</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-03-12 08:47:52">
+March 12th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/30091">thesession.org/discussions/30091</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>

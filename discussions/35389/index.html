@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: Fiddle advice….</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/35389">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>Fiddle advice….</h1>
+
+<footer>
+<span class="discrete">
+Added by David Levine on 
+<time datetime="2015-01-15 15:41:43">
+January 15th, 2015</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment748636" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Found on another forum….  <br>
+&quot;There’s a huge disparity in the amount of rosin different people use. Someone did a test (reported in one of the journals, maybe CAS?), in which they rosined a bow and then tested its stick-slip friction, tonal qualities, etc., then played it for a gazillion hours. Guess what? A few strokes will last for something like a week, depending on how you play. I hardly use any rosin at all. Just a couple of strokes of Hill dark once in a while, and I’m completely satisfied with the bite I get. Try it. You might be surprised. Now if you do fiddling, you might have to use white spray paint to get that authentic look, but you sure don’t need all that rosin. <br>
+I rarely rehair either until too many hairs are broken. I just clean the hair with alcohol if it gets dirty (don’t get any on the stick).  Just keep your fingers off the hair, especially near the frog. I don’t break many hairs either. Either I have gotten better at bowing since my childhood, or I get better hair now. Don’t know. After you clean a bow, you need to rosin a lot, to get the rosin distributed over all the hair. But then just take your thumbnail and stroke it across the hair to knock off the loose stuff. Some people “whiff” the bow through the air to do this…&quot; <br>
+I agree with all this except for the bit about the spray paint. I just use a paintbrush and whitewash for that authentic dirty fiddle look.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748636" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+David Levine</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 15:41:43">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748638" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I have heard salt in your food as an analogy for rosining your bowhair….easy to add, impossible to remove. Also rosin on the fiddle is actually really bad for your fiddle. White fiddles were common when cleaners weren’t but the difference in tone when you clean the instrument is palpable. If you look at a fiddle, it kinda has the shape of a woman and women, in general, like to be clean!! :-)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748638" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+suzyfiddle</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 16:38:53">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748650" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+That analogy doesn’t work. I like clean fiddles and dirty women.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748650" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 18:58:16">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748657" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+@ Mark M: Danger, Will Robinson! Danger!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748657" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+postie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 20:06:07">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748659" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I disagree, because when I use rosin, I am there for a while just swiping it up and down, and I definatly notice a difference. Every time I take my bow out of its case, I top up on rosin. I do, always, clean my fiddle very often. I find if I don’t do this, the rosin sticks, and turns black, hard and, quite distracting as I play, and after a while, I just can’t clean it off.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748659" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Nellie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 20:39:33">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748662" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+How often do you play and how long do you play for Nellie? Using rosin every time causes a build up and makes my fiddle sound raspy. <br>
+<br>
+@Mark M…LOL</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748662" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+suzyfiddle</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 21:13:01">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748663" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’m an occasional rosiner.  I think, coming to the fiddle from the mandolin, I’m used to just taking the instrument out of its case, tweaking the tuning a bit, and playing  (I still frequently forget to put the bow away, even after 10 years on the fiddle - and sometimes, on getting the fiddle out, I absent-mindedly fumble around in my pocket for a plectrum).  I put on rosin when I feel the bow getting slippy - but I generally load up fairly heavily.   Logically, little and often ought to be better, since it keeps the amount of rosin on the hair more or less constant.  But logic can sometimes get in the way of music.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748663" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+CreadurMawnOrganig</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 21:13:03">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748664" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+…or rather, music can get in the way of logic.<br>
+<br>
+BTW, I’ve just remembered the title of this thread.  Don’t, on any account, take my practices as *advice*.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748664" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+CreadurMawnOrganig</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 21:14:45">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748669" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I agree with David Levine’s original post - there’s really no need to use a lot of rosin, and with a decent technique you won’t break many hairs either. <br>
+<br>
+Constant over-rosining just makes the rosin crystallise on the bow, lessening it’s grip - which then tempts you to put yet more rosin on in an attempt to get grip, and fail - and so the cycle continues.<br>
+<br>
+Been there, done that, learned the hard way :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748669" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 22:12:04">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748671" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Logically, little and often ought to be better,</h3>
+<div class="e-content" itemprop="text">
+<p>
+…but in actual fact, little and seldom is better….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748671" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+David Levine</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 22:16:01">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748672" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+@Jim, what sort of bad techniques cause the hairs to break? I’ve recently started to break them a lot more than I used to do.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748672" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 22:17:44">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748680" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I play a 17 inch viola and since airs and slow tunes are my thing I hardly use any rosin. A few strokes every 3 days at most. Does using less rosin make you guys have to press harder on the strings to get a sound out though?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748680" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+the-wise-troll</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 23:01:16">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748683" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Two common problems that break hair are catching the bridge with the bow (particularly if you use those plastic tube bridge protectors that often come with E strings). If that is the problem it will be mostly hairs on the side of the bow nearest your face that are snapping, and if you look at the end of the broken hair with a magnifying glass it is a clean break - the hair has just snapped. The other problem is insufficient tension for your playing style. If the hair isn’t tight enough the stick hits the string, and the ribbon of hair gets mashed between stick and string. If this is the problem it will be mostly hairs in the middle and outer edge that break, and under the magnifying glass the broken ends look split and frayed.<br>
+<br>
+Over rosining is a crime that many, many fiddlers are guilty of. When you apply rosin the heat of friction between block and hair is sufficient to melt the rosin, so that it actually coats the hair (there are some electron microscope pictures on the interweb somewhere, but I can’t be bothered to look for them.) The dust occurs as the rosin coating on the hairs shatters and comes off, what is actually on the hair is a homgeneous coating, not particles. The best way to remove excess rosin is to slacken the hair, stick a pencil or something between hair and stick, push faily hard against the hair and run it up and down a few times, so that it ‘kinks’ the hair along its length and shatters the rosin coating, you can then wipe the dust off with a soft cloth.<br>
+<br>
+In extreme cases washing with alcohol is ok, but unless you actually soak the hair and clean it very thoroughly you always get left with some rosin which is partially dissolved by the alcohol and sticky. As the alcohol evaporates the hairs tend to stick together. It’s best to leave it a couple of hours for the alcohol to evaporate completely, then comb the hair to separate the individual hairs before re-rosining.<br>
+<br>
+Don’t ever wash the hair with water, or any water based solution (it won’t do any good anyway, rosin doesn’t dissolve in water). When a bow is haired, the hair is initially soaked so that it relaxes. Once the hair has been tied and spread into the ribbon on the bow all the hairs are inevitably slightly different lengths and thus tensions.  So once dry the hair is run over a flame, which causes the hairs to contract to exactly match the distance between frog and tip, and when the hair cools it sets at that length so you land up with even tension. If you ever wet the hair it will relax back to its original length, and you’ll land up with a bush of hairs that are all different tensions.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748683" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-15 23:21:44">
+January 15th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748692" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks Mark. I learned a lot from all that. I have been doing so many things wrong. I’m pretty sure now, after you explained it and I got my magnifying glass out, that I tend to not have enough tension on my bow. But perhaps displaying even more ignorance than this, I’ve always washed my bow hair with water and HORSE SHAMPOO! (well I have a donkey). Anyhow, I think it’s time I had my favorite bow re-haired and start again.<br>
+I never seem to have a rosin problem ( exceptperhaps when I’ve just washed my bow hair). I certainly don’t over-rosin and I can’t understand how people even manage to get rosin all over their fiddle (though I always give my bow a shake after I rosin it) And;;;<br>
+“ Does using less rosin make you guys have to press harder on the strings to get a sound out though?”…<br>
+Not me. I’d be very unhappy with that.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748692" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 00:46:51">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748694" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“ So once dry the hair is run over a flame, which causes the hairs to contract to exactly match the distance between frog and tip,”<br>
+<br>
+Good grief. If you have to resort to heat to even up the hairs each time, you are doing something wrong.<br>
+Only occasionally might you resort to such tactics, but it would be as a result of not getting the tension right in the first place. The hair should even up when it dries naturally.<br>
+I’m not going to go into lengths to explain why running the hair in its entire length over a flame is not good practice, but it should be obvious to anyone who has rehaired professionally.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748694" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 01:54:04">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748705" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Flaming is an absolutely essential part of the process. Even if you were to manage to get all the hair at absolutely even tension when you tie the hank, when you put the round hank into the tip or frog, and spread the hairs into a flat ribbon they have to follow different length paths, so you land up with uneven tension. Of course, the hair is still wet at that stage. As it dries it will shrink and take up any slack, so that the hairs are now all the same length, and everything looks good, but the tension is uneven - the hairs that have shrunk least are tighter than those that have shrunk a lot. If you give the bow back in that condition your customer might initially think you’ve done a good job, but when the bow is left un-tensioned for a while the hairs relax back to their natural length and the bow goes fuzzy. To prevent that you have to set the hair over a flame, it is an essential part of the process</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748705" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 08:14:54">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748708" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I used to keep regular correspondence with the late Arthur Bultitude.<br>
+Horse hair, being hair, is very hygroscopic, and apart from excessive heat making the hair brittle (ask a hairdresser who has a line of grannies under the hairdryers every morning), you have to be aware of what kind of climate in which the bow will be used. Do not store your tails in a centrally heated room, for starters. The professionals tend to wet the hair, and allow it to dry naturally. I was in the profession for more than 30 years, so I can speak too.<br>
+Running the hair over a flame is for amateurs who haven’t learned how to tension the wet hair properly. “Relaxing” hair is something that the arrector pili muscle does when your goose bumps go away.<br>
+I still recall where you didn’t know the difference between a Mongolian horse and a Przewalski’s horse, and didn’t know what a thoroughbred was.<br>
+Hairing bows was my bread and butter, and the SNO members, and orchestral players from Hanover were only too happy to use my services.<br>
+<br>
+Please, anyone reading this, do not entertain the idea of applying a flame to your bow hair. Unless you are experienced with the material, it will likely end in tears.<br>
+<br>
+“To prevent that you have to set the hair over a flame, it is an essential part of the process”<br>
+<br>
+It may be essential for you to get (supposedly) even tension , but it is not essential, nor desirable to achieve a good result. A flame only finds the hair, on bows I work on, when I burn the end after tying. Even on those occassions when there are one or two hairs (seldom more than this) lying slack, a direct flame is not necessary.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748708" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 09:47:01">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748718" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Anyone wanting to learn to hair bows should seek tuition from a skilled craftsman. If you just want a rough idea of how it is done there are a number of discussions on Maestronet, between highly regarded professionals that you could look up, and even a few video tutorials scattered about the net. I have yet to find anyone who suggests you can get away with not flaming the hair.  About the only thing Weejie is right about is that for an untrained amateur mixing flame and hair is a recipe for disaster, you need to be shown how to do it, just ‘exchanging correspondence’ with a bow maker isn’t normally enough. But I wasn’t suggesting anyone should flame their own hair, I was simply explaining why it is a bad idea to wash bow hair with water.<br>
+<br>
+As to the rest, yes hair is hygroscopic, and it changes length according to humidy - that’s why the bow has a screw adjuster. But the point is that if you set the hair over a flame initially, all the individual hairs are set to the same length and expand and contract equally, so that the tension remains even across all hairs, even if the whole ribbon gets longer and shorter.<br>
+<br>
+Setting and relaxing hair is something so basic I though most people would understand without further elaboration. It has absolutely nothing to do with “arrector pili muscles” or grannies under hairdriers. Think about what happens when you curl hair with curling tongs. You use heat to set the hair into a curl. But the next time you wash your hair you wet it, and it relaxes back to its original straight condition. Exactly the same thing happens with bow hair. It is simple.<br>
+<br>
+How you store bowhair doesn’t really matter, The changes with humidity take place very quickly. A couple of years ago I played in Glasgow Royal Concert Hall, which is very heavily air-conditioned (the hygrometer in my case was reading 38%). When I took my bow out of the case it was normal, but within twenty minutes it had tightened up to the point where even with the frog fully forward it was still too tight. leaving the bow outside for half an hour returned the hair to its normal length. If you talk to an upholsterer, they will tell you that they regularly re-use horsehair that is 300 years old. That hair will have been through all sorts of humidity changes during its life, yet all it need is a quick wash to remove the accumulated dust and dirt and it is as good as new, there is no question of it going brittle or losing its spring. The only thing that matters as far as humidity is concerned is what is happening in your workshop as you fit the hair to the bow. If you don’t have humidity control and you re-hair a bow on a damp day (or you don’t let the hair dry completely before making the second tie), the hair is likely to be too long.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748718" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 12:41:30">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748720" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Setting and relaxing hair is something so basic I though most people would understand without further elaboration. ”<br>
+<br>
+When it comes to hair terminology, “relaxing” is when you use a (chemical) treatment to straighten curls. Water does not “relax” hair in this way. It renders it more elastic. Moreover, the chemicals used in “relaxing” are harmful to the cuticle, and result in hair that is too porous. That is “basic” hair science. Applying excessive heat can also damage the hair, and although you might find that your customers will return more frequently, as the hair breaks more, eventually they’ll twig that hair naturally dried results in less breakage, and go elsewhere.<br>
+It’s plain that you don’t really know what you are talking about. You may have found a method of rehairing which works for you, but heating the hair is a no-no. All the “top shops” (and I’ve visited a few) will dry the hair naturally. The reason for this should be obvious. If you don’t understand why, ask a qualified hairdresser - or a good horseperson, if you want to stick with the equine varieties.<br>
+Now, you maybe need to “relax” your hair if you are buying it in dreadlocks, but you are not “relaxing” it by soaking it in water.<br>
+I hope your bows enjoy their chillaxing, dude, but you are not doing yourself any favours by advocating that application of a flame to wet hair. It’s bad practice.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748720" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 13:00:25">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748732" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Water does not “relax” hair in this way.<br>
+<br>
+If you heat hair it tries to contract - If you hold it straight it contracts evenly and you get a nice straight bow hair, in the case of curling tongs it can only contract on one side so it curls. If you hold it in that state as it cools it sets, and holds its shape.  It sets. Now, if you wet the hair it goes back to its original length/shape. I call that relaxing, but if you don’t agree you can call it anything you like, it won’t stop it happening.<br>
+<br>
+Here are a couple of videos for you:<br>
+https://www.youtube.com/watch?v=AChMDpgd1H4<br>
+<br>
+https://www.youtube.com/watch?v=5CLnvVKn_VQ<br>
+<br>
+There are literally dozens more on Utube, made by both professionals ands amateurs, but I have yet to find one where they don’t flame the hair.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748732" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 15:24:34">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748735" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+It seems we have two experts who disagree. All I know is that rosin *does* dissolve in water -- in fact it is sometimes used in the manufacture of soap -- and that I have washed and shall continue to wash my bow hair (occasionally) with soap and water. I have never had a problem doing this, although I’m not saying it can’t happen, and the few times I have done it, it has given a new lease of life to the bow.<br>
+The only book I have on the subject is Violin Bow Rehair and Repair by H S Wake. He mentions nothing about flaming the hair; although I am not qualified enough (at all actually) to say whether or not it happens professionally.<br>
+HSWake actually mentions taking hair from old bows, washing it, and using it to re-hair (shorter) bows.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748735" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 15:50:14">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748739" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“If you heat hair it tries to contract - If you hold it straight it contracts evenly and you get a nice straight bow hair, in the case of curling tongs it can only contract on one side so it curls. ”<br>
+<br>
+Curling tongs result in a temporary set. There are two kinds of bonds regarding hair. Disulphide bonds and hydrogen bonds. It’s the disulphide bonds that keep your hair in the shape dictated by the shape of the follicle. If you want to straighten curly hair, you use a “relaxing” chemical treatment. If you want to curl straight hair, you use a “perming” treatment (“perm” because it stays that way for a period of time - “permanent”), usually involving heat and chemical(s). These treatments alter the disulphide bonds. If you wet the hair, and then use a means of shaping it, you are breaking the hydrogen bonds. If you dry the hair, it results in the hair holding that shape only until humidity (or wetting it again) brings it back to the shape it was originally. Try it. If you use heat, and dry out the hair so that is dryer than the humidity of the environment, it doesn’t make it hold its shape any longer - it probably loses shape again sooner. You also run the risk of damaging the hair. It’s pointless. Your YouTube videos only show that many people haven’t got a scooby.<br>
+A slow drying process does not damage the hair and the hair shrinks just the same. It’s why pros use that method. The hair is kept flat because it is held under tension over a flat facing at the tip, and a flat wedge and ferrule at the frog. Any notion that you are “setting” its shape by heat treatment is blown out of the water by looking at the way professional haidressers treat hair.<br>
+Whatever shape you make it, it will last diddley squat. <br>
+<br>
+If you want evidence that reputable shops use a slow drying method, here you go:<br>
+<br>
+http://irwinviolins.com.au/bow-rehairs<br>
+<br>
+http://www.jxyoung.com/index.php/restoration-repair-a-bow-rehair<br>
+<br>
+As I said, I knew Arthur Bultitude - and old school master bowmaker.<br>
+<br>
+You are wasting your time applying heat, and risking damage to the hair.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748739" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 16:15:21">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748740" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“The only book I have on the subject is Violin Bow Rehair and Repair by H S Wake. ”<br>
+<br>
+I used to have that book too, Gam. A good one.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748740" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 16:18:48">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748741" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“and old school master bowmaker” should read “an old-school master bowmaker” - and “haidressers” hasn’t enough arse.<br>
+But you knew that.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748741" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 16:20:49">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748753" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I don’t actually have the wake booklet, but I have the Strobel one and one by Michael Atria, both of which are of a similar ilk and aimed at the same market, and both of which do instruct you to flame the hair.<br>
+<br>
+Personally, I learned the aret of re-hairing from our class tutor at LCF, Roger Rose. Roger is the country’s foremost maker and restorer of historic bows, and regularly works on the V&amp;A, Ashmolean and Dolmech collections.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748753" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 18:01:36">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748775" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“A slow drying process does not damage the hair and the hair shrinks just the same.”<br>
+<br>
+There are clearly two different mechanisms involved in drying hair and flaming it. To start with the difference in length between a soaking hair and a completely dry one is just a few mm, but if you flame a loose hair it will contract by about 2 1/2&quot; (and it will stay at that length only changing by a few mm with humidity, until you actually soak it in water), secondly the flaming process is so quick, a couple of seconds to pass the whole length of the bow through the flame, there isn’t time for anything to dry (most people air dry the hair before flaming anyway), the hair contracts instantaneously as it passes through the flame. And finally, if you try flaming wet hair it will contract, and still be wet when you’ve finished, so clearly it hasn’t contracted due to drying out.<br>
+<br>
+Even the very best bowmakers inevitably get left with a few ‘waifs and strays’ that don’t shrink sufficiently during drying. These are very easily dealt by just lingering on them for a fraction of a second whilst flaming. How do you deal with them - do you cut them all out and leave yourself short of hair, or do you start the whole job again?<br>
+<br>
+I dare say there are some people who don’t flame hair, but the vast majority of them (including most of the worlds top bow makers) do.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748775" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 22:10:30">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748778" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+As a materials scientist, I was going to set the record straight about what goes on with wetting and drying and heating hair.<br>
+<br>
+But then this is the internet, so that won’t help.<br>
+<br>
+As for the OP, using lots of rosin on your bow is a different issue to bothering to clean it?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748778" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Tøm</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-16 22:45:57">
+January 16th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748791" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+[*Jim, what sort of bad techniques cause the hairs to break? I’ve recently started to break them a lot more than I used to do.*]<br>
+<br>
+Gobby, in addition to what Mark mentioned about catching the bridge or E-cushion, another one is cornering - where you are hitting the corners of the instrument through really sloppy skewed bowing. I’ve seen it more at gigs rather than at sessions. <br>
+<br>
+Actually, Jon Boden of Bellowhead managed to break hairs on an Incredibow with this ‘technique’ :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748791" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 00:48:07">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748793" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hmmm! Thanks Jim. I’ll have to give it some attention. I do tend to get a bit enthusiastic and also I tend to not watch what I’m doing.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748793" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 00:53:36">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748794" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I break bow hairs all the time… but when I’m playing the violin, not the fiddle.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748794" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Linguist3</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 01:11:04">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748811" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I knew someone - I regard him as a friend - who haired his bows dry throughout the process (apart from  that he haired from the frog to the tip - perfectly acceptable, but not to my own taste). He didn’t apply heat either. Annoyingly, he achieved great results that stood the test of time.<br>
+As I said long ago, if you get things right at the stage of tying the second end, you have no need to use heat to make up for discrepancies (which is what you are doing) because those discrepancies will be negligible.<br>
+<br>
+Folk will believe what they want to believe. I just rehaired bows - lots of them - and the owners were none the wiser as to how I went about it. Perhaps it’s best that way. <br>
+<br>
+“I dare say there are some people who don’t flame hair, but the vast majority of them (including most of the worlds top bow makers) ”<br>
+<br>
+All I know is that in the places I visited, the pros didn’t put the hair to a flame.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748811" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 09:46:04">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748812" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+&quot;As a materials scientist, I was going to set the record straight about what goes on with wetting and drying and heating hair.<br>
+<br>
+But then this is the internet, so that won’t help.&quot;<br>
+<br>
+Perhaps it will.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748812" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 09:50:06">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748823" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Weejie and Mark - guys, as a skilled bow *user* who has little knowledge of the methodologies used in rehairing bows and would always leave that job to a competent person, is it reasonable to ask whether both (in some places conflicting) methodologies work equally well? In other words, is a preference for one over the other of any importance, and does it really matter at all?<br>
+<br>
+From the previous posts, ignoring all the extraneous arguments not directly related to rehairing process, I’m getting that both of you have an arms-length list of satisfied customers. If this is the case, then surely both methodologies are equally valid?<br>
+<br>
+In other words, what if you just forget about what you think about the opposing methodologies, and simply and trust the ‘proof of the pudding’ results?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748823" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 12:43:10">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748824" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“In other words, what if you just forget about what you think about the opposing methodologies, and simply and trust the ‘proof of the pudding’ results?”<br>
+<br>
+I don’t think our “methodologies” are opposing, Jim, just that one method leaves out a (potentially harmful) process. However, you are right. My friend who haired dry (which was a more opposing method - including his working from the opposite end of the bow) had a lot of proof to his pudding.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748824" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 12:53:43">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748828" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+My pal has rehaired thousands of bows, for me and for other people, over the course of the thirty years he has repairing professionally. This is his take on one of the videos on Youtube that shows flaming:<br>
+<br>
+&quot; [The man in the video] is a very prolific Maestronet participant.  He has occasionally precipitated acrid disagreements on bow rehairing discussions by making broad statements that others, including me, challenge.  But I think that he is a competent bow rehairer and violin maker.<br>
+I often flame bow hairs after rehairing to even them up, but I do it a little differently than [he does].  The only thing that bothers me about that video is that it starts out with the bow clamped in a vise.&quot;</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748828" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+David Levine</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-17 15:12:51">
+January 17th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748897" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+..back to ‘how much rosin?’ for a moment - I meant to add that I do apply a bit more to the frog end (about 4&quot; of hair) for ‘chopping’, as that is what seems to put the biggest demand on the hair in that area.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748897" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 12:35:44">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748900" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+That’s interesting Jim.  I hadn’t thought about it, but I’m more inclined to be heavier on my top end when it comes to topping up. I don’t actually use the bottom half  that much.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748900" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 12:42:07">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748903" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Jim, what does it mean, ‘chopping’? Sorry to be obtuse.<br>
+<br>
+I rosin my bow lightly, only every second or third go. I find it often sounds best when it hasn’t been rosined. <br>
+I always clean my woodwork too - can’t stand seeing the state of all those famous fiddlers with white stripes down the middle of their instruments a la badger. <br>
+<br>
+I use the top end most and am not down near the heel at all - for ITM. But for baroque music, my teacher insists I play near the heel and lift - sometimes he makes me play with a clothes peg in the middle of my bow. I say, ‘No, no, I’ll do anything … please, not *the peg*!’ <br>
+<br>
+Which means I rosin the whole bow, when I do rosin.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748903" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Fiddle Aunt</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 12:53:15">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748905" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hi Mollie, no problem. ‘Chopping’ is a (relatively recent) technique - a percussive effect using the heel of the bow, and the direction of movement is from the bridge to the fingerboard.<br>
+<br>
+Watch the first 20 secs of this, from the master : <br>
+<br>
+https://www.youtube.com/watch?v=kNwmwxhkFZE</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748905" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 13:03:13">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748906" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Is that a viola or is that guy really small?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748906" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 13:07:06">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748908" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+No! don’t answer that I just looked at the you tube. He’s small. Is that the same as your 5 string Jim?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748908" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 13:13:27">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748911" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+This is the trad police, pull over. Chopping, while common in genres like bluegrass, is rare or nonexistent in traditional Irish fiddle music. I’ll let you go with just a warning this time.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748911" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidkid</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 13:51:39">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748912" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Good on ya Officer Joe.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748912" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 13:59:23">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748960" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+[No! don’t answer that I just looked at the you tube. He’s small. Is that the same as your 5 string Jim?]<br>
+<br>
+Similar - mine’s got a slightly wider lower body and mine’s a far better instrument.<br>
+<br>
+[This is the trad police, pull over. Chopping, while common in genres like bluegrass, is rare or nonexistent in traditional Irish fiddle music. I’ll let you go with just a warning this time.]<br>
+<br>
+Is there some kind of a problem, officer? I got my hands on the wheel and I’m being polite :)<br>
+<br>
+I just answered a simple question from Mollie. A little extra knowledge on and around your instrument can do no harm.<br>
+<br>
+Now, if Kevin Burke, Tommy Peoples, Liz Carroll and Spankie Flavin started using chopping in their tunes, it would suddenly be all OK. A few moans and groans at first, I guess, but it would soon be accepted.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748960" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-18 23:10:15">
+January 18th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment748971" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+The horsehair on my bow curled when I was camping. I used an incredibow instead, which worked fine. <br>
+<br>
+Is it true that you can play on the same hair till it is worn smooth? Then the rosin doesn’t stick any more and you have to rosin much more often?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment748971" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gallopede</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-19 00:30:44">
+January 19th, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749228" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+[*Is it true that you can play on the same hair till it is worn smooth? Then the rosin doesn’t stick any more and you have to rosin much more often?*]<br>
+<br>
+At a guess, I’d say yes - but I’ve never let the hair go that far, so I can’t say for sure.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749228" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 18:28:43">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749229" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+The hair on your bow *is* smooth once you start using it. Contrary to the oft-heard fallacy, it is not  scales or ridges or rough bits that hold the rosin. The hair will function as a rosin-holder as long as it is attached at each end and not greasy.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749229" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 18:46:18">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749231" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Agreed. But the myth of scaly horse hair persists.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749231" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+David Levine</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 18:53:16">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749233" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+[*Contrary to the oft-heard fallacy, there are no scales or ridges or other rough bits to wear off. The hair will function as a rosin-holder as long as it is attached at each end and not greasy.*]<br>
+<br>
+Given that rosin will stick to something as smooth as glass, then that kind of follows logically.<br>
+<br>
+So, theoretically, if you never touched the hair with your fingers, or broke any strands, a bow would never need re-hairing, and so would last forever?<br>
+<br>
+I might sound cynical, but it’s an honest question :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749233" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 19:12:58">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749235" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yes Jim -- the only time it would stop working is if the hair snaps or gets so dirty it won’t hold the rosin.<br>
+There’s a bit here regarding the structure  --  it you scroll down to the bottom you’ll see a picture of the rosin on the hair.<br>
+http://iwk.mdw.ac.at/?page_id=96&amp;sprache=2</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749235" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 19:13:10">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749238" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks for that, gam :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749238" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 19:43:16">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749249" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Now, if Kevin Burke, Tommy Peoples, Liz Carroll and Spankie Flavin started using chopping in their tunes, it would suddenly be all OK. A few moans and groans at first, I guess, but it would soon be accepted.”<br>
+<br>
+But they haven’t. Ever. For the simple reason that it sounds terrible in the context of Irish music, I’ve sat in a session with someone doing it and it’s so obviously plain wrong, it’s just painful to have to listen to. <br>
+<br>
+Nothing wrong with it in bluegrass for sure, but that’s ’cos it’s different music.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749249" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dan Conway</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 21:29:31">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749252" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+The account of bow hair referenced by gam indicates that old bow hair is less good because it is less elastic - so even if you kept it clean and somehow managed not to break many hairs the bow would surely be better re-haired after a while. I wonder if the player tends to keep putting more rosin on the less elastic hairs to improve the feel? That might give the idea the rosin is not sticking as well.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749252" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gallopede</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-21 22:41:57">
+January 21st, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749264" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I don’t think hair becomes brittle or looses elasticity with age - if you look at the horse hair used in upholstery it lasts for centuries with no sign of degradation.<br>
+<br>
+If you look at the structure of hair, there is a central cortex of long smooth fibres of keratin, which make up the bulk of the hair, but it has a thin sheath of keratin scales, in the case of horse hair the sheath is about 8-10 scale thick. My own take on what happens is that as rosin comes off the bow it pulls scales off with it. Once you’ve lost all the scales the hair no longer takes rosin for some reason. That may be down to something as simple as the smooth cortex not generating enough frictional heating to melt the rosin off the block.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749264" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 00:41:19">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749267" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Now, if Kevin Burke, Tommy Peoples, Liz Carroll and Spankie Flavin started using chopping in their tunes, it would suddenly be all OK. A few moans and groans at first, I guess, but it would soon be accepted.”<br>
+<br>
+I doubt it.   There are more things wrong with chopping in traditional Irish music than it not being used by a few famous people.    And Burke, Peoples, Carroll, or Gavin do not define traditional Irish music.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749267" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Fiddler3</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 01:07:30">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749270" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I am slightly puzzled by the paper gam linked to: in the conclusions they state that hair loses elasticity with age, but I don’t see anything in the paper that supports that - they’ve compared the tensile strength and elasticity of various types of hair, but not compared new with old. And experience suggests otherwise - not only in the case of uphostery hair I mentioned perviously, but also in the fact that bows frequently hang on the dealer’s walls for years before they are sold, the hair remains as good as new until you start rosining and playing it. (And of course, when you get a re-hair the ‘new’  hair may well have spent a year or two travelling from a mongolian mountain and sitting about a warehouse, more time in a stockpile waiting to get picked and graded, and then a couple more years hanging in the luthiers workshop.)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749270" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 01:12:18">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749304" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+[*There are more things wrong with chopping in traditional Irish music*]<br>
+<br>
+…fair comment. When used as ‘accompaniment’, I agree it would not suit. I certainly would not use it in tunes.<br>
+<br>
+If used as an integration to the melody, it’s still a possibility, but unlikely, I think. For one, it’s a very difficult technique to master.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749304" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 06:47:31">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749318" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Old bow hair….</h3>
+<div class="e-content" itemprop="text">
+<p>
+My current bow was re-haired after thirty years of having being been played. My complaint wasn’t with the hair itself. I had rehaired it myself many years ago (1977), when I knew next to nothing, and I left the hair a bit too long to be tensioned easily. I had just washed the hair when my friend offered to rehair the bow. He’d have been able to shorten the hair but he said it would be nearly as easy for him just to put “fresh” (his word) hair on the bow as a present to me. Apart from the new tension I was able to achieve there wasn’t a huge difference in playability. <br>
+Another bow that I had rehaired this year was done with hair that I had bought when I worked at a music store in the mid 1970s. That hair must be at least 50 years old. The bow is perfectly useable and plays nicely. <br>
+So…. the hair on the first bow had been played on for over forty years and had no inherent problem. The hair on the second bow is at least fifty years old and it plays fine. Neither hair shows any age. It would be interesting to know how old the hair is on some really old 19th. Century bows, and how well the bows play.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749318" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+David Levine</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 08:52:35">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749320" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Chopping</h3>
+<div class="e-content" itemprop="text">
+<p>
+Isn’t most guitar accompaniment a form of chopping? I’m not referring to Dennis Cahill, whose delicate and sensitive accompaniment I appreciate, but rather to some players who hit chords with every stroke and who play the guitar as if it was a bodhran.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749320" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+David Levine</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 08:58:58">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment749389" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Fiddle advice….</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think of (good) chopping guitar accompaniment as bare partial chords sounded, then damped before the next hit. Can be quite punchy, and definitely better than hitting all 6 strings and letting them ring out on each chord.<br>
+(Even on the right chords) :)<br>
+<br>
+I think the main difference between chopping on guitar and on fiddle is that on fiddle, the chop itself doesn’t sound pitched notes (plus it’s done in a transverse movement).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment749389" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2015-01-22 19:36:57">
+January 22nd, 2015</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/35389">thesession.org/discussions/35389</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>

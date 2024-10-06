@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: fiddle advice</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/32218">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>fiddle advice</h1>
+
+<footer>
+<span class="discrete">
+Added by Alien_Sunset on 
+<time datetime="2013-07-27 12:09:10">
+July 27th, 2013</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment690206" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think  want to learn fiddle, this is a big thing for me and I’m a little nervous. (I learned voice and piano elementary school through high school, but quit when I went to college, and am currently futzing around trying to learn tin whistle on my own.)  I don’t have a lot of money, and a good fiddle and lessons are going to be a huge investment and it’s going to take a long time for me to save up enough.<br>
+<br>
+I’ve been trying to do my research but there is so much information that I’m feeling a bit overwhelmed.  Any advice of where to look for some good information?  I have no idea what makes a good fiddle, or a good teacher for that matter. Help!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690206" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Alien_Sunset</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 12:09:10">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690214" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+A good fiddle has a nice tone when you run the bow over the open strings, and retains that tone quality when you press your finger onto a note. It should also be set up so you can use the same finger position on each string and it will stay in tune, if not it may just be poor bridge placement though. Unfortunately for you it is not easy to run a bow over the strings unless you have at least some practice at it, in my experience. I paid over $600 for my fiddle and actually am no longer happy with it, now that I know how to play. Being broke this led to me putting down the fiddle and focusing on other instruments that aren’t quite so finicky. Perhaps I need different strings, a new bow or just to get mine rehaired, or get my instrument adjusted in some way..?<br>
+<br>
+One thing that I have heard is the bow matters almost as much as the fiddle, so make sure to invest in a quality bow as it could make or break your sound.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690214" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Banjo Joe</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 13:19:39">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690215" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I have played fiddles that belonged to professional fiddlers that they referred to as their ‘extra’ or ‘outdoor festival’ fiddle, and felt like I sounded better than I ever have. So it isn’t about paying a lot of money, it is finding an instrument that sings. A lot of gems can be discovered in repairing old abandoned instruments which you can sometimes find in pawn shops or shoved into the closet at a local guitar store (“we don’t deal in violins here but somebody dropped these off hoping we would buy them” I heard once while going through a pile of discarded instruments).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690215" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Banjo Joe</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 13:22:46">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690216" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Also there is not necessarily a need to spend a fortune on weekly lessons. Often times a single lesson can give you enough to go on for weeks or longer. Go to beginner sessions and talk to other fiddlers about technique. Pay attention to how they play and get advice whenever and wherever you can. Also playing mandolin or tenor banjo can help you learn tunes without focusing on violin technique as much. When you pick up your violin it will be easier if you already have a fingering pattern under your belt. You can also learn scales and tunes by plucking with your fingers (not in the same place you draw your bow across the strings or you will grease up your strings and bow) . Once you have your left hand memorized then you can focus on your right (bow) hand, as well as how you hold the violin between your shoulder and chin.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690216" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Banjo Joe</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 13:30:38">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690218" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+If you’re worried about getting a violin that won’t serve you well, I would recommend seeing if you can get an experienced violin/fiddle player to come along and help you discern which instruments are good, and which are not. Or at least help you get the best instrument for your price-range. The most expensive isn’t always the best. If there is a respectable luthier near you, you might try and have a nice long talk with them as well.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690218" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+an fidleir</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 13:46:14">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690227" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hi Abigail-<br>
+When I decided to learn the fiddle, I rented a student violin through a music shop’s program.  I paid something like $15 a month, which went toward the purchase.  When I was sure I wanted to continue playing, I paid off the balance--not a big hit on the household budget.  When I was ready to move up to a better instrument, I sold the old one to a kid just starting out (for pretty much what I paid).<br>
+<br>
+I have also found that you can barter for lessons.  :-)  Get to know some fiddle players in your area; at some point you will find someone who will be happy to help.  This doesn’t take the place of a good series with a teacher, but it might get you started.  <br>
+<br>
+Take the plunge.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690227" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michele Sims</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 15:00:33">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690234" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+A lot of good advice already. The only thing I would add is: don’t be tempted to buy a cheap violin ‘just to get started’. The sub-$150 ‘student violins’ that you find on the internet and in department stores are more or less unplayable - you will get frustrated and give up. Expect to pay at least $500 to get a useable instrument. If you don’t want to put out that much money to begin with, beg, borrow or hire an instrument until you are ready to buy. As Michele say, many music shops run rental schemes (and the ones that do usually have a luthier in house, so you know their instruments will be set up and usable). When it comes to buying, it is absolutely essential to take a good player with you, the only way to judge a fiddle is by playing it, which you can’t do if you’ve never played before.<br>
+<br>
+As for teachers, the great thing about trad musicians is that they are usually quite friendly, and love sharing the music with others. So if there are fiddlers in your area, there is pretty much bound to be someone who will give a few hours to help you through the early stages, probably for free. Start going to sessions (just to listen) and approach one or two of the fiddlers when they aren’t playing - if they can see you are serious, even if they’re not in a position to help you themselves, they’ll probably know someone else who can.<br>
+<br>
+Good luck!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690234" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 15:39:36">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690240" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+The first fiddle I bought cost me $100 (Aus) new from Aldi, and I guess it sounded like crap, but it was good enough for me to realise very quickly that I had the capacity to play the thing (a big surprise to me at the time). Nonetheless, having since upgraded 5 times (I now play a Gliga Maestro), I agree with what Mark said, and it’s best to try and get the best you can afford in the first place. Renting is possibly a good idea as you can get to know if you and a violin are compatible animals. I wouldn’t worry too much about bows at the start as you wouldn’t know the difference, but as you get better you’ll start to know what you need and then you can go and try them out. Teachers!!?? … I may be wrong and biased but I’d limit my visits  to professional teachers and again I  (very much) agree with Mark’s advice on that. Whatever, try it out because if you get addicted like I did, take my word for it, you won’t even mind starving  yourself to be able to  buy a better fiddle (I could send you all my very cheap but healthy fiddle funding recipes if it helped).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690240" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Gobby</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 17:42:38">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690241" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Twenty five years ago cheap new fiddles were rubbish.  Nowadays it’s incredible what you can get for little money. I’d suggest there are more good cheap new fiddles today than ever before. You don’t live hundreds of miles from anywhere, there must be violin shops around who deal in student instruments and one would hope that a violin shop would make sure that even their cheapest models were properly set up/chosen to be playable. Again one would hope that you’d get decent advice, and hopefully deal with a salesperson who is able to play instruments so you can hear them.  Likewise they might have a rental scheme which would get you started for little outlay.<br>
+(If all this sounds too optimistic to be true, in England I’m thinking of Bristol Violin Shop.)<br>
+<br>
+Might be worth asking your question over at fiddlehangout.com. Although there’s an Old Time music majority there, there are a fair few interested in Irish fiddle, but it’s fairly US-centered so you might get advice that’s helpful in your location. They are also quite happy to have detailed and “focussed” discussions on different makes and models of fiddle, things are a bit more general here.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690241" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+TomB-R</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 18:19:13">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690243" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Bowing is really tough and fretted/strummed instruments<br>
+have their own special challenges. I wouldn’t waste time on <br>
+mandolin if the fiddle is what you want to learn; it won’t help<br>
+much.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690243" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark Huppert</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 19:27:40">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690252" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hey,<br>
+I started playing the fiddle on a Scott Cao stv017a student violin, it was worth about 500$ but the sound was the best you could get for that price. I just upgraded to a brand new Scott Cao violin (750E copy of gaspara de salo) I paid 1300$ for it and I LOVE it. The sound is so full and rich and it has so many overtones its just gorgeos. With that in mind I strongly suggest that you look into Scott Cao violins,<br>
+they are the best that you can get for the  money.<br>
+Hope this helps.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690252" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+violet</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 21:44:13">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690253" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Definitely rent a nice fiddle, if the choice is between that or buying a cheap fiddle. Any cheap instrument will cost twice as much just to get it fixed up properly. Lessons are well worth the cost, and renting a violin to start doesn’t cost much at all! (E.g., our local shop here rents out violins for USD $15 / mo, and they’re nice instruments if you put a better set of strings on them.)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690253" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+jjw</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-27 21:51:30">
+July 27th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690280" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+thanks so much for all the advice, everyone!<br>
+<br>
+there is a violin store right where I live, and another nearby, so I have a few options there.  it looks like I have a few options for teachers,  what makes a good teacher?  I know I want at least a few lessons right off the bat, and might want to stop in for further help along the way.  <br>
+<br>
+And I just discovered a new (to me) session near by with lots of fiddlers that I may be able to attend.<br>
+now it’s just a matter of saving up the money!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690280" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Alien_Sunset</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 08:22:20">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690282" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+What makes a good teacher? Many things -- but a bad teacher is one that tells you what to do without giving you a reason for doing it (and charges you for the privilege). Or spends the time just teaching you a tune.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690282" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+gam</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 08:57:30">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690286" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+a good teacher is one that makes you leave the lesson feeling inspired and keen to pick up your instrument</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690286" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dick Miles</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 10:05:35">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690287" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+A decent teacher should be able to tell you a lot about posture: how to hold the fiddle and the bow, how to angle your hand/wrist to be able to play the notes you want to play, how to move the bow when playing notes …<br>
+<br>
+You do NOT need a teacher in order to learn tunes, but once you have a tune or two (or a dozen), a teacher can give valueable input, e.g. anything from the actual notes (including ornaments etc.), to keep a steady rhythm, not to skip beats, playing repeats as intended, bowing advice and so on.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690287" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+jeff_lindqvist</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 10:07:41">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690293" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I second Mr. Miles and Mr. Lindqvist.  After a session with a good teacher, you can’t wait to get home and work on the things you talked about in the lesson.<br>
+<br>
+And make sure that you get someone to show you how to hold the thing and play so that you don’t create physical problems for yourself.  Your body will thank you in 20 years--less likelihood of chronic pain when you play for hours at a time.  It’s also nice to have people who can give you a clue as to how to take care of the instrument.  They do require feeding and grooming.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690293" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michele Sims</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 10:56:08">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690300" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+If you can’t find a trad fiddler to show you things right from the start, a school that uses the Suzuki method is not a bad way to build the foundation you need--my wife got her basics that way.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690300" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+AlBrown</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 12:45:04">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690307" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I would agree about renting before you buy your own. I’m a fiddle teacher, and I only rent out decent instruments (valued between £500-£1000) for £30 a term. Choosing the right instrument for you isn’t about the cost of the instrument, or whether another fiddler says it’s good, it’s about whether it feels and sounds right for you. I would agree about the bow - just as important as the fiddle, so take your time choosing a bow.<br>
+<br>
+With regards to teachers, as a beginner it doesn’t really matter if you can’t find a fiddle teacher (as opposed to a classical teacher). What matters for a beginner is that you develop a good technique from the start, and don’t get in to any bad habits. Having regular lessons when you first start is important so that any bad habits can be corrected, but once you have the basics then you could go to more infrequent lessons if you wanted.<br>
+<br>
+Good luck!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690307" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+manxygirl</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 15:09:06">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690322" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+“With all due respect” a classically based teacher is likely to start you off on the basis of widely accepted “good practice.” With a “fiddler” teacher you’ll tend to get their personal ideas and eccentricities.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690322" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+TomB-R</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-28 17:21:34">
+July 28th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690353" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Good basic technique is exactly that! There’s a reason why it is accepted ‘good practice’ - because good technique helps you to acquire the best tone, allows you to effectively play more technical pieces well, and stops you from injuring yourself. If you have the basics right then there is plenty of time to develop your own style, drawing on influences and ideas from fiddlers that inspire you.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690353" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+manxygirl</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-29 03:13:43">
+July 29th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690492" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I entirely agree about good basic technique; the only problem is that some classical teachers tend to teach you good basic technique and good classical technique all mixed together and labelled as the same thing.  (It doesn’t have to be a problem mind, you can adapt or unlearn the classical stuff if you work at it and a plenty of it *is* useful in other genres.)  There are a surprising number of people out there who think that classical technique is all you need, or that the only difference is the ability to play triplets.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690492" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+outwesht</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-30 06:21:57">
+July 30th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690505" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+While we can agree that a “teacher of style X” is best if we want to learn “style X”, but what is really meant by “classical technique”? Most people I know who’ve played a lot of classical music can’t play Irish music (and vice versa), but again- what is it that they’re doing wrong and what are the classical violin “tricks” that we should avoid? Is it playing in other positions? Vibrato? Something else?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690505" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+jeff_lindqvist</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-30 08:11:42">
+July 30th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690508" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+@jeff_l: Someone with sound classical training generally has a few things to unlearn, chief among which I would put:<br>
+<br>
+- not doing vibrato all the time (and preferably in my view almost never, although there are schools of trad playing that use it, sometimes rather differently from classical players)<br>
+- bowing reflexes: acquiring counterintuitive habits like slurring across beats and across strings in “rocking pedal” figures<br>
+- intonation - developing the art of being able to modify your intonation to suit who you are playing with (pipes or accordion - not the same thing) or, when playing solo, adjusting pitch on key notes to get the lonesome touch<br>
+<br>
+and so on.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690508" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Stiamh</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-30 08:38:33">
+July 30th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690518" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I was in your situation back when I started, and on impulse one night bought a $70 instrument on Ebay. I immediately had to replace the bow and strings, and I may have replaced the bridge too; I don’t recall. By the time it was ready to play, I’d put about $200 in. The result, a decent beginner violin that stayed in tune well. I played it for two or three years before I felt the need to upgrade.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690518" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+hotsauce</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-30 11:04:03">
+July 30th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690553" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+[*- intonation - developing the art of being able to modify your intonation to suit who you are playing with (pipes or accordion - not the same thing) or, when playing solo, adjusting pitch on key notes to get the lonesome touch*]<br>
+<br>
+Jeeve, I understand the first part, about adjusting intonation when playing with other instruments, but I don’t understand what you mean about adjusting pitch when playing solo. Do you mean flattening the 3rds, so eg in the key of D, the F# notes would be sweetened up by being played slightly flat?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690553" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-30 16:42:09">
+July 30th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690567" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I don’t know if this helps, Jim, but I was just reading it in Eliot Grasso’s dissertation,<br>
+<br>
+Chapter IV ~ Exclusive Criteria: Recording Selection and Transcription Methodology<br>
+<br>
+4.7.3. Tuning and Microtones<br>
+<br>
+“I am analyzing intervals of a semitone and larger with my taxonomy and analytical method. In reality, quartertones and other microtonal inflections are a regular part of performance practice in Irish traditional music.²¹^9 The notation in the Sibelius  score is not intended to imply an equal-temperament system of tuning in which the octave is divided into twelve equal parts of 100 cents each. For uilleann pipes, fiddle, flute, and tin whistle transcriptions, these notations should be understood first as fingerings rather than as sounded pitches.”<br>
+<br>
+“For example, fiddler Bobby Casey, in his performance of the reel “Paddy Ryan’s Dream” (see transcription 16) occasionally plays a note that sounds like it is between F♮ and F#. In most instances, I assigned this in-between pitch a line or space on the staff based on the preceding and subsequent sequence of pitches. In other words, the in-between pitch did not sound exactly like F# to my ears, but I thought that it sounded closer to F# than it did to F♮.”<br>
+<br>
+… or this from thesession.mustorg…<br>
+<br>
+&quot;Casey (when in his prime) was certainly consistent in his approach and strongly similar to his local contemporaries like Crehan and Galvin. Canny was consistent too but different, as was Rochford. In all cases the intonation was however deliberate.<br>
+<br>
+Anyone aware of the playing of concertina players from West Clare these, and I am thinking particularly of some these men would have know closely and whose recordings survive, wouldn’t even consider their influence on the fiddlers’ intonation.&quot;<br>
+<br>
+&quot;I got a bit cut short there before I was done. I talked about music with most of the West Clare fiddlers (and a few more aside from the ones I mentioned above) at some point or other, a lot with Rochford and a bit with Canny.<br>
+<br>
+They all had a firm understanding of what they were doing, maybe they didn’t formulate a system, they had a strongly formed sense of aesthetic that made them play like they did.<br>
+<br>
+Rochford for example knew very well how to play the sad notes and did so consciously, to achieve the effect he was looking for.&quot;<br>
+<br>
+Posted by Prof Prlwytzkofski on July 30th, 2010</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690567" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+AB~Listen to what is happening~Choose wisely.</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-30 20:14:07">
+July 30th, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690605" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I don’t know much about a good fiddle, but a good teacher is someone who…<br>
+<br>
+Wants to help you achieve your own musical goals.<br>
+<br>
+Understands your learning styles and takes full advantage of them.<br>
+<br>
+Has the time and devotion to teaching<br>
+<br>
+Of course you want someone that understands the instrument, and music in general. You can figure this out by simply asking questions :)<br>
+<br>
+Good luck! And don’t let bad teachers throw you off! Take your time and find someone that’s there for you and understands what you need as a young musician. This way they can give you support, encouragement, AND discipline, which are some things you’ll definitely need when taking up a beast like the fiddle ;)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690605" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jerone</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 08:54:39">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690607" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Reading some of the comments I can add a little something about fiddles…<br>
+<br>
+I have two fiddles. One that is a cheap beginner fiddle(probably worth about 60 bucks), and one is a hand made German fiddle(one that a luthier valued at around $800). There was a huge difference in the tone and in the physical feel(especially in the action). The second, better quality fiddle did make it a lot easier to practice on and it definitely made me sound better. <br>
+<br>
+A good instrument will do WONDERS for keeping you motivated to practice and play as a beginner :) There’s my 2 cents ;)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690607" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jerone</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 09:04:55">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690617" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+@ Jim.. «I understand the first part, about adjusting intonation when playing with other instruments, but I don’t understand what you mean about adjusting pitch when playing solo. Do you mean flattening the 3rds, so eg in the key of D, the F# notes would be sweetened up by being played slightly flat?»<br>
+<br>
+Yes, that sort of thing. The quotes by Na Eisc are to the point. Although perhaps we should say the F# is sweetened not by being played flat but by being played in tune :-) <br>
+<br>
+“Supernatural” Fs and Cs are the obvious notes, but flattened Bs in G tunes pack a lot of wallop too. That wild tang of lemon or sorrel or vinegar.  I think all goes beyond just shaving the major thirds though.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690617" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Stiamh</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 09:53:04">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690619" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hi Fiddlelearner,<br>
+<br>
+You’re quite right to point out that a good instrument will do a lot to motivate a player, but you’re wrong to suggest that a more expensive fiddle is a better fiddle.  I have a virtually worthless bottom-of-the-range student fiddle, and it sounds and plays just fine. If I was buying a first fiddle, I would go to a shop with a lot of cheap instruments, take a competent fiddle player with me, and try lots of different ones.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690619" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bernie 29</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 10:25:13">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690626" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+More expensive may not always be better, but better is subjective anyway. I was mostly talking about the set-up for my fiddles and how much easier the more expensive one was to play(obviously more work put into it its set-up. <br>
+<br>
+Not to say you’ll always like the more expensive whatever it is, but be careful with anything cheap, especially instruments. They’re often more trouble than they’re worth.<br>
+<br>
+If you aren’t sure that you wanna play fiddle, its wiser to get something cheaper. If you know without a doubt that you’d love to play, get what you can afford I say.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690626" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jerone</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 11:27:31">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690631" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I don’t think that’s good advice for a relative beginner Fiddlelearner, because the price of a fiddle is generally not related to its sound and playability.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690631" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bernie 29</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 12:05:23">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690634" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+More expensive may not always be better, and it is true that when it comes to old violins you can sometimes find people who don’t know the market selling good instruments for less than they are worth.<br>
+<br>
+But when it comes to new fiddles, you always get what you pay for. It might be tempting to think that if you sift through a batch of £70 fiddles you’ll find one that is as good as a £150 model. But you won’t, because that sifting has already been done back in the factory. The fiddles all come off the same line (or out of the same sweat shops) and then they are graded. The ones that should be firewood get put into boxes and sold for £70. Anything that is slightly better gets a little more fettling, maybe a better chinrest and strings, and gets sold for £150.<br>
+<br>
+But the real issue with cheap fiddles is the action height. Setting the nut and bridge ‘just right’ has to be done by hand, and takes some time, which would add appreciably to the cost of production. If the nut or bridge is too low the fiddle doesn’t work and is unsellable. But if the nut and bridge are too high the instrument can be played (even though it will be difficult and uncomfortable). So the manufacturers deliberately make all their nuts and bridges a little too high, to make sure that they don’t land up with any that are too low and unsellable.   Manufacturers of cheap guitars do exactly the same thing.<br>
+<br>
+Of course, you can buy one of these cheap fiddles from a proper violin shop, who will have set it up once it arrived in this country, but they will have added on the cost of the work, possibly doubling the price of the instrument.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690634" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 12:18:11">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690639" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+When I bought my fiddle, I had a real player with me. She played the fiddles while I looked the other way. I listened to her playing 7 fiddles. Three I couldn’t tell apart, three had nice voices, and were distinguishable from each other, and one made me  turn around and stare. That one was a $5K fiddle, it sounded  fantastic - and I’d have been an idiot to buy it.<br>
+<br>
+The ones I couldn’t tell apart were in the $300 range and sounded fine. The distinguishable ones were in the $700 range and I picked the one I liked the sound of most. <br>
+<br>
+Right now, I could have picked one of the $300 fiddles, and probably would have been fine technically. I just really liked the voice of one of the other fiddles more.<br>
+<br>
+All of the instruments  were ‘preselected’ by the store, so there were no dogs. The action was nice and the bridge and nut were well set. They all sounded pretty good, too.<br>
+<br>
+Then I did the same with bows. I couldn’t hear  the difference between any of the inexpensive wood bows, or the carbon fibre bows, but I liked the feel of the carbon fibre ones, so that’s what I purchased.<br>
+<br>
+A note about bows. I travel a lot - 30/40 weeks per year. I don’t want to bang my fiddle to bits dragging it from pillar to post. More importantly, I don’t want to torture the guy in the next room at the hotel with my (beginners) playing and scale practising. So I bought a cheap electric to drag around with me. It’s quiet - and I can put a heavy mute on it and you can’t hear it across the room. Not good for intonation, but fine for general fingering…  Where was I? Oh, yeah, the bow. The electric came with a cheap bow - and it’s the nastiest thing ever. When I first rosined it up, and drew it across the strings, I almost dropped it. Yuck. I just felt _wrong_. Hard to describe otherwise, but it’s just horrible. I’ve since picked up a slightly better bow that I carry with me.<br>
+<br>
+So yes, both the fiddle and the bow are important, and you really have to play with them to see/hear and feel what works for you.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690639" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Charles Cooper</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 13:18:52">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690641" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+@Ben - Na Eisc - thanks for the earlier posting about intonation. Yes, the F narp - that sort of quarter-tone between the Fnat and F# - the ‘blue’ note in blues (roughly speaking), elsewhere, lonesome touch, austere wild &amp; mountainy, whatever. That’s what I was imagining.<br>
+<br>
+There’s a jig in D where one of the parts starts on an F# on the first string. Most people seems to either play it straight, or slide into it, but it still ends up as an F#. A few actually go for the ‘F narp’ and get ‘that sound’.<br>
+I’m trying to remember the jig name right now :)<br>
+<br>
+@Jeeves - “Although perhaps we should say the F# is sweetened not by being played flat but by being played in tune” - I know exactly what you mean. My meaning of F# being played a little bit flat (which I would consider in-tune) is ’just a fraction flatter that a piano F# (or a beginner on fiddle who’s following piano notes at the learning stage). <br>
+<br>
+Just gone in to edit this again … now I’m thinking of the F# on the fiddle, 1st string, 1st finger on it’s own. now play the open A along with it .. now that same F# will benefit from played a fraction flat to ‘sweeten things up’. Hope my meaning is clear :)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690641" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 13:53:55">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690644" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+[*I don’t think that’s good advice for a relative beginner Fiddlelearner, because the price of a fiddle is generally not related to its sound and playability.*]<br>
+<br>
+@Bjarne - are you talking about fiddles at the low end of the market, or in any price range?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690644" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 14:04:33">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690645" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Good post by Bjarne: “You’re quite right to point out that a good instrument will do a lot to motivate a player, but you’re wrong to suggest that a more expensive fiddle is a better fiddle. I have a virtually worthless bottom-of-the-range student fiddle, and it sounds and plays just fine. If I was buying a first fiddle, I would go to a shop with a lot of cheap instruments, take a competent fiddle player with me, and try lots of different ones.”<br>
+<br>
+My first guitar was bent like a banana due to me putting steel strings on a nylon neck but I played it for eight years. My second guitar, as a relative novice knowing nothing about brands and unable to buy any of the big names, was bought by going down a row of guitars in a shop until I found one that sounded right. My first bouzouki was made by a hobbyist luthier and so easy to play, yet I took it down recently and played it and it sounded dire, but was still very easy to hold and find the right notes on. I moved on and bought a Fylde a few years ago and a Sobell a few months ago and both are very different. The Fylde is immensely playable, the Sobell is amazing but I find it very unforgiving, it takes more concentration and I keep going back to the Fylde as being easier to play. I also play an Avalon guitar but recently idly trying guitars on holiday I found a £600 Seagull acoustic that was just so easy to play - you’ll know what I mean when I say everything was just in the right place and it was a joy to mess around on. <br>
+So I agree with Bjarne: the most expensive instruments can be harder to play and very unforgiving; for  beginner an instrument that is right for them to hold and play may not necessarily be the more expensive type. Remove factors such as finger positioning, balance and tone through making them automatic and unconscious, which is down to a good instrument maker, and you’re free to concentrate on the learning and playing. So I agree with going to a music shop - or two or three - and try a lot of instruments until one jumps out. You’ll know it when you find it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690645" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Footerin&#039;About</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 14:44:57">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690654" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Cheap vs. expensive:<br>
+I got my mandolin for ~€150 in 1991. I’ve gotten attached to it. A year ago I got a chance to play two other mandolins in sessions - one was a fairly new piece (a friend got it for ~€1200) and another was well over 50 years old (another friend got it second-hand for €40!). Both were the BEST mandolins I’ve ever played, had nearly the exact same volume/intonation/action/response/feel/whatever, but the day I decide to upgrade, I’m really not sure what to get. I’m just a few mouse-clicks away from getting hold of the expensive model, and the other one, well… the company closed over 30 year ago.<br>
+<br>
+My nylon stringed guitar cost me ~€15 in 1994. It’s not the best guitar ever made, but to this day, I can’t do the stuff I’m doing on any other guitar.<br>
+<br>
+When we’re learning a new instrument, we can’t know what a good instrument “should feel like”. We should not assume that a more expensive instrument is “better”, and even if we have the money - how can we know if it’s “the right instrument” for us? If I decide to learn how to play the (simple system) flute, I’m NOT going to spend €2000 on a even if some wise guy says that “it’s good to start with the best instrument possible”.<br>
+<br>
+To the OP - good luck in finding a fiddle that feels good!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690654" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+jeff_lindqvist</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 16:46:50">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690655" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Some while ago I saw a YouTube video (sorry, I can’t source it from memory) of a prominent American folk fiddler playing a Strad belonging to the Library of Congress. He was surprised to discover that he wasn’t able to get anywhere near the quality of tone out of it that he expected. Even professional classical violinists can have problems in coming to terms with playing a Strad or other violins at that level, and it can require training and advice from more experienced players - a comparison has been made with trying to drive a F1 car on the track when all you’ve ever driven is a family car for commuting and holidays.<br>
+<br>
+I have some little experience of this in that I have two violins, one of which is 18th century and has been in my family for several generations, and the other is a Jay Haide dated 2002. Although the old one blows the Jay Haide out of the water regarding tone quality and projection it needs rather more attention in playing in order to get the best out of it, whereas the Haide generally feels a little easier to play, and is a good all-round violin (and getting better by the year, incidentally). I used the Haide recently in a “Prom in The Park” concert on one of the hottest days this summer when I wouldn’t have dared to use my old violin in those outdoor temperatures  (low to mid-30s), but the Haide stood up to the extreme conditions very well. On the other hand, for an indoor classical concert I will choose the old one every time. The Haide is my instrument of choice for folk music. <br>
+<br>
+It may be concluded from this that a really good violin is not for a beginner, but we are leaving out an essential element - the teacher.  A good teacher will teach a pupil to get the best out of a good instrument, and if the pupil can do that then he will be able to get the best out of a lesser instrument (unless it’s an absolute dog, of course). A pupil under a poor teacher is unlikely to get the best out of any instrument. <br>
+<br>
+Oh, and don’t forget - a good bow contributes at least 50% to your playing.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690655" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 17:31:32">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690656" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+There’s a video of Aly Bain and Nicola Benedetti comparing their instruments.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690656" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Tøm</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 17:44:54">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690658" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+http://www.youtube.com/watch?v=9i6q7LNm6Ao<br>
+<br>
+and<br>
+<br>
+http://www.youtube.com/watch?v=zgDNSDadqos</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690658" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Tøm</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 18:45:06">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690659" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Indeed, the second video, from about 4 minutes in, is the comparison to which I was referring.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690659" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Tøm</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 18:47:17">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690668" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Because the price of a fiddle is generally not related to its sound and playability”<br>
+<br>
+Well… Looking from all angles, the price is indirectly related to its sound and playability in this way…<br>
+<br>
+How an instrument is made is related to its sound and playability. Cheaper instruments tend to be made in factories, with less care to their sound quality and playability. With an instrument as high maintenance as a fiddle, a cheaper instrument could be a big hassle. An uncomfortable action is one thing But with my cheaper fiddle I had a lot more issues. It wouldn’t stay in tune, the finger board was painted, and the paint would peel off. It sounded thin, didn’t provide much resonance, and the action was so high, it hurt to play it… Etc… All of these things could turn off a beginner. From experience, it took over a year for me to really get into playing with my fiddle. And when I was given a better one, it definitely motivated me to practice more. <br>
+<br>
+Instruments that are made better tend to be more expensive. Someone cared enough to get the proper materials and then cared enough to put it together the way it should be put together.<br>
+<br>
+I’m not telling the OPer to go buy an expensive instrument. I’m just saying, it may be worth it in the long run. <br>
+<br>
+But I would never tell one of my piano students to buy a cheap keyboard with only 48 thin, weightless, plastic keys, needs to use batteries because the manufacturer didn’t add an AC adapter port, and sounds like an 8byte MIDI player… They’d be very turned off to piano if that’s all they had to play on. It would kill their motivation. <br>
+<br>
+Though, neither would I tell them to buy a $35,000 grand piano ;-)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690668" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jerone</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-07-31 23:57:56">
+July 31st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690692" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+good vs. bad<br>
+cheap vs. expensive<br>
+apples vs. oranges<br>
+Sometimes one can get a cheap fiddle that will sound better than a more expensive fiddle.  Sometimes.<br>
+The only way to know is to try them out, and if one doesn’t yet know how to play, bring someone along that does. Chances are pretty good, though that a more expensive fiddle may sound better. One will always come across exceptions, so one can only try them out and see.<br>
+Playing on a crap fiddle (or a good fiddle with a crap set up) is hard. and discouraging. <br>
+I was given the opportunity to play a fiddle with a price tag of half a million dollars, with a $30,000 bow. It just about played itself. It was amazing. <br>
+And, I’ve had the opportunity to play some students’ violins, that were crap. and yeah, I sounded better than they did, but it was hard to get any kind of decent sound out of them.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690692" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Wyogal</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-01 08:54:04">
+August 1st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690728" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hi Fiddlelearner,<br>
+<br>
+A few observations about fiddles:<br>
+<br>
+1. Whether they are made in a factory or by an individual, they generally have the same parts made from the same materials arranged in the same way.<br>
+<br>
+2. Some factory fiddles made with very little attention to their sound and playability nevertheless sound great. <br>
+<br>
+3. Some more expensive factory fiddles made with greater attention nevertheless don’t sound great.<br>
+<br>
+4. Many extremely expensive fiddles made by individual masters of the past don’t sound great at all. Many moderately expensive fiddles made by individual makers don’t sound great at all.<br>
+<br>
+5. There’s no consensus between individual modern makers about what you do to make a great-sounding fiddle. One will carefully “tune” the belly and back plates of the violin, removing wood until the tapped belly and back resonate at specific frequencies, but another will rely entirely on the thicknessing of the wood. A third will say that the varnish is critical to the sound, a fourth will say that the choice, age and treatment of the wood is the decisive factor. If it was the case that one or another of these approaches was universally or generally successful, then  that approach would have been universally or generally adopted. In fact, the makers themselves don’t know, and they struggle to produce consistent results.  Many of them don’t play the violin or the fiddle, and often they are really more interested in fine woodwork than in the sound. That’s not surprising, since making a fiddle by hand is said to be a demonstration of mastery of the skills of a cabinetmaker. And yet, fiddles made by incompetent amateur woodworkers can sound great!<br>
+<br>
+6. You can make an enormous difference to the sound of a violin by moving the soundpost a few millimetres, or by changing the position of the tailpiece, the strings can make a huge difference, so can the bridge, its thickness and height. The bow can make a difference, although I think not as much as is sometimes claimed, particularly for our kind of music. <br>
+<br>
+7. When assessing the sound of a fiddle, it’s very difficult not to be influenced by factors like its age, appearance, maker, country of origin. <br>
+<br>
+8. The people who sell expensive fiddles want you to believe that more expensive fiddles sound better. Some people who play expensive fiddles want you to believe they sound better. People who buy expensive fiddles want to believe themselves that they sound better. <br>
+<br>
+9. An unplayable or horrible-sounding violin can nevertheless have substantial or even enormous value as an antique. <br>
+<br>
+10. Fiddlers aren’t necessarily looking for the same sound as classical violinists, or the same sound as each other. <br>
+<br>
+It’s not the same with pianos, is it? There’s no great trade in antique pianos, no individual makers, they are all made in factories, they know how to make them sound good and they can produce consistent sound, sound quality and playability are pretty much directly linked to price.  Buying one isn’t much of a problem, you just have to find the money.<br>
+<br>
+With a fiddle on the other hand you can get a perfectly acceptable one for a few euros, or you could (easily) spend thousands on a really poor instrument. So if I was in the OP’s position I wouldn’t think for a minute about saving up for a good one, I would find an experienced fiddle player and ask them to go to a big music shop with me and try lots of cheap ones.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690728" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bernie 29</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-01 14:45:24">
+August 1st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690744" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think it is helpful to divide the violin trade into three distinct catagories. The way the market works in each catagory is completely different:<br>
+<br>
+First there are the sub-£500 ‘student’ violins, what the trade refer to as VSOs (violin shaped objects). In this catagory you always get exactly what you pay for - because of the way they are made and selected, a £150 fiddle will always be better in both sound and playability than a £70, one and a £300 fiddle will be better in all respects than a £150 one.<br>
+<br>
+At the other end of the scale, above about £5,000 it becomes a more of a collectors market and the price of the fiddle doesn’t necessarily relate at all to the sound and playability - just as a not very pretty oil painting might be worth a few hundred pounds, but an identical painting signed by Picasso could be worth millions, there are plenty of very average fiddles that are worth tens of thousands just because of who made them - the ‘£1,000 fiddle with a £12,000 label’ scenario. At the same time, in this catagory there are anonymous fiddles and those by little known makers that have earned their high price tags purely on merit as playable instruments. So this area is a real minefield, and really shouldn’t be approached without some serious professional advice - from someone who understands the market, not just a good player who can identify a sweet sounding fiddle.<br>
+<br>
+That leaves the bit in the middle - fiddles from about £500 to £5,000. The area that most people here are probably interested in. <br>
+<br>
+Here, assuming you are buying from a specialist dealer, he will have priced his stock according to it’s playing qualities and aesthetics, so you will get pretty much what you pay for. I don’t really buy into the idea that different people are looking for different things - I’ve never heard anyone say ‘I don’t like that rich, warm sounding fiddle, I want something nasal and scratchy’. The one area where there is scope for personal preference is in the trade-off between volume and ease of playing. Loud fiddles are always harder to play, so a classical player might opt for a loud fiddle, the trad player for something quieter but more forgiving. But those properties don’t really figure in the pricing - if the loud and quiet fiddles have similar quality of tone and aesthetics, they will be the same price. Whatever your personal preferences, you will always get a better fiddle if you pay more.<br>
+<br>
+Really, the only scope for buying a fiddle that is better than its price tag suggests is if you buy privately or from a non-specialist music shop that has under-valued the instrument. But to do that, you have to really know what you are doing and be capable of valuing the instruments you are looking at for yourself - you’d have to buy a hell of a lot of fiddles before you hit a real bargain just by pot luck.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690744" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-01 16:25:49">
+August 1st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690755" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+The earlier advice about taking an experienced player with you is good.<br>
+<br>
+The “three categories” is misleading. There are fiddles still under £5000 in the UK that are sold on the repute of the maker rather than tonal quality - though the price always goes up year after year. From what I’ve seen of the US market, it doesn’t fully correspond with that of the UK (or Western Europe) anyway. <br>
+Over here, I’d be advising the purchase of a 19th century German trade instrument with proper bass bar and properly fitted neck. These can generally be set up (by a reputable luthier) to be adequate instruments for a , and can still be had for hundreds rather than thousands over here. However, they seem to fetch more in America.<br>
+If you go with an experienced player, you can be reasonably confident that you are not getting a lemon. Not just because of the sound, but because of the set up.<br>
+Incidentally, Aly Bain played the instrument I first learned on - a Klingenthal effort, with integral bass bar and neck fitted without top block (not the kind of instrument I’d be recommending, but it did get me started) and made it sound like something that a dealer would sell for megabucks. <br>
+I had a Matthew Hardie instrument (certified) that I sold on, even though the maker is considered a god here in Scotland. It needed a classically trained player to get the best out of it, which was a great tone, but not suited to me. Too strong and strident for my liking. I much prefer the sound of my 18th century French instrument, based on the Andrea Amati model. This is a huge leap from the old Klingenthal instrument, but if I hadn’t learned on that fiddle, I probably would have believed that the Hardie was for me.<br>
+What I’m suggesting here is that you get a reasonably good instrument, adequate enough for starting out.  Choose something that more suits your style when you have a style. You might not even want to move up.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690755" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-01 18:40:20">
+August 1st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690766" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+It’s not whether the fiddle is expensive or not. What you absolutely want to avoid is an instrument that is cheaply made. Lark violins come to mind. They are mass produced and the sound board is obviously too thick and I’m sure many other design flaws that can easily be pointed out by somebody more experienced with violin design. There are gems, however, to be found though with so called “student” violins that are often discarded by violin students that pursue other dreams and are willing to part with an antique for the same price that it went for possibly as much as 30 years ago, or maybe less if they are desperate to make rent.<br>
+The difficulty here is that it takes an experienced player to really uncover one of these without undue risk on the part of the buyer. But you don’t have to be a great player to know when you are playing a violin that you would like to own.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690766" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Banjo Joe</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-01 23:20:06">
+August 1st, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690768" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Weejie, I would be interested to know why you think a 19th century German fiddle would be better than (say) a modern Chinese fiddle.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690768" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bernie 29</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 02:58:03">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690774" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Some violin dealers, with websites, seem reluctant to reveal prices on their instruments. I don’t know why this should be - but I can imagine a conversation which starts with “what’s your budget” and then, lo and behold, a violin appears which closely matches your wallet. However, Corilon violins in Germany give prices online, they offer a trial period, and I have had several excellent fiddles from them. Worth checking.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690774" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Younger</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 04:33:57">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690775" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’m not at all sure about the C19 German V. modern Chinese question. An old trade fiddle is certainly a much nicer object to own and hold than a modern chinese, and it is the way I personally would go if I was in that position. But I think these days you probably get a better violin for your money buying a new one (In the £500+ catagory, I’m not talking about Skylarks).<br>
+<br>
+One thing to bear in mind with the C19th German fiddles is that just like modern fiddles, they were made in the full range of qualities, from garbage up to soloist, but now that they are old it is not always obvious which are which. Buy from a dealer and he will have priced them according to quality, but from other sources the temptation is for the seller to assume that because it is old it must be valuable - the ‘antique violin’ you find for sale for £300 may well be the C19 equivalent to a modern £70 thing.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690775" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 05:13:15">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690777" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I have a lovely-sounding C19 German instrument, and I’m yet to find a single modern violin that sounds as good for me. The only thing that came close was an C18 Italian effort, but that was 2x the price.<br>
+<br>
+Each to their own.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690777" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Tøm</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 05:26:54">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690793" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Weejie, I would be interested to know why you think a 19th century German fiddle would be better than (say) a modern Chinese fiddle.” - False Username.<br>
+<br>
+Over 35 years in the trade is what I rely on. Making and repairing the things.<br>
+There are some pretty duff instruments about, but (as I said in my previous post) if the bass bar is fitted, rather than integral, and the neck is fitted to a top block, then it can almost be taken as a given that it is going to be superior in tone than a Chinese “student” instrument.  Generally better quality timber, with a good few years of seasoning has a bearing on this.<br>
+Last time I saw Duncan Chisholm, he was playing a 19th century German trade instrument (with a Guarneri label inside). <br>
+Nothing special. Quite typical of the Mittenwald “factory” instruments of that era. <br>
+The Markneukirchen instruments tend to be of similar quality, and a good few Klingenthal fiddles.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690793" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 09:11:00">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690794" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+“Mittenwald”<br>
+<br>
+WOOP!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690794" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Tøm</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 09:36:16">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690798" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+That just seems like nonsense to me Weejie, a massive, groundless overgeneralisation.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690798" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bernie 29</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 10:11:18">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690806" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+I see what you mean Mark M, thanks for the insight! Yes, very different from pianos lol</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690806" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jerone</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-02 11:35:07">
+August 2nd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690854" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+“That just seems like nonsense to me Weejie, a massive, groundless overgeneralisation.”<br>
+<br>
+Groundless? In what way? I’ve given you the main grounding. Superior wood than the Chinese instruments. Over 100 years to ensure the wood is seasoned. Even most of the “lemons” can be brought to play better than most of those Chinese instruments (it’s surprising to many how fitting a real bass bar can put some life into those old “planks”).<br>
+I say “most” because I have encountered one - just one - Chinese student instrument that had an exceptional tone - it was a “Lark” - cheapest of cheap. It had a different varnish for some unknown reason. It was comparable to a German trade instrument. I’ve yet to find another, though I’m not saying they don’t exist.<br>
+Of course it’s a generalisation.  It’s not an “overgeneralisation”. It’s a generalisation that follows several in the past - and a generalisation that has controlled the market.  Many years back, it was predicted that these trade instruments would lose some of the stigma that was attached to them (when I worked in Germany, few Germans that I encountered wanted them - preferring French factory instruments for students) and start to win some favour as the alternatives became more scarce. This is happening already.<br>
+Yes, there are some Chinese makers who are producing some good instruments - but there were some makers in the “factory” areas of Germany who produced some exceptional fiddles - even the Schönbach school (Bohemian) - you see what I did there? However, I made it reasonably clear that I was concerned with “trade” instruments. <br>
+<br>
+Perhaps you can give a reasonable “ground” for your statement, Bearlet Wolfshield.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690854" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 01:32:54">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690858" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Let’s compare what you get for your money in the £3-500 pound range:<br>
+<br>
+With a new Chinese instrument you will get:<br>
+Ebony fingerboard and fittings<br>
+Traditional ’proper construction, with stuck bassbar and four corner blocks.<br>
+Inlaid purfling.<br>
+Back and sides won’t be sycamore, they will be an eastern maple species, but with tight grain and reasonable figuring.<br>
+The soundboard won’t be European Spruce, but will be another spruce species with tight, even grain.<br>
+Modern acrylic lacquer.<br>
+<br>
+With a German traded fiddle:<br>
+The fingerboard and pegs might be ebony, or they might be dyed pearwood.<br>
+The bass bar might be stuck, or it might be carved in.<br>
+It this price range the instrument will almost certainly be of blockless construction.<br>
+The purfing might be inlaid, or it might be drawn on.<br>
+The back and sides will be sycamore, but of the lowest grade, with little or no figuring.<br>
+The soundboard will be European Spruce, but again, of a low grade with wide or uneven grain.<br>
+The finish might be good oil varnish, but it is more likely to be poor spirit varnish that chips and flakes, and has been ‘pulled over’ several time during the life of the instrument.<br>
+<br>
+From the point of view of tone, neither is going to be brilliant - the price doesn’t allow for the man-hours needed to graduate and tune the plates properly. But the German instrument will have been carved by a bloke with a gouge and only the crudest of measuring instruments, the Chinese one either by a CNC machine or a bloke with a power carver and modern, accurate measuring instruments.<br>
+<br>
+The age of the German instrument is a mixed blessing - tone does improve with age, and the patina of an old instrument does make it a much nicer thing to own and hold. But age also brings issues - neck joints sink, glue crystallizes, woodworm do their worst (and luthiers hide the evidence on the surface). With a new instrument you know exactly what you are getting, with an old one you can never be quite sure.<br>
+<br>
+I think on balance, if you approach buying a fiddle as you would buy a car - rationally comparing specifications and looking for ‘best value for money’ you would go for the new Chinese every time. But if you buy with your heart you’ll probably go for an old German - they’re just…..nicer. It’s like when they compare cars on Top Gear -‘the Daewoo is a better car in every respect. But I’d still buy the Alfa Romeo’.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690858" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 04:32:15">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690863" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+&quot;With a new Chinese instrument you will get:<br>
+Ebony fingerboard and fittings&quot;<br>
+<br>
+Not necessarily. Moreover, with any modern instrument, there will (or should) be some concern as to the source of that ebony (or rosewood for that matter). With older instruments, this isn’t a concern.<br>
+<br>
+&quot;With a German traded  fiddle:<br>
+The fingerboard and pegs might be ebony, or they might be dyed pearwood.<br>
+You mean the “pearwood” that was used by some of the top baroque instrument makers?<br>
+<br>
+“The bass bar might be stuck, or it might be carved in.”<br>
+<br>
+Did I not eliminate integral bass bars from the equation? <br>
+<br>
+“It this price range the instrument will almost certainly be of blockless construction.”<br>
+<br>
+What price range again?  The price range is not necessarily a guide. Violin dealers charge what they can get - there are many unscrupulous dealers around. That is why I suggested taking a player along rather than be guided by price. There are many, many German trade instruments with top blocks and corner blocks - I’d rather a good sounding instrument with a simple piece of spruce board stuck in instead of a fitted block than a dead instrument with proper blocks. <br>
+<br>
+“tone does improve with age”<br>
+<br>
+Arguably, it does to an extent (especially if the violin has been played regularly) the hardening of the finish is a factor, not just the age of the wood. However, if an instrument has survived for over a century, there can be little argument that the wood is seasoned and stable.<br>
+<br>
+“But age also brings issues - neck joints sink, glue crystallizes, woodworm do their worst (and luthiers hide the evidence on the surface). ”<br>
+<br>
+Aye that can happen. However, if you take a player along with you, most things would likely be detected. If you buy a modern factory made instrument, you don’t know what is going to happen a few years down the line.<br>
+<br>
+&quot;The back and sides will be sycamore, but of the lowest grade, with little or no figuring.<br>
+The soundboard will be European Spruce, but again, of a low grade with wide or uneven grain.&quot;<br>
+<br>
+Might be - not “will be”. There are many well figured German trade instruments - and many instruments with integral bass bars but a tight grained top. I have come across hundreds.<br>
+<br>
+I don’t think the comparison with cars is up to much. Practically all cars depreciate in value (German trade instruments regularly sell  for more than they did when new, even taking inflation into account) - those exceptions would not be comparable to cheaper fiddles of any origin.<br>
+If you know where to look (a “violin specialist” shop in the city is not to be desired if you are looking for a bargain) you can still get German trade instruments with potential for under 300 quid. However, the OP is not from the UK, so basing instruments on UK prices isn’t much help.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690863" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 05:07:24">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690871" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+&gt;&gt;“Did I not eliminate integral bass bars from the equation? ”<br>
+<br>
+How did you eliminate them? Those instruments are out there on the dealers rack, the only way to eliminate them from your search is to take along a dental mirror and light to look inside. Not many buyers do that.<br>
+<br>
+&gt;&gt;“Might be - not ”will be“. There are many well figured German trade instruments - and many instruments with integral bass bars but a tight grained top. I have come across hundreds.”<br>
+<br>
+Not in the price range we are talking about. If the wood is good the price automatically goes up, and only comes down again if the instrument has some other serious issue.<br>
+<br>
+&gt;&gt;“the OP is not from the UK, so basing instruments on UK prices isn’t much help.”<br>
+<br>
+It’s an international market, and I think most people can convert between £ and $.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690871" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 07:26:31">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690872" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+&gt;&gt;“you can still get German trade instruments with potential for under 300 quid”<br>
+<br>
+Just to clarify, I was talking about ready to play instruments. You can certainly buy German fiddles ‘with potential’ for £100 or so at auction. But by the time you’ve had it set up, decent strings, new pegs and fittings and any other issues sorted, you are well up into the £3-500 range.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690872" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Mark M</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 07:39:01">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690887" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well, if people like Skreech and Weejie have been making / dealing fiddles for a long time I can’t really argue with them on price / quality, assign a monetary value, etc. I only play the buggers … but let me say this. <br>
+<br>
+Over the years I’ve played, tested and evaluated dozens of fiddles, from old French and German (around 150 years old), plus many Chinese-made instruments, which are new (1-10 years old). With one exception, every fiddle has been in the £1000 - £5000 price range.<br>
+<br>
+There’s a consistency with the French and German instruments in that almost every one has had at least one wolf note, even though their overall tonal quality often outdoes any Chinese model in the same price range. <br>
+<br>
+As for the top quality (eg old Italian instruments £30,000 + ) I have no idea if they have wolfers, although I do remember Pinchas Zukerman commenting on his preference for Guarnari over Stradivari - “on Stradivarius, the tone can crack under heavy attack, whereas the Guarnarius just laughs at you”).<br>
+<br>
+I’ve never had a wolfer from a Chinese instrument. Never. Nor from my own (it’s a KC Strings model, bench-made in USA, with wood (apparently) sourced from China).<br>
+<br>
+If I test an instrument, it’s to the death - all positions, soft playing, hard playing, playing to project, lots of bowing techniques too - so if there’s a bum note anywhere, I’ll find it. I’m only saying this because many a player (a decent player in his own right) will only test at medium volume with limited bowing, and all in 1st position). <br>
+<br>
+Can anyone explain why the wolfers are more common in non-Chinese fiddles?<br>
+<br>
+This has bugged me for a while …</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690887" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Jim Dorans, JustAFiddler</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 11:52:11">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment690910" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: fiddle advice</h3>
+<div class="e-content" itemprop="text">
+<p>
+“How did you eliminate them? Those instruments are out there on the dealers rack, the only way to eliminate them from your search is to take along a dental mirror and light to look inside. Not many buyers do that.”<br>
+<br>
+You don’t need a mirror if you know what to look for. The bass bar should be visible from the bass ‘f’ hole. It’s obvious if it’s an integral one.<br>
+<br>
+“Not in the price range we are talking about. If the wood is good the price automatically goes up, and only comes down again if the instrument has some other serious issue.”<br>
+<br>
+As I said - there are integral bass bar instruments with fine grained wood. That is “some other serious issue” to many “dealers”. Not a huge problem though, if you can fit a bass bar, and the “furrows” aren’t too deep. There are still instruments around with fitted bass bars and reasonably tight grained tops. If you are paying over £500 for them, you are looking in the wrong place - “dealers’ racks” gives me the impression that you are in the wrong place, anyway.<br>
+<br>
+“You can certainly buy German fiddles ‘with potential’ for £100 or so at auction. But by the time you’ve had it set up, decent strings, new pegs and fittings and any other issues sorted, you are well up into the £3-500 range.”<br>
+<br>
+OK, so you’ve now got a decent fiddle, superior to a Chinese factory instrument within your price range.<br>
+All those ‘drawbacks’ are no longer extant.<br>
+<br>
+Job done.<br>
+<br>
+“It’s an international market, and I think most people can convert between £ and $.”<br>
+<br>
+As I said earlier, in my experience, you don’t tend to find German trade instruments for the same price (or equivalent) over the pond (though I was only in the Mid-West). If you come and buy them over here, it’s cost you to get here and back.  It would cost a fair bit to send securely too. That’s the difference.<br>
+<br>
+Jim:- “I’ve never had a wolfer from a Chinese instrument.”<br>
+<br>
+Maybe you don’t get wolfers from lemons.<br>
+Seriously though, I’ve not come across this. When I was working in Germany, I was priveleged to have some seriously good players test out French instruments (and one or two German instruments). There would be extensive passages from Mr B’s violin concerto, and nae wolfies. Chinese instruments were not considered by these players.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment690910" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Weejie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2013-08-03 17:18:18">
+August 3rd, 2013</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/32218">thesession.org/discussions/32218</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>

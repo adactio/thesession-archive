@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en-ie">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion: Controlling a monster session</title>
+<style>
+html{-webkit-text-size-adjust:none;text-size-adjust:none;font-size:clamp(100%, 50% + .666vw, 150%);--pale:255,255,233;--dark:33,0,0;--bright:255,204,51}.light,html{color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-hue:15;--link-saturation:100%;--link-lightness:36%;--button-hue:19;--button-saturation:82%;--button-lightness:38%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.light{color-scheme:only light}html:has(input[name=colourscheme][value=light]:checked){color-scheme:light;--ink-base:var(--dark);--page-base:var(--pale);--formfield-background:rgba(255,255,255,1.0);--highlight-opacity:0.5;--link-saturation:100%;--link-lightness:36%;--heading-hue:30;--heading-saturation:100%;--heading-lightness:25%}.dark{color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}html:has(input[name=colourscheme][value=dark]:checked){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}@media all and (prefers-color-scheme:dark){html:not(.light){color-scheme:dark;--ink-base:var(--pale);--page-base:var(--dark);--formfield-background:rgba(42,22,17,1.0);--highlight-opacity:1.0;--link-saturation:78%;--link-lightness:60%;--heading-saturation:15%;--heading-lightness:60%}}.dark,.light,html{--ink:rgba(var(--ink-base),1.0);--page:rgba(var(--page-base),1.0);--keyline:rgba(var(--ink-base), 0.04);--keyline-light:rgba(var(--ink-base),0.02);--keyline-strong:rgba(var(--ink-base),0.1);--sparkline:rgba(var(--ink-base),0.5);--formfield-border:rgba(var(--ink-base),0.35);--formfield-border-over:rgba(var(--ink-base),0.65);--highlight:rgba(var(--bright),var(--highlight-opacity));background-color:var(--page);color:var(--ink)}body,html{margin:0;background-color:#ffe;background-color:var(--page,#ffe);position:relative;block-size:100%}body{color:#300;color:var(--ink,#300);font-family:Georgia,serif;line-height:1.5625;accent-color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}@media (scripting:none){.requiresJS{display:none}}svg path[fill="#000000"],svg rect[fill="#000000"]{fill:currentColor}svg path[stroke="#000000"],svg rect[stroke="#000000"]{stroke:currentColor}mark{background-color:var(--highlight)}figure{display:inline-block;text-align:center;margin:0;margin-block-end:1em}a,button,input,label,select,summary,textarea{touch-action:manipulation}abbr{text-decoration:none}img,video{max-inline-size:100%;block-size:auto}details summary>*{display:inline}details+details{margin-block-start:1em}p:not(:has(:matches(input,textarea))){hanging-punctuation:first last}h1,h2,h3,h4,h5,h6{color:#630;color:hsl(var(--heading-hue),var(--heading-saturation),var(--heading-lightness));font-weight:400;line-height:1.25;border-block-end:solid var(--keyline);word-wrap:break-word;hanging-punctuation:first last}h1{font-size:2rem;border-block-end-width:0.09375em;margin-block-start:0}h2{font-size:1.5rem;border-block-end-width:0.0833em}h3{font-size:1.25rem;border-block-end-width:0.05em}h4{font-size:1.125rem}h5{font-size:1.0625rem}h6{font-size:1rem}article h2{padding-block-start:1em}a-ajax,a-back,a-nav,a-top{display:contents}a{color:#c30;color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));text-decoration:none;word-break:break-word}a:link,a:visited{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness))}a:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline}a:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-width:.0625rem;outline-style:dotted;outline-color:var(--formfield-border);text-decoration:underline}a:active{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 4%));text-decoration:underline}a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}h2 a:link,h2 a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 6%))}mark a:link,mark a:visited{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) - 10%))}li:not(:has(:matches(input,textarea))){hanging-punctuation:first last}ul{margin-inline-start:0;padding-inline-start:0}ol{margin-inline-start:2em;padding-inline-start:0}@media all and (min-width:40em){ol{margin-inline-start:0}}table{border-collapse:collapse;inline-size:100%}td,th{text-align:start;padding-block:0.25em;padding-inline:0.5em;border:none;vertical-align:text-top}form-dates,form-save,input-email,input-hashtags,input-search,input-tune-id,input-tune-name{display:contents}fieldset{border:none;padding:0;margin:0}legend{text-indent:0;margin:0;padding:0;font-size:1.5rem}button,input,select,textarea{font-family:inherit;line-height:inherit;font-size:1rem}input,select,textarea{margin:0;padding-block:0.25em;padding-inline:0.125em;background-color:var(--formfield-background);color:var(--ink);border-width:.125em;border-style:solid;border-color:var(--formfield-border);border-radius:.25em;transition:border-color .1s,box-shadow .1s}input:required,select:required,textarea:required{border-color:var(--formfield-border)}input:hover,select:hover,textarea:hover{border-color:var(--formfield-border-over)}input:focus,select:focus,textarea:focus{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}input[type=range]{box-shadow:none}select{appearance:none;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 16l8.9-8.9c-.8-.8-2-.8-2.8 0L12 13.2l-6.1-6c-.8-.8-2-.8-2.8 0L12 16z" fill="%23999999"/></svg>');background-position-x:98%;background-position-y:55%;background-repeat:no-repeat;padding-inline-end:1em}select:focus{background-color:var(--formfield-background);color:var(--ink)}li:first-of-type:not(:last-of-type)>input{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0.0625em}li:not(:last-of-type):not(:first-of-type)>input{border-radius:0;border-block-start-width:0.0625em;border-block-end-width:0.0625em}li:last-of-type:not(:first-of-type)>input{border-start-start-radius:0;border-start-end-radius:0;border-block-start-width:0.0625em}[tabindex='-1']:focus{outline:0}[role=list]{margin-inline-start:0}[role=list] li{list-style:none}[rel=prev]:before{content:'« ';margin-inline-start:-.75em}[rel=next]:before{content:'» ';margin-inline-start:-.75em}[placeholder]::placeholder{text-transform:none}input[list]{appearance:none}input[type=number]{inline-size:4em;text-align:end}form[method=post] label{cursor:inherit;display:flex;align-items:center;gap:.5em}form[method=post] input,form[method=post] textarea{inline-size:100%;max-inline-size:50em;box-sizing:border-box}form[method=post] input[type=checkbox],form[method=post] input[type=radio]{inline-size:1.125em;block-size:1.125em}form[method=post] input[type=date],form[method=post] input[type=datetime],form[method=post] input[type=submit]{inline-size:auto}form[method=post] input[type=number]{inline-size:5em;text-align:start}form[method=post] input:not([type=submit]):invalid:focus,form[method=post] select:invalid:focus,form[method=post] textarea:invalid:focus{border-color:rgba(102,0,0,.5)}form[method=post] input:not([type=submit]):invalid:hover,form[method=post] select:invalid:hover,form[method=post] textarea:invalid:hover{border-color:rgba(102,0,0,.75)}form[method=post] input:not([type=submit]):valid:focus,form[method=post] select:valid:focus,form[method=post] textarea:valid:focus{border-color:rgba(0,102,0,.5)}form[method=post] input:not([type=submit]):valid:hover,form[method=post] select:valid:hover,form[method=post] textarea:valid:hover{border-color:rgba(0,102,0,.75)}@media all and (max-width:20em){form[method=post] button,form[method=post] input[type=submit],form[method=post] select{inline-size:100%;margin-block:0.125em;margin-inline:0}}abc-render-button,button-ajax,button-clipboard,button-confirm,button-geolocate,button-open-window,button-tune-id,submit-ajax{display:contents}.button,button,input[type=submit]{user-select:none;box-sizing:border-box;white-space:nowrap;cursor:pointer;display:inline-block;font-size:.8125rem;font-weight:400;text-align:center;text-transform:uppercase;text-indent:.075em;text-shadow:0 -.075em 0 rgba(0,0,0,.25);letter-spacing:.15em;line-height:1;border-width:.075em;border-style:solid;border-radius:.3em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));padding-block:0.75em;padding-inline:1.175em;margin:0;box-shadow:inset 0 .075em .075em rgba(255,255,255,.25);color:rgba(255,255,204,.9);transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0);background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}@media print{.button,button,input[type=submit]{background-image:none;background-color:transparent;color:inherit;border-color:inherit;text-shadow:none}}.button:link,.button:visited,input[type=submit]:link,input[type=submit]:visited{background-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),var(--button-lightness))}.button:focus,.button:hover,button:focus,button:hover,input[type=submit]:focus,input[type=submit]:hover{background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 15%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 25%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 5%))}.button:focus-visible,button:focus-visible,input[type=submit]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}.button:focus:not(:focus-visible),button:focus:not(:focus-visible),input[type=submit]:focus:not(:focus-visible){outline-width:.075em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.button:active,button:active,input[type=submit]:active{outline:0;box-shadow:inset 0 0 .6em 0 rgba(var(--dark),.5);background-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%));border-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 20%));border-block-end-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 30%));border-block-start-color:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) - 10%))}@media all and (max-width:20em){.button:not(.tabbed)+.button:not(.tabbed),button:not(.tabbed)+button:not(.tabbed),input[type=submit]+input[type=submit]{float:right;float:inline-end}}a.button:link,a.button:visited{color:rgba(255,255,204,.9)}a.button:focus,a.button:hover{text-decoration:none}a.button:active{background-image:none;box-shadow:inset 0 0 .5em 0 var(--formfield-border);text-decoration:none}button.link{color:hsl(var(--link-hue),var(--link-saturation),var(--link-lightness));background:0 0;border:none;border-radius:0;box-shadow:none;box-sizing:inherit;display:inline-block;font-size:inherit;font-weight:inherit;text-shadow:none;text-indent:inherit;text-align:inherit;text-transform:inherit;text-decoration:inherit;white-space:inherit;letter-spacing:inherit;padding:inherit;padding-inline:inherit;padding-block:inherit;margin:inherit;margin-inline:inherit;margin-block:inherit;line-height:inherit;font-variant:inherit}button.link:hover{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus{color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));outline-style:dotted;outline-color:hsl(var(--link-hue),var(--link-saturation),calc(var(--link-lightness) + 4%));text-decoration:underline;box-shadow:unset}button.link:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid;box-shadow:unset}.action{display:inline-block;padding-inline:0.75em;padding-block:0.44em;line-height:1}.action::after,.action::before{content:' ';inline-size:1em;block-size:1em;background-size:1em;background-image:none;background-repeat:no-repeat;margin-block-start:-0.075em}.action::before{float:left;float:inline-start;margin-inline-start:-.44em;margin-inline-end:.44em}.action::after{float:right;float:inline-end;margin-inline-start:.44em;margin-inline-end:-.44em}@media all and (max-width:20em){.action{inline-size:100%;margin-block:0.15em;margin-inline:0}.action.aside{float:none}}@media all and (min-width:46em){.button.action,button.action,input[type=submit].action{min-inline-size:16.25em}}.back,input[type=submit].back{--button-hue:30;--button-saturation:50%;--button-lightness:60%}.cancel{--button-hue:0;--button-saturation:100%;--button-lightness:40%}.admin{--button-hue:45;--button-saturation:100%;--button-lightness:40%}.tally{font-variant-numeric:lining-nums;padding-block:0.15em;padding-inline:0.3em;--button-hue:330;--button-saturation:100%;--button-lightness:40%}.tabbed{border-end-start-radius:0;border-end-end-radius:0;border-block-end-width:0}.icon{padding-block-start:0.6em;padding-block-end:0.44em;padding-inline:1.175em}.discrete{font-size:.8125rem}.button.discrete,button.discrete,input[type=submit].discrete{font-size:.66rem}small.discrete{font-style:italic}small.discrete a[href^='#']{font-style:normal}.detail{text-transform:lowercase;font-variant:small-caps}.aside{position:relative;float:right;float:inline-end;z-index:2}.aside+#results{clear:both}.prose{max-inline-size:50rem;overflow:hidden}@media print{body,html{background-color:transparent;color:#000;border-color:#d3d3d3}body{orphans:2;widows:2}body *{text-shadow:none!important;box-shadow:none!important;color:inherit!important;background-color:inherit!important;background-image:none!important;border-color:inherit!important}h1,h2,h3,h4,h5,h6{break-after:avoid}#nav,.bottom.strip,.button,.top.strip,body form[method] button[type=submit],body form[method] input[type=email],body form[method] input[type=number],body form[method] input[type=search],body form[method] input[type=tel],body form[method] input[type=text],body form[method] input[type=url],body form[method] label,body form[method] select,body form[method] textarea,button.action{display:none}body .ribbon{border:none}body .logo{margin-block-end:3em}main::before{float:right;float:inline-end;margin-block-start:-5.5em}[role=tablist]{border-color:#000!important}.setting{break-inside:avoid}#comments{break-before:always}svg path,svg text{fill:black!important}svg path:not([stroke=none]){stroke:black!important}}.activity-sparkline path{stroke:var(--sparkline)}.albums{display:flex;gap:1em;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.album{max-inline-size:13.25em;display:flex;flex-direction:column;align-items:stretch}.album .button,.album .photo{inline-size:100%;margin:0}aria-toggle{position:relative;display:inline-block;user-select:none}aria-toggle [aria-controls]+.feedback{border-block-start-width:0;border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.1875em}aria-toggle [aria-hidden]{display:none}@media (scripting:none){aria-toggle [aria-hidden]{display:initial}}.bill-item{display:inline-flex;justify-content:space-between;inline-size:100%}.bill-item-cost{text-align:end}.chartbar{display:block;block-size:0.5em;background-color:rgba(153,102,51,.125);border-radius:.125em;background-image:linear-gradient(rgba(153,102,51,.05),rgba(153,102,51,.2))}.clapperboard{position:absolute;inset-inline-start:0;inset-block-start:100%;inline-size:100%;z-index:3}:active+.clapperboard,:focus+.clapperboard{outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2}embed-map{display:block;position:relative;overflow:hidden;border-width:.1875rem;border-style:double;border-color:var(--keyline);margin:1em 0;aspect-ratio:100/50;view-transition-name:map}embed-map .map{user-select:none;position:absolute;inset-block-start:0;inset-inline-start:0;inline-size:100%;block-size:100%;z-index:1}@media all and (min-width:35em){lembed-map{aspect-ratio:100/40}}@media all and (min-width:46em){embed-map{aspect-ratio:100/30}}@media all and (min-width:70em){embed-map{aspect-ratio:100/25}}embed-player{display:block}embed-player iframe{aspect-ratio:3/4;max-inline-size:40rem;max-block-size:25rem;inline-size:100%;block-size:auto;border:0}embed-player[data-soundcloudid] iframe{aspect-ratio:unset;block-size:166px}.feed+.pagination{max-inline-size:50rem}.feed-entry{max-inline-size:50rem;padding-block-end:1.5em;margin-block-end:1.4375em;border-block-end:0.0625em solid var(--keyline-light);contain:layout paint}.feed-entry-title{margin-block-end:0;border-block-end-width:0}.feed-entry-author{word-wrap:break-word}.feed-entry--snippet p{margin:0}.feed-entry--comment{word-wrap:break-word}.feed-entry--comment .feed-entry-title{color:hsl(calc(var(--heading-hue) + 10),var(--heading-saturation),calc(var(--heading-lightness) + 5%));margin-block-start:0}.feedback{max-inline-size:50rem;display:block;padding-block:0.25em;padding-inline:1em;background-color:#fc3;color:rgba(0,0,0,.8);box-shadow:inset 0 0 1em rgba(0,0,0,.1);border-width:.1875em;border-style:double;border-color:rgba(0,0,0,.1);border-radius:.125em;box-sizing:border-box}.feedback ol,.feedback ul{margin-inline-start:1em}.feedback a{color:#ba0000}.error{background-color:#ba0000;color:#ffc}.error a{color:#fc3}.success{background-color:#cf9}@media all and (min-width:48em){.gallery{display:table;inline-size:100%}.gallery .gallery-item{display:table-cell;text-align:center}.gallery .gallery-item:first-child{text-align:start}.gallery .gallery-item:first-child .photo{transform:rotate(-6deg)}.gallery .gallery-item:last-child{text-align:end}.gallery .gallery-item:last-child .photo{transform:rotate(6deg)}.gallery .gallery-item,.gallery .gallery-item img{max-inline-size:100%}}.hovercard{display:inline-block;max-inline-size:15em;background-color:#ffe;background-color:var(--page,#ffe);box-shadow:0 0 1em rgba(0,0,0,.2);border:.1875em double var(--keyline-strong);border-radius:.5em;padding-block:0;padding-inline:1em;z-index:3;opacity:1;transition:opacity .25s,transform .25s}.hovercard .button.action{min-inline-size:15em}.hovercard.above{margin-block-start:-0.5em;transform:translateY(-.5em)}.hovercard.below{margin-block-start:0.5em;transform:translateY(.5em)}.hovercard.above::after,.hovercard.below::after{content:' ';position:absolute;inline-size:0.5em;block-size:0.5em;background-color:var(--page);backface-visibility:hidden;transform:rotate(45deg);inset-inline-start:calc(50% - 0.25em)}.hovercard.above::after{inset-block-end:-0.5em;border-block-end:0.1875em double var(--keyline-strong);border-inline-end:0.1875em double var(--keyline-strong)}.hovercard.below::after{inset-block-start:-0.5em;border-block-start:0.1875em double var(--keyline-strong);border-inline-start:0.1875em double var(--keyline-strong)}.hovercard.left::after{inset-inline-start:1.475em}.hovercard[aria-hidden=true]{opacity:0}.hovercard svg path{fill:var(--ink)}.hovercard svg path:not([stroke=none]){stroke:var(--ink)}.info{inline-size:100%;overflow:hidden;background-color:var(--keyline-light);padding:1em;margin-block:1em;margin-inline:0;border:.1875em double var(--keyline);border-radius:.125em;box-sizing:border-box}.info ul{margin:0}.info li{margin-inline-start:1em}.inverted{background-color:#600;color:rgba(255,255,204,.55)}.inverted a:link,.inverted a:visited,.inverted button.link{color:rgba(255,255,204,.9)}.inverted .button,.inverted button:not(.link){box-shadow:inset 0 -.0625em 0 rgba(0,0,0,.25);border:none}@media all and (max-width:20em){.inverted.strip{background-image:linear-gradient(#700,#500)}}.manifest{max-inline-size:50rem}.manifest-title{margin-block-end:0;padding-block-end:0}.manifest-inventory{border-block-start:0.0625em solid var(--keyline);margin-block-start:0;padding-block-start:0}.manifest-item{vertical-align:text-top;margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline-light)}.manifest-item:focus,.manifest-item:hover{background-color:var(--keyline-light)}.manifest-item-title{font-size:1.25rem;line-height:1.2}.manifest-item-title b{font-weight:400}.manifest-item-extra{white-space:pre}.manifest-meta{display:block;margin-block-start:0.5em;opacity:.9}.menu{border-block-start:0.0625rem solid}.menu li{border-block-end:0.0625rem solid;text-transform:uppercase;letter-spacing:.1875em;line-height:1}.menu a{text-decoration:none;display:block;padding-block:0.75em;padding-inline:5%;transition:background-color .25s linear}.menu a:link,.menu a:visited{color:rgba(51,0,0,.75)}.menu a:focus,.menu a:hover{text-decoration:none;outline:0;color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.25)}.menu a:active{color:rgba(255,255,204,.75);background-color:rgba(51,0,0,.75)}.menu .here a:link,.menu .here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}.menu .here a:focus,.menu .here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}.messages{display:block;overflow:auto}.messages td,.messages th{margin:0;padding-block-start:1.0625em;padding-block-end:1em;border-block-end:0.0625em solid var(--keyline)}.messages tbody tr:hover{background-color:var(--keyline-light)}.messages tbody tr:hover td,.messages tbody tr:hover th{border-block-end-color:var(--keyline)}.unread{font-weight:700}.notes{font-family:'Courier New',monospace;word-wrap:break-word}.pagination{margin-block-end:2em;overflow:hidden;text-align:center;clear:both}.pagination [rel=prev]{float:left;float:inline-start}.pagination [rel=next]{float:right;float:inline-end}.pagination [rel=next]:before,.pagination [rel=prev]:before{content:'';margin-inline-start:0}.pagination+[role=search]{border-block-start-width:0.125em;border-block-start-style:solid;border-block-start-color:rgba(102,51,0,0.1);margin-block-start:2em;padding-block-start:2em}.pagination [rel=next]:focus svg circle,.pagination [rel=next]:hover svg circle,.pagination [rel=prev]:focus svg circle,.pagination [rel=prev]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}.photo{max-inline-size:100%;block-size:auto;background-color:rgba(255,255,255,.95);padding-block-start:0.5em;padding-block-end:1em;padding-inline:0.5em;margin:.25em;border-width:.0625rem;border-style:solid;border-color:rgba(102,51,0,.25);box-shadow:0 .25em .5em rgba(0,0,0,.375);box-sizing:border-box;transition:box-shadow .125s linear}a:hover .photo{box-shadow:0 .25em .5em rgba(0,0,0,.5)}@media all and (min-width:46em){embed-player .photo{min-inline-size:12.75em}}.prevnext{display:inline-flex;gap:.25em}.prevnext :first-child{order:2}.prevnext .back{order:1}.prevnext .loader{order:3}.ribbon{font-size:1rem;display:block;margin:0;padding:.5em;color:rgba(51,0,0,.9);background-color:#e5b219;background-image:linear-gradient(#eb2,#da1);border-width:.0625em;border-style:dashed;border-color:#c93;border-radius:.2em;box-shadow:.25em .25em 0 #e5b219,-.25em .25em 0 #e5b219,-.25em -.25em 0 #e5b219,.25em -.25em 0 #e5b219}a.ribbon,a.ribbon:active,a.ribbon:focus,a.ribbon:hover,a.ribbon:link,a.ribbon:visited{color:rgba(51,0,0,.9);text-decoration:none}a.ribbon:focus{outline-style:dashed}a.ribbon:focus-visible{outline-style:solid}a.ribbon:active{outline:0}[role=search]{margin-block-end:2em}[role=search] label{display:block;font-size:1.25rem}[role=search] select{display:block;inline-size:100%;padding-block-start:0.4em;padding-block-end:0.4em;padding-inline-start:0.2em}[role=search] input[type=search]{display:block;inline-size:100%;padding-block:0.4em;padding-inline:0.2em;appearance:none}[role=search] button{display:block;inline-size:100%;border-width:.125em;border-color:#997300;border-block-start-color:rgba(230,172,0,1.0);background-color:#fc3;color:#630;text-shadow:0 .0625rem 0 rgba(255,255,255,.25)}[role=search] button:focus,[role=search] button:hover{background-color:#ffbf00}[role=search] button:active{background-color:#c90;border-color:#c90}[role=search] input[type=search]:focus+button{box-shadow:0 0 .5em 0 var(--formfield-border-over)}@media all and (max-width:21.99em){[role=search] input[type=search]{padding-block-start:0.4em;padding-block-end:0.6em;padding-inline:0.2em}[role=search] button{border-start-start-radius:0;border-start-end-radius:0;margin-block-start:-0.3846em}}@media all and (min-width:22em){[role=search] input[type=search]{display:inline-block;inline-size:70%;max-inline-size:50em;border-start-end-radius:0;border-end-end-radius:0}[role=search] button{display:inline-block;inline-size:30%;border-start-start-radius:0;border-end-start-radius:0;margin-inline-start:-.3846em}[role=search] button,[role=search] input,[role=search] select{vertical-align:top;block-size:2.5rem;box-sizing:border-box}}@media all and (min-width:30em){[role=search] select{display:inline-block;inline-size:auto}}@media all and (min-width:46em){[role=search] form{display:flex;flex-direction:row;align-items:center}[role=search] label{margin-inline-end:.25em}[role=search] input+label,[role=search] select+label{margin-inline-start:.25em}[role=search] input[type=search]{inline-size:auto;flex-grow:1}[role=search] button{inline-size:auto}}@media all and (min-width:56em){[role=search]>label:first-child+input[type=search]+button{min-inline-size:16.25em}}@media all and (min-width:72em){[role=search] button{min-inline-size:16.25em}}@media all and (min-width:56em) and (min-height:44em){[role=search] button,[role=search] input,[role=search] select{block-size:2.75rem}}.setting{clear:both;padding-block-start:3em;margin-inline-start:-1em;padding-inline-start:1em;margin-inline-end:-1em;padding-inline-end:1em;padding-block-end:3em;border-radius:.25em;border:.1875em double transparent}.setting+.setting{margin-block-start:1em}.setting-abc{padding-block-start:1em}.setting-abc .notes{padding-block-end:1em}.setting-abc,.setting-sheetmusic{clear:both}.setting-abc,.setting-metadata,.setting-sheetmusic{max-inline-size:50rem}@media all and (min-width:26em){.setting-abc .setting-metadata .setting-action,.setting-sheetmusic .setting-metadata .setting-action{float:left;float:inline-start;margin-inline-end:.375em}.setting-abc .setting-metadata .setting-action+.setting-action,.setting-sheetmusic .setting-metadata .setting-action+.setting-action{float:right;float:inline-end;margin-inline-start:.375em;margin-inline-end:0}}.setting footer.setting-metadata{clear:both}.setting-action{margin-block-end:1em;display:inline-block}@media all and (max-width:25em){.setting-action,.setting-action .action{inline-size:100%}}.dark .setting.light{border-color:var(--ink)}@media all and (prefers-color-scheme:dark){html:not(.light) .setting.light{border-color:var(--ink)}}.sharing{line-height:1;text-align:center;padding:0;box-sizing:border-box}.sharing .sharing-link{display:inline-block;inline-size:1.125em;block-size:1.125em;padding:.25em;fill:rgba(153,51,0,1.0)}.sharing .sharing-link:focus,.sharing .sharing-link:hover{background-color:#930;fill:rgba(255,255,233,1.0)}.social{margin-inline-start:1.5em}.social::before{inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;float:left;float:inline-start;margin-inline-start:-1.5em;margin-block-start:0.25em;opacity:.75}.social:hover::before{opacity:1}@media all and (min-width:48em){.social{margin-inline-start:0}}.stats{display:table}.stats li{display:table-row;line-height:1.75}.stats .stat{display:table-cell}.stats .label{text-align:end}.stats .stat+.stat{padding-inline-start:1em}.switch{user-select:none;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;letter-spacing:.125em;line-height:1;background-color:#ccc;border-radius:1.2em;padding-block:0.2em;padding-inline-start:0.2em;padding-inline-end:1.2em;box-shadow:inset 0 0 .5em rgba(0,0,0,.1)}.switch input{position:absolute;clip:rect(.0625rem,.0625rem,.0625rem,.0625rem);block-size:0.0625rem;inline-size:0.0625rem;overflow:hidden}.switch label{position:relative;display:inline-block;inset-inline-start:0;border-radius:1.2em;padding-block-start:0.25em;padding-block-end:0.375em;padding-inline:0.5em;background-color:#777;color:#fff;transition:all .1s}.switch label:hover{background-color:#888;cursor:pointer}.switch input:focus+label{background-color:#888;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);border-color:var(--formfield-border-over);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.switch input:checked+label{background-color:#693;transform:translateX(1em)}[role=tablist]{display:block;position:relative;border-block-end:1px solid}[role=tab]{display:inline-block;position:relative;margin-block-end:-1px;border-block-end-width:1px;border-block-end-style:solid}[role=tab],[role=tab]:active,[role=tab]:focus,[role=tab]:hover,[role=tab]:link,[role=tab]:visited{border-block-end-color:var(--ink)}[role=tab][aria-selected=true],[role=tab][aria-selected=true]:active,[role=tab][aria-selected=true]:focus,[role=tab][aria-selected=true]:hover,[role=tab][aria-selected=true]:link,[role=tab][aria-selected=true]:visited{border-color:var(--ink);border-block-end-color:var(--page);box-shadow:0 1px var(--page);background-image:none;background-color:var(--page);color:var(--ink);text-shadow:none;pointer-events:none;cursor:default}[role=tabpanel]{position:relative;background-color:var(--page)}[role=tabpanel][aria-hidden=true]{display:none}@media (scripting:none){[role=tabpanel][aria-hidden=true]{display:initial}}@media all and (min-width:48em){.tabular{display:table;inline-size:100%}.tabular .tabular-cell{display:table-cell;padding:.25em}}@view-transition{navigation:auto}[placeholder]:focus::placeholder{transition:color .75s;color:transparent}span[role=status]{z-index:3;position:absolute;opacity:1;transition:transform 1s,opacity 1s}.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition:all .25s ease-in-out}@media (prefers-reduced-motion:reduce){.ajaxing-flipping,.ajaxing-slidingin,.ajaxing-slidingout,.ajaxing-slidingup{transition-duration:0s}}.ajaxing-flipping.flipping{backface-visibility:hidden;transform:rotateY(90deg);opacity:0}.ajaxing-slidingup.slidingup{transform:translateY(-100%);opacity:0}.ajaxing-slidingout.slidingout{transform:translateX(100%) scale(1.5);opacity:0}.ajaxing-slidingin.slidingin{transform:translateX(-100%) scale(.5);opacity:0}@keyframes pulse{from{box-shadow:0 0 0 transparent}to{box-shadow:0 0 1em #000}}.pulse{animation-name:pulse;animation-duration:2s}@keyframes targetfade{from{background-color:rgba(255,204,51,.25)}to{background-color:rgba(255,204,51,0)}}main :target{animation-name:targetfade;animation-duration:3s;animation-iteration-count:1}html.dark .light:target{animation:none}@media all and (prefers-color-scheme:dark){html:not(.light) .light:target{animation:none}}@keyframes loadspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loading::before{animation-name:loadspin;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes swingdown{from{transform:perspective(100vh) rotate3d(1,0,0,-90deg)}to{transform:perspective(100vh)}}.clapperboard:not([aria-hidden]){transform-origin:center top;animation-name:swingdown;animation-duration:.15s;animation-iteration-count:1;animation-direction:normal}@keyframes emerge{from{transform:translateY(.5em) scale(0)}to{transform:translateY(.5em) scale(1)}}.membership-links:not([aria-hidden]){transform-origin:2em top;animation-name:emerge;animation-duration:.25s;animation-iteration-count:1;animation-direction:normal}.video::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM60 44c0 2.124-0.836 4.129-2.353 5.647s-3.523 2.353-5.647 2.353h-40c-2.124 0-4.129-0.836-5.646-2.353s-2.354-3.523-2.354-5.647v-24c0-2.124 0.836-4.129 2.354-5.646s3.523-2.354 5.646-2.354h40c2.124 0 4.129 0.836 5.647 2.354s2.353 3.523 2.353 5.646v24zM24 48l20-16-20-16z" fill="%23ffffcc"></path></svg>')}.message::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M58 8h-52c-3.3 0-6 2.7-6 6v40c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6v-40c0-3.3-2.7-6-6-6zM24.921 34.398l-16.921 13.181v-31.353l16.921 18.172zM11.024 16h41.953l-20.976 15.75-20.976-15.75zM25.581 35.106l6.419 6.894 6.419-6.894 13.16 16.894h-39.158l13.16-16.894zM39.079 34.398l16.921-18.172v31.353l-16.921-13.181z" fill="%23ffffcc"></path></svg>')}.download::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M46 28l-16 16-16-16h10v-24h12v24zM30 44h-30v16h60v-16h-30zM56 52h-8v-4h8v4z" fill="%23ffffcc"></path></svg>')}.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M62 24h-22v-22c0-1.105-0.895-2-2-2h-12c-1.105 0-2 0.895-2 2v22h-22c-1.105 0-2 0.895-2 2v12c0 1.105 0.895 2 2 2h22v22c0 1.105 0.895 2 2 2h12c1.105 0 2-0.895 2-2v-22h22c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2z" fill="%23ffffcc"></path></svg>')}.remove::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 26v12c0 1.105 0.895 2 2 2h60c1.105 0 2-0.895 2-2v-12c0-1.105-0.895-2-2-2h-60c-1.105 0-2 0.895-2 2z" fill="%23ffffcc"></path></svg>')}.delete::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"  fill="%23ffffcc"></path></svg>')}.edit::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M54 0c5.523 0 10 4.477 10 10 0 2.251-0.744 4.329-2 6l-4 4-14-14 4-4c1.671-1.256 3.749-2 6-2zM4 46l-4 18 18-4 37-37-14-14-37 37zM44.724 22.724l-28 28-3.447-3.447 28-28 3.447 3.447z" fill="%23ffffcc"></path></svg>')}.listen::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M44.971 51.971c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.243 8.188-8.188 8.188-21.511 0-29.698-1.172-1.172-1.172-3.071 0-4.243s3.071-1.171 4.243 0c5.1 5.099 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092c-0.586 0.586-1.353 0.879-2.121 0.879v0zM34.314 46.314c-0.768 0-1.535-0.293-2.121-0.879-1.172-1.172-1.172-3.071 0-4.242 5.069-5.069 5.069-13.316 0-18.385-1.172-1.172-1.172-3.071 0-4.243s3.071-1.172 4.243 0c7.408 7.408 7.408 19.462 0 26.87-0.586 0.586-1.353 0.878-2.121 0.878z" fill="%23ffffcc"></path><path d="M26 60c-0.52 0-1.032-0.203-1.415-0.586l-15.414-15.414h-7.172c-1.105 0-2-0.895-2-2v-20c0-1.105 0.895-2 2-2h7.172l15.414-15.414c0.572-0.572 1.432-0.743 2.18-0.434s1.235 1.039 1.235 1.848v52c0 0.809-0.487 1.538-1.235 1.848-0.247 0.102-0.507 0.152-0.765 0.152z" fill="%23ffffcc"></path></svg>')}.music::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60 0h4v46c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-23.003l-32 7.111v30.889c0 5.523-6.268 10-14 10s-14-4.477-14-10c0-5.523 6.268-10 14-10 3.918 0 7.459 1.15 10 3.002v-39.002l36-8z" fill="%23ffffcc"></path></svg>')}.sets::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="%23ffffcc"></path></svg>')}.sets.add::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18h10v2H2v-2zm0-7h20v2H2v-2zm0-7h20v2H2V4zm16 14v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" fill="%23ffffcc"></path></svg>')}.print::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 4h32v8h-32v-8z" fill="%23ffffcc"></path><path d="M60 16h-56c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h12v16h32v-16h12c2.2 0 4-1.8 4-4v-20c0-2.2-1.8-4-4-4zM8 28c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zM44 56h-24v-20h24v20z" fill="%23ffffcc"></path></svg>')}.share::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M16 40c0 0 3.677-12 24-12v12l24-16-24-16v12c-16 0-24 9.98-24 20zM44 48h-36v-24h7.867c0.631-0.745 1.307-1.458 2.031-2.136 2.748-2.574 6.035-4.541 9.757-5.864h-27.655v40h52v-16.789l-8 5.333v3.456z" fill="%23ffffcc"></path></svg>')}.clipboard::before{background-image:url('data:image/svg+xml; utd-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path  d="M14.5 2h-4.5c0-1.105-0.895-2-2-2s-2 0.895-2 2h-4.5c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h13c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5zM8 1c0.552 0 1 0.448 1 1s-0.448 1-1 1c-0.552 0-1-0.448-1-1s0.448-1 1-1zM14 15h-12v-12h2v1.5c0 0.276 0.224 0.5 0.5 0.5h7c0.276 0 0.5-0.224 0.5-0.5v-1.5h2v12z" fill="%23ffffcc"></path><path d="M7 13.414l-3.207-3.707 0.914-0.914 2.293 1.793 4.293-3.793 0.914 0.914z" fill="%23ffffcc"></path></svg>')}.tagging.add::after,.tagging.edit::after,.tagging.remove::after,.tagging:not(.loading):not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 16 16"><path d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" fill="%23ffffcc"></path></svg>')}.tunebook.add::after,.tunebook.remove::after,.tunebook:not(.loading):not(.add):not(.remove)::before,button.tunebook.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M57.363 14.317c-1.388-1.893-3.323-4.106-5.449-6.231s-4.338-4.060-6.231-5.449c-3.223-2.364-4.787-2.637-5.683-2.637h-31c-2.757 0-5 2.243-5 5v54c0 2.757 2.243 5 5 5h46c2.757 0 5-2.243 5-5v-39c0-0.896-0.273-2.459-2.637-5.683v0zM49.086 10.914c1.919 1.919 3.425 3.65 4.536 5.086h-9.622v-9.622c1.436 1.111 3.167 2.617 5.086 4.536v0zM56 59c0 0.542-0.458 1-1 1h-46c-0.542 0-1-0.458-1-1v-54c0-0.542 0.458-1 1-1 0 0 30.997-0 31 0v14c0 1.105 0.895 2 2 2h14v39z" fill="%23ffffcc"></path><path d="M47.268 24.453c-0.463-0.38-1.073-0.532-1.66-0.415l-20 4c-0.935 0.187-1.608 1.008-1.608 1.961v14.805c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-14.36l16-3.2v8.365c-1.177-0.511-2.542-0.805-4-0.805-4.418 0-8 2.686-8 6s3.582 6 8 6 8-2.686 8-6v-20c0-0.599-0.269-1.167-0.732-1.547z" fill="%23ffffcc"></path></svg>')}.place.add::after,.place.edit::after,.place.remove::after,.place:not(.add):not(.remove):not(.edit)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23ffffcc"></path></svg>')}.place:not(.add):not(.remove):not(.edit):not(.button):not(button)::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 0c-11.046 0-20 8.954-20 20 0 20 20 44 20 44s20-24 20-44c0-11.046-8.954-20-20-20zM32 32.25c-6.765 0-12.25-5.485-12.25-12.25s5.485-12.25 12.25-12.25 12.25 5.485 12.25 12.25-5.484 12.25-12.25 12.25zM24.25 20c0-4.28 3.47-7.75 7.75-7.75s7.75 3.47 7.75 7.75c0 4.28-3.47 7.75-7.75 7.75s-7.75-3.47-7.75-7.75z" fill="%23bb3300"></path></svg>')}.bookmark.add::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="transparent"></path></svg>')}.bookmark.remove::after,.bookmark:not(.loading):not(.add):not(.remove)::before,button.bookmark.loading::after{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 0v16l5-5 5 5v-16z" stroke="%23ffffcc" fill="%23ffffcc"></path></svg>')}.draggable{cursor:move;content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32" viewBox="0 0 44 32"><path fill="%23c96" d="M0 6h28v6H0V6zm0 8h28v6H0v-6zm0 8h28v6H0v-6zM31 18l6 6 6-6zM43 16l-6-6-6 6z"/></svg>');background-repeat:no-repeat;background-position:right;margin-inline-end:2.75rem}.mastodon::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><circle cx="512" cy="512" r="512" fill="%234E43FE"/><path d="M750.7 448.1c0-111-72.8-143.6-72.8-143.6-36.7-16.9-99.7-23.9-165.1-24.5h-1.6c-65.4.5-128.4 7.6-165.1 24.5 0 0-72.8 32.5-72.8 143.6 0 25.4-.5 55.8.3 88.1 2.6 108.6 19.9 215.6 120.3 242.2 46.3 12.2 86 14.8 118.1 13.1 58.1-3.2 90.7-20.7 90.7-20.7l-1.9-42.1s-41.5 13.1-88.1 11.5c-46.2-1.6-94.9-5-102.4-61.7-.7-5.3-1-10.6-1-15.9 0 0 45.3 11.1 102.7 13.7 35.1 1.6 68-2.1 101.5-6 64.1-7.7 120-47.2 127-83.3 11.1-56.9 10.2-138.9 10.2-138.9zm-85.8 143.1h-53.3V460.7c0-27.5-11.6-41.5-34.7-41.5-25.6 0-38.4 16.6-38.4 49.3V540h-53v-71.5c0-32.8-12.8-49.3-38.4-49.3-23.1 0-34.7 14-34.7 41.5v130.5h-53.3V456.8c0-27.5 7-49.3 21.1-65.5 14.5-16.2 33.5-24.4 57-24.4 27.3 0 47.9 10.5 61.6 31.4l13.2 22.2 13.3-22.2c13.7-21 34.3-31.4 61.6-31.4 23.5 0 42.5 8.3 57 24.4 14 16.1 21 38 21 65.5v134.4z" fill="%23fff"/></svg>')}.facebook::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M53.334 0h-42.669c-5.891 0-10.665 4.776-10.665 10.668v42.664c0 5.892 4.775 10.668 10.665 10.668h21.334v-28h-8v-8h8v-6c0-5.523 4.477-10 10-10h10v8h-10c-1.105 0-2 0.895-2 2v6h11l-2 8h-9v28h13.334c5.891 0 10.666-4.776 10.666-10.668v-42.664c0-5.892-4.775-10.668-10.666-10.668z" fill="%233b5999"></path></svg>')}.youtubechannel::before{content:' ';background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 8h-40c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12zM24 48v-32l20 16-20 16z" fill="%23ff3333"></path></svg>')}.play::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><polygon points="4 0 23 12.5 4 25"></polygon></g></svg>')}.pause::before{background-image:url('data:image/svg+xml;utf-8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="%23ffffcc" stroke="%23ffffcc"><rect width="8" height="25"></rect><rect width="8" height="25" x="17"></rect></g></svg>')}.loading::before{background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23ffffcc" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.loader{display:inline-block;transform:scale(1.25) translateY(.2em)}.loader.loading::before{content:' ';display:inline-block;inline-size:1em;block-size:1em;background-repeat:no-repeat;background-size:1em;background-image:url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="none" stroke="%23aa4411" stroke-width="20" r="35" stroke-dasharray="160 55"></circle></svg>')}.actions{text-align:center}.actions .action{margin-block-end:0.75em}@media all and (max-width:20em){.actions{inline-size:100%}}@media all and (min-width:30em){.actions{text-align:end}}@media all and (min-width:56em){.actions{position:absolute;inset-block-start:-2em;inset-inline-end:5%}}.grid{display:grid;gap:2em;grid-template-columns:repeat(auto-fit,minmax(20em,1fr))}@media all and (min-width:48em){.group{display:grid;grid-template-columns:1fr 1fr;gap:5%}}.logo{-webkit-user-select:none;user-select:none;z-index:2;position:relative;margin-block-start:-1em;margin-block-end:1em;margin-inline:auto;inline-size:90%;max-inline-size:15rem;inset-block-start:0;box-shadow:0 .25em .5em rgba(0,0,0,.375);transition:transform .1s linear;text-align:center;text-transform:uppercase}.logo:focus,.logo:hover{transform:translateY(.25em)}.logo .the{vertical-align:text-bottom;display:inline-block;font-size:.75rem;letter-spacing:.75em;line-height:1.5}.logo .session{vertical-align:text-top;display:inline-block;letter-spacing:.25em;line-height:1.5;text-indent:.225em;text-shadow:0 .0625rem 0 rgba(255,255,255,.25);white-space:nowrap}.logo .session:first-letter{float:left;float:inline-start;letter-spacing:0;font-size:2.5rem;line-height:1;margin-block-start:-0.125em}.logo .ribbon{margin-block-start:-2.5em;padding-block-start:3em;padding-block-end:0;padding-inline:0;line-height:1.5}@media screen and (min-width:56em){.logo{position:relative;inline-size:15%;inset-inline-start:5%;inset-block-start:0;margin-inline-start:-.1875em;margin-inline-end:1em;float:left;float:inline-start}.logo .ribbon{margin-block-start:0;padding-block-start:20%;padding-block-end:10%}.logo .the{display:block;text-indent:1.5em}.logo.sticky{position:fixed}}@media screen and (min-width:56em) and (min-height:40em){.logo{will-change:transform;position:fixed;inset-block-start:3em}}.membership{transform:translateY(.35em)}.membership-links{position:absolute;top:1.666em;left:-1.92em}.membership-icon{vertical-align:middle;transform:scale(1.4) translateX(-.3333em) translateY(.0666em)}.membership-icon circle,.membership-icon path{stroke:currentColor}button.link.membership-icon:focus:not(:focus-visible){outline:0}@media all and (min-width:44em) and (max-width:55.99em){.membership{position:absolute;inset-block-start:3.5em;inset-inline-end:5%;color:rgba(51,0,0,.9)}button.link.membership-icon{color:#a41}.membership-profile{box-sizing:border-box;display:inline-block;font-size:1rem;font-variant:small-caps;text-align:center;text-transform:lowercase;text-indent:.125em;text-shadow:0 -.0625em 0 rgba(0,0,0,.25);letter-spacing:.125em;line-height:1;border-width:.0625em;border-style:solid;border-radius:.25em;padding-block-start:0.1875em;padding-block-end:0.3125em;padding-inline:0.5em;background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.2));transition:all .1s linear;transition:border-color .1s,background-color .1s;background-color:#a41;border-color:#64280a;border-block-end-color:rgba(77,31,8,1.0);border-block-start-color:rgba(170,68,17,1.0)}.membership-profile:link,.membership-profile:visited{background-color:#a41}.membership-profile:focus,.membership-profile:hover{background-color:#933b0f;border-color:#4d1f08;border-block-end-color:rgba(54,22,5,1.0);border-block-start-color:rgba(147,59,15,1.0);text-decoration:none}.membership-profile:active{background-color:#7c310c;border-color:#7c310c}}@media all and (min-width:48em) and (max-width:55.99em){.membership-profile{padding-inline-start:1em;padding-inline-end:1em}.membership-profile[data-memberid]{min-inline-size:13.25em}}@media all and (min-width:56em){.membership{position:relative;inset-block-start:auto;inset-inline-end:auto;inline-size:16.5%;text-align:center}}.top.strip{-webkit-user-select:none;user-select:none;position:relative;z-index:3;box-shadow:0 .125em .25em rgba(0,0,0,.3);text-align:center}.top.strip .goback{position:absolute;inset-inline-start:1vw}.top.strip .button.aside{position:absolute;inset-inline-end:1em}nav{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;min-block-size:100%;min-block-size:100dvb;min-inline-size:100%;color:rgba(102,51,0,.9);background-color:#c93}nav .site li:first-child a{font-size:1.3em;letter-spacing:.225em}nav .menu{background-color:#c93;margin:0}.siteinfo{text-align:center;padding-block-start:2.5em;padding-block-end:3.5em;padding-inline:0}.siteinfo .menu{border-block-end-width:0.0625rem;border-block-end-style:solid}.siteinfo .menu li{display:inline;border-block-end:none}.siteinfo .menu a{display:inline-block;padding-inline-start:1em;padding-inline-end:1em}.bottom.strip{-webkit-user-select:none;user-select:none;position:relative;inset-block-end:0;margin-block-start:-3em}.bottom.strip .loginout{display:inline}.bottom.strip a[href="#top"]:focus svg circle,.bottom.strip a[href="#top"]:hover svg circle{fill:hsl(var(--button-hue),var(--button-saturation),calc(var(--button-lightness) + 5%))}@media screen and (min-width:44em){.top.strip [rel=contents]:not(:focus){clip:rect(1px,1px,1px,1px);block-size:1px;inline-size:1px;overflow:hidden;position:absolute;white-space:nowrap}.top.strip [rel=contents]:focus{position:absolute;z-index:1;inset-inline-end:auto;inset-inline-start:0;inset-block-start:3em;border-start-start-radius:0;border-start-end-radius:0;outline-width:.0625em;outline-style:dotted;outline-color:var(--formfield-border);box-shadow:0 0 .5em 0 var(--formfield-border-over)}.top.strip [rel=contents]:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}#nav:target .site{box-shadow:0 0 1em 0 var(--formfield-border-over)}.top.strip .goback{display:none}@media (display-mode:standalone){.top.strip .goback{display:inline-block}}nav{position:static;inset-block-end:auto;min-block-size:0;block-size:auto;overflow:hidden}nav .menu{border:none;background-color:#600}nav .menu li a:link,nav .menu li a:visited{color:rgba(255,255,204,.9)}nav .menu li a:hover{background-color:rgba(51,0,0,.25)}nav .menu li a:focus{background-color:rgba(51,0,0,.75)}nav .menu li a:focus-visible{outline-width:max(.25rem,2px);outline-offset:max(0.25rem,2px);outline-color:#c90;outline-style:solid}nav .menu li a:active{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:link,nav .menu li.here a:visited{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.5)}nav .menu li.here a:hover{color:rgba(255,255,204,.825);background-color:rgba(51,0,0,.66)}nav .menu li.here a:focus{color:rgba(255,255,204,.825);background-color:#300}nav .site{margin:0;padding:0;position:absolute;z-index:3;inset-block-start:0;inset-inline-start:5%;inline-size:90%;display:table;display:flex;background-image:linear-gradient(#700,#500)}nav .site li{display:table-cell;flex-grow:1;text-align:center;border:none}nav .site li a{display:inline-block;inline-size:100%;block-size:1em;padding-block:1em;padding-inline:0;border-inline-end-width:0.0625em;border-inline-end-style:dotted;border-inline-end-color:rgba(255,255,255,0.25)}nav .site li:first-child a{border-inline-start-width:0.0625em;border-inline-start-style:dotted;border-inline-start-color:rgba(255,255,255,0.25);padding-block:0.65em}.siteinfo{padding-block-start:0.5em;padding-block-end:0;padding-inline:0;background-color:#600}.siteinfo .menu{border-block-end:none}.siteinfo .menu a{border-radius:.25em}.bottom.strip{margin-block-start:0;padding-block-start:0;min-block-size:0}.bottom.strip .loginout,.bottom.strip a[href="#top"]{position:absolute;inset-block-start:-2em;margin-block-end:-2em}.bottom.strip .loginout{inset-inline-start:5%}.bottom.strip a[href="#top"]{inset-inline-end:5%}}@media all and (min-width:44em) and (max-width:75em){nav .site li{letter-spacing:calc(.05em + .1vw)}}@media screen and (min-width:56em){.top.strip [rel=contents]:focus{inset-block-start:0}nav .site{inset-inline-start:20%;inline-size:76%}main{margin-inline-start:20%}header+main{margin-block-start:5%}}@media screen and (min-width:75em){nav .site{inset-inline-start:24%;inline-size:72%}}@media screen and (max-width:44em) and (min-height:33em){body:not(.nav-active){padding-block-start:3em}body:not(.nav-active) :not(#nav):target{scroll-margin-block-start:3em}.top.strip{will-change:transform;position:fixed;inset-block-start:0}nav{min-block-size:calc(100dvb - 3em)}body.nav-active nav{position:fixed;inset-block-start:3em;z-index:2}body.nav-active .bottom.strip{position:fixed;inset-block-end:0;z-index:3}}@media screen and (min-width:56em) and (min-height:40em){body{padding-block-start:3em}:target{scroll-margin-block-start:3em}.top.strip,nav .site{will-change:transform;position:fixed;inset-block-start:0}}@media all and (min-width:64em) and (min-height:38em){.split{column-count:2;column-gap:2em}.split>*{page-break-inside:avoid;break-inside:avoid}ol.split{border-color:transparent;position:relative;inset-inline-start:-4em}ol.split li{margin-inline-start:4em}}.strip{inline-size:100%;padding-block:0.5em;min-block-size:2.009em}main{position:relative;min-block-size:100%;margin-block-start:1em;margin-block-end:4em}.contents{padding-inline:5%}</style>
+<link rel="canonical" href="https://thesession.org/discussions/1429">
+<link rel="icon" type="image/svg+xml" href="../../icon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#660000">
+<meta name="robots" content="noai">
+</head>
+<body id="top">
+
+<header>
+
+<div class="inverted strip top">
+<div class="contents">
+<a-back>
+<a href="#" class="goback requiresJS" aria-labelledby="backtitle">
+<svg  xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32" width="30" role="img">
+<title id="backtitle">back</title>
+<circle fill="rgb(170,68,17)" cx="16" cy="16" r="15.75"/>
+<polygon fill="rgb(255,255,204)" points="20,26 8,16 20,6"/>
+</svg>
+</a>
+</a-back>
+<a-nav>
+<a href="#nav" rel="contents" class="button aside">menu</a>
+</a-nav>
+</div><!-- /.contents -->
+</div><!-- /.inverted.strip.top-->
+
+<sticky-logo>
+<div class="logo">
+<a href="../../index.html" rel="start" class="ribbon"><span class="the">The</span> <span class="session">Session</span></a>
+</div><!-- /.logo -->
+</sticky-logo>
+
+</header>
+
+<main>
+<div class="contents">
+
+<h1>Controlling a monster session</h1>
+
+<footer>
+<span class="discrete">
+Added by legerdeuxmains on 
+<time datetime="2003-02-20 22:25:42">
+February 20th, 2003</time>
+</span><!-- /.discrete -->
+</footer>
+
+<br>
+
+
+<article id="comment23785" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+About 2 years ago, we started an open Irish session at a pub here in our small town.  We have become a victim of our own success!  There are far too many players, ranging from 15 to 30 people.  However, the real problem is not the number of musicians but the volume of some of the worst.  We have 8 strong lead players, 2 very good back-up players, (all professional level musicians).  We have 9 intermediate players who do little or no harm, and then the rest are jerks.  They are off the rhythm and play very loudly (we call them the pot-bangers).  We wanted an egalitarian session but are now at the mercy of a few insensitive, over-enthusiastic players.  Have any of you dealt with a problem like this and do you have any ideas of how to solve it?  We have already tried to put our accordion player next to the worst (the eliminator) but they only play louder.  We have tried talking to the worst offenders who agree but blithely play on.  We have tried a smaller circle but the bad players just come earlier and take the best places.  We are really stumped on how to get control of our monster session.  Help!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23785" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+legerdeuxmains</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-20 22:25:43">
+February 20th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23787" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+My suggestion, in order of operation: 1) A kind, but firm talking-to {“You know, when I started going to sessions, I would only play the tunes I really knew, and wound up just listening about 90% of the time…}; 2) A bit of pointed banter {”Practice at home! Play one you know!}; and 3) All-out verbal abuse {&quot;Come back when you’ve developed a bit of talent and/or subtlety. Until then, take a hike, Jasper!}</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23787" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+darinkelly</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-20 23:43:10">
+February 20th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23788" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Oh dear.  Two words for you, I’m afraid:  Closed Session.  We’ve gone round and round on subjects like this over and over.<br>
+<br>
+I mean, you could try and get tricky and beard one of the worst by going to them “confidentially” and confide the problem and what do they think you should do about the whole thing, and see if they get it (and who knows, maybe they’d come up with a good solution), but I doubt it’ll work, from your description.  Easier to start a new session by invite only and state that’s it’s a closed session (on one pretext or another), sorry.<br>
+<br>
+Don’t get me wrong -- there’s a lot to be said for egalitarian sessions that welcome everyone.  But if you’ve tried to keep the standards high and it’s not working and you’re determined to have that standard, you’re probably going to have to start a closed session that you have control over.<br>
+<br>
+We’ve a couple of past threads on similar subjects. Try https://thesession.org/discussions/339 .  Good luck!<br>
+<br>
+Zina</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23788" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Zina Lee</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-20 23:50:06">
+February 20th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23789" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’m on Zina’s side here. Secret, closed session, at another pub, invite only. Set it up with the pub as a ‘performance’ rather than an open session. That should remove any possible bad blood.<br>
+<br>
+Since your session is going gang-busters anyway, seems like it’s time to divide it up a little. Thirty plus people seems a bit overboard. Personally, I think fifteen players would be on the high side.<br>
+<br>
+Good luck!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23789" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Caoimghgin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 00:43:22">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23794" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’d try splitting into smaller and more manageable sessions before going to closed+secret session, even if only because if there weren’t open sessions, there wouldn’t be hardly anybody learning to play this stuff, so there wouldn’t be closed sessions either. :-) With fewer people, you will either divide-and-conquer the asses or maybe they will all congregate to one of the smaller sessions and you can start going to one of the others.<br>
+<br>
+This is not just out of naive egalitarianism, but also i think music should be something that brings people together, not something we use to be different from the less gifted.<br>
+<br>
+So for the record, i’m disagreeing with Zina for the first time. :-)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23794" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+glauber</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 01:29:26">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23795" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<div class="e-content" itemprop="text">
+<p>
+I think the proper place for having small closed sessions with your friends only is at home.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23795" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+glauber</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 01:32:39">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23797" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+The very concept of a closed pub session can grate on peoples nerves, and for very understandable reasons. But if everyone were as sensitive to session etiquette and as respectful as they should be, the words ‘closed session’ would never have been invented. When your best players are forced to sit next to loud, out of time, and generally obnoxious players every single session, you run the risk of killing the session off entirely. If these top players are not enjoying themselves, and cannot find sanctuary to play  together without being bothered, they will eventually beg off all sessions entirely, and who would benefit from that?<br>
+<br>
+There is a place for the public closed session. Should a player come into town, it is always polite to ask them to play a tune or two, and if they’re good, invite them to play for the evening. If they’re not so good, invite them to the public session. No harm done.<br>
+<br>
+We shouldn’t look at the closed session to draw away top quality players from the public session. Who wouldn’t want the opportunity to go to more than one session a week?<br>
+<br>
+BTW, we do have a closed session for the best players here in Dallas and it works out very well. I am not invited to play at this session, but always make it down to the pub to hear them play together and I’ve found it very educational. Probably more so that I’m not playing.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23797" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Caoimghgin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 02:09:34">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23799" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Heh.  I don’t know if i can go on, Glauber.  :)<br>
+<br>
+I still don’t agree with you, though, even given that rationale.  It sounds nice, yes, but I do think it’s naive.  I think that what would happen is that wherever the best players went, the worst players would go, because they want to play with them (but still not abiding by the limits those good players set, like “play quietly if you don’t know the tune” or whatever). So you’d end up with the same problem, but magnified by however many sessions you branched out into. So cut to the chase, is my advice.<br>
+<br>
+On the other hand, I don’t think I like the sound of a “secret” session.  No, I’m all for being above board.  I’m not saying to stop playing with others who may not be as good a player as one and one’s peers, certainly not -- of course you have to play with others, to pass this stuff on.  But there’s a limit, and if you’ve talked to someone about playing nice and they don’t want to listen, I’d say you’ve hit that limit.  If they want to play with you, then they need to abide by your standards and your “rules.”  That’s just the way this stuff works.<br>
+<br>
+zls</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23799" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Zina Lee</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 02:16:40">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23801" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<div class="e-content" itemprop="text">
+<p>
+BTW, DarinKelly! Yes, your solution is entirely appropriate as well, but generally difficult to do and rarely understood until you’ve gone to level 3 and then you’ve just turned some poor bastard who doen’t know any better into a lifelong bitter enemy! Personally, that’s just a bit too much responsibility for me! ;-)</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23801" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Caoimghgin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 02:19:06">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23808" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+One solution is to start a new session, tell the good guys where it is, and don’t tell the bad ones. The minuit you start going down the road of closed sessions in pubs, your on the road to Problems BIG ONES. ITM dosent have room for things like these.<br>
+We should include everyone. Do encourage them to take a tape machine to the session in question and convince them to practice with the tape or MD. Another solution is persuede them to use a practice mute (If they are fiddlers) So they can’t get to loud. If the worst comes to the worst, set up a new session-but don’t make it a closed one. You could also suggest they find a beginners session, or less taxing session.<br>
+Dafydd</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23808" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dafydd Monks</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 03:20:03">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23810" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+There’s lots of closed sessions in pubs.  That’s a fact of this stuff.  There’s lots of open sessions in pubs.  That’s also a fact of this stuff.  Whether we like it or not is up to us and you can make up your own mind about that and fair play to every one of us.<br>
+<br>
+A very famous player once told me about a session he went to.  He said that he was very glad that the players there were enjoying themselves, that he thought that it was positive that they were out and about rather than sitting at home watching television.  But he wished that he wasn’t there, and did not enjoy himself at all.<br>
+<br>
+I hope that’s never me, on either end.<br>
+<br>
+Leger has said that they’ve already tried talking to the worst offenders, to no avail.  They can grit their collective jaws and live with the excruciating murder of their own music,  toss the offenders from the current session and probably irrevocably hurt feelings, or they can abandon their own ship in a way that will keep them from having to do it again.  Anyone see any other alternatives?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23810" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Zina Lee</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 03:30:46">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23811" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<div class="e-content" itemprop="text">
+<p>
+And I tremble to think of the reaction I’d get if I suggested to another player that they use a practise mute in an open session.  What a deadly insult!, and I think I’d deserve the hurt and angry reaction I’d get if I suggested it…<br>
+<br>
+Zina</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23811" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Zina Lee</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 03:36:48">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23814" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+‘tell the good guys where it is,and don’t tell the bad ones’<br>
+<br>
+the ‘bad ones’ will find out where the new session and sooner rather than later so i don’t think is anything but a temporary solution to your problem albeit well meant.<br>
+30 people does seem to be a lot though</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23814" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+biggus dave</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 04:04:24">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23815" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+It seems to me nearly every session is “closed,” in the sense that if 15 complete w*nkers keep showing up every week, bashing away, annoying the actual musicians, then 99 percent of the sessions I’ve heard about either dwindle to nothing, move to another venue in attempt to lose the madding crowd, or someone cranks up the nerve to tell the w*nkers off--as in, “You’re not welcome here. Stop playing and don’t come back.”<br>
+<br>
+So in effect, most sessions are closed to w*ankers, or at least to continued wankerish or repetitive behavior. And it sounds like thats what Leger is facing here.<br>
+<br>
+Or consider the same idea in more constructive terms, I think of every session as “by invitation only.” I wouldn’t grab a chair and pull out my fiddle at *any* session without first listening, then introducing myself and chatting up one or two of the players, and waiting to see if a seat was offered.<br>
+<br>
+That said, the idea of Leger telling those clods to use a mute is hilarious and would probably have the desired effect of horribly insulting them and running them off. Then again, it doesn’t sound like they’re ones to take such a “gentle” hint….</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23815" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 06:03:14">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23822" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+The only thing I’ve ever seen to work in this situation is to encourage the “good players” to stop going to the session for a few weeks.  The others will either get the hint or will ask someone why they don’t go any more,  and will get an explanation.  This approach has to be explained to the patron of the pub first,  just in case they start to wonder why all of a sudden the quality of music has dropped. Diplomacy,  while admirable,  just isn’t appropriate in this case.<br>
+<br>
+Secret sessions, as someone has already pointed out,  don’t stay secret for long.  A closed session isn’t a session. These situations really have to be nipped in the bud before they develop, through an assertive approach over when people can join in. Whether this is achieved by downright verbal rudeness,  coaxing, cajoling,  blackmail or simply playing obscure sets is up to you.<br>
+<br>
+Con</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23822" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Conán McDonnell</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 15:44:45">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23826" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a session monster</h3>
+<div class="e-content" itemprop="text">
+<p>
+I can see two options<br>
+1) Tell the tossers they need encouragement but are not ready to play in public yet. Start a set and if they join in, at a given signal, all stop playing and leave them to it.<br>
+2) Do the right thing and start a separate beginners night - and an intermediate night if needed. We are not here just to play in the session, we are here to encourage learners and to think ahead and make for future sessions. Some of the tossers may be beyond help, others may respond.<br>
+Personally, I would play in A or Bb to discourage them.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23826" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+geoffwright</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 17:17:28">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23827" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Another thing to try is to arrive earlier or leave later than the w*nkers. Of ciurse the only real solution is for the session leader to be the bad guy and shut these people up, but many leaders are reluctant to do unpleasant things, they may think they have more important things to do with their time.<br>
+<br>
+These closed sessions with just the good are inconsequential to me. I’ll never be invited to sit in one anyway, and i learn better by playing with people than by trying to listen to a star player over the din of a pub. I’d rather stay home and practice, or listen to my CDs. Really, i mean it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23827" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+glauber</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 17:25:55">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23829" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+All right, perhaps we need to define  “Closed Session.”  Will is quite right, most sessions *are* closed in one way or another, even the most open ones.  Are you “if it’s not open it’s not a session” advocates seriously telling me that you think that all sessions should be completely, smilingly, and willingly open to every tambourine playing, tuba thumping, snaredrum beating bozo out there?  Please.<br>
+<br>
+I do like the idea of obscure keys or sets or tunes, but I don’t think that helps Leger much.  It’s probable his session’s troublespots would try to noisily play along anyway.  And it excludes the intermediates who give no problems.<br>
+<br>
+Hmmm.  Okay, I have time for one rant before I go pack.  Lucky you all!  :)<br>
+<br>
+There are lots of closed sessions out there.  Those very same sessions suddenly metamorphize into open sessions for decent players, and I’m not necessarily talking about how well the player plays.  If a player knows what’s what, it’s likely they’ll never get a whiff of “this is a closed session.”  <br>
+<br>
+To say that a closed session is not a real session is ridiculous -- you just can’t depend anymore on players realizing when they’re out of their league and being polite enough to simply listen.  But a player who knows what they’re doing will show up and listen and introduce themselves and usually suddenly finds themselves swallowed into the group whole, regardless of level.  If you’re polite enough to know that you’re far outclassed and therefore demur off playing, you’ll probably find yourself encouraged to play what you do know and slagged afterwards, or at least you’ll have earned the respect of those who play well and who have run into too many players who haven’t your sensitivity and self-knowledge.<br>
+<br>
+In many hotbeds of Irish music, in fact, if someone calls up the bar and asks if there’s an “open session”, the almost automatic answer (at least if the person who answered the phone knows anything at all) is “no, it’s a closed session” because if someone calls up that way, they usually don’t know anything about the way the music works out in the real world.<br>
+<br>
+And, while I’m ranting, another thing -- a session is not just about playing music.  It never has been.  There have been stellar sessions where the instrument cases never opened.  I’ll take a noisy -- and closed -- pub session where I don’t get to play but *do* get to talk to those who know better about the music than I over sitting at home with a static and one-moment-in-time CD any day.  Well, not every day.  But close.  :)  Who knows what I might learn or otherwise get out of that contact with a better player?  There’s lots you can’t learn by yourself.<br>
+<br>
+Unpleasant realities.  They exist.  You have to deal with them.  It’d be nice if we didn’t have to, but we do.  Politics.  Exclusionism.  Egos.  Blah, blah, blah.  When human beings stop being human beings, we won’t have to anymore, yeah? <br>
+<br>
+Zina</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23829" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Zina Lee</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 18:30:53">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23832" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I do agree broadly with what you’re saying Zina,  it has a lot to do with how you define a session.  My idea of a closed session is where you see it advertised,  turn up with instrument and ask if you can join in,  to be told “No.  It’s a closed session”.  THAT is not a session - it’s a performance and more often than not money is involved. Likewise,  and this really happened,  turning up at a session where five or six players who are little better than mediocre,  tell you that if you’re good enough you can join in! I’m no virtuoso but I was a damn sight better than these turkeys. I played one set with them,  got up,  made my implausible excuses and left. No-one should need to go through an “audition” to join in a session. There are always exceptions e.g. if there are already three bodhran players there,  and another shows up,  either the new arrival will have the good sense to keep their instrument under wraps or will be told in no uncertain terms to put it away. If a person is ruining the session,  they will generally be told as much AFTER they’ve been invited to play. But I find the practice of telling people they can’t join in at all disgraceful. I think there’s a bit of a culture difference between here and the States - you folk seem to be more at risk of nutjobs turning up with djembes,  rainsticks and sousaphones so I suppose desperate measures may be called for to get a decent tune. We’re luckier over here in that people are generally more aware of the boundaries in a session.<br>
+<br>
+Con</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23832" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Conán McDonnell</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 19:53:30">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23833" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Zina, what you’re describing is an open session. Yeah, those are very nice. The real closed sessions out there, it’s fine for them, i hope they’re enjoying themselves, heck, i wish them the best, while i stay home and practice, and i’m sure they don’t mind me not having time to go feed their egos.<br>
+<br>
+I think there are private sessions which are closed, public sessions which are open to people who know the rules, and public performances where you pay money to listen to people do their stuff. A public closed session is a kind of performance, and should be billed as such.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23833" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+glauber</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-21 19:55:54">
+February 21st, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23841" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+There is another kind of “closed” session, in which two, three, or four decent musicians decide they don’t want too many instruments cluttering up the tunes. Since they’re just playing for the sake of playing--and to hear each other--they may discourage or even prohibit other players from sitting in. It’s not a performance--in fact, in some cases it may be closer to a learning session, a time to go over new tunes, or play the same thing 20 times in a row just to really explore it. Maybe such a session is better off in someone’s kitchen, but sometimes they just happen in pubs or other public places.<br>
+<br>
+It’d be rude to barge in on such a group, no matter how good you are. I saw this once at a small, intimate session of some mighty players. Kevin Crawford stuck his head in and listened for a while, heard the invite to play from Tom Doorley, and smiled as he shook his head “no thanks.” Then he said, “It sounds too good just the way it is,” and he went off to talk over a pint with friends.<br>
+<br>
+This helped me to realize that expecting to be invited into a session can be as much about ego as when a player says his session is closed.<br>
+<br>
+That said, I’m all for inclusive, open sessions. But I also offer a slow session where I live, to help people along who aren’t quite ready for the full monty or who just want a low pressure place to work on tunes. This gives us a great “out” when someone shows up at the regular session who obviously isn’t ready. My pitch usually goes something like: “If you don’t know the tunes yet, the best thing you can do is just listen here a spell, and then come to our slow session next week. We have a lot of fun, and we play the tunes at about half speed, over and over, so everyone can learn. Give me your email and I’ll send you a reminder.”<br>
+<br>
+Works wonders.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23841" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 01:51:34">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23847" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Will, the first hour of the fortnightly Nova Scotia sessions in Bristol works rather like that. That hour, which is intended for fiddles, is led by an experienced teacher who works the beginners (and a few intermediates) on intonation, amongst other things, and takes them through the tunes at half speed. At 9pm the full session starts, and the beginners stay on to listen. It works well, the beginners automatically pick up session etiquette, learn tunes subconsciously in the full session, and become used to playing in public.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23847" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 04:28:39">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23848" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think that ANY folk music of any kind where a session is one  of the main ways of educateing the next generation is is P*****Sing on it’s own chips if it belives it can say “Well your welcome but your not” What about you all, what about when you started playing ITM? I bet you didn’t exactly give a virtuosic display either. Closed sessions are not good. As soon as people see these they think “I wish I was good then I could play in one of those” But a freindly session that admits that “You might have to shut up and put your instrument away until you know more about the music and have practiced at home a bit” I think saying “If you want to be made welcome you’ll just have to tow the line a bit, and be a little less inthusiastic” That’s better. of course you could start another session on thesame night and all you “Good” guys go there effecively turning the original into a beginners session. So they could all bang away and get thrown out by the landlord. As I said before ITM dosent have space for exclusion. To keep the traditions we love alive we have got to encourage the next generation. I think that saying “Use a mute” is far less offensive than “Your a bloody awful musician and your not welcome” of course they might stop comeing to your session but if they do well, you pretty much aked them to leave/ a closed session is far more hurtful then “Use a mute” above all get the offending persons to go to some workshops and practice at home. Make sure they can play one piece well and if that’s all they can do, Play nothing else until they’ve learnt something else as well. But above all don’t go down the route of closed sessions!<br>
+Dafydd</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23848" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dafydd Monks</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 04:33:10">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23849" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I must confess that once or twice I have, quite voluntarily, used a practice fiddle mute in a session. No-one said anything. They must have been either too polite or too busy playing to notice.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23849" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 04:37:43">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23855" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Dafydd, the point you’re missing here is that when faced with an army of pot bangers, “keeping the music alive” may very well mean kicking the offenders out. It’s one thing to be a novice and not make the nicest sound on your instrument. It’s another to thrash away like that as loud as you can, in public, next to someone who’s given a significant portion of their life to hone their craft, and to continue thrashing even when they ask you to to quiet down or stop all together. The approach you suggest in your latest post just doesn’t work for the “jerks” Leger describes as “insensitive” in his opening post.<br>
+<br>
+Yes, it no doubts hurts some people’s feelings to be told, “You’re not good enough yet to join us,” and it should be a last resort, reserved for the clods who can’t take a hint. But letting anyone with a self-proclaimed passion for the tunes flog them to death as loud as they can, all in the name of keeping an “open” session, is the surest way to run off the better players and ultimately kill the session. Then not even the sensitive, courteous, hard-working novice and intermediate players get to learn, because they can’t find where the more experienced players have hid themselves.<br>
+<br>
+I well understand that a good session is a community event and includes different levels of ability and talent. I’ve worked hard to make our local session inclusive and welcoming. But we draw the line at 5 guitars playing boom-chuck bluegrass backup, or people who can’t yet keep the basic rhythm.<br>
+<br>
+I have to wonder why we so often hear complaints that Irish sessions should be more open and egalitarian, yet few other musical forms even provide the opportunity for amateurs to regularly sit in and play with pros or non-pro A-tier players. Can you imagine any self-respecting orchestral first violinist spending an evening a week, 50 weeks a year, attmepting to play Mozart in public with *whoever* walked in the door? For *free?!!!* No matter what instrument or level of skill or sense of discretion the pot bangers brought with them?<br>
+<br>
+Let’s be realistic. Leger says they talked to these eejits, and tried to quiet them down, but it didn’t work. It’s time Leger worries more about “keeping the music alive” than sparing anyone’s feelings. I say give ’em the boot.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23855" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 08:39:02">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23858" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I think that our backgrounds and past experiences are hampering a balanced discussion here. I’m going to dare to reiterate the point made earlier that this sort of problem is probably more common in the States. I’ve *never* been to a session where there’s even been a bluegrass player present never mind 5 guitarists doing “boom-chuck”. Nor have I seen weird instruments in sessions like djembes, saxophones, etc. Maybe I’ve just been lucky. Is it realistic to suspect that this may be because people in general in the States (and I mean *in general*) would tend not to have as much of a grasp of *traditional* culture and the mechanisms behind its continuity? I’m trying very hard not to sound anti-American here - I’m not, and I’m sure Americans who contribute to this site love the music and understand what it’s all about; I’m talking about the members of the public who are drinking in the bar/pub. I can just imagine a scene where you’ve got some seriously good musicians playing, and people in the bar just don’t get it, and only vaguely recognise that the music is like the below-deck band in “Titanic”: <br>
+<br>
+“Dude this music is kinda cool but it’s like: all the same? These guys need bass. I wonder how much they’re paying them. I say we play with them next week and show them how to play guitar maaan… Ya they’ll be like oh my god these dudes are awesome!”<br>
+<br>
+I have to say that if I had to contend with that at my local session I’d either resort to drastic measures (“oh I’m sorry I had a go on your guitar while you were away at the loo and broke a couple of strings. I’ve got spares though. You can have them for free. They’re double bass strings but they’ll do won’t they?”), or, more likely because I’m generally unconfrontational, I’d just have to not go.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23858" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Dow</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 12:16:00">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23860" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+One solution is to get your ‘better’ players miked-up. We had to do that when we suffered an infection from the S.L.O.B.S. It drowned them out if nothing else, but it did by default, make the session a closed one, so that had, I suspect, a certain dicouraging effect on other local good players.<br>
+We then moved to another part of the pub where the feng-shui was better sessionwise, and made sure we got there earlier to get our spots.<br>
+They still turn up on occasion, but also now that they’ve found themselves their own “session?” we see less and less of them - touch wood.<br>
+<br>
+Danny.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23860" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Someone at The Session</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 16:11:37">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23861" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Our weekly session averages 50! players all on<br>
+traditional instruments.  We’re not the Kilfenora<br>
+Ceili Band but to most knowledgeable onlookers<br>
+we’re said to sound “pretty good”.  How did we get<br>
+that way?<br>
+<br>
+When we started, I suppose some would have called<br>
+us pot-bangers.  But we encouraged each other and<br>
+got unsolicited encouragement from some of the <br>
+professionals.  Some pros even sat-in and offered<br>
+hints and tips when asked.  Over time, the<br>
+enthusiasm lifted everyone’s skill along with<br>
+their spirits.  We developed a sense of pride<br>
+in our ability to play well. <br>
+<br>
+The idea of a “clinic” a hour before the sesh <br>
+sounds like a better solution than stealing<br>
+away.  It’s everyone’s music and everyone is<br>
+a rookie sometime.  With proper care and feeding<br>
+even the smallest seedling can bloom into a<br>
+beautiful flower.  That’s how we control our<br>
+monster session.<br>
+<br>
+(BTW, the exhileration when 50 musicians get into <br>
+a groove is indescribable!)<br>
+<br>
+Bill Firla<br>
+Boston’s Original Slow Session</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23861" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+bfirla</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 16:31:56">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23872" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Bill, I agree that providing a slow or learning session is the best way to encourage earnest newcomers and apparently hopeless pot bangers alike to improve, and it’s wonderful to expand the regular session this way. If Leger has it in his power (and schedule), starting a slow session is the way to go.<br>
+<br>
+(My lord, 50 people playing all at once must sound like the entire Philadelphia Mummers Parade squeezed into the snug!)<br>
+<br>
+That said, I think this music has room in it to allow small, intimate sessions of 6 or fewer players. If they ask to be left alone (albeit in public) now and then so they can hear each other play, why is it anyone else’s “right” to interfere?<br>
+<br>
+Sometimes I think we get so anxious about missing a good session that we ruin the very thing we’re hoping to participate in. Time and again on this site we hear from people like Leger who’ve seen their fun, musical, personable sessions turn into  instrumental brawls for the masses. I’m not sure how that’s good for the music, or for newbies hoping to learn something about the music and sessioning in general.<br>
+<br>
+From my point of view, this isn’t about whether you’re a complete novice or an advanced player. It’s more a matter of showing a sense of discretion. “Can I contribute to the overall sound here, or would my playing distract the others?” Too few people ask themselves this before grabbing a chair or opening their cases.<br>
+<br>
+Mark, I agree that sessions in America seem to have more of a problem with clueless interlopers than sessions in Ireland, the U.K., and wherever else the culture is more “celtic.” Tho it surprises me to here that Australia is not a hotbed of lagerphones…. :o)<br>
+<br>
+No offense taken from this Yank--some of us consider it our patriotic duty to remind our countrymen (including our politicians) that they might learn something about the world if they could just quit being ride ‘em, rope ’em cowboys for 15 minutes. The hypothetical scenario you scripted above is all too often played out here. But we’re a diverse society growing ever more so--and there’s usually a good number of people in every crowd who keep their eyes and ears and minds open. (Remember: *most* of us didn’t acutally vote for Geroge W).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23872" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 19:07:05">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23874" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Scanned through the thread, haven’t read all posts in detail, so if I’m re-stating stuff previously mentioned, my apologies.<br>
+<br>
+The problem with large-population sessions is that the music usually suffers, if for no other reason than that the good players, who most need to hear one another to take the music to a high level, are not able to. When good players can’t hear the other good players, they get frustrated and stop showing up, and the music suffers a second way.<br>
+<br>
+One of the wisest, most courageous, and let’s-cut-out-the-bullsh*t actions I’ve ever seen in a session was one year at East Durham. In a posted session, Jack and Fr Charlie Coen were the designated staff leaders. Lots of folks wanted to play with Jack and Fr Charlie, and so pretty quickly there was an enormous circle of about 50 people. The two sides of the circle were a good 40 feet apart, and there is no way that people on one side could hear those on the other. The music was lousy, and you could see that Jack wasn’t happy (after 50 years of keeping the music alive in adverse conditions, why should he subject himself to adverse conditions when he doesn’t need to anymore?).<br>
+<br>
+Anyway, the music was bad, because there was this single enormous circle. My sense was that no-one was willing to collapse the session more effectively into several concentric circles (strongest players in the innermost circle, where they can hear the best; weaker players and those with fewer tunes in outer circles, where they can still listen, but where they can give up their seats to others with more tunes). Billy McComiskey (button accordion virtuoso) walked in, assessed the situation, picked up a chair, walked out in the middle of the circle, set his chair down immediately facing Jack and Fr Charlie and with his back to the crowd, and started to play. The big circle immediately collapsed into several concentric circles, and suddenly the music got a *lot better*. <br>
+<br>
+Maybe you need Billy’s NY brass to do something like that, and maybe there were some in the circle who felt he was being “exclusive,” but the musical improvement was worth it. The priority is the calibre of the music and one’s own respect to the tradition, not “how many tunes did I have to sit out?”<br>
+<br>
+The same thing people are describing in previous posts occurred in the Midwestern college town in which I used to live. There was a core of very strong senior players (6 CCE national champions, that kind of thing) and a large cadre of learning players who couldn’t really hang with the strong ones. One of two things would occur at the public sessions: either the learning players would be intimidated and wouldn’t attempt to play (and thus had little chance of improving) or the learning players would be obtuse and insist on playing, thereby (often) overpopulating the session, gumming up the music, frustrating the senior players, and generally bringing down the calibre of the music making.<br>
+<br>
+My contribution was to start a teaching session, at a different day, time, and location to the pub session, at which I could teach people tunes (by ear, in the traditional manner) and inculcate in them some sensitivity and awareness of when *not* to play. 7 years later and 3 years after I moved away, that Midwestern “slow session” is still going strong, still turning out players with better skills, repertoire, and session understanding, and still (it’s reported to me) keeping the pressure off the senior session while providing learners the tools to grow toward that senior session.<br>
+<br>
+I had the chance to put this into practice at a summer workshop where I’m on staff. After a class in which I had described the Billy McC anecdote above, and talked about how that was not an arrogant thing to do, but displayed a clear-headed awareness that the *music*--not peoples’ mistaken impression that traditional sessions must be democratic--was the priority. The tradition is bigger than Billy, bigger certainly than me, and so I view it as my priority to make choices which serve the quality of the music.<br>
+<br>
+I had the chance to put this into practice at a summer workshop where I’m on staff. After a daytime class in which I had described the Billy McC anecdote above, and talked about how that was not arrogant but artistically rigorous, I walked into an impromptu pub session that same evening. There were a lot of people playing in a fashion that made it hard for the senior players in the middle to hear and play well, and the music was thus suffering. I waited at the back of the room. One of my slow session students, who was attending the workshop, looked up, saw me, and gestured for me to take his chair facing the flute player and fiddler who were leading. So I did, sat down (*even though that meant I turned my back to a bunch of other people*), and started playing. My student later volunteered “you taught me that in a session I should do what serves the music best,” and I believe that his choice to offer me his chair did that. He also said “hell, I wanted to hear what you guys would do. That was more important to me than whether I got to play as many tunes myself.” <br>
+<br>
+Yet in the aftermath, people in the class confronted me and said what I had done was arrogant or inconsiderate--this despite the fact that my student had offered me his seat, and that we had all had a classroom conversation about how serving the music is even more important than comprehensive inclusion or the democratic process.<br>
+<br>
+Another year, also at East Durham: I was in a session about 3 in the morning with Paddy O Brien, when Gearoid O hAllmhurain, Mary Bergin, James Kelly, Don Meade, Kathleen Loughnane and Tony Cuffe (RIP) arrived to take part. They had not publicized that they’d all be gathering at this one particular pub, because they knew darned well that if they’d done so, the place would have been inundated with people who wanted to be able to say the next day “I played in a session with Paddy, Mary, etc…” In sessions, Cuffe played guitar, as at that time I was doing. As soon as he walked in, I said to him, “hey, Tony, I was just packing up the guitar. Please, have this seat.” I didn’t feel inferior--I just knew damned well that I should think myself lucky even to be there, and that if I made the appropriate contribution--giving up my seat to a more senior player--the music would improve, and I’d be fortunate enough to hear it. <br>
+<br>
+They played until 6:30 in the morning. I was lucky to be there, and even (with permission) to record it. Looking back, and particularly in the wake of Tony’s premature death, I’m damned glad that I understood the dynamics of the situation well enough to make the useful contribution of bowing out. <br>
+<br>
+Not everybody needs to play at every session in order to best serve the music.<br>
+<br>
+[By the way, when I moved to Lubbock, TX--a place with pretty much zero Irish trad activity when I got here--I borrowed my Midwestern template, and started both a pub session, and a teaching session at a different day/location/time. Now, 3 years later, we have a pretty strong core of 10-12 learning players, strong interest from younger musicians and good visibility throughout the community, a partnership with a local Irish dance school with whom we’re doing a bunch of performing, and a local scene that folks from other, hipper places in TX like to visit because it’s simultaneously friendly and also musically rigorous. Our pub session is full-tilt, hard-core trad music--I, with the other senior players, play the way I want to play (tempi, weird keys, obscure tunes) and thus maintain a high standard, while providing the teaching session as a logical conduit for those beginners who want to grow toward playing in the full-tilt session. Neither substitutes for the other; each helps sustain the other.]<br>
+<br>
+chris smith</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23874" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+coyotebanjo</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 19:16:07">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23875" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+There is a difference between encouraging newbies (of any generation) and tolerating eejits.<br>
+<br>
+It sounds like the people causing the trouble have no respect for the music itself … and the core of people who made the effort to establish and nurture the session.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23875" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Just a person</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 19:27:06">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23879" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Chris hit it on the button--“simultaneously friendly and also musically rigorous.” For many of us, that’ what a good session is all about.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23879" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 20:00:05">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23882" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Will,<br>
+<br>
+[ You are a great guy, and a generous contributor to this site, but do you think we could keep national politics out of our music?  I’m disappointed over that inaccurate, snide remark about our President.  Let’s remember this is an international site. ]<br>
+<br>
+Greg</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23882" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Greg</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 21:33:51">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23890" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Greg, I was just voicing my opinion, in a good humored response to Mark’s remarks about Americans--something we’re allowed to do in my country. :o)<br>
+<br>
+Perhaps you misinterpreted my post. My “cowboy” characterization was primarily aimed at the over-enthusiastic (I’m being polite now :o) people who sometimes show up at our session who can’t understand why we won’t play Orange Blossom Special for (or--egads!--*with*) them. It also happens to fit my congressional delegation, but then I come from the original high, wide, and lonseome state. Ironically, the most “cowboy” of our representatives originally hails from Missouri. He acts more “Montanan” than the natives. As for my line directly about Mr. Bush, that’s a simple fact. He apparently won the electoral vote, but even the White House acknowledges that he lost the popular vote in terms of simple numbers.<br>
+<br>
+The threads on this site, like any healthy, free-ranging conversation, do occasionally wander into non-musical topics. I’d hate to think that we can mention only *Irish* politics (or the British PEL laws). Besides, my comments are relevant. Some American sessions are now and then invaded by uninformed-but-highly-opninionated and vocal locals who either won’t take the time to listen and learn what an Irish session is all about, or they just don’t care. I think it helps our friends overseas to know that not all Yanks act this way or appreciate such behavior, *especially* in the anxious times we currently inhabit. A recent poll of our friends and allies to the north showed that 30% of Canadians think Saddam Hussein is a dangerous guy. But in the same poll, 60% of Canadians said they were more afraid of President Bush. As an American, I wish we’d collectively listen more carefully to many things on an international level--politics and music included.<br>
+<br>
+All of which makes me curious to know where Leger lives--where exactly *is* this monster session?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23890" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 23:04:24">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23893" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Let me just add that this Montanan Congressman (the one from Missouri) once called a group of Arab businessmen “rag heads.” I was appalled to think that, in the eyes of those Arab men, this man “represents” me. When Americans behave like that, or threaten preemptive war on a country where more than 50 percent of the population is under 18, I think it’s highly inappropriate (and ultimately unpatriotic) to keep silent.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23893" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-22 23:30:52">
+February 22nd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23895" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well said Will!<br>
+But back to the subject of the thread … I found it very interesting that when we moved our weekly Oxford sesh and made it ‘closed’ (In fact anyone is welcome, but because it is described as a ‘band plus friends’, it means that people don’t just assume they can participate), the previous session just folded. None of the people who gave us such grief continued playing at that pub, although the landlord would have been quite happy for any of them to do so. I therefore come reluctantly to to the conclusion that they were just ‘leaching’ on us.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23895" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Ottery</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-23 00:07:17">
+February 23rd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23898" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+One thing you might consider.  Here in Toronto, we were lucky enough to have a feller invite Martin Hayes and Dennis Cahill for a couple of concerts.  There was also a workshop, at which DC tried (mostly successfully, in my case… I hope) to teach a group of guitar players their roles.  Which includes the following:<br>
+<br>
+1) If there’s already a guitar there, and the other-instrument-to-guitar ratio is anything less than about 6 to 1, leave it in the case until someone goes home.<br>
+<br>
+2) If you play at volume 10 all the time, you have nowhere to go.  The dynamics are everything.  This means you have to play quietly a lot of the time.  The same applies to speed; if you want things to be interesting, 100 miles per hour for every tune is not the way to go.<br>
+<br>
+3) If you want to play like DC, avoid DADGAD and chords that are too full.<br>
+<br>
+4) You’re an accompanist, not a featured player.  So turn down, slow down, and listen.<br>
+<br>
+5) You need to learn about the structure of the music, how chords work, and so on.<br>
+<br>
+There was more, but I won’t go on here.  What I will suggest is that you offer workshops--staffed by local talent (for free or cheap), or by celebrity outsiders (where the sky’s the limit) in which the wonderful can teach the wankers.  Replace the session with such a workshop one night a month.  Then you can think about restricting the session to those who have taken the workshops.  <br>
+<br>
+I sympathize.  I took my mandolin to a session in L.A. this past fall where I learned a lot about concentration and focus, thanks to an oblivious guitar player.  There was entertainment value to the evening too; if looks could kill, the dude would have left the venue in a hearse.  But most of the time, it’s not that much fun.<br>
+<br>
+One more thing:  kitchen sessions are fantastic, and it’s very easy to make them invite-only.<br>
+<br>
+---Michael B.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23898" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+MichaelBolton</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-23 00:37:15">
+February 23rd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23908" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Ever thought of arranging it so the “good” players don’t turn up for a couple sessions or all not playing on a couple sets (pre arrange it) so that the less expert players realise that they are riding on the skills better ones.  It may work.  Encourage them to explore this site they then might get the message without been hurt or turned off.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23908" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Daver</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-23 10:31:43">
+February 23rd, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23942" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Will,<br>
+<br>
+[ I’ll give you the last word politically as you certainly managed to say your peace as you see it.  Just count me in as a Christian, Conservative, Nationalist, Combat Veteran, and I’ll leave this Forum to the subject of Traditional Irish Music. ]<br>
+<br>
+Best Regards,<br>
+Greg</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23942" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Greg</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 00:23:00">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23945" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+This is in answer to Will’s comment from ages ago: Australia is not a hotbed of lagerphones, despite the fact that most younger people have little understanding of what the music is (that’s why it’s so hard to find landlords who are interested in holding a weekly session). Australia’s situation is slightly different to the US in that it has only been populated in a big way very recently, so there’s been more of a continuity of culture. I think that might change for new generations of Aussies now that Australia has forged its own identity quite separate from the UK and Ireland. I get the feeling from most people here that the less ties they have with England the better! Greg, I’m going to stay out of any political discussion, but just for the record I’d like to say that I’m with Will on this one, and - how shall I put it - have little understanding of anyone who would want to defend your “President”. Unlike Will’s, my thoughts would not translate well into print!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23945" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Dow</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 01:32:43">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23946" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Greg, I may not agree with you, but I deeply respect your right to your own opinions. I do agree that this isn’t the best place for airing them (at least on this topic) so I won’t beat the dying horse. Thanks for keeping it civil and reminding me to do the same.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23946" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 01:44:35">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23947" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+coyotebanjo,<br>
+<br>
+I’d like to compliment you on your post. I’m normally guilty of skimming posts, but I took the time to read yours. Well said!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23947" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Caoimghgin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 01:50:43">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23948" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks for sharing the stories, Chris!  An honor to have you contributing actively hereabouts.  (And I hope next time you’re coming into the area, we’ll be able to see you play!)<br>
+<br>
+Zina</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23948" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Zina Lee</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 01:53:50">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23957" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks so much for your overwhelming response, all the helpful advice and creative solutions.  It seems clear to me that this is a problem that has no simple, clear solution.  <br>
+After reading through the responses, I wanted to clarify that the people causing problems were not beginners (except for the bodrhan players).  They are usually intermediate level players, the worst offender had been in a “professional” celtic band for awhile.<br>
+We do have numerous private parties and have started other smaller sessions, a slow session to help the intermediate players learn more tunes and advanced players work on a new instrument  (invitation only due to size constraints in the venue) and a French Canadian session which is open but not publicized.<br>
+Last weekend at a dinner/music party with the core group of good musicians, we discussed the session problem and the ideas from the strand.  We couldn’t come up with a solution that all could agree upon, but we did decide that the session is too good to leave.  We have a great audience (families, children, dancers, old and young people) and a great pub owner who really supports our session.<br>
+It was like a coach’s pep talk to the athletes at a football game.<br>
+The session the following day was tremendous.  First of all, the djembe players did not return!  When the obnoxious player came to the session, someone was already sitting in his place, so he moved to an even more prominent place.  However, we came in while he was away from the area and just moved his instruments and jacket to the far end of the circle and told him when he returned that the front area was reserved for the lead players.  That stunned him, he played more quietly and it also removed him from the center of the sound.  Since he also leads off  “his” tunes (the old standards like the Butterfly and Swallowtail Jig) as soon as there is a pause in the music, spontaneously all the good musicians started to chain tunes together for 2 1/2 hours without a pause!  It was an exhausting session but the music was so powerful.  I know this was a temporary solution, but I do realize now that we will be more pro-active, telling truely obnoxious players to quiet down, limiting bodrhans to one-at-a-time and excluding djembes.  Once again thanks so much for your advice and support.  Legerdeuxmains</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23957" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+legerdeuxmains</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 07:39:47">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23958" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Friendly, rigorous music: 1<br>
+Obnoxious pot bangers: 0<br>
+<br>
+Hooray!<br>
+<br>
+Sounds like a cranking good time. So where on the globe does all this happen?</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23958" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Harmon</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 08:00:00">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23961" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+At the other end of the scale I was at a session the other day which had only three players - an experienced whistler, an experienced mandolinist, and me on the fiddle. Dunno where all the other regulars got to. For once, we could all hear each other, and, interestingly, the proportion of craic to playing seemed just a little higher.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23961" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+fidicen</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 13:12:53">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment23994" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+However, we came in while he was away from the area and just moved his instruments and jacket to the far end of the circle and told him when he returned that the front area was reserved for the lead players. That stunned him, he played more quietly and it also removed him from the center of the sound.<br>
+<br>
+Sounds  like you’ve gotten through to him.  Now might be a good time to have a talk with him along the lines of “We want you to be a part of this session, but we also want you to realize that the music comes before the musician.  If you play within your limitations and strive to improve, will all end up a lot happier.”<br>
+<br>
+-- Scott</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment23994" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+srt19170</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-24 23:39:59">
+February 24th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment24097" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+I recently went out of state to visit my sister. She brought me to one session where papers  were placed on all of the tables to let everyone know their session etiquette.Musicians and patrons alike.  It was pretty basic things typed on the sheet, but they also had their own rules about how many guitar players should play at one time and bodhran players and why this reasoning was being stressed. It mentioned about sharing turns playing such instruments. It also spoke about etiquette for the audience, which I had not seen before.This session sometimes had 20 or more musicans attending, but on the one night I went, the weather was not the best and only 6 others besides myself were there. This session also allowed for anyone to play solo on a mic and encouraged anyone in the audience who wanted to sing a song was welcomed to come up and sing. The musicians also played some sets for the step dancing youngsters from a local school to dance to, which was very nice to see.  So, I guess my suggestion is that might a written session etiquette be useful at your session?????? You could customize it to fit into what you want YOUR session to be. Maybe saying that only tunes one knows well should be played….or about practicing at home…or a beginners session….or whatever message it is that you are trying to get across. Lots of times council is easier to take if thought is given on how it is worded ;-)  Any thoughts????</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment24097" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+whistlegirl in RI</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-26 01:11:37">
+February 26th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment24111" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Yes I think it’s a horrible idea. Makes me laugh tho’.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment24111" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Dr. Dow</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-02-26 05:50:14">
+February 26th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment30577" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Interesting discussion. One of the things I like about regular sessions is that people get to hear about it and can pop along to have a go at playing and see if they fit in with what’s on offer.<br>
+<br>
+But I’ve also enjoyed being invited to one-off sessions put together by any one of our regular sessioneers for someone’s special occasion or just for the hell of it. A hand-picked combination of instruments/musicians. I’m happy playing in both settings. The second type can be more of a performance if it’s for an occasion, the first more like a session where a good combination have turned up.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment30577" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+greenman</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2003-06-05 02:28:13">
+June 5th, 2003</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment583342" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Controlling a monster session</h3>
+<div class="e-content" itemprop="text">
+<p>
+Nostalgia ain’t what it used to be (he says whilst finishing off a mutton khottu)…</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment583342" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+yhaal house</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2011-05-08 19:06:07">
+May 8th, 2011</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<div class="feedback">
+<p>The original link is <a rel="canonical" href="https://thesession.org/discussions/1429">thesession.org/discussions/1429</a></p>
+</div><!-- /.feedback -->
+
+</div><!-- /.contents -->
+</main>
+
+<nav id="nav">
+
+<ul role="list" class="site menu">
+<li><a href="../../tunes/index.html">Tunes</a></li>
+<li><a href="../../recordings/index.html">Discography</a></li>
+<li><a href="../../sessions/index.html">Sessions</a></li>
+<li><a href="../../events/index.html">Events</a></li>
+<li class="here" aria-current="page"><a href="../../discussions/index.html">Discussions</a></li>
+</ul><!-- /.site.menu -->
+
+</nav><!-- /#nav -->
+
+
+<script>
+class stickyLogo extends HTMLElement {
+    constructor () {
+        super();
+    }
+    checkPosition () {
+        if (window.scrollY > this.triggerpoint) {
+            this.logo.classList.add(this.toggleClass);
+        } else {
+            this.logo.classList.remove(this.toggleClass);
+        }
+    }
+    connectedCallback () {
+        this.style.display = 'contents';
+        this.toggleClass = 'sticky';
+        this.logo = this.querySelector('.logo');
+        this.triggerpoint = document.querySelector('.strip.top').offsetHeight;
+        window.addEventListener('load', (ev) => {
+            this.checkPosition();
+        });
+        window.addEventListener('scroll', (ev) => {
+            this.checkPosition();
+        });
+    }
+}
+customElements.define('sticky-logo', stickyLogo);class ABack extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            ev.preventDefault();
+            history.back();
+        });
+    }
+}
+customElements.define('a-back', ABack);class ANav extends HTMLElement {
+    constructor () {
+        super();
+    }
+    connectedCallback () {
+        this.querySelector('a').addEventListener('click', (ev) => {
+            if (window.matchMedia('(max-width: 44em) and (min-height: 33em)').matches) {
+                ev.preventDefault();
+                document.body.classList.toggle('nav-active');
+            }
+        });
+    }
+}
+customElements.define('a-nav', ANav);</script>
+
+</body><!-- /#top -->
+</html>
