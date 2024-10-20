@@ -104,7 +104,7 @@ a/b/a ea gedB|GA B/^c/d eBdB|Adeg aege|1 dBGA BA A2:|2 dBGA BedB||</div><!-- /#n
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -174,7 +174,7 @@ a2fa gedB|GABd e2dB|AGgb afge|dBGA BAGB:|</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -244,7 +244,7 @@ a2 ea gedB|~G2 B/c/d eedB|eaae gedB|1 ~G2 dB BAB/c/d:|2 ~G2dB BA A2||</div><!-- 
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -314,7 +314,7 @@ aa ea gedB|GA Bd eBdB|Adeg aege|1 dBGA BA A2:|2 dBGA BedB||</div><!-- /#notes4 -
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player4">tempo</label>
-<input id="tempo_player4" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player4" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player4">repeat</label>
@@ -950,7 +950,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

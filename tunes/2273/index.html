@@ -106,7 +106,7 @@ g2 fg efge|dB B2 dega|bgag egfa|1 gedB AGED:|2 gedB AGEF||</div><!-- /#notes1 --
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -176,7 +176,7 @@ g2bg agba|gedB dega|bgag egge|1 dBAB G2 (3ggg:|2 dBAB GDEF||</div><!-- /#notes2 
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -250,7 +250,7 @@ Added by Dr. Dow on <time datetime="2011-03-04 22:14:59">March 4th, 2011</time>.
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -320,7 +320,7 @@ gfgd e2dB|dG (3GBG dega|bgag egfa|gedB AGEF:|</div><!-- /#notes4 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player4">tempo</label>
-<input id="tempo_player4" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player4" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player4">repeat</label>
@@ -390,7 +390,7 @@ d3A BAFA|BAFA d2ee|fded B2AF|BdAF E2:|</div><!-- /#notes5 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player5">tempo</label>
-<input id="tempo_player5" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player5" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player5">repeat</label>
@@ -460,7 +460,7 @@ g2fg eage|dB (3B^AB dega|bgag egfa|1 gedB AGEG:|2 gedB AGEF|</div><!-- /#notes6 
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player6">tempo</label>
-<input id="tempo_player6" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player6" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player6">repeat</label>
@@ -530,7 +530,7 @@ G2 BG dGBG|Gbag efga | babg (ef)gb|ge[de][eB] AGE:|</div><!-- /#notes7 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player7">tempo</label>
-<input id="tempo_player7" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player7" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player7">repeat</label>
@@ -600,7 +600,7 @@ g3 f efge|dB B/B/B dega|bg ~(3g/f/g/g eg f/g/a|1 gedB A2 ef:|2 gedB AGEF||</div>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player8">tempo</label>
-<input id="tempo_player8" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player8" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player8">repeat</label>
@@ -1320,7 +1320,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

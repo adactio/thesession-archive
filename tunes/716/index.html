@@ -108,7 +108,7 @@ dAAd BGED|1 CEAG FDFA:|2 CEAF GFEF||</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -178,7 +178,7 @@ defd gefd|gabg ecAc|d2(3Bcd BGED|1 CEAG FDDc:|2 CEAG FDEF||</div><!-- /#notes2 -
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -247,7 +247,7 @@ defg afdf|g2bg ecAc|dedA BAGF|EFGA FDD2||</div><!-- /#notes3 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -317,7 +317,7 @@ def(d fa)fd|gab(g ec)A(c|dA)Ad BGED|1 CEA(G FD)Dc:|2 CEA(F GF)EF||</div><!-- /#n
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player4">tempo</label>
-<input id="tempo_player4" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player4" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player4">repeat</label>
@@ -387,7 +387,7 @@ defd fafd|gabg ecAc|dAAd BGED|1 CEAG FDFA:|2 CEAF GFEF||</div><!-- /#notes5 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player5">tempo</label>
-<input id="tempo_player5" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player5" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player5">repeat</label>
@@ -456,7 +456,7 @@ A|{c}defg {fg}a2(fd)|g2(bg) {gf}e2{d}(cA)|{c}defg {fg}a2(fd)|AgTfe fddA|<br>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player6">tempo</label>
-<input id="tempo_player6" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player6" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player6">repeat</label>
@@ -526,7 +526,7 @@ d2fd gdfd|gabg efgA|d2cd BAGF|E2AE FDD:|</div><!-- /#notes7 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player7">tempo</label>
-<input id="tempo_player7" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player7" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player7">repeat</label>
@@ -595,7 +595,7 @@ Added by benhockenberry on <time datetime="2018-04-22 20:53:56">April 22nd, 2018
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player8">tempo</label>
-<input id="tempo_player8" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player8" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player8">repeat</label>
@@ -665,7 +665,7 @@ defd (3fga fd|g2bg ecAc|d2Ad BGED|1 CEAG FDDA:|2 CEAG FGEF||</div><!-- /#notes9 
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player9">tempo</label>
-<input id="tempo_player9" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player9" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player9">repeat</label>
@@ -1323,7 +1323,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

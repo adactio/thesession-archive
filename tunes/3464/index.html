@@ -107,7 +107,7 @@ g4d3c|B2AGA2D2|Bc dB cB AG|1 GF- FG G3g/a/:|2 GF- FG G4||</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -178,7 +178,7 @@ g4 d3c|B2 AG A2 D2|BcdB cBAG|1 GFFG G3g/a/:|2 GFFG G4||</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -249,7 +249,7 @@ d4 A3G|F2 ED E2 A2|FGAF GFED|1 dccd d3d/e/:|2 dccd d4|</div><!-- /#notes3 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -292,10 +292,10 @@ Added by JACKB on <time datetime="2020-05-27 23:27:50">May 27th, 2020</time>.
 <abbr title="Length">L</abbr>: 1/8<br>
 <abbr title="Key">K</abbr>: Gmaj<br>
 |:d2g2d3c|B2AGA2D2|Bcd2cde2|d2cBA2D2|<br>
-g4d3c|B2AGA2D2|Bc dB cB AG|GF3 GG3:|<br>
-|:b2b2b2ag|a2f2f2ef|g2e2a3g|f&gt;e d^c d4|<br>
-e2ge ce ce|d2gd Bd Bd|ce ac Bd gd|cB Ad f3g/a/|<br>
-g4d3c|B2AGA2D2|Bc dB cB AG|GF3 GG3:|</div><!-- /#notes4 -->
+g4d3c|B2AGA2D2|BcdB cBAG|GF2 GG4:|<br>
+ |:b2b2b2ag|a2f2f2ef|g2e2a3g|f&gt;e d^c d4|<br>
+|e2ge ce ce|d2gd Bd Bd|ce ac Bd gd|cB Ad f3g/a/|<br>
+g4d3c|B2AGA2D2|BcdB cBAG|GF2 GG4:|</div><!-- /#notes4 -->
 </div><!-- /.notes -->
 
 <div class="setting-metadata">
@@ -320,7 +320,7 @@ g4d3c|B2AGA2D2|Bc dB cB AG|GF3 GG3:|</div><!-- /#notes4 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player4">tempo</label>
-<input id="tempo_player4" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player4" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player4">repeat</label>
@@ -406,7 +406,7 @@ z4 d2g2| d2cB d4| GABG EDCA,| D2CA, B,4 :|</div><!-- /#notes5 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player5">tempo</label>
-<input id="tempo_player5" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player5" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player5">repeat</label>
@@ -1141,7 +1141,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

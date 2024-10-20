@@ -106,7 +106,7 @@ def edB|ABA AFA|fdB AGE|FDD D3:|</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -139,7 +139,7 @@ Added by Larke on <time datetime="2012-02-27 04:54:45">February 27th, 2012</time
 
 <article id="comments" class="h-feed" aria-labelledby="commentcount">
 <h2 class="p-name" id="commentcount">
-Five comments</h2>
+Six comments</h2>
 
 <article id="comment628875" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
 <div class="e-content" itemprop="text">
@@ -251,6 +251,28 @@ on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2024-10-06 11:45:10">
 October 6th, 2024</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment998580" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Grassy Road</h3>
+<div class="e-content" itemprop="text">
+<p>
+bars 3 &amp; 4 are an echo or borrowing from the slide Cock of the North.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998580" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+birlibirdie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-14 22:56:27">
+October 14th, 2024</time>.
 </small><!-- /.discrete -->
 </footer>
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
@@ -552,7 +574,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

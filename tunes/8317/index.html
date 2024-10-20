@@ -105,7 +105,7 @@ AF dF|A2 AF/A/|G&gt;A Bc|d2 d:|<br>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -175,7 +175,7 @@ f2 e2|dc BA|Be Bc|d2-:|</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -245,7 +245,7 @@ f2 ef/e/|dc B/c/B/A/|Be- eB/c/|d2 d:|</div><!-- /#notes3 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -278,7 +278,7 @@ Added by ceolachan on <time datetime="2008-03-04 12:13:12">March 4th, 2008</time
 
 <article id="comments" class="h-feed" aria-labelledby="commentcount">
 <h2 class="p-name" id="commentcount">
-Three comments</h2>
+Five comments</h2>
 
 <article id="comment351664" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
 <h3 class="feed-entry-title p-name" itemprop="name">“Gan Ainm” ~ yet again</h3>
@@ -375,6 +375,51 @@ on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2008-03-05 05:11:22">
 March 5th, 2008</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment998678" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Gan Ainm</h3>
+<div class="e-content" itemprop="text">
+<p>
+First part is cognate with The Vienna Polka but that could be a coincidence https://tunearch.org/wiki/Vienna_Polka</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998678" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+ConorW</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-16 15:37:48">
+October 16th, 2024</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment998679" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Polca Gan Ainm</h3>
+<div class="e-content" itemprop="text">
+<p>
+Interesting. It also seems to share the turn / part B with Johnny an Gabha:<br>
+https://thesession.org/tunes/4763</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998679" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Bregolas</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-16 15:47:31">
+October 16th, 2024</time>.
 </small><!-- /.discrete -->
 </footer>
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
@@ -676,7 +721,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

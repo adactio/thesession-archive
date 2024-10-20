@@ -103,7 +103,7 @@ aaf|d3fede3g|f2fedf eAde|f3defg3g|f3edcd:|</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -175,7 +175,7 @@ GAB2G|ABc2c|B2 AGF|G3 z2|</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -208,7 +208,7 @@ Added by Timothy Pillinger on <time datetime="2023-09-01 20:29:02">September 1st
 
 <article id="comments" class="h-feed" aria-labelledby="commentcount">
 <h2 class="p-name" id="commentcount">
-Two comments</h2>
+Three comments</h2>
 
 <article id="comment973457" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
 <h3 class="feed-entry-title p-name" itemprop="name">Tansys Golowan</h3>
@@ -251,6 +251,28 @@ on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2023-09-01 20:29:02">
 September 1st, 2023</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment998715" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Tansys Golowan</h3>
+<div class="e-content" itemprop="text">
+<p>
+Trying to find the names of a couple of other Kabm Pemp (?) tunes, which I heard played with this one in a Shrewsbury Fest session. Any suggestions?<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998715" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+eiluned</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-17 10:39:20">
+October 17th, 2024</time>.
 </small><!-- /.discrete -->
 </footer>
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
@@ -552,7 +574,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

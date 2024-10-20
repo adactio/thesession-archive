@@ -78,8 +78,8 @@ One setting</h2>
 <abbr title="Meter">M</abbr>: 4/4<br>
 <abbr title="Length">L</abbr>: 1/8<br>
 <abbr title="Key">K</abbr>: Amaj<br>
-|:c3 A BE~E2|EFGA B2 Bd|cdBc Aceg|1 afed cAAB:|2 afed cAA2||<br>
-|:agab aece|(3fga ec BEGB|agab aece|1 (3fga ed cAA2:|2 (3fga bg afed||</div><!-- /#notes1 -->
+|:c3 A B&lt;E E2|EFGA B&lt;BB&gt;d|cdBc Aceg|1 afed cAAB:|2 afed cAA2||<br>
+|:agab aece|f/g/a ec BEGB|agab aece|1 f/g/a ed cAce:|2 f/g/a bg afed||</div><!-- /#notes1 -->
 </div><!-- /.notes -->
 
 <div class="setting-metadata">
@@ -104,7 +104,7 @@ One setting</h2>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -478,7 +478,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

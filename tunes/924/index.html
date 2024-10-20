@@ -105,7 +105,7 @@ DEGB AGGA:|2 BcAB GAEG|DEGB AGEF||</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -176,7 +176,7 @@ EFAc BAAB:|2 cdBc ABFA|EFAc BAFE||</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -209,7 +209,7 @@ Added by birlibirdie on <time datetime="2012-07-14 10:13:19">July 14th, 2012</ti
 
 <article id="comments" class="h-feed" aria-labelledby="commentcount">
 <h2 class="p-name" id="commentcount">
-Six comments</h2>
+Eight comments</h2>
 
 <article id="comment11763" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
 <h3 class="feed-entry-title p-name" itemprop="name">Connor Bones</h3>
@@ -347,6 +347,51 @@ on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2012-07-16 06:57:23">
 July 16th, 2012</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment998584" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Connor Bones</h3>
+<div class="e-content" itemprop="text">
+<p>
+Whatever I meant 12 years ago by ‘subdued’ is totally obscure to me today. I was perhaps still discovering the joys of typing at the time and typing ‘subdued’ must have procured a pleasure which warranted its inclusion in my totally superfluous comment (which was not the first nor would be the last - you can quote me on that).<br>
+Like the waters of a river now clear now murky, now dry or overflowing, the stream of consciousness has its currents, fords and deadly vortexes and I’ll strive to stay on the dry banks and not post comments after 1am. ;-D Amen.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998584" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+birlibirdie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-14 23:29:25">
+October 14th, 2024</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment998585" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Connor Bones</h3>
+<div class="e-content" itemprop="text">
+<p>
+Again; Nice work.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998585" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+birlibirdie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-14 23:30:01">
+October 14th, 2024</time>.
 </small><!-- /.discrete -->
 </footer>
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
@@ -648,7 +693,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

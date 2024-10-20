@@ -104,7 +104,7 @@ AB|:c2ec d2fd|c2ec BAFA|1 c2ec d2fd|ecBA FAAB:|2 ABce a2fa|ecBc A2||</div><!-- /
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -174,7 +174,7 @@ cdec defd|cdec BAFB|ABce a2fa|ec (3BcB A2:|</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -192,7 +192,7 @@ cdec defd|cdec BAFB|ABce a2fa|ec (3BcB A2:|</div><!-- /#notes2 -->
 <footer class="setting-metadata">
 <small class="discrete">
 <a href="#setting24852" title="link to this setting">↳</a>
-Added by teagan on <time datetime="2014-09-17 22:32:37">September 17th, 2014</time>.
+Added by aegnat on <time datetime="2014-09-17 22:32:37">September 17th, 2014</time>.
 </small><!-- /.discrete -->
 
 </footer><!-- /.setting-metadata -->
@@ -527,7 +527,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

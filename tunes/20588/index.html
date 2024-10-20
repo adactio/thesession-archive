@@ -105,7 +105,7 @@ G{B}A EA (3ccc Ac|[M:3/2]ecgc (ga3a4):|</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -176,7 +176,7 @@ GA EA cc Ac|[M:3/2]ecg2 a4a4||</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -209,7 +209,7 @@ Added by benhockenberry on <time datetime="2021-03-17 11:36:52">March 17th, 2021
 
 <article id="comments" class="h-feed" aria-labelledby="commentcount">
 <h2 class="p-name" id="commentcount">
-Fourteen comments</h2>
+Fifteen comments</h2>
 
 <article id="comment917687" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
 <h3 class="feed-entry-title p-name" itemprop="name">Dust</h3>
@@ -523,6 +523,36 @@ March 28th, 2021</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment998838" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Dust</h3>
+<div class="e-content" itemprop="text">
+<p>
+https://m.youtube.com/watch?v=1MaQnV-Yggw&amp;pp=ygUTYnJpYW4gZmlubmVnYW4gZHVzdA%3D%3D#searching<br>
+<br>
+There’s always been something HD, clear cut, about Brian Finnegan’s tunes. <br>
+<br>
+Paradoxically, they can be very difficult to make sense of on paper (or without the backing chordal/rhythmic section) as often remarked by contributors on this site.<br>
+<br>
+It is clear from the recorded track that the intention is 3/2, as noted above: 3 groups of notes per bar  not 2 groups.<br>
+<br>
+Having said that, reading the tune in 6/4 makes good musical sense. And now you have a 6/4 waltz. Two tunes for the price of one. (-:</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment998838" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+birlibirdie</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2024-10-19 10:16:55">
+October 19th, 2024</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 </article><!-- /#comments.h-feed -->
 
 
@@ -819,7 +849,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

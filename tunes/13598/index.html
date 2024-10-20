@@ -102,7 +102,7 @@ ff&gt; (3c/d/c/|fg aa|fg ff|gffc|dccA|cGAF|FAc2:|</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -120,7 +120,7 @@ ff&gt; (3c/d/c/|fg aa|fg ff|gffc|dccA|cGAF|FAc2:|</div><!-- /#notes1 -->
 <footer class="setting-metadata">
 <small class="discrete">
 <a href="#setting24102" title="link to this setting">↳</a>
-Added by teagan on <time datetime="2014-05-02 03:26:59">May 2nd, 2014</time>.
+Added by aegnat on <time datetime="2014-05-02 03:26:59">May 2nd, 2014</time>.
 </small><!-- /.discrete -->
 
 </footer><!-- /.setting-metadata -->
@@ -149,7 +149,7 @@ First heard this polka in Gaelic Storm’s “One More Day Above the Roses.” Q
 Posted by
 <span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
 <span itemprop="name" class="fn nickname p-name">
-teagan</span>
+aegnat</span>
 on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2014-05-02 03:26:59">
@@ -455,7 +455,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

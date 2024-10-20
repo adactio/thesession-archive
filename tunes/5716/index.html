@@ -104,7 +104,7 @@ ceag fedc|BBba gfef|eaae fefa|gegb afed||</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -174,7 +174,7 @@ c2 ag fedc|B2 ba gfed|cdec defa|gbeg afed||</div><!-- /#notes2 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -244,7 +244,7 @@ B2 gf edcB|A2 ag fedc|BcdB cdeg|fadf gedc||</div><!-- /#notes3 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -262,7 +262,7 @@ B2 gf edcB|A2 ag fedc|BcdB cdeg|fadf gedc||</div><!-- /#notes3 -->
 <footer class="setting-metadata">
 <small class="discrete">
 <a href="#setting30535" title="link to this setting">↳</a>
-Added by teagan on <time datetime="2017-06-21 14:35:15">June 21st, 2017</time>.
+Added by aegnat on <time datetime="2017-06-21 14:35:15">June 21st, 2017</time>.
 </small><!-- /.discrete -->
 
 </footer><!-- /.setting-metadata -->
@@ -348,7 +348,7 @@ In G, as played by Loretta Egan Murphy on Beyond the Watery Lane.  Pretty much a
 Posted by
 <span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
 <span itemprop="name" class="fn nickname p-name">
-teagan</span>
+aegnat</span>
 on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2017-06-21 14:35:15">
@@ -678,7 +678,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

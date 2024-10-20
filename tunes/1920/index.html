@@ -108,7 +108,7 @@ BGDG B2B2|BAGB d2d2|efgd BdcB|ADFA G2||</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -179,7 +179,7 @@ B&gt;GD&gt;G B2 B2|(3BcB G&gt;B d4|e&gt;fg&gt;d B2 c&gt;B|A&gt;G F2 G4:|<br>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player2">tempo</label>
-<input id="tempo_player2" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player2">repeat</label>
@@ -249,7 +249,7 @@ BG DG B2 Bc|BA GB d2 d2|ef gd B2 cB|1 AG FA G2 G2:|2 AG FA G2 Bc||</div><!-- /#n
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player3">tempo</label>
-<input id="tempo_player3" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player3" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player3">repeat</label>
@@ -267,7 +267,7 @@ BG DG B2 Bc|BA GB d2 d2|ef gd B2 cB|1 AG FA G2 G2:|2 AG FA G2 Bc||</div><!-- /#n
 <footer class="setting-metadata">
 <small class="discrete">
 <a href="#setting28684" title="link to this setting">↳</a>
-Added by teagan on <time datetime="2016-04-26 16:04:12">April 26th, 2016</time>.
+Added by aegnat on <time datetime="2016-04-26 16:04:12">April 26th, 2016</time>.
 </small><!-- /.discrete -->
 
 </footer><!-- /.setting-metadata -->
@@ -320,7 +320,7 @@ BGDG ~B3B|BAGA BGBd|efge ~B2cB|AGFA G4:|<br>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player4">tempo</label>
-<input id="tempo_player4" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player4" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player4">repeat</label>
@@ -391,7 +391,7 @@ gf|g2gd B3A|BAGB d3d|efgd B3G|AGFG A4|<br>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player5">tempo</label>
-<input id="tempo_player5" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player5" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player5">repeat</label>
@@ -652,7 +652,7 @@ As played on Sets in Stone by Liam Kelly &amp; Philip Duffy.</p>
 Posted by
 <span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
 <span itemprop="name" class="fn nickname p-name">
-teagan</span>
+aegnat</span>
 on
 </span><!-- /.feed-entry-author.p-author.h-card -->
 <time class="dt-published" itemprop="datePublished" datetime="2016-04-26 16:04:12">
@@ -1144,7 +1144,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

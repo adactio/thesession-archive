@@ -54,7 +54,7 @@ reel</span>
 <article id="settings" aria-labelledby="settingcount">
 
 <h2 id="settingcount">
-One setting</h2>
+Two settings</h2>
 
 
 <abc-render-collection>
@@ -106,7 +106,7 @@ ea~a2 dg~g2|cffc B2cd|edcB cBAG|EAAG A2cd:|</div><!-- /#notes1 -->
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -125,6 +125,78 @@ ea~a2 dg~g2|cffc B2cd|edcB cBAG|EAAG A2cd:|</div><!-- /#notes1 -->
 <small class="discrete">
 <a href="#setting5744" title="link to this setting">↳</a>
 Added by gian marco on <time datetime="2006-05-06 15:56:38">May 6th, 2006</time>.
+</small><!-- /.discrete -->
+
+</footer><!-- /.setting-metadata -->
+
+</article><!-- /.setting.light -->
+
+<article class="setting light" id="setting52022" aria-label="Setting 2">
+
+<div class="aside">2</div><!-- /.aside -->
+
+<tab-controls role="tablist" class="requiresJS">
+<button role="tab" class="button tabbed" aria-selected="true" aria-expanded="true" aria-controls="abc2" id="setting52022-abctab">ABC</button>
+<abc-render-button data-notes_id="notes2" data-canvas_id="sheetmusic-canvas2">
+<button role="tab" class="button tabbed" aria-selected="false" aria-expanded="false" aria-controls="sheetmusic2" id="52022-sheetmusictab">sheet music</button>
+</abc-render-button>
+</tab-controls><!-- /@tablist.requiresJS -->
+
+<div role="tabpanel" class="setting-abc" id="abc2" aria-labelledby="setting52022-abctab" aria-hidden="false">
+<div class="notes">
+<abbr title="Number">X</abbr>: 2<br>
+<abbr title="Title">T</abbr>: The Key<br>
+<abbr title="Type">R</abbr>: reel<div id="notes2">
+<abbr title="Meter">M</abbr>: 4/4<br>
+<abbr title="Length">L</abbr>: 1/8<br>
+<abbr title="Key">K</abbr>: Amin<br>
+|:&quot;Am&quot;ecAB cd/c/Ae|&quot;Dm&quot;fedc &quot;Em&quot;BAGF|&quot;Am&quot;EAc&quot;F&quot;F- FAc&quot;G&quot;B-|Beef &quot;E7&quot;edcd|<br>
+&quot;Am&quot;ecAB cd/c/Ae|&quot;Dm&quot;fedc &quot;Em&quot;BAGF|&quot;Am&quot;EAc&quot;G&quot;B- BAGF|&quot;Em&quot;EAAG &quot;Am&quot;A2cd:|<br>
+|:&quot;Am&quot;eac&#039;a &quot;G&quot;dgbg|&quot;F&quot;cege &quot;G&quot;d2cd|&quot;Am&quot;edcB &quot;F&quot;cBAc|&quot;G&quot;Be-ef &quot;E7&quot;edcd|<br>
+&quot;Am&quot;eaaa &quot;G&quot;dggg|&quot;F&quot;cffc &quot;Em&quot;B2cd|&quot;Am&quot;edcB &quot;F&quot;cBAG|&quot;Em&quot;EAAG &quot;Am&quot;A2cd:|</div><!-- /#notes2 -->
+</div><!-- /.notes -->
+
+<div class="setting-metadata">
+<div class="setting-action">
+<button-clipboard data-copyelement="#abc2 .notes" data-feedback="copied">
+<button type="button" class="action clipboard requiresJS">copy ABC</button>
+</button-clipboard>
+</div><!-- /.setting-action-->
+</div><!-- /.setting-metadata -->
+
+</div><!-- /#abc2.setting-abc @tabpanel -->
+
+<div role="tabpanel" class="setting-sheetmusic" id="sheetmusic2" aria-labelledby="setting52022-sheetmusictab" aria-hidden="true">
+<div id="sheetmusic-canvas2" class="requiresJS">
+</div><!-- /#sheetmusic-canvas2 -->
+
+<div class="setting-metadata">
+<aria-toggle class="setting-action">
+<abc-player data-notes_id="notes2" class="requiresJS" id="player2">
+<button class="action play" aria-controls="controls_player2" aria-expanded="false">Play audio</button>
+<div id="controls_player2" aria-hidden="true" class="clapperboard feedback" aria-label="playing options" role="menu">
+<div class="discrete detail bill-item">
+<div class="bill-item-title">
+<label for="tempo_player2">tempo</label>
+<input id="tempo_player2" style="width: 95%" type="range" min="-10" max="2" value="0">
+</div><!-- /.bill-item-title -->
+<div class="bill-item-cost">
+<label for="repeat_player2">repeat</label>
+<input id="repeat_player2" type="checkbox">
+</div><!-- /.bill-item-cost -->
+</div><!-- /.bill-item.detail.discrete -->
+</div><!-- /#controls_player2.clapperboard.feedback -->
+</abc-player><!-- /#player2.requiresJS -->
+</aria-toggle><!-- /.setting-action -->
+</div><!-- /.setting-metadata -->
+
+</div><!-- /#sheetmusic2.setting-sheetmusic @tabpanel -->
+
+
+<footer class="setting-metadata">
+<small class="discrete">
+<a href="#setting52022" title="link to this setting">↳</a>
+Added by gian marco on <time datetime="2024-10-14 08:20:58">October 14th, 2024</time>.
 </small><!-- /.discrete -->
 
 </footer><!-- /.setting-metadata -->
@@ -571,7 +643,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {

@@ -79,15 +79,15 @@ One setting</h2>
 <abbr title="Length">L</abbr>: 1/8<br>
 <abbr title="Key">K</abbr>: Amix<br>
 |:B/|A/A/A c&lt;A &quot;tr&quot;e&gt;Ac&lt;A|B/B/B d&lt;B ~(3g/g/g/ &gt;Bd&lt;B|<br>
-A/A/A c&lt;e a&gt;ec&lt;e|d2 &quot;tr&quot;(3e/e/e/e c&lt;AA&gt;:|<br>
-^g/|(3a^gf (3efg a2 c&lt;A|(3gfe (3def g2 B&lt;G|<br>
-(3a^gf (3efg a&gt;ec&lt;A|d2 &quot;tr&quot;(3e/e/e/ c&lt;AA&gt;^g|<br>
+A/A/A c&lt;e a&gt;ec&lt;e|d2 &quot;tr&quot;e2 c&lt;AA&gt;:|<br>
+^g|(3a^gf (3efg a2 c&lt;A|(3gfe (3def g2 B&lt;G|<br>
+(3a^gf (3efg a&gt;ec&lt;A|d2 &quot;tr&quot;e2 c&lt;AA&gt;^g|<br>
 (3a^gf (3efg (3aed (3cBA|(3gfe (3def (3gd=c (3BAG|<br>
 (3=cBc (3dcd (3ef^g (3agf |(3edc (3dcB c&lt;AA&gt;D||<br>
 |:E&gt;A, A,/A,/A, E&gt;A, A,/A,/A, |B,&gt;G, G,/G,/G, D&gt;G,B,&gt;D|<br>
 E&gt;A, A,/A,/A, E&gt;A,C&gt;A, |B,&gt;G, (3G,B,D E&lt;A,[E2A,2]:|<br>
 (3a^gf (3efg (3aed (3cBA|(3gfe (3def (3gd=c (3BAG|<br>
-(3a^gf (3efg (3aed (3cBA |d2 &quot;tr&quot;(3e/e/e/ c&lt;AA&gt;^g|<br>
+(3a^gf (3efg (3aed (3cBA |d2 &quot;tr&quot;e2 c&lt;AA&gt;^g|<br>
 (3a^gf (3efg (3aed (3cBA|(3gfe (3def (3gd=c (3BAG|<br>
 (3=cBc (3dcd (3ef^g (3agf |(3edc (3dcB c&lt;AA||</div><!-- /#notes1 -->
 </div><!-- /.notes -->
@@ -114,7 +114,7 @@ E&gt;A, A,/A,/A, E&gt;A,C&gt;A, |B,&gt;G, (3G,B,D E&lt;A,[E2A,2]:|<br>
 <div class="discrete detail bill-item">
 <div class="bill-item-title">
 <label for="tempo_player1">tempo</label>
-<input id="tempo_player1" style="width: 95%" type="range" min="-6" max="1" value="0">
+<input id="tempo_player1" style="width: 95%" type="range" min="-10" max="2" value="0">
 </div><!-- /.bill-item-title -->
 <div class="bill-item-cost">
 <label for="repeat_player1">repeat</label>
@@ -508,7 +508,7 @@ customElements.define('abc-element', ABCElement);class ABCPlayer extends ABCElem
     adjustSpeed (factor) {
         this.status = 'adjusting';
         this.synth.pause();
-        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/7));
+        this.settings.millisecondsPerMeasure = this.millisecondsPerMeasure - (factor * (this.millisecondsPerMeasure/6));
         this.synth.init(this.settings).then( () => {
             this.synth.prime();
         }).then( () => {
