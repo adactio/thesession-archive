@@ -714,6 +714,656 @@ February 16th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1005687" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Added a new annotation that when added to any tune will left justify the title and subtitle:<br>
+<br>
+%left_justify_titles<br>
+<br>
+I strongly recommend you use this new annotation to specify left-justified titles on a per-tune basis if you want the tunes to be left-justified on the PDF tunebook pages as well as in the player if the titles are clicked.<br>
+<br>
+You can still also force all titles on all tunes to always be displayed in the editor left justified by checking the “Left-justify all titles and subtitles” checkbox in the “Settings” dialog, but that doesn’t cause the shared tunes to also be displayed with left-justified titles.  That was a limitation of the original forced left-justified titles implementation, which was primarily for PDF incipit tunebook creation.  This is much better.<br>
+<br>
+Additionally, the “Incipits Builder” now injects this annotation into each tune instead of setting the global left-justify titles flag for the tool.<br>
+<br>
+This change is in version<br>
+<br>
+2321_021625_1230<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2321, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005687" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-16 21:15:36">
+February 16th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005726" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve removed the global setting that forced all titles and subtitles to be left-justified.<br>
+<br>
+Going forward, you’ll want to include the following annotation in any tunes you want to have left-justified titles and subtitles:<br>
+<br>
+%left_justify_titles</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005726" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-17 15:33:38">
+February 17th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005731" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Additionally, you can now use<br>
+<br>
+%abcjs_render_params<br>
+<br>
+to put custom rendering params shared between all tunes, for example custom tablature settings, in the ABC file header.<br>
+<br>
+These changes are in version<br>
+<br>
+2324_021725_0830<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2324, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005731" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-17 16:40:02">
+February 17th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005794" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Here’s a demo of how to extract all the titles for a large set of tunes using the “Find and Replace” feature.<br>
+<br>
+I’m using the “Quick Editor” at:<br>
+<br>
+https://michaeleskin.com/abctools/abctools-quick-editor.html<br>
+<br>
+for this since we are only working with the ABC text itself and we don’t care about drawing the tunes.  The <br>
+Quick Editor is perfect for this kind of thing.<br>
+<br>
+1) Load your tunes in to the Quick Editor.<br>
+<br>
+2) Open up “Find and Replace” (either via CMD-F (Mac), Ctrl-F (Windows) or from the “Hamburger Menu”).<br>
+<br>
+3) Check the “Match using regular expression” checkbox.<br>
+<br>
+4) Enter the following into the find box:<br>
+<br>
+^(?!T:).*$<br>
+<br>
+Unfortunately, that auto-replaced smiley should be a colon : followed by a right parenthesis )<br>
+<br>
+Leave the “Replace with” box blank.<br>
+<br>
+5) Click “Replace All”<br>
+<br>
+All the text except for the T: tags will be deleted<br>
+<br>
+Don’t close the “Find and Replace” dialog.<br>
+<br>
+6) Enter the following into the find box:<br>
+<br>
+^s*<br>
+<br>
+Leave the “Replace with” box blank.<br>
+<br>
+7) Click “Replace All”<br>
+<br>
+All the extra lines will be deleted leaving just the T: tags.<br>
+<br>
+Don’t close the “Find and Replace” dialog<br>
+<br>
+8 ) Enter the following into the find box:<br>
+<br>
+^T:s*(.*)<br>
+<br>
+9) Enter the following into the “Replace with” box:<br>
+<br>
+$1<br>
+<br>
+10) Click “Replace All”<br>
+<br>
+This will leave just the titles.<br>
+<br>
+11) Select all the titles from the editor using either CMD-A (Mac) or Ctrl-A (Windows) to select all the text<br>
+<br>
+12) Copy the title text to the clipboard using CMD-C (Mac) or Ctrl-C (Windows)<br>
+<br>
+13) Open your text editor or wherever you want the title list and paste the text.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/_3FVs0EEtlI</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005794" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-18 15:05:37">
+February 18th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005799" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Here’s an even easier way to extract all the tune titles from a large ABC tunebook.<br>
+<br>
+1) Using the Quick Editor at:<br>
+<br>
+https://michaeleskin.com/abctools/abctools-quick-editor.html<br>
+<br>
+load your ABC file.<br>
+<br>
+2) Go to More Tools/Export All Tunes/Export all Share URLs as CSV<br>
+<br>
+3) Save the CSV text file.<br>
+<br>
+4) Open a spreadsheet program like Google Sheets or Excel.<br>
+<br>
+5) Import the CSV file.<br>
+<br>
+6) Select the first column by double clicking the top cell.<br>
+<br>
+7) Copy the text.<br>
+<br>
+8 ) Open up your text editor.<br>
+<br>
+9) Paste the text.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/vzHuvRYEtaY<br>
+<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005799" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-18 15:54:07">
+February 18th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005816" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve added a new feature to easily export all the tune names (value of first T: tag found in each tune) to a text file. <br>
+<br>
+This feature is in version<br>
+<br>
+2325_021825_1000<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2325, click the version number to do a manual update of the tool.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/0xmWOvNfBIw</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005816" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-18 18:28:27">
+February 18th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005889" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve made a major pass through the entire tool optimizing the speed for large tunebook batch export, sorting, transposing, and other features that required splitting out each tune for processing.<br>
+<br>
+In normal use when working with smaller tunebooks of less than 200 tunes or so, you’ll probably only notice a minor improvement in speed overall since it was already pretty quick, but overall the tool is using way less memory and CPU than before for most operations and especially on extremely large tunebooks where the splitting of the tunes was incredibly inefficient.<br>
+<br>
+I’m now doing a lot of caching of the split tunes to avoid redundant splitting, which previously would have happened for every tune, so for 20,000 tunes it would have split all 20,000 tunes into individual tunes 20,000 times. <br>
+<br>
+Now it does it once and caches the results.<br>
+<br>
+For the demos in the video, I’m using the “Quick Editor” version, which only renders one tune at a time. It’s ideal for doing sorting or batch processing operations on very large tunebooks:<br>
+<br>
+https://michaeleskin.com/abctools/abctools-quick-editor.html<br>
+<br>
+This optimizations for both the standard and the Quick Editor are in version<br>
+<br>
+2327_021925_1000<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2327, click the version number to do a manual update of the tool.<br>
+<br>
+Demo video of extracting tune titles and sorting over 20,000 tunes in the Quick Editor:<br>
+<br>
+https://youtu.be/7Kf1qGrScuA</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005889" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-19 18:27:07">
+February 19th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1005978" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve done some profiling and optimization of my customized version of abcjs to speed the rendering of tunes up by a factor of 3X to 5X depending on the browser.<br>
+<br>
+Here’s a side-by-side demo of the previous version of the tool and the new version of the tool rendering large tunebooks.<br>
+<br>
+Additionally, the optimizations will speed up pretty much all operations in the tool, particularly those that change the ABC globally like transposing all the tunes or doing tablature injection, even changing string tablature display will be faster.<br>
+<br>
+The abcjs performance optimizations are in version<br>
+<br>
+2329_022025_0930<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2329, click the version number to do a manual update of the tool.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/GWJnLuwhCmQ</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1005978" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-20 18:31:47">
+February 20th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006000" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Torture testing the tool on the new release with the abcjs speed and memory optimizations, I just was able to successfully open and render a tunebook with 15,300 tunes (15 copies of the 1020 tune King Street Sessions Tunebook ABC concatenated) in the full version of the tool using Firefox on my M1 Mac!<br>
+<br>
+That would have been nearly impossible before, it would have taken hours if it worked at all.<br>
+<br>
+The latest version opened and fully rendered all 15,300 tunes in approximately 7 minutes.<br>
+<br>
+A 10,200 tune version opened and fully rendered all the tunes in approximately 3 minutes.<br>
+<br>
+The latest version opened and fully rendered the original 1020 tunes in about 15 seconds.<br>
+<br>
+Smaller tunebooks of 100-200 tunes now just take a couple of seconds to render.<br>
+<br>
+After the initial render, only the one tune you are actually editing is redrawn, or all of the tunes if you make a global change like changing the tab display or injecting accordion or harmonica tab.<br>
+<br>
+I see the greatest speed difference on Firefox and Chrome, and less so on Safari, which has always been the slowest browser for the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006000" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-21 02:21:51">
+February 21st, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006032" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve written a simple web-based utility that will scan an entire tunebook of ABC tunes, extract all the tags and write them to a CSV file for import into a spreadsheet.<br>
+<br>
+It also includes the ABC filename and a Share URL for the tune in my ABC Transcription Tools as the last two columns.<br>
+<br>
+The columns in the CSV are:<br>
+<br>
+X:,T:,C:,O:,R:,L:,M:,Q:,K:,D:,S:,Z:,N:,r:,Filename,ShareURL<br>
+<br>
+If multiple tags, for example more than one Z: tag, are found in the same tune, their text is concatenated in the tag’s CSV column separated by /<br>
+<br>
+The tool is at:<br>
+<br>
+https://michaeleskin.com/tools/abc2csv.html<br>
+<br>
+I hope this is useful to those of you who have been asking about such a utility on the various ABC forums.  <br>
+<br>
+Please spread the word about the utility to anyone who might find this useful.<br>
+<br>
+Demo video:<br>
+https://youtu.be/qo_oia9D3yU<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006032" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-21 20:02:53">
+February 21st, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006033" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thinking about it some more, while I can’t open a “folder” of files from JavaScript, I certainly can enhance the tool next so that it can open “multiple files” from the file selector and does the right thing as far as the Filename tag in the CSV.   Maybe if I have time over the weekend…</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006033" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-21 21:30:56">
+February 21st, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006039" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve expanded the ABC to CVS tag extraction utility to now support extracting tags from multiple ABC files.<br>
+<br>
+This is a simple web-based utility that will scan one or multiple files of ABC tunes, extract all the common ABC tags and write them to a CSV file for import into a spreadsheet.<br>
+<br>
+You can use this, for example, to extract the tags from all the ABC files in a folder.<br>
+<br>
+It also includes the ABC filename and a Share URL for the tune in my ABC Transcription Tools as the first and last columns.<br>
+<br>
+The columns in the CSV are:<br>
+<br>
+Filename,X:,T:,C:,O:,R:,L:,M:,Q:,K:,D:,S:,Z:,N:,r:,ShareURL<br>
+<br>
+If multiple tags, for example more than one Z: tag, are found in the same tune, their text is concatenated in the tag’s CSV column separated by /<br>
+<br>
+The tool is at:<br>
+<br>
+https://michaeleskin.com/tools/abc2csv.html<br>
+<br>
+I hope this is useful to those of you who have been asking about such a utility on the various ABC forums.  <br>
+<br>
+Please spread the word to those who might be interested.<br>
+<br>
+Demo video:<br>
+https://youtu.be/VUcFQOQJo7I</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006039" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-22 02:49:53">
+February 22nd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006041" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Based on user suggestions, I’ve split subtitles (T: tags after the first one) into their own column.<br>
+<br>
+Tag order in the CSV is now:<br>
+<br>
+Filename,X:,T:,Subtitles,C:,O:,R:,L:,M:,Q:,K:,D:,S:,Z:,N:,r:,ShareURL</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006041" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-22 04:26:17">
+February 22nd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006055" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+For the ABC Tags to CSV Extractor utility, I’ve modified the tag order in the CSV, now:<br>
+<br>
+Filename,F:,X:,T:,Subtitles,C:,O:,R:,L:,M:,Q:,K:,D:,S:,Z:,N:,r:,ShareURL<br>
+<br>
+as well as made the Filename and ShareURL columns optional (enabled by default).<br>
+<br>
+The utility is at:<br>
+<br>
+https://michaeleskin.com/tools/abc2csv.html</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006055" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-22 13:52:45">
+February 22nd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006069" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+You can now launch the new ABC Tags to CSV Extractor utility directly from the ABC Transcriptions Tools using a new button on the More Tools / Export All Tunes dialog.<br>
+<br>
+The feature is in version<br>
+<br>
+2330_022225_0930<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2330, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006069" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-22 17:44:47">
+February 22nd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006083" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+You can now launch the ABC Tags to CSV File Utility from the<br>
+<br>
+More Tools / Export All Tunes<br>
+<br>
+dialog in the ABC Transcription Tools.<br>
+<br>
+Video shows extracting tags for an entire directory of ABC files, over 113,000 tunes in total.<br>
+<br>
+After launching the utility the first time I suggest saving a bookmark to it in your browser so you don’t have always get to it from the ABC Transcription Tools.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/WJy7c7CZ2wQ</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006083" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-22 18:28:02">
+February 22nd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1006096" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - February 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Based on user feedback, as of 22 Feb 2025 16:30 PST the Tag order for the ABC Tags to CSV File Utility is back to:<br>
+<br>
+Filename,X:,T:,Subtitles,C:,O:,R:,L:,M:,Q:,K:,D:,S:,Z:,N:,r:,F:,ShareURL<br>
+<br>
+with Filename and ShareURL being optional.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1006096" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-02-23 00:31:45">
+February 23rd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/49946">thesession.org/discussions/49946</a></p>
 </div><!-- /.feedback -->
