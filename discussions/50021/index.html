@@ -957,6 +957,115 @@ March 15th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1007545" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - March 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Continuing with new “Alternate” chord related features, there’s a new setting on the Player’s settings dialog to enable playing alternate chords (disabled by default).<br>
+<br>
+You can get to this dialog by clicking the “Settings” button on the Player or by clicking the “Select Default Instruments and Volumes” button on the main tool “Settings” dialog.<br>
+<br>
+You can still add:<br>
+<br>
+%play_alternate_chords<br>
+<br>
+to any tune and it will override the checkbox value in the Settings and play the alternate chords.<br>
+<br>
+The setting value is remembered and restored between uses of the tool.<br>
+<br>
+The fix that allows playing of all forms of alternate chords including “mixed” format is in version:<br>
+<br>
+2382_031625_1200<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 2382, click the version number to do a manual update of the tool.<br>
+<br>
+After updating to the latest version, try it on this tune:<br>
+<br>
+https://michaeleskin.com/abctools/abctools.html?lzw=BoLgBAjAUAKuCCA7RBLAbgUwE4GcCGWAnmAOp4A2ALgF5QCy4AzAPQAsUASuAO4U1QAZcBDZQAikzYBeAGwAGKAGlwAEQC2UAKRawAZQD2AV0QATAGb7ElcGbyUARvsJa89gMYArHAH0cR0xZWYLYOTjp0GOT6JsQADlj6AOZYeGoIbkY4lChuYADiKaZgAAooeIj6Wpp0AJIqNWDxSSlqYAqaYABCeDg4jQnJqemZ2bkF5SYlZRVVtfVg9j04TYlts3UNi71o+uRgMuwdAMIAFvpYJn0rLcOGWTn5hZOl5ZWa1RtgbmcXK2vvcwa33OJh2ewOUAARPBoQAaRgAWgAPvBYWAAHpHMAqJEAUUReIxWNRSMh6khYAAYgTKWBcdiUQTIQAKFQAdgAlNDGKS8mpIZ0ugA+Tqk5lHLmdeB5JFQ9TMylc+BgeAAJjFnXsSvyVNJ8GZuJMKDUXNxqvyeshlPNuNJ5JUBIdSNlAvskMmJiFJlJR3dYE93qtfrcQvgSLcPNd4slwtFkN9nRDccpApVQvRMvgPKhfMheXyQpleWldv5eUptpZ6mYErJkc1fsFMuhVptpYpDuRToAukA&amp;format=noten&amp;ssp=10&amp;name=Anniversary_Waltz_Alternate_Chords&amp;play=1</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1007545" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-03-16 19:54:10">
+March 16th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1007549" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - March 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Latest demo video on playing “Alternate” chords.<br>
+<br>
+https://www.youtube.com/watch?v=-JXVK23SVf4</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1007549" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-03-16 20:29:00">
+March 16th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1007660" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - March 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I removed the option to use or transform my comment-based private commands into %%abctt: prefixed commands to better follow the spirit of section 11.5 of the ABC 2.1 spec on private commands.<br>
+<br>
+Looking at other libraries like abc2svg, they decided to make all their private commands non-prefixed first class ABC commands starting with %% and as far as I can tell, nobody was using my prefixed commands, so I removed the whole concept from the tool.  <br>
+<br>
+Not having to deal with two styles of commands simplifies and speeds up the tool.<br>
+<br>
+I’m still using a mandatory abctt: prefix on all my tool-private MIDI commands, for example:<br>
+<br>
+%%MIDI abctt:strumchords<br>
+%%MIDI abctt:strum_chords_divider<br>
+%%MIDI abctt:boomchick<br>
+%%MIDI abctt:boom_fraction<br>
+%%MIDI abctt:chick_fraction<br>
+etc.<br>
+<br>
+(you can find details on these and more in the User Guide)<br>
+<br>
+as I do want to still make it clear that these MIDI commands are tool-specific.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1007660" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-03-18 16:57:35">
+March 18th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50021">thesession.org/discussions/50021</a></p>
 </div><!-- /.feedback -->
