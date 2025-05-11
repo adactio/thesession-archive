@@ -324,6 +324,869 @@ May 4th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1010717" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+In version 2470_050425_1000 I’ve reorganized the ☰ menu so that more commonly used and related features are grouped near the top.<br>
+<br>
+Additionally, I’ve added a new<br>
+<br>
+%%keywarn 0<br>
+<br>
+command that has the exact same functionality as<br>
+<br>
+%hide_cautionary_ks<br>
+<br>
+Either hides “cautionary” key signatures placed at the end of the staff before a key signature change as well as any “implied” naturals in the new key signature.<br>
+<br>
+Tune sets created with “Create Tune Set” will continue to use %hide_cautionary_ks for now.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010717" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-04 17:49:46">
+May 4th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010727" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve completely redesigned the “Create Tune Set” feature to be easier to use and more powerful.<br>
+<br>
+Tune sets can be opened for playback or editing in a new browser tab or appended to the end of the current ABC.<br>
+<br>
+Click the tunes in the tune list to add them to the set.<br>
+<br>
+Numbers appear at the right of the tune names showing the tune order in the set.<br>
+<br>
+Click a tune again to remove it from the set.<br>
+<br>
+After selecting your tunes, click one of the action buttons at the bottom of the dialog to open the tune set in the Player in a new browser tab, open the tune set in the Editor in a new browser tab, or append the tune set to the current ABC in the editor.<br>
+<br>
+Settings:<br>
+<br>
+“Repeat each tune in the set when played”<br>
+<br>
+Unchecked - Tunes in the set play once.<br>
+<br>
+Checked - Tunes in the set play multiple times, set by the “Repeat Count” value.<br>
+<br>
+“Repeat count”<br>
+<br>
+If “Repeat each tune in the set when played is checked”, now many times to play each the tunes in the set when opened in the Player.<br>
+<br>
+The settings are saved and restored the next time you run the tool.<br>
+<br>
+The video is of the “Create Tune Set” features available in version:<br>
+<br>
+2471_050425_1330<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2471, click the version number to do a manual update of the tool.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/VdxRajmxoS0</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010727" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-04 21:33:12">
+May 4th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010741" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+A user was having an issue where they wanted the last tune in a tune set of three tunes pushed to it’s own page in the PDF.<br>
+<br>
+Remember that tune sets are essentially one giant tune, so making this happen cleanly was a bit of a puzzle.<br>
+<br>
+The best and most reliable way I’ve found of doing this is to put some additional vertical space before the next-to-last tune using<br>
+<br>
+%%vskip 70<br>
+<br>
+or whatever is required, pushing it down the first page, and then the final tune naturally flows to it’s own page.<br>
+<br>
+%%newpage<br>
+<br>
+in my tool is only for forcing individual tunes to a new page when generating PDF files with multiple-tunes per page. It doesn’t work in the middle of a tune.<br>
+<br>
+Example, the set in the share link below when exported to PDF in portrait orientation, letter-sized page, one tune-per-page (doesn’t matter, since it’s a tune set, it’s only one tune anyway) has the final tune on it’s own page.<br>
+<br>
+Without the <br>
+<br>
+%%vskip 70<br>
+<br>
+before Kathleen’s the title of the last tune would have been on page 1 and the rest of the tune on page 2.<br>
+<br>
+Trying to use the %%vskip to move the last tune down causes that extra space to be included in the last tune’s space and displaces it down the second page so while it seems like the obvious solution, and is what I tried first, but it’s not the best one. <br>
+<br>
+The optimal solution is to shift the next-to-last tune down the page a bit using %%vskip and allow the last tune to flow naturally to the next page.<br>
+<br>
+Here is the example:<br>
+<br>
+https://michaeleskin.com/abctools/abctools.html?lzw=FADQXABAjMAqawBYFMICEA2BDAxgawHcsAXZAJwgHoIBpExDZZAOwHIBnKiAWQFucUAQ4wdgAUnFjiAS2KMAZgHtmxCAAUs2Gc0XQAHJPYBXAEYy5yJSvWaS0ndACs48YmkATZAH0yiAJ7EiAC2XsRYAOauHt44WEYyylhkfl547C5iELC68rIQgajsyKrKEFjqACIAYhAADhHIADQQ9jhkyFhF+SgQ7GHy8gQegRAAbppGyAB04hB6AAzzEIrypMwQBIpkaRBKFOVFJfLd7ahKRmQAtH1Yo6jERszI7DMSYmI3A0PuI46OAGwZD7EdrEATYPr5MiTFzwLI9TC4QgkcjAABKkDUigweCwwG4kAATJQACzAAAykCglAMNEgFSCWAAVsAAIpgakkgC8UAAzPNgAAfMBVdzodyUNCUQUAQRqAFEKrLGmhmhV5YKqvKIPKqoLgDKxWgJVLZQq9dUIDLJZRrVVpYqIBUAHzysD64VVGXoHCC9yEq3uQXycKUeTUZBB+SoZCE-XuHCUCUQSOCtDerWCy3WqV2h0VJ2u90ZeHSTi1IzsFCcOiBRgsDgQdyKAjrAp1BplCAmWRA0bsPDSWoQADsAvepAAHsQ4JBawwmGx0hj1NjcfiiaSKVSacA6eggvY2RzSTz+UKwAmk9Ro360OLBchncdUzhvTLfcAr8nb+578bBUTXMfUFKB0ADNAcHdCCA3kZ1wkFD0wCwY5wmQYMxU8MNpXCF8gzfK1nXQ4B5DFZBfT-CA3zTDMZVA8D0HDUNoIYyDEMkKcZzhPgBGQYRRBXLEcTxAkIGJMlKWgXd9xlY9OTPAVhRlCCc2oQUqPfZ173UnBUCwVBg0oLBsOQagcDQfVlPQVSIB0zSanU3UrRtRNrVssD0ytbUWM8qz2IiIzqBMcp1Pkcpo1st9KETFNvUA-8A31ALjO7ELdnCgyPxTEzorU3zEuAZKgrSsLdgMqKYuQOLzJ9WyDRUm1bI0wiHJ1GpVNctTrKtRKAF0OOQadgCAA&amp;format=noten&amp;ssp=10&amp;name=tune_set_last_tune_on_own_page&amp;editor=1</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010741" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-05 02:10:50">
+May 5th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010769" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+When creating tune sets from very large ABC collections (&gt; 200 tunes), you may find it faster and easier to use the “Quick Editor” instead of the standard editor:<br>
+<br>
+This is particularly useful if you are appending the tune sets to the ABC in the editor, the “Quick Editor” doesn’t have to wait for all the tunes to draw, only draws the appended tune set.<br>
+<br>
+Demo video:<br>
+https://youtu.be/KBM38T5eiOw</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010769" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-05 17:17:50">
+May 5th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010786" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Could I ask something please, Michael?<br>
+<br>
+I have a subset of tunes that I know well enough, but in a session situation my brain refuses to remember how to start them. I’ve stuck them on an iPad, but the PDF tunebook format is a bit clunky (it’s an embarrassingly long list).<br>
+<br>
+What would be useful is a standalone html file made up of the preview that’s available after pasting a bunch of ABC into your website. It’s a clean, lightweight, easily scrollable page that shows staff and tab, and should be searchable with Command+F.  I can’t work out whether it’s exportable as html though. PNG works well but isn’t searchable.<br>
+<br>
+It probably isn’t possible, but I thought I’d check. If I could read staff at a useful speed I’d export the tunebook as a website, but I need whistle tab and it’s too big for the tune trainer frame. It’s possible to close that, but it’s more prodding at the screen when you want to get to it quickly.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010786" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+WhistlingFionn</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-05 23:10:21">
+May 5th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010787" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve pushed out version 2475_050525_1530 that fixes a few long-standing issues in my custom version of abcjs:<br>
+<br>
+1) The “, The” article reverser wasn’t being run in abcjs for subtitles, only for titles.<br>
+<br>
+By default the notation renderer will reverse “, The” and “, An” style articles to the front of tune titles or subtitles.<br>
+<br>
+This was showing up in the notation on tune sets when the subsequent tune titles were of the form “Kesh, The” and similar constructs.<br>
+<br>
+To disable this behavior, you can add the following private annotation to any tune:<br>
+<br>
+%no_title_reverser<br>
+<br>
+The presence of this annotation in a tune will force both the displayed notation in the editor, exported PDF notation, and tunes played from play links to have the title article reverser disabled.<br>
+<br>
+If placed in the ABC file header, it will apply to all of the tunes.<br>
+<br>
+2) %%titlecaps wasn’t working for subtitles.<br>
+<br>
+3) %%titlecaps wasn’t working if in the ABC file header.<br>
+<br>
+These fixes are in version:<br>
+<br>
+2475_050525_1530<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2475, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010787" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-05 23:26:46">
+May 5th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010788" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+WhistlingFionn, really, for what you’re doing, the PDF exporter, either the one built-in to the tool or just doing a browser-native PDF export would do the job. <br>
+<br>
+Both are searchable by tune name, even if there isn’t a Table of Contents or Index because I specifically inject additional information into the PDF to make it possible to search even if there aren’t play links associated with the tunes.<br>
+<br>
+You could also just export a notation incipits or ABC incipits PDF, which would be tiny, searchable, and clicking the tunes would open them in the browser.<br>
+<br>
+If you still absolute need a website version:<br>
+<br>
+The Image Gallery and Image Lightbox websites export a .html file and also all the SVG files that are used for the images.  These images are not in the html itself, but are referred do in the generated code.<br>
+<br>
+You need to have all of SVG files in the same directory as the .html file to use the website, either hosted or on your own computer.<br>
+<br>
+More details here:<br>
+<br>
+https://michaeleskin.com/abctools/userguide.html#generate_website<br>
+<br>
+with a demo video of all four available website styles here:<br>
+<br>
+https://www.youtube.com/watch?v=976COaNUt6g<br>
+<br>
+Only the basic style website style would support searching, since it is essentially a linear stream of tune names and links. <br>
+<br>
+The tune image lightbox and full-featured websites both have popups that list all the tunes.<br>
+<br>
+Please take a look at the documentation and all the possible options for both PDF export (both the custom PDF exporter in the tool as well as just using the one in your browser) and website export, and figure out one that best meets your needs.<br>
+<br>
+If none meet your needs, perhaps some other tool would better meet your requirements, but I strongly suggest seeing if you can use what’s already available because I have no plans to add any additional website export styles at this time.<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010788" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-05 23:47:28">
+May 5th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010793" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+In version 2476_050525_1800, I’ve added a new “Normalize Title Postfixes” feature on the “Hamburger” menu that moves all title or subtitle postfix articles, for example:<br>
+<br>
+“Kesh, The” and “Slockit Light, Da”<br>
+<br>
+to the front of the titles and subtitles for all tunes in the ABC resulting in:<br>
+<br>
+“The Kesh” and “Da Slockit Light”<br>
+<br>
+The title or subtitle postfix articles that can be normalized are:<br>
+<br>
+, The<br>
+, the<br>
+, A<br>
+, a<br>
+, Da<br>
+, La<br>
+, Le<br>
+, Les<br>
+, Ye<br>
+<br>
+I’ve also updated the automatic formatting of title and subtitle postfixes in my custom version of abcjs as well as all sorting features in the tool to work correctly with the same set of postfixes, previously some were missing.<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010793" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-06 02:00:28">
+May 6th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010794" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Example tunes before the operation:<br>
+<br>
+https://michaeleskin.com/abctools/abctools.html?lzw=BoLgjADATArAUAFRAQQEaoKYGcsBoAECAFhnAEooCWATnAMIoB2AJgJ750CuALt5YwHN8UCJDgB5EAFFBAGwCGLOAC0QABXmdZ+ABLzqbAORZ8AZWxZKAe0aFOjDKitWA1sOgAWfAAosGDPgA7sEAdAAOmrJE+mwhDtwAlCogdNQY8nwAbgF0VgC2eTYmAMbF+KisALSMxZVY8viylMUYNRjMIXAAsiAeAPQecAAy4H0AHHAAiqMeALyQEHAA0iAA4nAAIqvIAD4ARKt7AEJee1J5xwDM+MX7h8zXq-irUPhnF0fM+3R7GK9-lXaxSO+2QF2ByCeew2e2Yr1WADEdnA9j8pK9iq89mDsdckccLhtXnC3udjpD8Tj0Tcjm8NgB2bHw-GHVYeSqrEDI5BHW4HWGnH4Ya5fbHgo6QumMknMPlHD4U0kXKSrYGghU8unQ5nI1FnDFYnHIPH7eXa-Ak97kxHq-U0qVM54svYIp4vZ48266+6rT5K37-UU44EtN5m5jMDAAMzuewERyjQitfwtILF2KO0a1D1u3RAADYBnAAKTFroASQ25fK6W4WG41H4QijYTyrbCJbLlerAmKRCsBhuAC9iiOx6PRyizRLEW80Qa3kaTQAdPP9QalitVmsZeuNwT4Ftto8dzfd-C9-uDifjodTwnErFkmeU5UY2nQxnIHX810cy47AAunAcCgAs9KICgWBEM81BWNkBDEKQFAAOryLI3B3gwCDUPIHQSCAaGyNgyQaFougxKwxhmBY1i2Ag9iOM4bgiFAXi+P4QShBEWjRAYrBxBgiTJKktaUNkHD5IUjAlGUFTVLU9SNM0rQtPhPSXEWIxgOMUwzPMECLCs6zQtqsYvEcUCyjslkvC8trfhCqz7DCCJQESRLmVAL7fPqdBQOisZEi8plueZHhcnAvKxnCvKRjscKYpZLmMpinpfElUDfrGtmevsz5ZVA9mhVZUDYnsAB6mIuQKnkoqy3lWbctlFVADlQE5NVuR5bX8hZFK+ei-mBfywVla5vWsh4QEgWBhkAJyQcg3D9rI2g6JQAhEAoLAYNQeCECQ5AgF0+h9vQIA4XhnSSKYxRWNwO3MKRkQUfx1HmDgdF2A4TiuO4bE+H4ATBIE4SRHxsTxEkqiiRk4k5FJRQ3HJVQ1HUDRNC0bTqQWunabp0yaWMBlGSgeSUAAHiiyABgEGDFLsDPIG8hxxaCdP4MzOXFMwi57BCHN-PTjM7MzrPHLzQvyAEplRu0HO87S37IJFOwgOVyChlrGA1cgzBRvg+sxpr2stDzfPlYLpsBDresG0bBvS7LMLy0GAvMMrWVqxrtPyFA9PWf7ge3MHXPWfycX89bfsB+Hodx0CYsy1qbuK57Rve8i6tW1rNxazFfqe+7jNlKX+UfL6+BHL6it5+X-LF6m7vpC7exp1bGfGpFoEgCIMD5pBRyKC4JiKHzRy4dg+DiNXNiMJQAQbM4jAEAAmshhHoZhF1Xfht33Y948veRejvSYn2WDYP1Mf9rHscDXFgzxUSUYJwmw2k8MSbkBTI6U5Q0aKUxipHGnQNJaRmHpHScwwAiGWGsTYXlnKfmxAAPm2DlT2KVsSYMjmgyEvlVhSA2DsMAi5CQqhwd+LkWIGTQioX1NqwE0z3ADglGuCV2Ge2cjwjhKCyTtDTPQ7KyJSFMJQSIjBuxI7YNQZCGRbMCECIuMQ8RPwNiMIajNXuIgICXCHhgNaOQMgkH3BgAgQx5DHTIP4WQu9cL7xSIoPC8gADc+BJicEcAzE+61KIfVotfBiv1mIAwfpxUG4NeJv2hiJL+WREZ-xkijQBCkMbKWxmpcBvRIE6QmNMGB8x4ErA2CiGEGwNj4ARCzB2CsrZlDzpHWktdTLIDQcrDB1TjaxgEEmV2DRsSMgZtmKAPsADaPRCweEAnLBo3hLjyCWYePmWZ+QCFQD4S46BUA7EmbkmZcytlLIaFGVZJtDgCDoe3QZyBhllFMhGH2plKndItIbeptMAFNLZi04R6DOlPBqU7dZ-SbmLnuaMyKLyakInwBsWFQVfRPC2JwmFyA4UIoxRzZAuA6BSDoEbPFBLdQVNhfCxFo1kXwuRXrDpRsunAouXGMFUZbmQsecw2a4B8zQDAJBNQVgtDTx0JwMIYQACX2BLEkSQKJes7RdCtAOkhY6RwhXUGoFKi6qxKDGJMHQaImBGAZAIGAeaYwDGSARLhNofi3pGAvkE+ijE-osU8EDSJ3EIaxKEjDFICSEaSWSbJNJ6MlJY1Uu0HJmlBgEwKfpOBZMylWikI8BEUgbJeGigSWEZRMwWj5DCWU1cWY2lTemzNJxq5FrzaWj0ZCrRHEeNUjYtCm1eGjDsbOGsyTxmrkIeMvlZjFE7SbGEAhDbyGbLrY4jIKokhTFGXqfbaRHEHWmH4I6x01UnfgadKzG2COuPTKM7bj3PFbTooAA&amp;format=noten&amp;ssp=10&amp;name=ph_full_split_no_intro_text_28Jan2025&amp;editor=1<br>
+<br>
+Same tunes after the operation:<br>
+<br>
+https://michaeleskin.com/abctools/abctools.html?lzw=BoLgjADATArAUAFRAgFgUwAQEEBGO0DOBcASiFgJYBOcAwuQHYAmAnhrQK4AuXFDA5higRIcAPIgAogIA2AQ2ZwAWiAAKcjjIwAJOVVYByAhgDKhAhQD2DDAg4M0OS5YDWQ6ABYMACgJpMAO5BAHQADhoyKHqswQ5cAJTKILRUaHK8AG6YtJYAtrnWxgDGRRg4LAC0DEUVBHIYMhRFaNVoTMFwALIgHgD0HnAAMuC9ABxwAIojHgC8kBBwANIgAOJwACIrWAA+AEQruwBCXruSuUcAzBhFewdMVysYK1AYp+eHTHu0u2gvvxVtIqHPZYc5ArCPXbrXZMF4rABi2zgu2+kheRReu1BWKuiKO53WL1hrzORwheOxaOuh1e6wA7Fi4XiDisPBUViAkVhDjd9jCTt80FdPliwYcIbSGcSmLzDu9ySTzpIVkCQfLubSoUykSjTujMdisLi9nKtRhiW8yQi1XrqZLGU9mbt4Y9nk9uTcdXcVh9FT8-iLsUDmq9TUwmGgAGa3Xb8Q6RwSW37m4GirGHKOa+43LogABs-TgAFIi50AJLrMtlNJcAhcKh8QSR0K5FuhYulitV-hFFCWfTXABeRWHo5HI+RpvFCNeqP1r0NxoAOrm+gMS+XK9X0nWGwIMM3W4f2xuuxge32B+Ox4PJwSiZjSdOKUr0TSoQysNq+S72RdtgAunAcCgPMdKIMg6DYAQKBPFQlhZKQIAAOpyDIXC3vQCBUHI7TiChaGEEk6iaDo0QsEYpjmFYNh2A4TiuO4UBeL4-gYEEARhBEUT6CwsRoAkSQpDWFBZOweQFAwxSlOUVQ1HUDRNC0zR4d0FyFsMYBjJM0xzBACzLGsUJajGzyHFAMrbOZzzPDaX7gisezQvCUCEoSplQM+Xx6rQUBojGhLPMZLmmR4nJwDyMawjyEbbLCGLmU5DIYh6nwJVAX4xtZHp7E+GVQLZwUWVAWK7AAehiTn8u5yIsp5Fk3NZBVQHZUAOVVLluS1fJmeS3lor5-l8oFJXOd1LIeIBwGgfpACcEGoJgWBcH2MhaNoFD8Cg8jMGgVDEGQnR6L2dDIDheESCYRSWFwO1MMRERkbxlFmEQNG2PYjjOG4wjMT4fiBCE4SaDxMRxIkKjCekonZBJhTXDJlTVLU9SNM0rSqfm2madpUzqaMekGeQuQUAAHsiWD+pgaBFDsNNYK8BwxSCVMYPTWVFEwC67OCLO-NTtPbPTjNHJzfNyJgxmRm0LOczSX5YOF2wgKVWAhmraBVVgTCRtgOssxr2DNBzXOlbzqvq8bxna7rNvi5L0LS4GPNMPLGVKyrlNyFA1OWd7vs3P7bOWXyMXc+bXs+8HgdR4CQsS5qTuy672Du0iytm2r1xq1Fvqu87tOlIXuXvD6GCHD6stZ8XfL5ymztpA7uxJ2bKdGuFIEgMIMB5hBACamCHAoLjGAoXOHDhhAYGI5fWAwFCYOszgMEhqHoZhZ24R0l3XbdY8PaRujPcYr0WNYH30d9TEsQD7FA9x5H8YJkOpNDYk5Pk8MlGUSPyajSkYw6GpDS0wdJaVmGAYQSxVgbA8o5D8WIAB8WwsquySliFBodEEQm8isSQ6xthgAXASZU6CvyckxPSKEpCeotSAqmO4Ps4oVzikw12jl2HMPgaSNoqYqGZSRAQ2h8D+HIJ2KHNBCCITiKZtg7h5w8FCO+OsGhdUpqd2EBAC4EFBj1AzGtbI6R0B7jQEhEg-gZCnWwlvfCtAFC4TkAAbgwBMDgjgaYH3WuRF61Fz50S+oxX6N82IcS4iDR+4MhKv0yLDT+UkEY-zkijRS6MVJAJ6CArS4wpjgLmFA5Y6xkTQnWOsDA8IGY62DrLUoWdQ40krtbRB8tkFlLtnyfgiZHb1CxAyGmWYoAewANrdALB4ACUt6jeAuHIGZB4uaZnaTgHwFw8A4G2MMjJYyJnLJmfUSM8zoztMoc3bpWBemlGMuGD2xkSmtPNLrGWZsakXKZvUvhSDmmPHKfrdpnSTkLnOf08KNzynwgwOsUFAUfSPE2CwkFWAwUQoRQbAANLQSQtBsBooxTqYpoLwWQuGtC8F0KtZNOwC075hyDgdMTqcwFly6HTXAHmaAYAdFT1UJYTQU9tAcFCKEAAl0RJAi12CpDrG0HQLQDogEONyqgVBhWnRWBQAxxhaBRHwAwdIKKMBgFmqMbREh4Q4VaJ4p6hgT6+Nop9BiP1PD-RCffcJvEn4Q2SNEmG4k4nSUScjBSaNlJtHSepAYONsm6UgUTQplpJAPHhJIKyXhIr4hhKUDM5peTQhlOXBm1o40JqTcccu2b015vdIQy0hwHhlPWBQ6tXgozbHTirUkcZy6CDjN5GYRQm2HOhPwXWcgmyayOAyMqxJkyRm6u2mkhwu2pm+L2-tVUh0YBHXMqtPCrjU0jA2ndTw63qKAA&amp;format=noten&amp;ssp=10&amp;name=ph_full_split_no_intro_text_28Jan2025&amp;editor=1</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010794" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-06 02:28:38">
+May 6th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010811" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+WhistlingFionn, you have given me an idea to see if I can make the Tune Image Gallery websites more easily searchable.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010811" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-06 14:50:30">
+May 6th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010819" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve released a new version of the tool that now supports normalization of title prefixes and postfixes in both directions:<br>
+<br>
+Additionally, this version adds captions to the exported Image Gallery Websites so that tunes can be searched by name. (WhistlingFionn, this is what I was talking about in my previous post)<br>
+<br>
+Example:<br>
+<br>
+https://michaeleskin.com/tunebook_websites/gallery_example/abctools_gallery_website_example.html<br>
+<br>
+These new features are in version:<br>
+<br>
+2479_050625_0900<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2479, click the version number to do a manual update of the tool.<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010819" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-06 16:22:59">
+May 6th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010822" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Demo video for “Normalize Title Postfixes”:<br>
+<br>
+https://www.youtube.com/watch?v=qPDcmwGXr8s</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010822" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-06 16:52:49">
+May 6th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010849" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+For users on Android tablets running browsers that don’t identify themselves as running on Android and having issues because the tool thinks its running on a desktop browser, I’ve added a new setting at the bottom of the Settings dialog:<br>
+<br>
+Force Android UI (If mobile browser doesn’t identify as Android)<br>
+<br>
+when checked, forces the tool to run as though it was on Android.<br>
+<br>
+Hopefully, this will improve the experience in these cases.<br>
+<br>
+This setting doesn’t show up on iOS devices.<br>
+<br>
+If you change the setting, the tool will reload after a confirmation.<br>
+<br>
+This feature is in version <br>
+<br>
+2481_050625_1530.  <br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2481, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010849" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-06 23:07:02">
+May 6th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010904" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+If you are working with a large ABC tunebook and want to create multiple sets of tunes, not concatenated (just individual tunes), but in a specific order:<br>
+<br>
+1) Load the large tunebook ABC into the Quick Editor<br>
+<br>
+2) Click “Delete Tunes” on the ☰ menu<br>
+<br>
+3) Click “Select All”<br>
+<br>
+4) Unselect the tunes I plan to make into sets<br>
+<br>
+5) Click “Delete” to remove the unused tunes<br>
+<br>
+6) Click “Reorder Tunes” on the ☰ menu<br>
+<br>
+7) Drag the tunes into the set order you want<br>
+<br>
+8 ) Click “OK”<br>
+<br>
+The process would be the same in the standard version of the editor, but if the tunebook is &gt;200 tunes, I’d suggest using the Quick Editor so you don’t have to wait for notation rendering just to delete and re-order tunes.<br>
+<br>
+Someone on another forum was using “Create Tune Set” to do this and then was trying to break the concatenated sets apart with X: tags, which was about the most convoluted way I can imagine one might just put some tunes in a specific order from a tunebook.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010904" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-07 16:19:06">
+May 7th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010913" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Demo video of the process described in the last post:<br>
+<br>
+https://youtu.be/6eG4-YC_bUo</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010913" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-07 16:54:09">
+May 7th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010937" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+The Image Gallery website looks perfect, thank you.<br>
+<br>
+Html files are somehow lighter and faster than PDFs, and the search always seems easier too. Difficult to put my finger on exactly what I mean because I don’t know the right words, but never mind. If I can use the Image Gallery to display whistle tab like the staff for the Sliabh Notes polkas it’ll be great.<br>
+<br>
+Thank again!</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010937" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+WhistlingFionn</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-07 21:21:02">
+May 7th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010938" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Unfortunately, in my tool whistle tab can’t be exported to SVG (or any other image format) because it uses a custom font.<br>
+<br>
+You can only export whistle tab to either the basic website style (list of tune names that link to opening the tune in the player) or the full-featured website.<br>
+<br>
+I don’t know why you don’t just use PDF, any of the PDF export options, either my custom one, the Native Print to PDF with Play Links option or even the browser’s own native Print to PDF feature, and all are searchable.<br>
+<br>
+I just tried it myself doing using the browser’s native Print-to-PDF with whistle tablature for the nine Sliabh Notes polkas and the file size was about 459K.<br>
+<br>
+That’s going to be your best and fastest option.<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010938" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-07 21:27:49">
+May 7th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010940" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+You can even drag and drop any of the export PDF (however you create them) on the browser to read it, most browsers have built-in PDF readers now.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010940" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-07 22:01:15">
+May 7th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010982" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve pushed out a new version that has a new PDF annotation that will allow you to manually set the first page number.<br>
+<br>
+This can be useful, for example if you have a mix of players using printed PDF tunebooks and tablets running a PDF reader. <br>
+<br>
+By default the tune page numbers start at 1, but PDF readers consider the title page page 1, so that’s where the confusion can occur in these mixed real/virtual PDF groups.<br>
+<br>
+If you want to set the first page number for the first tune in the PDF to a specific value, you can include the following annotation at the top of the ABC before exporting the PDF:<br>
+<br>
+%firstpagenumber 3<br>
+<br>
+or whatever you need the value to be.<br>
+<br>
+The offset page numbers will both be reflected on the pages as well as the Table of Contents and/or Index files.<br>
+<br>
+Again, this is a manual override value.  The tool cannot do this for you.<br>
+<br>
+You may need to first export your PDF tunebook without the annotation, see how many pages the Title Page and Table of Contents take up, then add the %firstpagenumber annotation matching that number of pages, and then re-export the PDF file.<br>
+<br>
+This feature is in version<br>
+<br>
+2487_050825_0900<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2487, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010982" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-08 17:34:53">
+May 8th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010986" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve added a new option to Export PDF Tunebook that will automatically figure out the number of pages in the Title Page and/or Table of Contents and then offset the page numbers for the tunes, as well as the tune listings in the Table of Contents and Index accordingly.<br>
+<br>
+You can now check the box labeled:<br>
+<br>
+Automatically offset page number for Title Page and/or Table of Contents<br>
+<br>
+and the tool will take care of calculating the offset and applying it the tunes and Table of Contents/Index.<br>
+<br>
+If you leave this box unchecked, you can still use the new annotations:<br>
+<br>
+%firstpagenumber 3<br>
+<br>
+replacing 3 with whatever value you want<br>
+<br>
+or <br>
+<br>
+%firstpagenumber auto<br>
+<br>
+which will do the same thing as checking the automatic offset box in the dialog.<br>
+<br>
+%firstpagenumber can be useful if you know you will be manually adding additional pages in the PDF before the tunes using a program like Adobe Acrobat and want to offset the page numbers by a specific value.<br>
+<br>
+This feature is in version<br>
+<br>
+2488_050825_1500<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2488, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010986" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-08 22:23:12">
+May 8th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1010988" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Demo video of the new<br>
+<br>
+Automatically offset page numbers for Title Page and/or Table of Contents<br>
+<br>
+option on the Export PDF Tunebook dialog:<br>
+<br>
+https://youtu.be/w_TFlhMN-z0</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1010988" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-08 23:30:41">
+May 8th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1011028" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Pushed out version 2493_050925_1000 that fixes long-standing abcjs issues with rendering of %%begintext/%%endtext blocks with multiple %% blank lines and other specific cases.<br>
+<br>
+If you use %%begintext/%%endtext and see any issues after updating, please let me know.<br>
+<br>
+Additional improvements:<br>
+<br>
+The “Split Long Tags and Text” feature now does a much better job on %%begintext/%%endtext and long %%text blocks.<br>
+<br>
+I’m now confirming the “Reorder Tune” operation before committing the changes to the ABC.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011028" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-09 16:33:10">
+May 9th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1011043" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve pushed an update that should fix some issues with the BWW  to ABC bagpipes tunes transcoder parsing of the meter as well as setting the Q: tag and tempo adaptively based on the detected meter.<br>
+<br>
+For example, for */4 meters the tempo is set to Q:1/4= whatever tempo is detected in the file.<br>
+<br>
+For */8 meters, the tempo is set to Q:3/8= whatever tempo is detected in the file.<br>
+<br>
+The new version is:<br>
+<br>
+2497_050925_1330<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 2496, click the version number to do a manual update of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011043" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-09 20:04:44">
+May 9th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1011056" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Even in the latest version 2497_050925_1330 there are still some issues in the BWW to ABC transcoder with right beaming, particularly in 6/8 tunes with graces.   <br>
+<br>
+It’s sticking in spaces in the ABC where it shouldn’t for notes that should be grouped together, particularly evident in transcoded jigs.<br>
+<br>
+I spent about 3 hours tonight trying to improve it, but whoever wrote this originally (original was in Python) unfortunately got the right-side beaming solution wrong.<br>
+<br>
+I may have to rewrite the parser state machine from scratch to fix this, but I’m not going to have time to look at this again until at least next week (May 11).<br>
+<br>
+For now, you can easily manually remove any extra spaces that get inserted to fix the bad beaming in some cases.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011056" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-10 03:23:00">
+May 10th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50187">thesession.org/discussions/50187</a></p>
 </div><!-- /.feedback -->
