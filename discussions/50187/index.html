@@ -1455,6 +1455,112 @@ May 16th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1011802" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+May 24, 2025 weekly update wrap-up:<br>
+<br>
+I’ve added a new feature to the tool that injects an %abcjs_rendering_params annotation into the ABC tune(s) as required to generate custom stringed instrument tablature for 4, 5, or 6-string stringed instruments.<br>
+<br>
+Strings are numbered from low to high and use ABC pitch names.<br>
+<br>
+Each string must have a different pitch and be higher than the previous one.<br>
+<br>
+This means that “re-entrant” tunings like for Ukulele and 5-string Banjo are not possible.<br>
+<br>
+This feature should work well for essentially any custom Mandolin, 5-string Cittern, or 6-string Guitar tuning.<br>
+<br>
+Custom tablature settings override any tab setting on the toolbar buttons below the editor in the tool.<br>
+<br>
+If the feature has been used previously on a tune, the existing %abcjs_render_params annotation and related comments will be replaced with a new one.<br>
+<br>
+If you copy and paste a custom tab annotation to the ABC file header section before all the tunes, and force a redraw of the tunes (easiest way is to click Snapshot and then Restore or save and re-open the ABC file), it will get applied to all of the tunes.<br>
+<br>
+Values are saved and restored the next time the tool is run.<br>
+<br>
+Strong warning about hand editing the injected custom stringed instrument tablature %abcjs_render_params annotation<br>
+<br>
+The custom stringed tablature annotation works at a very low level in the abcjs rendering system.<br>
+<br>
+A malformed custom tablature annotation can easily crash the tool.<br>
+<br>
+If you want to manually edit the injected custom tablature annotations, particularly the mapping of strings to notes, it will always be better to use the Custom Stringed Instrument Tab feature to inject a replacement custom tablature annotation since it checks the values and will only allow a valid annotation to be injected into the ABC and will automatically replace any existing annotations.<br>
+<br>
+There is now a nice workflow improvement to the Save behavior.<br>
+<br>
+As in all previous versions, if you click the “Save” button, it will always bring up the dialog where you can enter a file name.  <br>
+<br>
+If the file had been saved before, the previously entered file name will already be filled into the box.<br>
+<br>
+In this new version, if you use the keyboard equivalent for “Save”:<br>
+<br>
+⌘+S on Mac or Ctrl+S on Windows/Linux <br>
+<br>
+and the file has not already been saved, it will bring up the file save dialog exactly as if you had clicked the “Save” button.<br>
+<br>
+If the ABC was loaded from a file or previously saved, it will just save the file with the same filename as it was saved with originally without bringing up the file name entry dialog.<br>
+<br>
+Browsers never save over an existing file, they will save a new version of the file with the same name and an incrementing number postfix, so you don’t have to worry about damaging a previously saved file, each new save will be in its own file.<br>
+<br>
+When using the keyboard shortcut, the “Save” button will briefly change to say “Saved!” to give some feedback that the save operation occurred.<br>
+<br>
+If you want to save the ABC file under a different file name, just click the “Save” button instead of using the keyboard shortcut.<br>
+<br>
+Please let me know if you run into any issues with this new workflow improvement.<br>
+<br>
+Another power user tip:<br>
+<br>
+On desktop browsers, you can Alt-click any tune in the ABC to select it in its entirety.<br>
+<br>
+I’ve fixed a long-standing abcjs issue related to showing bar numbers with<br>
+<br>
+%%barnumbers 1<br>
+<br>
+and multi-measure rests, which can be specified in ABC using for example:<br>
+<br>
+Z4<br>
+<br>
+for a four measure rest or<br>
+<br>
+Z2 <br>
+<br>
+I’ve released a new version of the tool that adds dynamic loading of two additional Google Noto-Serif and Noto-Sans fonts to support Chinese characters on the PDF Title page, Table of Contents, Index, Headers and Footers.<br>
+<br>
+While Chinese characters were always supported in the notation, the Javascript PDF creation library I use had a limited set of built-in fonts (Times, Helvetica, and Courier).<br>
+<br>
+Now when either of the Noto fonts are selected in the PDF export dialog, they are loaded on-the-fly (they are quite large, so I didn’t want to load them if they aren’t being used) and made available to the PDF engine.<br>
+<br>
+The fonts used are Google Noto Sans Traditional Chinese and Noto Serif Traditional Chinese. They support both Chinese and Western characters including diacriticals and are both quite pretty even if you aren’t using Chinese characters.<br>
+<br>
+Additionally, you can now set the PDF header and footer font size using a new annotation:<br>
+<br>
+%headerfooterfontsize 12<br>
+<br>
+or whatever value you want.<br>
+<br>
+You can now set the font size for the title page title and subtitle using the following annotations:<br>
+<br>
+%titlefontsize font_size - Title page title font size. Default is: 24.<br>
+<br>
+%subtitlefontsize font_size - Title page subtitle font size. Default is: 16.<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011802" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-24 15:37:07">
+May 24th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50187">thesession.org/discussions/50187</a></p>
 </div><!-- /.feedback -->
