@@ -123,6 +123,139 @@ May 25th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1011817" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Chrome utility to get all possible font names for web-based ABC tools</h3>
+<div class="e-content" itemprop="text">
+<p>
+See https://developer.mozilla.org/en-US/docs/Web/API/Local_Font_Access_API The compatability table suggests that chrome, edge and opera will support Local Font access.<br>
+<br>
+Thanks again for all your work.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011817" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Concertina Man</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-25 08:07:59">
+May 25th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1011827" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Chrome utility to get all possible font names for web-based ABC tools</h3>
+<div class="e-content" itemprop="text">
+<p>
+Just ran some checks. Works fine on chrome, edge, brave and opera. Firefox puts up a box saying the utility only works on chrome. If you try the utility you get an error message saying “Error reading the list of web fonts: TypeError: window.queryLocalFonts is not a function” which fits with the documentation.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011827" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Concertina Man</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-25 09:54:49">
+May 25th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1011870" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Chrome utility to get all possible font names for web-based ABC tools</h3>
+<div class="e-content" itemprop="text">
+<p>
+Concertina Man, thanks for testing on the additional browsers!<br>
+<br>
+I’m going to write another utility today that can take the output of this on Chrome and then run checks against the returned list font-by-font for Firefox and Safari users.<br>
+<br>
+<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011870" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-25 20:47:29">
+May 25th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1011884" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Chrome utility to get all possible font names for web-based ABC tools</h3>
+<div class="e-content" itemprop="text">
+<p>
+Based on that initial work that was only for Chrome, to support other browsers, I’ve put together an enhanced utility that gets all the font family names available in Chrome, tests them for ABC compatibility, and allows you to either copy the full or ABC-compatible list of font family names to the clipboard or save the list to a text file.<br>
+<br>
+Chrome, Edge, and other Chrome-derivative browsers have the ability to enumerate all of their fonts, while others like Firefox and Safari do not.<br>
+<br>
+To check ABC font family compatibility on non-Chrome browsers once you save a list of the full font families from Chrome, you can run the same utility on other browsers on the same system, load the full font family list saved from Chrome, and test them for ABC compatibility.<br>
+<br>
+The utility is located here:<br>
+<br>
+https://michaeleskin.com/tools/abc_test_webfonts.html<br>
+<br>
+On Chrome, to read out all the available font family names, click Get all font family names from Chrome<br>
+<br>
+You may be prompted by Chrome to give permission for the operation.<br>
+<br>
+Alternatively, for all browsers click Open an existing abc_test_webfonts full font family names file to load a previously saved full font family list saved using Chrome from this utility.<br>
+<br>
+The All Full and Postscript Font Family Name Pairs area will be filled with the names of all fonts either obtained from Chrome or loaded from a file.<br>
+<br>
+Both the full and Postscript font family name for each font are displayed.<br>
+<br>
+The ABC-Compatible Font Family Names will be filled with a list of the font family names that can be used in ABC font directives.<br>
+<br>
+Click Copy Full and Postscript font family names to the clipboard to copy the full list of font family names to the system clipboard for pasting into other applications.<br>
+<br>
+Click Save Full and Postscript font family names to a file to save the full list of font family names to a file.<br>
+<br>
+Click Copy ABC-compatible font family names to the clipboard to copy the list of ABC-compatible font family names to the system clipboard for pasting into other applications.<br>
+<br>
+Click Save ABC-compatible font family names to a file to save the list of ABC-compatible font family names to a file.<br>
+<br>
+The ABC-compatible font family names can be used in %%titlefont and other ABC font directives in the ABC Transcription Tools and probably other web-based ABC utilities.<br>
+<br>
+You can try cross-referencing the full font names with the displayed fonts found on your system using the wordmark.it site:<br>
+<br>
+https://wordmark.it<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/hkqop8nUgrQ</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1011884" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-26 01:45:00">
+May 26th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50241">thesession.org/discussions/50241</a></p>
 </div><!-- /.feedback -->

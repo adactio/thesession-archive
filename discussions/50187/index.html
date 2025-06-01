@@ -1561,6 +1561,139 @@ May 24th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1012164" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - May 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+May 31, 2025 weekly update wrap-up:<br>
+<br>
+Version 2527_052425_1400 brings over a new feature from Paul Rosen’s upcoming updates to the release channel version abcjs:<br>
+<br>
+To transposed the displayed notation relative to the ABC without having to modify the ABC itself, you can use the following tool-specific ABC command:<br>
+<br>
+%%visualtranspose number_of_semitones<br>
+<br>
+For example, transpose the rendered notation up one full step for Bb Clarinet, but leave the ABC alone:<br>
+<br>
+%%visualtranspose 2<br>
+<br>
+After updating to the latest version, you can see the effect of this new annotation here.<br>
+<br>
+Here’s Kesh in G, but the <br>
+<br>
+%%visualtranspose 2 <br>
+<br>
+causes it to be displayed and played in the key of A.<br>
+<br>
+https://michaeleskin.com/abctools/abctools.html?lzw=FADQXABAjMAqmwBYFMIGlkGdEQLQQDcBLTAVwEMAbAFwCdyA7TABwHtNVrWIBBYAYQT0AJkWpFWDKsABKkAFJEA5sACykAGwB6ABzAAMpCi7gARUgBmXQF4oAJgAMwNJADiAW3IArYAFI-ELD0TGwcENQoEAys1OTikhCkzOEA7twc7mKSWBAAZrSs7uGRPABC-H6+xGRUdIws7Kh2fgEAqmERqLmUpETCEJispAzCuZLUYH6Dw6PjeT19Lb4Q7aiMvADGQ5jiGxCuwf0ACkSM6UMjeay0xajuyJSswgCek76+qgCSACKfEMwFJT0IpOfzLVYQdY8LakHZEPYHRjHU7RK43ToQDaIa7CTBvD4-P5YnEA1hKCCgtphdYAZWeDAiEFK5EwmAGF36Y3RkQARiy8ZUvr8IHzWaTyRY9GCIDTkNRIQNmMgNkRcvDIe4LvLWLkBikiAwlG9MPrDRSAHR2ACsLQAPmAAESuJ08Vz7Mq2h3fB1lHi8UrCT3O5DCfpKUOe-gOkOlCBeh3CUo8W3AJ0ut2uD3x33+wNpkNhxOe72ugBicedrgsYBT9rTSdjibzUeQSlQ8cTyfrZQgidcxZ9Sd4mZT3cbAcj0bbFYTE4dUaUuXJ8fISnIQYdPMXECU1ZTQA&amp;format=noten&amp;ssp=10&amp;name=The_Kesh_-_visualtranspose_to_A&amp;editor=1<br>
+<br>
+I’ve put together a simple utility that gets all the font family names available in Chrome, tests them for ABC compatibility, and allows you to either copy the full or ABC-compatible list of font family names to the clipboard or save the list to a text file.<br>
+<br>
+Chrome, Edge, and other Chrome-derivative browsers have the ability to enumerate all of their fonts, while others like Firefox and Safari do not.<br>
+<br>
+To check ABC font family compatibility on non-Chrome browsers once you save a list of the full font families from Chrome, you can run the same utility on other browsers on the same system, load the full font family list saved from Chrome, and test them for ABC compatibility.<br>
+<br>
+The utility is located here:<br>
+<br>
+https://michaeleskin.com/tools/abc_test_webfonts.html<br>
+<br>
+On Chrome, to read out all the available font family names, click Get all font family names from Chrome.<br>
+<br>
+You may be prompted by Chrome to give permission for the operation.<br>
+<br>
+Alternatively, for all browsers click Open an existing abc_test_webfonts full font family names file to load a previously saved full font family list saved using Chrome from this utility.<br>
+<br>
+The All Full and Postscript Font Family Name Pairs area will be filled with the names of all fonts either obtained from Chrome or loaded from a file.<br>
+<br>
+Both the full and Postscript font family name for each font are displayed.<br>
+<br>
+The ABC-Compatible Font Family Names will be filled with a list of the font family names that can be used in ABC font directives.<br>
+<br>
+Click Copy Full and Postscript font family names to the clipboard to copy the full list of font family names to the system clipboard for pasting into other applications.<br>
+<br>
+Click Save Full and Postscript font family names to a file to save the full list of font family names to a file.<br>
+<br>
+Click Copy ABC-compatible font family names to the clipboard to copy the list of ABC-compatible font family names to the system clipboard for pasting into other applications.<br>
+<br>
+Click Save ABC-compatible font family names to a file to save the list of ABC-compatible font family names to a file.<br>
+<br>
+The ABC-compatible font family names can be used in %%titlefont and other ABC font directives in the ABC Transcription Tools.<br>
+<br>
+You can try cross-referencing the full font names with the displayed fonts found on your system using the wordmark.it site:<br>
+<br>
+https://wordmark.it<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/hkqop8nUgrQ<br>
+<br>
+I’ve added some additional ABC annotations to facilitate the easy creation of incipits as well as updated the “Incipits Builder” to use them.<br>
+These include:<br>
+<br>
+To set the maximum number of staves you want displayed for each tune, you use the following tool-specific ABC command:<br>
+<br>
+%%maxstaves number_of_staves<br>
+<br>
+For example, only show the first stave for incipits:<br>
+<br>
+%%maxstaves 1<br>
+<br>
+If placed in the ABC file header, it will apply to all of the tunes.<br>
+<br>
+The video is of the “Incipits Builder” features available in version:<br>
+2534_052625_1300<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+If your version starts with a number less than 2534, click the version number to do a manual update of the tool.<br>
+<br>
+Demo video:<br>
+<br>
+https://www.youtube.com/watch?v=OFx1XvmNqKM<br>
+<br>
+Version 2541_052825_1330, along with new Incipits Builder tag and text stripping features, has a lot of robustness improvements related to handling of %%begintext / %%endtext blocks.<br>
+<br>
+For example, in this version, the Hide/Strip Text options on the More Tools page can now detect and hide/strip %%begintext / %%endtext blocks along with %%text, %%center, and %%left text.<br>
+<br>
+Additionally, some of the injectors for MIDI programs and such previously would break if there was a %%begintext / %%endtext block immediately below the tune header and above the first line of ABC notes.<br>
+<br>
+While there are a lot of code changes in this version, and it touches pretty much every feature in the tool, it looks good in my testing, but it’s always possible I missed something.<br>
+<br>
+If you run in to any odd behavior, please let me know and send along the offending ABC in a Share Link copied from the Sharing dialog.<br>
+<br>
+Version 2544_052925_0930 adds a feature requested by David Ihnen that allows you to easily hide all the corner buttons.<br>
+<br>
+On desktop browsers, you can Alt-click the Zoom arrows at the top-right of the window to hide all the corner icons and enter Presentation mode.<br>
+<br>
+In Presentation mode, you can still click where the Zoom arrow would have been to toggle between the fullscreen notation and the editor views.<br>
+<br>
+In Presentation mode, you can still click where the Play button would have been to play the current tune.<br>
+<br>
+Once hidden, you can Alt-click where the Zoom arrows would have been to again show the corner buttons.<br>
+<br>
+David uses the tool in real-time on Zoom doing live transcriptions of John Whelan’s tune teaching events. He uses OBS Studio where he does a picture-in-picture of his live camera <br>
+and the notation half of the tool while modifying the tune in the editor. Presentation mode will allow him to easily hide the Zoom and play buttons.<br>
+<br>
+https://www.youtube.com/watch?v=43cQkLDR24I<br>
+<br>
+Version 2552_053025_2130 moves the “Notes Incipits Builder” button from the “More Tools” dialog to the “Export PDF” dialog.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1012164" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-05-31 15:52:27">
+May 31st, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50187">thesession.org/discussions/50187</a></p>
 </div><!-- /.feedback -->
