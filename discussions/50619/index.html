@@ -429,6 +429,197 @@ November 16th, 2025</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1022056" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - November 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve done some additional work on the tool and pushed an update to simplify the PDF notation width and margin setting.<br>
+<br>
+Now if you specify the PDF notation width using: <br>
+<br>
+%pdf_notation_width (width in 1/72&quot;)<br>
+<br>
+for example:<br>
+<br>
+%pdf_notation_width 612<br>
+<br>
+the tool will automatically center the notation for you. <br>
+<br>
+There is no longer a need to manually set a margin override but that’s still available using:<br>
+<br>
+%pdf_left_margin (width in 1/72&quot;)<br>
+<br>
+for example:<br>
+<br>
+%pdf_left_margin 0<br>
+<br>
+Additionally, I’ve added a new annotation: <br>
+<br>
+%pdf_notation_percent_width (width in percent of page width)<br>
+<br>
+for example:<br>
+<br>
+%pdf_notation_percent_width 50<br>
+<br>
+that allows you to just specify the notation width as a percentage of the page width (using the selected paper size and orientation) and the tool will take care of everything for you to center the notation.<br>
+<br>
+Again no need to manually set a margin override but that’s still available using %pdf_left_margin.<br>
+<br>
+Full details in the User Guide after updating to the latest version.<br>
+<br>
+The new features are available in version:<br>
+<br>
+3024_111725_1000<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed at the bottom left of the “Settings” dialog in the standard editor.<br>
+<br>
+If your version starts with a number less than 3024, click the version number to do a manual update of the tool then do a hard refresh of the page.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1022056" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-11-17 19:04:27">
+November 17th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1022088" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - November 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hey, have you tried the automatic ABC syntax highlighting yet?<br>
+<br>
+You can enable it via this checkbox on the Settings dialog:<br>
+<br>
+Enable ABC syntax highlighting (change requires restart)<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1022088" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-11-18 15:51:08">
+November 18th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1022095" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - November 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+I really want folks to at least try out the ABC syntax highlighting at least one time, so I pushed an update that on desktop browsers enables ABC syntax highlighting by default, and puts up an informational dialog only once that says:<br>
+<br>
+ABC Syntax Highlighting is Enabled<br>
+<br>
+Please try out the new ABC syntax highlighting features.<br>
+<br>
+If you decide you don’t like it,<br>
+you can easily disable it from the Settings dialog.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1022095" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-11-18 18:46:06">
+November 18th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1022182" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - November 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+If you want to maximize the number of tunes-per-page in the exported PDF files, here are two simple techniques:<br>
+<br>
+The annotations recommended in the video are:<br>
+<br>
+Scaling the notation but keeping the same notation aspect ratio:<br>
+<br>
+%%scale 0.55<br>
+<br>
+Setting a wider staffwidth to create less tall staves but keep the same width:<br>
+<br>
+%%staffwidth 1050<br>
+%%stretchlast true<br>
+<br>
+Beyond the two methods demonstrated in the video, you can also further reduce the tune height by minimizing the space between the staves in each tune:<br>
+<br>
+%%staffsep 0<br>
+<br>
+and also setting the space between the tunes to zero in the PDF export directives:<br>
+<br>
+%pdf_between_tune_space 0<br>
+<br>
+After changing anything in the ABC file header before the tunes, force a full redraw of all the tunes before exporting the PDF by clicking Snapshot and then Restore.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/1kxUpsud8-A</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1022182" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-11-20 18:49:12">
+November 20th, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1022307" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: ABC Transcription Tools - November 2025 Updates</h3>
+<div class="e-content" itemprop="text">
+<p>
+ABC Transcription Tools - 10 Things You Probably Didn’t Know the Tool Could Do<br>
+<br>
+Video from today’s 2+ hour Zoom seminar:<br>
+https://www.youtube.com/watch?v=SjFRo2d_RB0</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1022307" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2025-11-23 01:40:27">
+November 23rd, 2025</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50619">thesession.org/discussions/50619</a></p>
 </div><!-- /.feedback -->
