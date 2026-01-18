@@ -372,6 +372,362 @@ January 10th, 2026</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1025155" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Accordion Musette Tuner</h3>
+<div class="e-content" itemprop="text">
+<p>
+For anyone playing around with my Accordion Musette Tuner (MM/MMM) at:<br>
+<br>
+https://michaeleskin.com/tools/accordion-tuner.html<br>
+<br>
+Here’s the big picture on how it works (AI summary of the code):<br>
+<br>
+The tool does three main jobs:<br>
+<br>
+Decide whether you’re actually playing a note (vs silence/noise).<br>
+<br>
+Find the note’s pitch (the “reference reed” pitch it will label as C4, D#4, etc.).<br>
+<br>
+Find the musette offsets (how far the other reed(s) are from that reference), and keep those offsets stable enough to display/save.<br>
+<br>
+It does those jobs slightly differently for MM (2 reeds) vs MMM (3 reeds), but the pipeline is the same: coarse estimate → refine → average → display/lock.<br>
+<br>
+1) “Am I hearing a steady note?”<br>
+<br>
+It measures loudness using RMS (a simple “how strong is the signal” number).<br>
+<br>
+If RMS is below a threshold (RMS_SILENCE = 0.008), it treats that as silence.<br>
+<br>
+If you were playing and then it becomes silent, it starts a short timer; when the timer expires it locks and (unless Live mode is on) saves the last stable reading.<br>
+<br>
+That lock delay is intentionally longer in your current code (about 450 ms for both MM and MMM) so the extra averaging has time to settle before saving.<br>
+<br>
+2) Finding the basic pitch (what note you’re on)<br>
+<br>
+This is done using the YIN pitch detector (yinPitch(…)) on the time-domain waveform:<br>
+<br>
+YIN gives a raw fundamental frequency estimate (like “this sounds like ~440 Hz”).<br>
+<br>
+To avoid jitter, it keeps a short list of recent YIN results (pitchHistory) and uses the median (middle value) as the current pitch.<br>
+<br>
+Median is used here because it ignores occasional weird spikes better than an average.<br>
+<br>
+Extra protection against “octave mistakes”<br>
+<br>
+Low notes and rich harmonics can fool pitch detectors into thinking the pitch is half/double the real one. You added two safeguards:<br>
+<br>
+octaveCorrectF0(): checks the spectrum to see if half or double the pitch looks much stronger and corrects it.<br>
+<br>
+refineLowPitchFromHarmonic(): for low notes (below E4), if the 2nd harmonic is clearly stronger than the fundamental, it uses that harmonic peak and divides by 2 to get a better fundamental estimate.<br>
+<br>
+So the “note pitch” is:<br>
+YIN pitch → median smoothing → octave/harmonic correction<br>
+<br>
+3) Separating reeds (finding the individual reed frequencies)<br>
+Step A: coarse “where are the reeds?” guess (spectrum peaks)<br>
+<br>
+Once it has a good pitch estimate, it uses a large FFT spectrum (analyserSpec) as a hint to locate distinct peaks near that pitch.<br>
+<br>
+It searches for multiple strong peaks within a window:<br>
+<br>
+MM: ±60 cents (MM_WINDOW_CENTS)<br>
+<br>
+MMM: ±95 cents (MMM_WINDOW_CENTS)<br>
+<br>
+It throws away peaks that look like harmonics (2×, 3×, 4× the pitch), because those are not separate reeds.<br>
+<br>
+Then it tries combinations:<br>
+<br>
+MM: pick the best pair of peaks that are separated by a musette-plausible amount (between MUS_MIN_CENTS and about MUS_ABS_MAX_CENTS + tolerance, roughly up to ~28c).<br>
+<br>
+MMM: pick the best triple of peaks that matches the chosen MMM layout:<br>
+<br>
+“- / 0 / +” (basis = middle): middle peak is reference; one below and one above.<br>
+<br>
+“0 / + / +” (basis = lowest): lowest peak is reference; two above.<br>
+<br>
+This is only a coarse guess—it’s not yet the final frequency. It’s basically:<br>
+“Here are the likely reed peaks; now track them precisely.”<br>
+<br>
+Step B: refinement with narrowband trackers (the “steady measuring tape”)<br>
+<br>
+This is the most important part for accuracy.<br>
+<br>
+For each reed candidate frequency, the code creates a tracker (makeTracker) that:<br>
+<br>
+Applies a very narrow band-pass filter around that frequency (so it listens mostly to just that reed).<br>
+<br>
+Tracks tiny phase changes over time to estimate how far the real reed frequency is from the current target.<br>
+<br>
+Converts that into an offset in Hz, then keeps a short history of those offsets.<br>
+<br>
+Filtering/averaging inside each tracker:<br>
+<br>
+The I/Q signals are smoothed with a low-pass (~20 Hz cutoff) so short-term wiggle doesn’t dominate.<br>
+<br>
+A high-pass / mean removal (~0.3 Hz cutoff) removes slow drift/DC-ish effects so phase tracking behaves nicely.<br>
+<br>
+The tracker keeps about 21 recent offset samples (TRACK_OFFSET_MEDIAN = 21) and uses the median once it has enough samples (TRACK_MIN_OFFSET_SAMPLES = 9).<br>
+<br>
+So each reed’s refined frequency becomes:<br>
+target frequency + median(tracked offset Hz history)<br>
+<br>
+This is a big reason the tuner feels stable: it’s not just “pick the peak and hope”—it continuously locks onto each reed.<br>
+<br>
+4) Turning reed frequencies into musette offsets<br>
+MM case (two reeds)<br>
+<br>
+Once it has two refined reed frequencies:<br>
+<br>
+It sorts them low→high.<br>
+<br>
+It treats the lower one as the reference reed.<br>
+<br>
+The musette offset is computed in cents:<br>
+<br>
+Then it clamps musette cents to be non-negative (MM is shown as “0 / +”, so it forces musette to the right).<br>
+<br>
+It also computes “beats per second” as an approximate audible beating rate derived from the cents difference and the reference frequency.<br>
+<br>
+MMM case (three reeds)<br>
+<br>
+Once it has three refined reed frequencies:<br>
+<br>
+It chooses which one is the “reference” based on the selected MMM basis:<br>
+<br>
+middle basis (“- / 0 / +”): reference = middle reed; one offset is negative, one positive.<br>
+<br>
+lowest basis (“0 / + / +”): reference = lowest reed; both offsets are positive.<br>
+<br>
+It computes two cents offsets relative to the reference reed, then sorts them as low/high for display (two needles).<br>
+<br>
+5) The extra averaging that stabilizes the final displayed result<br>
+<br>
+You have two layers of “don’t jump around” smoothing:<br>
+<br>
+A) Refinement history (measurement averaging)<br>
+<br>
+After each audio block produces a refined measurement, the code pushes it into refinedHistory.<br>
+<br>
+Then it computes a “stable” reading only after enough samples:<br>
+<br>
+The history length target is ~18 * 2 = 36 samples for both MM and MMM (because you multiplied by *_HIGH_ACCURACY_REFINED_MULT = 2.0).<br>
+<br>
+It requires at least half that before it trusts it (so ~18 samples minimum).<br>
+<br>
+How it “centers” those samples:<br>
+<br>
+MM stable center: uses a trimmed mean (drops the highest/lowest ~20% of samples, averages the rest). This gives a smoother result than a median but still ignores outliers.<br>
+<br>
+MMM stable center: in your current code you also switched MMM to trimmed mean (comment says “same high precision center estimator as MM”). So MMM’s refHz/lowHz/highHz are all trimmed-mean’d too.<br>
+<br>
+That trimmed mean is the biggest “averaging” step you’re doing for the final saved musette numbers.<br>
+<br>
+B) Display smoothing (visual smoothing)<br>
+<br>
+Even after you have a stable value, the UI display itself is smoothed in renderRealtime(…) using an exponential “ease” filter:<br>
+<br>
+It computes a time-based alpha and does prev + alpha*(new-prev) for:<br>
+<br>
+reference Hz<br>
+<br>
+musette cents<br>
+<br>
+MMM offsets and reed Hz labels<br>
+<br>
+This is purely to make the on-screen needle and numbers glide instead of twitch.<br>
+<br>
+Important distinction:<br>
+<br>
+Saved values: come from lastStable or the smoothed display state (gDisplaySmooth) at lock time.<br>
+<br>
+Live display: is always smoothed visually.<br>
+<br>
+6) How it decides the note name (and avoids “semitone flipping”)<br>
+<br>
+The tool labels the note using the reference reed frequency.<br>
+<br>
+But rather than immediately changing notes every frame, it “latches” the note:<br>
+<br>
+It converts refHz → a floating MIDI value (like 69.2).<br>
+<br>
+Keeps a short history (midiFloatHistory, up to 9 values) and takes the median.<br>
+<br>
+Rounds that to the nearest MIDI note number.<br>
+<br>
+Requires the candidate note to be consistent for 10 frames (NOTE_LATCH_MIN_FRAMES) before changing the latched note.<br>
+<br>
+Also requires the current refHz to be far enough away (≥80 cents) before it will consider switching notes.<br>
+<br>
+So you don’t get annoying “A / A# / A / A#” flicker when you’re hovering near a boundary.<br>
+<br>
+7) Live mode special behavior (don’t mix notes)<br>
+<br>
+In Live mode, when the detected note changes, you explicitly:<br>
+<br>
+Clear the musette refinement buffers (refinedHistory, tracker histories)<br>
+<br>
+Reset the display smoothing<br>
+<br>
+Clear the musette text/needles immediately<br>
+<br>
+That prevents “musette from the previous note” bleeding into the next note.<br>
+<br>
+Summary by configuration<br>
+MM (2 reeds)<br>
+<br>
+Detect pitch with YIN + median smoothing + octave/harmonic correction.<br>
+<br>
+Use spectrum peaks to guess 2 reed frequencies near f0.<br>
+<br>
+Track each reed precisely with narrowband trackers; each tracker uses median of recent offset estimates.<br>
+<br>
+Compute musette cents = cents(musHz vs refHz).<br>
+<br>
+Average across time using trimmed mean over a history window before declaring “stable.”<br>
+<br>
+Smooth the displayed needle/numbers with an exponential filter.<br>
+<br>
+On silence, lock after ~450 ms and save.<br>
+<br>
+MMM (3 reeds)<br>
+<br>
+Same pipeline, but:<br>
+<br>
+Finds 3 peaks instead of 2, based on chosen basis.<br>
+<br>
+Runs 3 trackers instead of 2.<br>
+<br>
+Computes two musette offsets relative to the chosen reference reed.<br>
+<br>
+Uses trimmed mean across history for refHz and both reed Hz values (so MMM is now “high precision” too).<br>
+<br>
+Shows two needles (low/high offsets).</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1025155" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-01-13 17:30:23">
+January 13th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1025173" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Accordion Musette Tuner</h3>
+<div class="e-content" itemprop="text">
+<p>
+Now works for MM-tuned accordions only. <br>
+<br>
+While it was pretty cool when it worked, MMM dual-musette detection just wasn’t working well enough to continue supporting.<br>
+<br>
+The last version with MM and MMM is in my GitHub repository if anyone wants to see if they can improve it.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1025173" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-01-13 22:13:29">
+January 13th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1025206" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Accordion Musette Tuner</h3>
+<div class="e-content" itemprop="text">
+<p>
+Added a new “Low note” mode as well as options for “Normal”, “Dry”, and “Very Dry” detection optimizations.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1025206" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-01-14 17:46:27">
+January 14th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1025214" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Accordion Musette Tuner</h3>
+<div class="e-content" itemprop="text">
+<p>
+Decided to end the experiment. Just wasn’t producing reliable results.<br>
+<br>
+Full source code for the last stable version is available on my GitHub repo:<br>
+<br>
+https://github.com/seisiuneer/abctools/tree/main/tools<br>
+<br>
+The source is completely contained in the one file:<br>
+<br>
+accordion-tuner.html<br>
+<br>
+I’ll keep this final version source available in case someone wants to try to improve it and submit a pull request back to the repo.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1025214" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-01-14 20:44:08">
+January 14th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1025216" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Accordion Musette Tuner</h3>
+<div class="e-content" itemprop="text">
+<p>
+Well, my Musette Accordion tuner project was a complete bust, but instead, I was at least able to get something useful out of it.<br>
+<br>
+I’d appreciate a few folks trying this out, and if it looks good, I’ll add it to the “hamburger” menu in the ABC Transcription Tools:<br>
+<br>
+https://michaeleskin.com/tools/tuner.html<br>
+<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1025216" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-01-15 00:36:45">
+January 15th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50774">thesession.org/discussions/50774</a></p>
 </div><!-- /.feedback -->
