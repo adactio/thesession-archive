@@ -94,6 +94,198 @@ March 27th, 2026</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1028924" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Mandola/bouzouki player looking for testers for a trad music app</h3>
+<div class="e-content" itemprop="text">
+<p>
+Wow! Sounds impressive. Thanks for posting on The Session. <br>
+I’m a viola/mandola player who has been transposing classical and traditional tunes into alto clef for a number of years. Your program, if I understand it correctly, sounds like a great tool for violists/mandolists.<br>
+All the best,<br>
+Ralph</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1028924" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+rpalmer</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-03-29 15:43:46">
+March 29th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1028932" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Mandola/bouzouki player looking for testers for a trad music app</h3>
+<div class="e-content" itemprop="text">
+<p>
+How are you dealing with the Anglo Concertina fingerings?  <br>
+<br>
+Are you actually solving for a specific on-row or cross-row style (with finger priority and avoiding single finger jump issues)?<br>
+<br>
+How about Jeffries vs. Wheatstone style instruments?<br>
+<br>
+C/G vs. Bb/F vs. G/D?<br>
+<br>
+For diatonic button accordion with semitone row offsets do you support both B/C and C#/D style instruments?  <br>
+<br>
+If you support D/G button accordion tab, how do you deal with the massive repeated note ambiguity (why I don’t support it in my tool).<br>
+<br>
+Perhaps you can post some screenshots of examples of the Anglo concertina and diatonic button accordion tab?<br>
+<br>
+I’m a Mac/iPhone user so can’t test either version unfortunately.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1028932" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-03-29 17:35:49">
+March 29th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1028944" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Mandola/bouzouki player looking for testers for a trad music app</h3>
+<div class="e-content" itemprop="text">
+<p>
+Thanks Ralph! Mandola players are a rare breed in the app world — that’s partly why I built this. Funny timing: a  tester who signed up on Friday specifically asked for mandola support, and I’ve added CGDA tuning to the latest beta build over the weekend. GDAE and other tunings are available too (in fact you can now define custom fretted instrument with our whithout capo)<br>
+<br>
+If you have an Android phone, drop me an email at littlesession-support@triangulate.fr and I’ll add you to the beta.<br>
+<br>
+Would love another mandola player’s perspective.<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1028944" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+S. Allié</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-03-29 20:16:46">
+March 29th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1028945" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Mandola/bouzouki player looking for testers for a trad music app</h3>
+<div class="e-content" itemprop="text">
+<p>
+Hi Michael<br>
+<br>
+Great questions — and they’re pushing me to be precise about what the app does and doesn’t do.<br>
+<br>
+Anglo Concertina:<br>
+The current resolver is a basic first-match heuristic — push-preferred, no path optimization. It finds the right button but doesn’t consider bellows continuity, physical proximity, or finger conflicts. No cross-row vs. on-row logic, no single-finger jump avoidance. The layout is a 30-button C/G.<br>
+<br>
+ What’s in progress: a sequence resolver with a sliding window (previous + current + 2 lookahead) scoring bellows  continuity, row/button proximity, and same-finger penalties. Also proper Jeffries and Wheatstone layout variants — the diatonic rows are identical, only the accidental row (RH row 3) differs. Other tunings (G/D, Bb/F) will be transpositions from the C/G reference.<br>
+<br>
+Diatonic accordion:  B/C and G/C are in the app with the same first-match approach. C#/D is in progress. D/G is in the design phase.<br>
+<br>
+For D/G ambiguity specifically: the idea I’m exploring is to use the app’s built-in chord suggester to constrain bellows direction per measure — D chord pushes, G chord pulls — which should halve the candidate space before the proximity scorer runs. It’s an interesting idea on paper but completely unvalidated. I’d be very curious whether that logic holds for someone who actually plays D/G.<br>
+<br>
+No screenshots of the new resolver yet — I’ll post some on the website when it’s ready.<br>
+<br>
+Regarding Mac/iPhone: publishing for iOS requires a Mac for compilation and App Store submission, and I don’t have access to one at the moment.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1028945" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+S. Allié</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-03-29 20:20:34">
+March 29th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1028953" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Mandola/bouzouki player looking for testers for a trad music app</h3>
+<div class="e-content" itemprop="text">
+<p>
+I would not suggest bellows continuity as a strong factor in an Anglo Concerting fingering solution.  <br>
+<br>
+A solution that optimized for bellows direction continuity over a preference for strong finger use and avoiding jumping a single finger will end up with something that sounds more like how the tune would be played on an English Concertina than an Anglo.<br>
+<br>
+My solution in the ABC Transcription Tools is based entirely on preferred finger weighting for specific notes (both for on-row and cross-row style solutions) and rules about avoiding having the same finger jump rows between notes if at all possible.  It’s essentially a “least cost” mapping solution and produces results essentially identical to how I’d play tunes when used with the cross-row option.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1028953" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-03-29 21:30:30">
+March 29th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1029027" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: Mandola/bouzouki player looking for testers for a trad music app</h3>
+<div class="e-content" itemprop="text">
+<p>
+Quick update — thanks to the feedback from early testers and from this thread, a round of fixes and improvements is already done and will be rolling out on Windows and Android over the next few days. Here’s what changed:<br>
+<br>
+  Sheet music &amp; chords:<br>
+  - Fixed the off-by-one issue when tapping on a measure to edit chords (measure 1 was opening measure 2)<br>
+  - Chord symbols now display consistently across all measures — no more missing chords at the end of a tune<br>
+  - Chord diagram overlay now properly hides when you toggle chords off<br>
+<br>
+  Instruments &amp; tunings:<br>
+  - Added CGDA  as the default mandola tuning<br>
+  - Added DADA and DAEA tunings for mandola<br>
+  - Cittern support with GDADA and other tunings<br>
+  - Capo support for all fretted instruments<br>
+  - Custom tuning entry for fretted instruments<br>
+<br>
+  New features:<br>
+  - Import your tunebook and sets from TheSession (by member ID — no account login needed)<br>
+  - PDF/print export of full tune tablature — in progress, coming soon<br>
+<br>
+ I’ve also added demo videos on the website — https://littlesession.triangulate.fr/ — showing several instruments in  action (mandola, flute, uilleann pipes, guitar DADGAD, piano, concertina, and the set player). Much easier to see what the app does than to read me describe it.<br>
+<br>
+ Still very much looking for feedback, especially from concertina and accordion players. And still happy to give full  free access to anyone willing to test — just drop me an email at littlesession- support@triangulate.fr.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1029027" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+S. Allié</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-03-30 21:32:47">
+March 30th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/50952">thesession.org/discussions/50952</a></p>
 </div><!-- /.feedback -->
