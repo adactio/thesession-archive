@@ -726,6 +726,424 @@ May 31st, 2026</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1032069" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+Demonstration of how tunes that have very few settings with chords in the database, and those few settings have sub-optimal chords, can result in “interesting” results that may require some minor editing of the tune after chord injection.<br>
+<br>
+https://youtu.be/ri8DNIXAoJQ</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032069" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-05-31 20:02:05">
+May 31st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032109" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+Based on some suggestions for alternative strategies for chord solving, I built a test version where I first normalized the entire tune database essentially to have all the tunes in C (and related modes with no sharps/flats, for example all Dorian tunes were transposed to D Dorian) and then during the chord matching, the tune would be transposed to the equivalent relative mode to C and then then measure-per-measure comparison done against the much larger set of candidate tunes, including alternative key/modes (again normalized) for those cases where the user had the wrong K: tag.<br>
+<br>
+The results were interesting.<br>
+<br>
+You’d think that having a larger possible solution space would result in better chord results.<br>
+<br>
+It did not. <br>
+<br>
+It gave results that were actually generally much worse than the non-normalized version.  Often musically nonsensical.<br>
+<br>
+This means that while we might think that tunes in E Dorian should have the same internal backup structure as those in A Dorian, (or any pair of matching modes), at least based on what’s in the thesession.org database even when normalized, the measure matching between tunes with different modes isn’t interchangeable in real life.<br>
+<br>
+That’s actually a bit surprising, but I’m convinced is actually the case having run thousands of tunes through the normalized version.<br>
+<br>
+So the current tool methodology which only matches against measures of tunes with chords in the same meter/key/mode with additional optional tests for incorrectly K: tags stands.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032109" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 18:28:27">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032111" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+“normalized … all the tunes in C”. I think you reinvented the dadgad guitar (plus capo to change keys).<br>
+<br>
+with a real guitar, chord voicings in all keys sound different, all chords transitions sound different (sounds that come out when fingers move from one chord to the next).<br>
+<br>
+for example, in theory Ador chords Am/G and Edor chords Em/D are “the same”, when you actually play them on a guitar, they do not sound the same at all (even if you capo-5 or capo-7). guitarist would also play the A drone (5-0-7-x-x-x) and the Em power chords, and will play block chords.<br>
+<br>
+maybe I hit on the real problem here, your most excellent tools use piano/keyboard to play chords and all chord voicings are the same. in a live session, playing chords would be a guitar or a CBOM (a hammered dulcimer, if you are lucky!), the same chords (chord sequences) that sounded just fine in the “tools” now sound different, any maybe not as exciting.<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032111" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+mandocello8</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 18:57:51">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032113" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+&gt;&gt; “…your most excellent tools use piano/keyboard to play chords and all chord voicings are the same…”<br>
+<br>
+Just in case you didn’t know this, mandocello8, you can change the instruments on Michael’s player.   (Hamburger menu -&gt; Settings -&gt; Select Default Player Instruments and Volumes).   I have had mine set for a while with the melody played on banjo and both bass and chords set to Acoustic Guitar (Nylon).  But I’ve been experimenting with Mountain Dulcimer (solo), instead of the guitar for a different accompaniment.   It’s still midi music, of course, but sometimes the different voicings can give you a better idea of what the chords might sound like on other instruments…</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032113" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Reverend</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 19:09:34">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032114" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+“results … much worse than the non-normalized version”, I strongly suspect you have a bug somewhere, normalization should have worked, it would have been the first thing I would have done. Maybe you can do a quick check for the simple cases of Dor and Mix modes? Most tunes in Edor are notated with Em/D/C, Ador with Am/G/F, Bdor with Bm/A/G chords and key normalization should have gotten them bang on, each one, every time. Ditto for Amix, Dmix.<br>
+<br>
+beyond that, tunes in Gdor, Gmix, Cmix, in my experience are often quirky “composer’s specials” and do not “follow the rules”, to my ear/eye, gigging bands play chords according to the guitarist taste/imagination, not according to formula.<br>
+<br>
+so maybe you can have your chord generator say “I do not want to do chords for this tune” instead of trying to generate something, something, something.<br>
+<br>
+then if the “easy” Dor and Mix modes work okey, tackle the less regular Maj and Min modes.<br>
+<br>
+(and then there is Rob Harbron’s “Rain on the Woodpile/Terminus”, good luck auto-chording those).<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032114" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+mandocello8</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 19:14:00">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032115" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+I agree, I thought for sure database normalization and expanded matching would work better than the constrained style/meter/key/mode system.<br>
+<br>
+It did not. <br>
+<br>
+I suspected errors and investigated both the database normalization as well as the refined chord matcher for issues. I have found none so far.<br>
+<br>
+I’m not giving up, but so far I’ve seen no benefit to database normalization and broader candidate tune melody matches.  It actually resulted in many cases creating less useful backup chords than the more constrained match system in the released version.<br>
+<br>
+Yes, you can set the default instruments using the dialog Reverend mentioned.<br>
+<br>
+You can also set the soundfont (there are seven of them) as well as the sounds for the melody, bass, and chords for any tune using this sort of thing:<br>
+<br>
+% Use the fluid soundfont:<br>
+%soundfont fluid<br>
+%<br>
+% Use an Acoustic Grand Piano sound for the melody:<br>
+%%MIDI program 0<br>
+%<br>
+% Use an Acoustic Grand Piano sound for the chords:<br>
+%%MIDI chordprog 0<br>
+%<br>
+% Use an Synth Bass sound for the bass:<br>
+%%MIDI bassprog 38<br>
+%<br>
+<br>
+Full details here:<br>
+<br>
+https://michaeleskin.com/abctools/userguide.html#selecting_the_instruments_for_playback<br>
+<br>
+and full list of MIDI and extended instruments here:<br>
+<br>
+https://michaeleskin.com/abctools/general_midi_extended_v10.pdf<br>
+<br>
+Example:<br>
+<br>
+https://michaeleskin.com/abctools/abctools.html?def=eJyVkF1LwzAUhu_zK14KRa_svoQZ8CJZ2jF0oNsEb7yIS9oV2mY0HTLIjzftpDoZiASSvMl5nhzySjEkG4qZMYU-Xlkyo9jUUuVNbipZkBXFSuuCLCkm0YQ8-vJoSp7bZXR_NyAPFLEyNQlJiBer0ew00uKQK1hzqFRqqoaSsN-f7vpqWYFtzcE2-RbzWlYKT7mszIlFaurOV-rCqKPXhMuFWGBfm6yWJQb_1Gx3pla213SxdZ2L1seq2YFLa3_h7_6oh9vQseNpB691Awm719s89U3I0qMNTAr7kVdZ-wPtisHN8NbXOxrEZRBzzsBHiLnzM-NQnM1dIIIkiiMBJsAFE-47sXniyGVSp1lLyjTTrSZxQ4g4Eeiqx4K60Y88ylLnvprQHNdjzjk096eae1-mFW9lLPIDCYNgCXN96t4iF9m_GvEPn3cycW_kEzqQuwA&amp;format=noten&amp;ssp=10&amp;name=Cooley’s&amp;editor=1<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032115" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 19:16:16">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032116" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+“change the instruments”, yes, I know about this, but I like the default instrument, it works really good for me, so never tried, maybe very early on.<br>
+<br>
+but now that you mentioned it, if I choose “guitar”, does it actually switch to playing guitar chords: x-x-0-2-3-2 D chord, the full-bar-chord F (which “no guitarist ever plays”), Cmaj with low E or low G, alternating bass for boom-chuck, etc.<br>
+<br>
+this is not super important in the grand scheme of Michael’s most excellent tools. but for chording a tune mechanics of chord voicings and finger movements are important. for example Barnes book 1 of ECD tunes is notorious for chordings that cannot be played on guitar (ok, do not work super well on guitar. ok, chords that most guitarists would actually agree to play).<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032116" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+mandocello8</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 19:25:34">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032126" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+Reworked the ABC Tune Backup Chord Solver tool user interface styling to match my other external tools:<br>
+<br>
+https://www.youtube.com/watch?v=CnR8Owcc9Y8</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032126" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 21:24:27">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032127" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+mandocello8, it’s possible using the ABC <br>
+<br>
+%%MIDI gchord (pattern)<br>
+<br>
+and related<br>
+<br>
+%%MIDI gchordduration (pattern)<br>
+%%MIDI gchordstress (pattern)<br>
+<br>
+features to generate pretty much any kind of custom backup you like.<br>
+<br>
+Full details and demos here:<br>
+<br>
+https://michaeleskin.com/abctools/userguide.html#midigchord<br>
+<br>
+I also have the ability to “strum” chords:<br>
+<br>
+https://michaeleskin.com/abctools/userguide.html#strummed_chords<br>
+<br>
+Rather than having to ask about every feature here, I strongly suggest at least browsing through the “Advanced Playback Features” section of the User Guide, you’ll find this sort of detailed information and demo videos on pretty much every feature of the tool.<br>
+<br></p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032127" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-01 21:29:15">
+June 1st, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032134" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+So regarding the lower performance of the normalized database with wider matching buckets vs. the key/mode specific matching, my current hypothesis on this, after spending a few more hours on database normalization, which results in a larger set of match scoring candidates is that by widening the buckets, for example to include “all reels in Dorian mode” and doing a normalized key/mode match (which uses per-measure note matching and two-note and three-note match weighting, you now are checking against, along with the more common tunes in E Dorian and A Dorian, all the other Dorian mode tunes for all keys in the database.<br>
+<br>
+Similarly for “all jigs in D major”, you’d get all jigs in major keys, including G, A, F, C, F, whatever. <br>
+<br>
+My conjecture is that it may that the quality of the chords entered on those less common key tunes may be not as good, and if the underlying melody contour for one of the less-than-ideal versions with chords in an uncommon key is close to a source tune being matched, it may result in scoring higher than an actually better set of chords added intentionally for other tunes in the same key/mode as the one being matched.<br>
+<br>
+Again, the data in thesession database is all crowdsourced, and it feels like when you have a sufficient number of tunes in the key/mode, and they are more common tunes, it’s more likely that you’ll find a good melody contour match with good chords. <br>
+<br>
+But that’s just my current hypothesis. 🙂<br>
+<br>
+I’ll keep playing with it but for now, I’m pretty amazed by the results I’m getting with the meter/key/mode/location weight/tiebreaker system in the current version after testing with thousands of tunes.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032134" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-02 00:18:49">
+June 2nd, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032164" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+Demonstration of opening multiple files as well as drag-and-drop support in the ABC Tune Backup Chord Solver tool.  <br>
+<br>
+This allows solving chords for all the tunes in a directory of ABC files, for example if you have one .abc file per tune.<br>
+<br>
+Additionally, I’ve added some additional granularity of control over which key/mode substitution checks are done if you aren’t sure the K: tags for tunes are accurate and want to have the tool check for possible alternatives that use a similar key signature.<br>
+<br>
+https://youtu.be/x5Eg9KcP3jc</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032164" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-02 16:49:39">
+June 2nd, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032288" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve added “Add Tune Backup Chords” on the “ABC Features” tab of the “More Tools” dialog.<br>
+<br>
+This feature can add meter/rhythm/key/mode appropriate chords to one or all of the tunes in the editor, matching measure-by-measure against existing tunes with chords in The Session database.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/cOXvnPq_dcQ<br>
+<br>
+This integrates the full functionality of the standalone “ABC Tune Backup Chord Solver” tool directly in the “ABC Transcription Tools”.<br>
+<br>
+The “ABC Tune Backup Chord Solver” is still available from the “Other ABC Tools” and “Open ABC in External Tools” dialogs.<br>
+<br>
+“Add Tune Backup Chords” is available in version<br>
+<br>
+3247_060526_0830<br>
+<br>
+or later.<br>
+<br>
+The version number is displayed on the “Update” tab in the tool’s “Settings” dialog.<br>
+<br>
+If your version starts with a number less than 3247, go to the “Update” tab in the “Settings” dialog and click “Update to the Latest Version.”<br>
+<br>
+Follow the instructions. When the update is complete, it’s best to do a hard refresh of the page so the browser loads the newest version of the tool.</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032288" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-05 19:19:39">
+June 5th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032289" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+Awesome !</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032289" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Will Evans</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-05 21:39:26">
+June 5th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/51079">thesession.org/discussions/51079</a></p>
 </div><!-- /.feedback -->
