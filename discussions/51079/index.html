@@ -1144,6 +1144,131 @@ June 5th, 2026</time>.
 </article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
 
 
+<article id="comment1032370" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+If you just want to use the chords as a backing track and silence the melody playback, add or replace any %%MIDI program lines with:<br>
+<br>
+%%MIDI program mute</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032370" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-07 16:43:01">
+June 7th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032371" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+Demonstration of how to use the “Add Tune Backup Chords” and<br>
+<br>
+%%MIDI program mute<br>
+<br>
+to create standalone backing tracks with chords for your tunes.<br>
+<br>
+The video also shows how to export the backing track as a .mp3 file as well as how to add a two bar click track intro.<br>
+<br>
+Demo video:<br>
+<br>
+https://youtu.be/D21VfdqhpBM</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032371" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-07 17:19:31">
+June 7th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
+<article id="comment1032476" class="feed-entry feed-entry--comment h-entry" itemscope itemtype="http://schema.org/Comment">
+<h3 class="feed-entry-title p-name" itemprop="name">Re: New experimental “ABC Tune Backup Chord Solver” tool</h3>
+<div class="e-content" itemprop="text">
+<p>
+I’ve added a new remote callback interface to the ABC Tune Backup Chord Solver for ABC software developers who may want to integrate automatic backup-chord generation into their own web applications.<br>
+<br>
+The purpose of the feature is to let another browser-based ABC tool send one or more tunes to the ABC Tune Backup Chord Solver, have them processed automatically, and receive the completed ABC with the suggested chords back in the calling tool.<br>
+<br>
+The general process is:<br>
+<br>
+1. The calling application encodes the ABC as UTF-8, compresses it using zlib/deflate, converts it to URL-safe Base64, and places it in a def= URL parameter.<br>
+<br>
+2. The application also supplies a callbackURL= parameter identifying the page that should receive the processed result.<br>
+<br>
+3. The ABC Tune Backup Chord Solver opens in remote-processing mode, decodes the submitted ABC, runs the chord matcher, and applies any optional matching settings supplied in the URL.<br>
+<br>
+4. When processing is complete, the solver navigates its own tab to the callback URL and returns the completed ABC in a new def= parameter.<br>
+<br>
+5. The receiving application detects the returned def= parameter, decodes and inflates it, and loads the chorded ABC into its editor or other workflow.<br>
+<br>
+The callback interface also supports optional URL parameters for the minimum match score, fallback percentage, and all of the key/mode substitution settings. Remote submissions start from the built-in defaults and do not use any chord-solver preferences previously saved in the user’s browser.<br>
+<br>
+The included demo sends the completed result back to my ABC Transcription Tools, but that is only for demonstration purposes. The callback could just as easily point to any third-party ABC application. The receiving tool only needs to detect and decode the returned def= URL parameter to obtain the ABC with the added chords.<br>
+<br>
+The full protocol, parameter descriptions, encoding details, callback behavior, validation rules, cachebusting recommendations, and decoding example are documented in the Developer Integration section of the ABC Tune Backup Chord Solver instructions.<br>
+<br>
+I’ve also provided a fully documented sample application that shows exactly how to:<br>
+<br>
+- Deflate and encode the source ABC<br>
+- Construct the solver URL<br>
+- Supply the callback URL<br>
+- Pass optional chord-matching settings<br>
+- Add a cachebuster<br>
+- Check the final URL length<br>
+- Open the solver from a user action<br>
+- Decode the returned def= result<br>
+<br>
+This is a browser URL-based integration rather than a server-side API, so it is intended for ABC collections that fit comfortably within practical browser URL-length limits. <br>
+<br>
+Depending on tune length and how well the ABC compresses, that will often be somewhere in the range of 20 to 50 typical two-part traditional Irish tunes.<br>
+<br>
+ABC Tune Backup Chord Solver<br>
+<br>
+https://michaeleskin.com/tools/abc_backup_chord_solver.html<br>
+<br>
+ABC Backup Chord Solver Callback Demo<br>
+<br>
+https://michaeleskin.com/tools/abc_backup_chord_solver_callback_demo.html<br>
+<br>
+Demo video<br>
+<br>
+https://youtu.be/zJVtXO_Qx7M</p>
+</div><!-- /.e-content -->
+<footer>
+<small class="discrete">
+<a rel="bookmark" class="u-url" itemprop="url" href="#comment1032476" title="link to this comment">↳</a>
+Posted by
+<span class="feed-entry-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name" class="fn nickname p-name">
+Michael Eskin</span>
+on
+</span><!-- /.feed-entry-author.p-author.h-card -->
+<time class="dt-published" itemprop="datePublished" datetime="2026-06-09 19:44:58">
+June 9th, 2026</time>.
+</small><!-- /.discrete -->
+</footer>
+</article><!-- /.feed-entry(comment).h-entry itemscope:Comment-->
+
+
 <div class="feedback">
 <p>The original link is <a rel="canonical" href="https://thesession.org/discussions/51079">thesession.org/discussions/51079</a></p>
 </div><!-- /.feedback -->
